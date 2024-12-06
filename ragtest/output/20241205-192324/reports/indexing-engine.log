@@ -1,0 +1,1290 @@
+19:23:24,887 graphrag.config.read_dotenv INFO Loading pipeline .env file
+19:23:24,892 graphrag.index.cli INFO using default configuration: {
+    "llm": {
+        "api_key": "REDACTED, length 51",
+        "type": "openai_chat",
+        "model": "glm-4",
+        "max_tokens": 2000,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "request_timeout": 180.0,
+        "api_base": "http://localhost:3000/v1",
+        "api_version": null,
+        "proxy": null,
+        "cognitive_services_endpoint": null,
+        "deployment_name": null,
+        "model_supports_json": true,
+        "tokens_per_minute": 0,
+        "requests_per_minute": 0,
+        "max_retries": 10,
+        "max_retry_wait": 10.0,
+        "sleep_on_rate_limit_recommendation": true,
+        "concurrent_requests": 25
+    },
+    "parallelization": {
+        "stagger": 0.3,
+        "num_threads": 50
+    },
+    "async_mode": "threaded",
+    "root_dir": "./",
+    "reporting": {
+        "type": "file",
+        "base_dir": "inputs/reports",
+        "storage_account_blob_url": null
+    },
+    "storage": {
+        "type": "file",
+        "base_dir": "inputs/artifacts",
+        "storage_account_blob_url": null
+    },
+    "cache": {
+        "type": "file",
+        "base_dir": "cache",
+        "storage_account_blob_url": null
+    },
+    "input": {
+        "type": "file",
+        "file_type": "text",
+        "base_dir": "input",
+        "storage_account_blob_url": null,
+        "encoding": "utf-8",
+        "file_pattern": ".*\\.txt$",
+        "file_filter": null,
+        "source_column": null,
+        "timestamp_column": null,
+        "timestamp_format": null,
+        "text_column": "text",
+        "title_column": null,
+        "document_attribute_columns": []
+    },
+    "embed_graph": {
+        "enabled": false,
+        "num_walks": 10,
+        "walk_length": 40,
+        "window_size": 2,
+        "iterations": 3,
+        "random_seed": 597832,
+        "strategy": null
+    },
+    "embeddings": {
+        "llm": {
+            "api_key": "REDACTED, length 51",
+            "type": "openai_embedding",
+            "model": "embedding-2",
+            "max_tokens": 4000,
+            "temperature": 0,
+            "top_p": 1,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://localhost:3000/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": null,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "batch_size": 16,
+        "batch_max_tokens": 8191,
+        "target": "required",
+        "skip": [],
+        "vector_store": null,
+        "strategy": null
+    },
+    "chunks": {
+        "size": 1200,
+        "overlap": 100,
+        "group_by_columns": [
+            "id"
+        ],
+        "strategy": null,
+        "encoding_model": null
+    },
+    "snapshots": {
+        "graphml": false,
+        "raw_entities": false,
+        "top_level_nodes": false
+    },
+    "entity_extraction": {
+        "llm": {
+            "api_key": "REDACTED, length 51",
+            "type": "openai_chat",
+            "model": "glm-4",
+            "max_tokens": 2000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://localhost:3000/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/entity_extraction.txt",
+        "entity_types": [
+            "organization",
+            "person",
+            "geo",
+            "event"
+        ],
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "summarize_descriptions": {
+        "llm": {
+            "api_key": "REDACTED, length 51",
+            "type": "openai_chat",
+            "model": "glm-4",
+            "max_tokens": 2000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://localhost:3000/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/summarize_descriptions.txt",
+        "max_length": 500,
+        "strategy": null
+    },
+    "community_reports": {
+        "llm": {
+            "api_key": "REDACTED, length 51",
+            "type": "openai_chat",
+            "model": "glm-4",
+            "max_tokens": 2000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://localhost:3000/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/community_report.txt",
+        "max_length": 2000,
+        "max_input_length": 8000,
+        "strategy": null
+    },
+    "claim_extraction": {
+        "llm": {
+            "api_key": "REDACTED, length 51",
+            "type": "openai_chat",
+            "model": "glm-4",
+            "max_tokens": 2000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://localhost:3000/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "enabled": true,
+        "prompt": "prompts/claim_extraction.txt",
+        "description": "Any claims or facts that could be relevant to information discovery.",
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "cluster_graph": {
+        "max_cluster_size": 10,
+        "strategy": null
+    },
+    "umap": {
+        "enabled": false
+    },
+    "local_search": {
+        "text_unit_prop": 0.5,
+        "community_prop": 0.1,
+        "conversation_history_max_turns": 5,
+        "top_k_entities": 10,
+        "top_k_relationships": 10,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "llm_max_tokens": 2000
+    },
+    "global_search": {
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "data_max_tokens": 12000,
+        "map_max_tokens": 1000,
+        "reduce_max_tokens": 2000,
+        "concurrency": 32
+    },
+    "encoding_model": "cl100k_base",
+    "skip_workflows": []
+}
+19:23:24,898 graphrag.index.create_pipeline_config INFO skipping workflows 
+19:23:24,900 graphrag.index.run INFO Running pipeline
+19:23:24,900 graphrag.index.storage.file_pipeline_storage INFO Creating file storage at inputs\artifacts
+19:23:24,902 graphrag.index.input.load_input INFO loading input from root_dir=input
+19:23:24,902 graphrag.index.input.load_input INFO using file storage for input
+19:23:24,903 graphrag.index.storage.file_pipeline_storage INFO search input for files matching .*\.txt$
+19:23:24,904 graphrag.index.input.text INFO found text files from input, found [('1.txt', {}), ('2.txt', {}), ('3.txt', {}), ('4.txt', {}), ('5.txt', {}), ('6.txt', {}), ('7.txt', {}), ('8.txt', {}), ('9.txt', {})]
+19:23:24,913 graphrag.index.input.text INFO Found 9 files, loading 9
+19:23:24,914 graphrag.index.workflows.load INFO Workflow Run Order: ['create_base_text_units', 'create_base_extracted_entities', 'create_final_covariates', 'create_summarized_entities', 'join_text_units_to_covariate_ids', 'create_base_entity_graph', 'create_final_entities', 'create_final_nodes', 'create_final_communities', 'join_text_units_to_entity_ids', 'create_final_relationships', 'join_text_units_to_relationship_ids', 'create_final_community_reports', 'create_final_text_units', 'create_base_documents', 'create_final_documents']
+19:23:24,914 graphrag.index.run INFO Final # of rows loaded: 9
+19:23:25,107 graphrag.index.run INFO Running workflow: create_base_text_units...
+19:23:25,109 graphrag.index.run INFO dependencies for create_base_text_units: []
+19:23:25,112 datashaper.workflow.workflow INFO executing verb orderby
+19:23:25,117 datashaper.workflow.workflow INFO executing verb zip
+19:23:25,121 datashaper.workflow.workflow INFO executing verb aggregate_override
+19:23:25,129 datashaper.workflow.workflow INFO executing verb chunk
+19:23:25,275 datashaper.workflow.workflow INFO executing verb select
+19:23:25,282 datashaper.workflow.workflow INFO executing verb unroll
+19:23:25,288 datashaper.workflow.workflow INFO executing verb rename
+19:23:25,291 datashaper.workflow.workflow INFO executing verb genid
+19:23:25,295 datashaper.workflow.workflow INFO executing verb unzip
+19:23:25,298 datashaper.workflow.workflow INFO executing verb copy
+19:23:25,301 datashaper.workflow.workflow INFO executing verb filter
+19:23:25,312 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_text_units.parquet
+19:23:25,533 graphrag.index.run INFO Running workflow: create_base_extracted_entities...
+19:23:25,533 graphrag.index.run INFO dependencies for create_base_extracted_entities: ['create_base_text_units']
+19:23:25,534 graphrag.index.run INFO read table from storage: create_base_text_units.parquet
+19:23:25,563 datashaper.workflow.workflow INFO executing verb entity_extract
+19:23:25,570 graphrag.llm.openai.create_openai_client INFO Creating OpenAI client base_url=http://localhost:3000/v1
+19:23:25,771 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for glm-4: TPM=0, RPM=0
+19:23:25,773 graphrag.index.llm.load_llm INFO create concurrency limiter for glm-4: 25
+19:23:31,506 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:31,509 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 5.655999999999949. input_tokens=1734, output_tokens=208
+19:23:37,78 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:37,79 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 11.25. input_tokens=1805, output_tokens=252
+19:23:38,968 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:38,969 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 13.140000000000327. input_tokens=2899, output_tokens=480
+19:23:41,483 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:41,484 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 15.625. input_tokens=2834, output_tokens=652
+19:23:41,676 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:41,678 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 15.875. input_tokens=2027, output_tokens=558
+19:23:43,231 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:43,232 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 17.359999999999673. input_tokens=2900, output_tokens=560
+19:23:43,701 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:43,702 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 17.875. input_tokens=2900, output_tokens=778
+19:23:44,883 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:44,885 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 19.07799999999952. input_tokens=2900, output_tokens=784
+19:23:44,900 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:44,902 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 19.063000000000102. input_tokens=1947, output_tokens=621
+19:23:45,40 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:45,41 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 19.23399999999947. input_tokens=2900, output_tokens=803
+19:23:45,181 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:45,182 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 19.32800000000043. input_tokens=2900, output_tokens=800
+19:23:46,169 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:46,170 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 9.07799999999952. input_tokens=1786, output_tokens=385
+19:23:46,423 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:46,424 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 20.59400000000005. input_tokens=2901, output_tokens=884
+19:23:47,608 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:47,609 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 21.79699999999957. input_tokens=2900, output_tokens=870
+19:23:48,685 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:48,686 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 22.82800000000043. input_tokens=2900, output_tokens=873
+19:23:49,841 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:49,843 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 24.015000000000327. input_tokens=2900, output_tokens=945
+19:23:50,309 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:50,310 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 5.42200000000048. input_tokens=34, output_tokens=177
+19:23:50,559 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:50,560 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 24.71900000000005. input_tokens=2899, output_tokens=1025
+19:23:50,569 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:50,570 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 24.76599999999962. input_tokens=2901, output_tokens=845
+19:23:52,850 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:52,851 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 27.01599999999962. input_tokens=2455, output_tokens=904
+19:23:52,977 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:52,978 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 27.188000000000102. input_tokens=2900, output_tokens=991
+19:23:53,725 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:53,726 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 27.875. input_tokens=2899, output_tokens=1043
+19:23:54,956 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:54,957 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 29.125. input_tokens=2900, output_tokens=998
+19:23:55,520 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:55,521 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 29.70300000000043. input_tokens=2900, output_tokens=1007
+19:23:56,466 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:56,466 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 11.561999999999898. input_tokens=34, output_tokens=547
+19:23:56,913 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:56,913 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:56,915 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 31.07799999999952. input_tokens=2900, output_tokens=1305
+19:23:56,916 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 31.092999999999847. input_tokens=2139, output_tokens=865
+19:23:57,360 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:57,361 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 12.186999999999898. input_tokens=34, output_tokens=466
+19:23:57,498 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:57,499 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 31.640000000000327. input_tokens=2079, output_tokens=754
+19:23:58,573 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:58,574 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 12.407000000000153. input_tokens=34, output_tokens=519
+19:23:58,877 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:23:58,878 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 27.375. input_tokens=2886, output_tokens=1119
+19:24:00,15 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:00,17 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 13.594000000000051. input_tokens=34, output_tokens=483
+19:24:01,797 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:01,799 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 11.95299999999952. input_tokens=34, output_tokens=483
+19:24:03,78 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:03,79 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 18.032000000000153. input_tokens=34, output_tokens=641
+19:24:03,206 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:03,207 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 10.234000000000378. input_tokens=34, output_tokens=359
+19:24:03,803 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:03,804 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 22.125. input_tokens=2900, output_tokens=858
+19:24:04,922 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:04,923 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 11.20300000000043. input_tokens=34, output_tokens=363
+19:24:05,47 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:05,49 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 21.35900000000038. input_tokens=2014, output_tokens=904
+19:24:05,119 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:05,120 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 17.515000000000327. input_tokens=34, output_tokens=759
+19:24:06,580 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:06,581 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 17.90599999999995. input_tokens=34, output_tokens=747
+19:24:07,966 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:07,967 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 13.0. input_tokens=34, output_tokens=461
+19:24:09,495 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:09,496 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 12.57800000000043. input_tokens=34, output_tokens=483
+19:24:09,609 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:09,611 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 19.04699999999957. input_tokens=34, output_tokens=738
+19:24:10,86 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:10,88 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 26.85900000000038. input_tokens=2901, output_tokens=1071
+19:24:12,543 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:12,545 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 13.967999999999847. input_tokens=34, output_tokens=479
+19:24:12,666 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:12,667 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 33.70299999999952. input_tokens=2900, output_tokens=1235
+19:24:12,677 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:12,679 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 22.375. input_tokens=34, output_tokens=800
+19:24:12,704 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:12,705 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 15.219000000000051. input_tokens=34, output_tokens=565
+19:24:12,952 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:12,953 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 20.09400000000005. input_tokens=34, output_tokens=799
+19:24:14,518 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:14,518 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:14,519 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 18.063000000000102. input_tokens=34, output_tokens=640
+19:24:14,520 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 12.719000000000051. input_tokens=34, output_tokens=558
+19:24:14,556 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:14,557 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 19.03099999999995. input_tokens=34, output_tokens=752
+19:24:16,204 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:16,205 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 16.186999999999898. input_tokens=34, output_tokens=679
+19:24:17,750 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:17,752 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 36.28099999999995. input_tokens=2900, output_tokens=1413
+19:24:18,320 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:18,321 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 14.515999999999622. input_tokens=34, output_tokens=580
+19:24:19,16 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:19,18 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 21.657000000000153. input_tokens=34, output_tokens=745
+19:24:19,217 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:19,218 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 28.640000000000327. input_tokens=34, output_tokens=1252
+19:24:19,707 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:19,708 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 22.79700000000048. input_tokens=34, output_tokens=841
+19:24:20,145 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:20,146 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 15.094000000000051. input_tokens=34, output_tokens=675
+19:24:27,735 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:27,736 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 17.65599999999995. input_tokens=34, output_tokens=785
+19:24:31,70 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:31,71 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 18.407000000000153. input_tokens=34, output_tokens=776
+19:24:32,841 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:32,842 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 15.07800000000043. input_tokens=34, output_tokens=559
+19:24:42,66 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:42,67 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 39.0. input_tokens=34, output_tokens=1440
+19:24:50,60 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:50,61 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 51.17200000000048. input_tokens=34, output_tokens=2357
+19:24:50,75 datashaper.workflow.workflow INFO executing verb merge_graphs
+19:24:50,109 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_extracted_entities.parquet
+19:24:50,320 graphrag.index.run INFO Running workflow: create_final_covariates...
+19:24:50,320 graphrag.index.run INFO dependencies for create_final_covariates: ['create_base_text_units']
+19:24:50,321 graphrag.index.run INFO read table from storage: create_base_text_units.parquet
+19:24:50,333 datashaper.workflow.workflow INFO executing verb extract_covariates
+19:24:54,889 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:24:54,890 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 4.5. input_tokens=2314, output_tokens=55
+19:25:01,791 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:01,793 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 11.375. input_tokens=1150, output_tokens=292
+19:25:03,271 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:03,272 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 12.891000000000531. input_tokens=1555, output_tokens=236
+19:25:06,365 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:06,366 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 15.967999999999847. input_tokens=2313, output_tokens=498
+19:25:06,610 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:06,611 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 4.828000000000429. input_tokens=1202, output_tokens=84
+19:25:07,243 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:07,244 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 16.875. input_tokens=2315, output_tokens=408
+19:25:08,809 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:08,810 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 18.40599999999995. input_tokens=2314, output_tokens=510
+19:25:09,519 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:09,520 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 19.14100000000053. input_tokens=2314, output_tokens=454
+19:25:10,569 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:10,571 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 20.188000000000102. input_tokens=2314, output_tokens=508
+19:25:11,653 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:11,655 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 21.235000000000582. input_tokens=2314, output_tokens=439
+19:25:12,888 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:12,889 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 22.51599999999962. input_tokens=1443, output_tokens=830
+19:25:13,60 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:13,62 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 22.64100000000053. input_tokens=2250, output_tokens=671
+19:25:13,94 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:13,95 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 22.734999999999673. input_tokens=2314, output_tokens=593
+19:25:15,544 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:15,546 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 25.139999999999418. input_tokens=1363, output_tokens=781
+19:25:17,35 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:17,36 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 26.639999999999418. input_tokens=1871, output_tokens=857
+19:25:17,688 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:17,689 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 27.26599999999962. input_tokens=2314, output_tokens=676
+19:25:17,717 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:17,718 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 27.29700000000048. input_tokens=2313, output_tokens=686
+19:25:17,849 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:17,850 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 27.5. input_tokens=2314, output_tokens=905
+19:25:19,240 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:19,242 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 28.85900000000038. input_tokens=2313, output_tokens=983
+19:25:19,480 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:19,481 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 29.109999999999673. input_tokens=2314, output_tokens=797
+19:25:19,566 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:19,568 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 29.17199999999957. input_tokens=2315, output_tokens=660
+19:25:21,192 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:21,193 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 30.782000000000153. input_tokens=1495, output_tokens=774
+19:25:21,792 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:21,794 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 31.40599999999995. input_tokens=1221, output_tokens=649
+19:25:23,305 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:23,306 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 28.42200000000048. input_tokens=2302, output_tokens=903
+19:25:27,54 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:27,55 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 36.64100000000053. input_tokens=2314, output_tokens=972
+19:25:29,745 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:29,747 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 39.375. input_tokens=2314, output_tokens=1274
+19:25:29,818 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:29,819 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 23.453999999999724. input_tokens=2314, output_tokens=570
+19:25:29,987 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:29,988 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 26.717999999999847. input_tokens=2314, output_tokens=1056
+19:25:32,94 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:32,95 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 19.04699999999957. input_tokens=19, output_tokens=570
+19:25:32,262 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:32,263 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 21.686999999999898. input_tokens=19, output_tokens=628
+19:25:32,343 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:32,344 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 16.79700000000048. input_tokens=19, output_tokens=460
+19:25:32,616 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:32,617 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 19.73400000000038. input_tokens=19, output_tokens=671
+19:25:34,246 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:34,247 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 21.140000000000327. input_tokens=19, output_tokens=542
+19:25:34,465 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:34,466 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 27.21900000000005. input_tokens=2315, output_tokens=836
+19:25:34,788 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:34,789 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 25.264999999999418. input_tokens=19, output_tokens=628
+19:25:36,819 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:36,820 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 18.96900000000005. input_tokens=19, output_tokens=558
+19:25:38,841 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:38,842 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 32.21900000000005. input_tokens=2314, output_tokens=1002
+19:25:39,442 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:39,443 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 27.79699999999957. input_tokens=19, output_tokens=802
+19:25:41,320 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:41,322 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 50.92199999999957. input_tokens=2314, output_tokens=1386
+19:25:42,359 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:42,360 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 24.64099999999962. input_tokens=19, output_tokens=560
+19:25:42,701 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:42,703 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 25.0. input_tokens=19, output_tokens=553
+19:25:43,372 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:43,373 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 26.32800000000043. input_tokens=19, output_tokens=651
+19:25:43,774 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:43,775 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 21.985000000000582. input_tokens=19, output_tokens=619
+19:25:44,541 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:44,542 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 23.342999999999847. input_tokens=19, output_tokens=623
+19:25:48,468 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:48,470 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 29.21900000000005. input_tokens=19, output_tokens=870
+19:25:49,801 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:49,803 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 41.0. input_tokens=1429, output_tokens=1064
+19:25:50,993 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:50,994 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 21.171000000000276. input_tokens=19, output_tokens=733
+19:25:52,943 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:52,944 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 23.203999999999724. input_tokens=19, output_tokens=699
+19:25:53,47 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:53,48 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 23.04699999999957. input_tokens=19, output_tokens=641
+19:25:53,107 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:53,109 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 18.859999999999673. input_tokens=19, output_tokens=620
+19:25:54,332 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:54,334 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 34.85900000000038. input_tokens=19, output_tokens=935
+19:25:57,664 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:57,666 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 23.20299999999952. input_tokens=19, output_tokens=563
+19:25:58,315 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:58,316 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 26.063000000000102. input_tokens=19, output_tokens=794
+19:25:59,807 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:25:59,808 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 32.75. input_tokens=19, output_tokens=892
+19:26:00,999 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:01,0 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 24.171000000000276. input_tokens=19, output_tokens=695
+19:26:01,281 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:01,283 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 26.5. input_tokens=19, output_tokens=1103
+19:26:02,349 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:02,350 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 30.25. input_tokens=19, output_tokens=1009
+19:26:05,508 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:05,509 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 26.65599999999995. input_tokens=19, output_tokens=899
+19:26:05,892 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:05,893 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 33.5630000000001. input_tokens=19, output_tokens=1070
+19:26:06,364 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:06,365 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 33.75. input_tokens=19, output_tokens=994
+19:26:07,425 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:07,427 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 47.85900000000038. input_tokens=19, output_tokens=1361
+19:26:10,945 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:10,946 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 21.14099999999962. input_tokens=19, output_tokens=647
+19:26:18,875 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:18,884 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 55.57799999999952. input_tokens=19, output_tokens=1273
+19:26:34,568 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:34,570 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 53.25. input_tokens=19, output_tokens=2018
+19:26:34,580 datashaper.workflow.workflow INFO executing verb window
+19:26:34,585 datashaper.workflow.workflow INFO executing verb genid
+19:26:34,590 datashaper.workflow.workflow INFO executing verb convert
+19:26:34,600 datashaper.workflow.workflow INFO executing verb rename
+19:26:34,605 datashaper.workflow.workflow INFO executing verb select
+19:26:34,608 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_covariates.parquet
+19:26:34,806 graphrag.index.run INFO Running workflow: create_summarized_entities...
+19:26:34,806 graphrag.index.run INFO dependencies for create_summarized_entities: ['create_base_extracted_entities']
+19:26:34,807 graphrag.index.run INFO read table from storage: create_base_extracted_entities.parquet
+19:26:34,823 datashaper.workflow.workflow INFO executing verb summarize_descriptions
+19:26:37,267 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:37,268 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.391000000000531. input_tokens=295, output_tokens=110
+19:26:37,372 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:37,373 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.436999999999898. input_tokens=310, output_tokens=118
+19:26:37,779 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:37,780 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.860000000000582. input_tokens=329, output_tokens=131
+19:26:37,827 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:37,828 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.907000000000153. input_tokens=295, output_tokens=133
+19:26:38,253 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:38,253 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.344000000000051. input_tokens=345, output_tokens=151
+19:26:38,265 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:38,266 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.375. input_tokens=279, output_tokens=137
+19:26:38,421 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:38,421 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:38,422 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.5. input_tokens=320, output_tokens=171
+19:26:38,424 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.530999999999949. input_tokens=374, output_tokens=142
+19:26:38,552 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:38,553 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.625. input_tokens=346, output_tokens=137
+19:26:38,631 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:38,632 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.70299999999952. input_tokens=296, output_tokens=180
+19:26:39,108 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:39,109 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:39,109 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.171999999999571. input_tokens=271, output_tokens=200
+19:26:39,110 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.188000000000102. input_tokens=300, output_tokens=193
+19:26:39,128 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:39,129 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.219000000000051. input_tokens=300, output_tokens=187
+19:26:39,356 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:39,357 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.45299999999952. input_tokens=300, output_tokens=198
+19:26:39,444 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:39,445 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.515999999999622. input_tokens=324, output_tokens=187
+19:26:39,606 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:39,607 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.70299999999952. input_tokens=407, output_tokens=231
+19:26:39,859 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:39,860 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.984000000000378. input_tokens=302, output_tokens=234
+19:26:39,895 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:39,896 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.625. input_tokens=285, output_tokens=145
+19:26:40,204 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:40,205 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.328000000000429. input_tokens=368, output_tokens=260
+19:26:40,660 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:40,660 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.764999999999418. input_tokens=373, output_tokens=307
+19:26:40,766 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:40,767 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.0. input_tokens=282, output_tokens=125
+19:26:40,916 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:40,916 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.5469999999995707. input_tokens=358, output_tokens=197
+19:26:40,953 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:40,954 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 6.032000000000153. input_tokens=502, output_tokens=295
+19:26:40,976 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:40,976 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.344000000000051. input_tokens=268, output_tokens=114
+19:26:41,360 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:41,361 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 6.453000000000429. input_tokens=672, output_tokens=324
+19:26:41,478 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:41,479 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.344000000000051. input_tokens=282, output_tokens=105
+19:26:41,554 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:41,554 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.29700000000048. input_tokens=295, output_tokens=123
+19:26:41,578 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:41,579 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.1409999999996217. input_tokens=290, output_tokens=164
+19:26:41,591 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:41,592 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.3280000000004293. input_tokens=338, output_tokens=178
+19:26:41,595 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:41,595 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.780999999999949. input_tokens=330, output_tokens=204
+19:26:41,806 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:41,806 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 6.905999999999949. input_tokens=1088, output_tokens=373
+19:26:42,22 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:42,22 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.469000000000051. input_tokens=301, output_tokens=177
+19:26:42,211 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:42,211 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 7.328000000000429. input_tokens=792, output_tokens=385
+19:26:42,287 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:42,287 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.936999999999898. input_tokens=284, output_tokens=147
+19:26:42,436 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:42,436 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.0. input_tokens=297, output_tokens=168
+19:26:42,539 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:42,540 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.6719999999995707. input_tokens=323, output_tokens=154
+19:26:42,619 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:42,619 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.717999999999847. input_tokens=276, output_tokens=141
+19:26:42,799 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:42,800 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 7.905999999999949. input_tokens=885, output_tokens=404
+19:26:43,27 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:43,28 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.42200000000048. input_tokens=367, output_tokens=173
+19:26:43,234 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:43,235 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.780999999999949. input_tokens=347, output_tokens=194
+19:26:43,355 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:43,356 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:43,356 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.234999999999673. input_tokens=297, output_tokens=213
+19:26:43,357 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.234999999999673. input_tokens=362, output_tokens=222
+19:26:43,601 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:43,602 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.3909999999996217. input_tokens=319, output_tokens=169
+19:26:43,970 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:43,971 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.0159999999996217. input_tokens=321, output_tokens=155
+19:26:44,495 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:44,496 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.2030000000004293. input_tokens=279, output_tokens=103
+19:26:44,573 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:44,575 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.0159999999996217. input_tokens=263, output_tokens=145
+19:26:44,607 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:44,608 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.82799999999952. input_tokens=272, output_tokens=207
+19:26:44,681 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:44,682 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.0780000000004293. input_tokens=313, output_tokens=173
+19:26:44,740 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:44,741 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.155999999999949. input_tokens=296, output_tokens=148
+19:26:44,818 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:44,819 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.2349999999996726. input_tokens=311, output_tokens=188
+19:26:44,900 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:44,901 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.42200000000048. input_tokens=296, output_tokens=167
+19:26:45,32 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:45,33 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.375. input_tokens=398, output_tokens=245
+19:26:45,87 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:45,88 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.109000000000378. input_tokens=300, output_tokens=217
+19:26:45,99 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:45,100 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.4849999999996726. input_tokens=297, output_tokens=121
+19:26:45,356 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:45,357 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.9219999999995707. input_tokens=281, output_tokens=174
+19:26:45,556 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:45,557 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.188000000000102. input_tokens=316, output_tokens=162
+19:26:45,560 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:45,561 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.75. input_tokens=327, output_tokens=226
+19:26:45,877 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:45,877 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.344000000000051. input_tokens=298, output_tokens=171
+19:26:46,283 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:46,283 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.264999999999418. input_tokens=327, output_tokens=223
+19:26:46,385 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:46,386 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.57799999999952. input_tokens=285, output_tokens=184
+19:26:46,425 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:46,427 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.405999999999949. input_tokens=299, output_tokens=202
+19:26:46,451 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:46,452 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.532000000000153. input_tokens=343, output_tokens=145
+19:26:46,708 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:46,710 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.469000000000051. input_tokens=288, output_tokens=176
+19:26:47,425 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:47,426 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.688000000000102. input_tokens=286, output_tokens=145
+19:26:47,669 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:47,669 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.061999999999898. input_tokens=278, output_tokens=165
+19:26:47,754 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:47,755 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.546999999999571. input_tokens=312, output_tokens=188
+19:26:48,4 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:48,4 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.030999999999949. input_tokens=304, output_tokens=165
+19:26:48,163 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:48,164 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.592999999999847. input_tokens=279, output_tokens=196
+19:26:48,333 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:48,333 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.2340000000003783. input_tokens=291, output_tokens=189
+19:26:48,487 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:48,488 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.405999999999949. input_tokens=301, output_tokens=186
+19:26:48,571 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:48,571 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.532000000000153. input_tokens=303, output_tokens=200
+19:26:48,710 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:48,711 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.8900000000003274. input_tokens=302, output_tokens=214
+19:26:48,727 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:48,728 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.82799999999952. input_tokens=317, output_tokens=204
+19:26:49,140 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:49,141 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.45299999999952. input_tokens=402, output_tokens=239
+19:26:49,549 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:49,550 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.67200000000048. input_tokens=457, output_tokens=199
+19:26:49,871 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:49,872 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:49,873 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 6.265000000000327. input_tokens=307, output_tokens=303
+19:26:49,873 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.4210000000002765. input_tokens=292, output_tokens=174
+19:26:49,880 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:49,881 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.32799999999952. input_tokens=300, output_tokens=237
+19:26:50,52 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:50,53 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.5. input_tokens=283, output_tokens=227
+19:26:50,160 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:50,161 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.733999999999469. input_tokens=294, output_tokens=159
+19:26:50,200 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:50,201 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 6.844000000000051. input_tokens=364, output_tokens=321
+19:26:50,388 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:50,389 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.094000000000051. input_tokens=347, output_tokens=247
+19:26:50,499 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:50,500 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.140000000000327. input_tokens=319, output_tokens=260
+19:26:50,830 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:50,832 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 6.344000000000051. input_tokens=326, output_tokens=387
+19:26:51,29 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:51,30 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.594000000000051. input_tokens=300, output_tokens=215
+19:26:51,500 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:51,501 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.7340000000003783. input_tokens=284, output_tokens=219
+19:26:52,11 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:52,12 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.625. input_tokens=316, output_tokens=309
+19:26:52,155 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:52,155 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.985000000000582. input_tokens=301, output_tokens=246
+19:26:52,236 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:52,237 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.5150000000003274. input_tokens=279, output_tokens=178
+19:26:52,398 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:52,398 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:52,399 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.688000000000102. input_tokens=293, output_tokens=324
+19:26:52,400 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.532000000000153. input_tokens=280, output_tokens=133
+19:26:52,522 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:52,523 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.391000000000531. input_tokens=286, output_tokens=189
+19:26:52,587 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:52,588 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 17.65599999999995. input_tokens=331, output_tokens=461
+19:26:52,729 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:52,730 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.063000000000102. input_tokens=305, output_tokens=303
+19:26:52,730 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:52,731 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.6719999999995707. input_tokens=308, output_tokens=150
+19:26:52,751 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:52,752 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.20299999999952. input_tokens=291, output_tokens=162
+19:26:52,772 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:52,773 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.282000000000153. input_tokens=293, output_tokens=200
+19:26:52,885 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:52,886 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.875. input_tokens=309, output_tokens=269
+19:26:53,328 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:53,330 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.4530000000004293. input_tokens=314, output_tokens=181
+19:26:53,445 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:53,447 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 10.094000000000051. input_tokens=386, output_tokens=454
+19:26:53,729 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:53,730 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.844000000000051. input_tokens=288, output_tokens=213
+19:26:54,5 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:54,6 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.671999999999571. input_tokens=308, output_tokens=194
+19:26:54,599 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:54,601 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 5.890999999999622. input_tokens=377, output_tokens=351
+19:26:54,977 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:54,979 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 4.813000000000102. input_tokens=303, output_tokens=193
+19:26:55,775 httpx INFO HTTP Request: POST http://localhost:3000/v1/chat/completions "HTTP/1.1 200 OK"
+19:26:55,776 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 7.203000000000429. input_tokens=308, output_tokens=386
+19:26:55,812 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_summarized_entities.parquet
+19:26:55,995 graphrag.index.run INFO Running workflow: join_text_units_to_covariate_ids...
+19:26:55,995 graphrag.index.run INFO dependencies for join_text_units_to_covariate_ids: ['create_final_covariates']
+19:26:55,995 graphrag.index.run INFO read table from storage: create_final_covariates.parquet
+19:26:56,13 datashaper.workflow.workflow INFO executing verb select
+19:26:56,19 datashaper.workflow.workflow INFO executing verb aggregate_override
+19:26:56,24 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table join_text_units_to_covariate_ids.parquet
+19:26:56,222 graphrag.index.run INFO Running workflow: create_base_entity_graph...
+19:26:56,222 graphrag.index.run INFO dependencies for create_base_entity_graph: ['create_summarized_entities']
+19:26:56,222 graphrag.index.run INFO read table from storage: create_summarized_entities.parquet
+19:26:56,237 datashaper.workflow.workflow INFO executing verb cluster_graph
+19:26:56,389 datashaper.workflow.workflow INFO executing verb select
+19:26:56,392 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_entity_graph.parquet
+19:26:56,589 graphrag.index.run INFO Running workflow: create_final_entities...
+19:26:56,589 graphrag.index.run INFO dependencies for create_final_entities: ['create_base_entity_graph']
+19:26:56,589 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+19:26:56,609 datashaper.workflow.workflow INFO executing verb unpack_graph
+19:26:56,657 datashaper.workflow.workflow INFO executing verb rename
+19:26:56,665 datashaper.workflow.workflow INFO executing verb select
+19:26:56,672 datashaper.workflow.workflow INFO executing verb dedupe
+19:26:56,689 datashaper.workflow.workflow INFO executing verb rename
+19:26:56,698 datashaper.workflow.workflow INFO executing verb filter
+19:26:56,716 datashaper.workflow.workflow INFO executing verb text_split
+19:26:56,727 datashaper.workflow.workflow INFO executing verb drop
+19:26:56,735 datashaper.workflow.workflow INFO executing verb merge
+19:26:56,767 datashaper.workflow.workflow INFO executing verb text_embed
+19:26:56,769 graphrag.llm.openai.create_openai_client INFO Creating OpenAI client base_url=http://localhost:3000/v1
+19:26:56,923 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for embedding-2: TPM=0, RPM=0
+19:26:56,923 graphrag.index.llm.load_llm INFO create concurrency limiter for embedding-2: 25
+19:26:56,933 graphrag.index.verbs.text.embed.strategies.openai INFO embedding 248 inputs via 248 snippets using 16 batches. max_batch_size=16, max_tokens=8191
+19:26:56,963 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:56,966 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['唐僧的两个仆人:唐僧的随从，一同前往西天取经>', '妖怪:妖怪“妖怪”在《西游记》中是一个居住在流沙河的生物，曾与唐僧师徒发生冲突，并在与悟空的战斗中腰酸腿痛，后被揭示其真身是一只老虎。此外，他还曾化为猪头，原是福陵山人，后被悟空捉拿。这个神秘生物在故事中曾抓住唐僧主仆，但其真实身份是天蓬元师，因犯错被贬下凡间。在故事的后期，他改邪归正，愿意跟随唐僧取经，体现了人物性格的转变和救赎。', '锦袈裟:', '魔王:魔王是一个邪恶的存在，被称为寅将军，打算用唐僧等人招待客人', '唐僧:唐僧，又称唐三藏，是《西游记》中的核心人物，一位来自唐朝的僧人，奉皇命前往西天取经。他信仰虔诚，心怀慈悲，拥有高尚的品德和深厚的佛法修为。在取经的旅途中，他先后收孙悟空、猪八戒等人为徒，组成了一个取经团队。唐僧作为团队首领，带领徒弟们克服重重困难和挑战，其中包括孙悟空因紧箍咒而受其控制，以及遭遇妖怪袭击被徒弟们救出的经历。在旅途中，他们也曾寻找被偷的袈裟，唐僧对袈裟的下落焦急万分。此外，他还曾差点被寅将军吓昏，幸得神秘老人相救，也曾被白龙马追击，所幸得到孙悟空的救助。尽管在孙悟空离开时感到无助，但在观音菩萨的帮助下，他始终坚持取经的使命，展现了坚定的意志和领导力。', '神秘老人:神秘老人救了唐僧，并指引他离开双叉岭，实为太白金星', '太白金星:太白金星，是中国神话中的一位重要神仙，他在《西游记》中扮演了多重角色，展现了其深邃的智慧与神通。他不仅是天宫中的神仙，还曾暗中帮助孙悟空，为其提供助力。在故事中，太白金星曾以神秘老人的形象出现，帮助唐僧，并在完成任务后乘鹤神秘飞走。此外，他还曾为天蓬元师求情，显示出其慈悲为怀的一面。在处理孙悟空的问题上，太白金星提出了安抚的策略，并负责传达天意，显现出他在天庭中的地位及其对大局的洞察力。总的来说，太白金星是一个层次丰富、形象多面的神仙，其行为和角色在《西游记》中具有重要的文化象征意义。', '刘伯钦:刘伯钦，一位猎户，他在《西游记》中不仅是救助唐僧并热情邀请他到自己家中作客的善良之人，还是唐僧早期的护法。在故事中，刘伯钦起到了关键作用，协助唐僧救出了被压在五指山下的孙悟空，为唐僧取经之路提供了重要的帮助。他的行为不仅体现了其个人的英勇和仁慈，也映射了古代中国社会中对于忠诚与助人为乐的价值观。', '两界山:两界山是一座重要的地标，分隔大唐和鞑靼的疆域', '孙悟空:孙悟空，亦称美猴王，是《西游记》中的核心人物，具有高强的武艺和神通广大的变化能力。他原是花果山水帘洞的主人，后拜师菩提祖师学得仙法和筋斗云。因其叛逆但忠诚的性格，以及急躁和顽皮的个性，孙悟空曾在故事中大闹天宫和龙宫，获得了如意金箍棒。他因偷吃蟠桃和金丹而引发了一系列事件，最终被如来佛祖压在五行山下。后来，他成为唐僧的大徒弟，保护唐僧西天取经，途中展现出机智勇敢的一面，与各种妖魔鬼怪战斗，并最终使白龙马屈服。孙悟空不仅力大无穷，能长生不老，还曾要求查看并修改生死簿，显示了他对自由和力量的追求。他的故事充满了对权威的挑战和对师徒情感的深刻描绘。', '毒蛇:毒蛇在唐僧四周出现，吐着红信，增加了唐僧的危险>', '有毒的虫子:有毒的虫子是唐僧四周的危险之一，增加了他的困境>', '从未见过的野兽:这些未知的野兽包围了唐僧，使他感到更加无助>', '凶恶的老虎:', '老虎:一只大老虎在唐僧和孙悟空取经路上出现，被孙悟空用金箍棒打死。', '强盗:六个强盗试图抢夺唐僧师徒的马和行李，后被孙悟空打死。']}
+19:26:56,967 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:56,967 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:56,968 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['五行山:五行山，又名五指山，是中国古典名著《西游记》中一个具有重大象征意义的地点。此处曾是佛祖如来的五指化作的山镇，用以囚禁桀骜不驯的孙悟空，其法力封印使得孙悟空无法逃脱。五行山不仅是取经故事的关键地点，也象征着佛法的威严与力量。后来，在唐僧师徒取经途中，唐僧到达五行山，因他的救助，五行山的封印裂开，使得孙悟空得以重获自由，并成为唐僧的大徒弟，共同完成取经的使命。这一事件也象征着悟空的转化与重生，从此开始了他的修行之路。', '观音菩萨:观音菩萨是佛教中备受尊敬的菩萨，她以大慈大悲著称，拥有高深的法力和救苦救难的神力。在《西游记》中，观音菩萨不仅是如来的使者，奉旨寻找取经人，还多次在关键时刻给予唐僧师徒以帮助和救济。她曾化身老妇人指引孙悟空回归正途，并劝导他成为唐僧的徒弟。此外，她还安排白龙马成为唐僧的坐骑，并解决了相关的冲突。观音菩萨还提出了捉拿孙悟空的建议，并指导唐僧取经，甚至教授唐僧紧箍咒以控制孙悟空。她还派遣木叉行者协助取经团队，并在途中劝导妖怪改邪归正，指引他们走上正确的取经之路。她的慈悲心肠和智慧行动，为唐僧一行人克服重重困难，最终成功取得真经提供了重要的支持。', '如来佛:如来佛，作为佛教中的最高神祇，具有无上的权威与神通。在《西游记》这一古典文学名著中，如来佛发出法旨，指令观音菩萨去寻找适合的取经人，以完成重要的佛教使命。同时，也是如来佛以巨大的法力将桀骜不驯的孙悟空压在五行山下，直至唐僧师徒一行人开始西天取经的旅程，孙悟空才得以重获自由。如来佛的这些行为不仅体现了他在佛教界的至高地位，也展示了他对于宇宙秩序与修行者教化的深刻影响。', '惠岸行者:惠岸行者是观音菩萨的随从，一同来到东土大唐', '东土大唐:东土大唐是故事发生的主要地点，是取经人的起点', '唐太宗李世民:唐太宗李世民是唐朝的皇帝，命令陈玄奘取经', '陈玄奘:陈玄奘是唐朝的高僧，被选为取经人，是金蝉子转世', '金蝉子:金蝉子是如来佛的弟子，转世为陈玄奘', '唐三藏:陈玄奘的名字被唐太宗改为唐三藏，是取经的主要人物', '熊山君:熊山君乃一妖怪，与寅将军结伴而行。在《西游记》中，二者共同出现，熊山君曾提议仅以两人为食，足见其狡猾与凶残。此一描述不仅揭示了熊山君与寅将军的同盟关系，也反映了其时妖怪的残酷本性与对人类生命的轻视。', '特处士:特处士是妖怪，与熊山君一同拜访寅将军', '寅将军:寅将军，一名妖怪，自称魔王，曾在《西游记》中打算以唐僧师徒招待客人。他性格残忍，曾吃掉唐僧的两个仆人。在此，我们可以看出寅将军的邪恶本质及其对唐僧一行人的威胁。', '五件宝贝:五件宝贝是观音菩萨带来的宝物，包括锦袈裟，用于交换取经人的承诺>', '东土大唐的边界河州:这是大唐边界的具体地点，唐僧一行人在此遇到了困难>', '镇边总兵:镇边总兵是在河州的地方官员，接待了唐僧主仆>', '福原寺:福原寺是唐僧一行人在河州休息的地方>']}
+19:26:56,969 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['南海:南海是观音菩萨的居所，悟空想去那里找观音菩萨理论>', '西天取经:', '唐僧师徒:唐僧师徒是由唐僧、孙悟空、猪八戒和沙和尚组成的取经团队，他们正在前往西天的路上>', '黄风岭:在《西游记》这部古典文学作品中，黄风岭（\\u9ec4\\u98ce\\u5cad）是一个重要的场景。它是黄风洞所在的山岭，唐僧师徒在此地小心翼翼地前行，这里被认为是他们取经路上遭遇的诸多险境之一。黄风岭不仅是地理环境上的险要之地，也是充满了妖魔鬼怪的奇幻世界，充分体现了这部作品中对于自然界与神话传说的深度融合。', '流沙河:流沙河是《西游记》中一条宽阔且汹涌的河流，位于取经团队必经之路上，河中藏有妖怪，对唐僧师徒四人构成了威胁和考验。这一地点不仅地理环境特殊，而且在整个故事中具有重要的象征意义，代表着西天取经路上的艰难险阻。', '八戒:八戒，亦称猪悟能，是《西游记》中的重要角色，身为唐僧的次徒，原为天蓬元帅，后因犯错被贬下凡间，成为高老庄的妖怪。他拥有一定的法力，性格中虽带有贪吃懒惰的特点，但忠心耿耿，诚实且勇敢。在故事中，他不仅负责照看马匹，还与孙悟空并肩作战，共同打败妖怪并救出师傅唐僧。一次在山坡放马时，他还巧妙地使用钉耙击败了作恶的妖怪，显示了他并非只有愚蠢的言论，而是具有实际行动的能力。此外，八戒对婚姻也表现出了自己的担忧，体现了角色内心的细腻情感。', '木叉行者:木叉行者是观音菩萨的高徒，受菩萨之命，作为其使者前往助唐僧一行。他携带着具有神秘力量的红葫芦，在旅程中为唐僧师徒提供了重要的帮助，尤其是在收服沙和尚的过程中发挥了关键作用。', '沙和尚:沙和尚，唐僧的徒弟之一，原名为悟净。在被唐僧收服之后，他改名为沙和尚。在《西游记》这一古典文学作品中，沙和尚以其忠诚和坚韧的性格，成为取经团队中的重要一员，与孙悟空、猪八戒一同协助唐僧西天取经，克服重重困难，展现了深厚的师徒情谊和集体合作精神。尽管关于他的描述信息有限，但他在故事中的形象鲜明，深入人心。', '悟净:悟净是沙和尚的别名，原本是流沙河的妖怪，后成为唐僧的徒弟>', '九个骷髅:九个骷髅是沙和尚的宝物，可以化作阴风>', '红葫芦:红葫芦是观音菩萨的宝物，可以变成小船>', '白龙马:白龙马，原为西海龙王的儿子，因犯死罪而被观音菩萨安排于鹰愁涧。后来，他皈依佛门，成为唐僧的忠实坐骑，并助力唐僧一行人取得真经。他的身份由龙王的贵裔转变为取经路上的重要一员，体现了其深刻的转变与修行之路。', '美猴王:美猴王，乃是从仙石中诞生的石猴，不仅具备卓越的领导能力，还拥有非凡的身体能力，因此深受其他猴子的尊敬，被尊称为王。作为猴子之王，他带领群猴游历山水之间，心中充满着对长生不老境界的渴望。在《西游记》这一古典文学名著中，美猴王以其独特的地位和能力，成为了读者心中难以忘怀的角色。', '仙石:仙石在花果山上，崩裂后诞生了美猴王', '猴子们:花果山中，有一群普通的猴子，它们忠诚地跟随美猴王，并在那里过着快乐的生活。这群猴子不仅与美猴王共同生活在水帘洞中，还曾在其寻求长生不老之路时，齐心协力帮助美猴王制作木筏，送他出海寻找更高的修炼之道。这些猴子体现了团结协作的精神，是美猴王身边不可或缺的伙伴。', '水帘洞::\\u6c34\\u5e18\\u6d1e(\\u6c34\\u5e18\\u6d1e)\\u662f\\u65e0\\u72ec\\u5904\\u4e8e\\u8377\\u679c\\u5c71\\u4e2d\\u7684\\u4e00\\u4e2a\\u795e\\u79d8\\u5dee\\u7a9f\\uff0c\\u5b83\\u7531\\u6c34\\u5e18\\u6210\\u4e3a\\u9632\\u58c1\\u3002\\u8fde\\u4e4b\\u672a\\u51fa\\u7684\\u6597\\u732b\\u77f3\\u732b\\u53d1\\u73b0\\u4e86\\u8be5\\u5dee\\u7a9f\\uff0c\\u5e76\\u628a\\u5176\\u5f04\\u6210\\u4e86\\u72ec\\u81ea\\u548c\\u72ec\\u7acb\\u7684\\u5bb6\\u56ed\\u3002\\u5728\\u8c01\\u5e72\\u516c\\u5b50\\u7684\\u6545\\u4e8b\\u4e2d\\uff0c\\u6885\\u5c71\\u516d\\u5144\\u5f1f\\u5c31\\u662f\\u8d1f\\u8d23\\u5165\\u4fb5\\u6c34\\u5e18\\u6d1e\\u7684\\u3002\\u8be5\\u5dee\\u7a9f\\u4e5f\\u6210\\u4e3a\\u4e86\\u72ec\\u5b50\\u4eec\\u7684\\u5bb6\\u5eAD\\u3002\\u6c34\\u5e18\\u6d1e\\u4e0d\\u4ec5\\u662f\\u4e00\\u4e2a\\u5b89\\u5168\\u7684\\u9694\\u75c5\\u5730\\uff0c\\u8fd8\\u662f\\u72ec\\u5b50\\u4eec\\u7684\\u795']}
+19:26:56,969 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:56,969 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:56,970 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:56,970 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['天兵天将:守护南天门的兵将，对悟空的到来感到惊慌>', '黑风山:黑风山，位于观音院南面，是一座因黑风洞而得名的山脉。此处为黑风怪的居所，山中幽深，传说中的黑风洞便坐落于此，与山同名，映衬出该地神秘的色彩和深厚的文化底蕴。', '黑风洞:黑风洞是位于黑风山中的洞穴，亦是黑风怪的住所。在《西游记》中，此处成为了孙悟空和观音菩萨前往的重要地点，充满了神秘与传奇色彩。黑风洞不仅是黑风怪的居所，也是故事中一个关键的场景，反映了人物之间的复杂关系与神话传说中的神秘境界。', '木柴:', '驼背老和尚:驼背老和尚因观音院被烧和袈裟丢失而撞墙自尽>', '妖魔:妖魔是在黑风山上与黑风怪一起的怪物>', '道士:道僮原是一只伪装成道士的大灰狼，参与了佛衣盛会，但在孙悟空的慧眼下被识破并最终被打死。实际上，这位道士不仅是灵吉菩萨讲经之地的守护者或信徒，还是黑风怪的朋友，在事情败露后与黑风怪一同逃跑。这一形象在《西游记》中体现了妖魔善于伪装、混淆视听的特点，同时也反映了正义终究战胜邪恶的主题。', '白衣秀才:白衣秀才实际上是条大白花蛇，被悟空打死>', '小妖怪:小妖怪是黑风怪的部下，负责观察和报告情况。', '乌金甲:黑风怪的护身甲，增强了他的防御能力。', '黑缨枪:黑风怪的武器，用于与悟空交战。', '请柬:黑风怪邀请观音院老和尚的书面邀请，是故事中的一个重要物证。', '观音院那老和尚:观音院中的老和尚，与黑风怪有联系，增加了故事情节的复杂性。', '童子:观音菩萨的随从，协助观音菩萨执行任务。', '宝衣:悟空所拥有的珍贵衣物，之前在观音院中卖弄，导致了后续的事件。', '佛衣盛会:一个重要的宗教活动，吸引了道士等各路神仙参加。']}
+19:26:56,971 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['金箍棒:金箍棒，孙悟空之武器，具备变化大小与长度的神奇特性，威力无与伦比。在《西游记》的诸多场景中，悟空多次欲用它来对付唐僧，显示出其战斗用途。事实上，金箍棒不仅用于战斗攻击敌人，还曾用来打碎洞门，充分展现了其在不同情境下的多功能性。', '饿不死，冻不坏的神猴:这是对孙悟空的一种描述，强调了他的神奇能力和不屈的精神状态。）', '虎皮:虎皮是孙悟空用老虎的皮制成的衣物，围在腰间。）', '强盗的刀枪:强盗们用来攻击孙悟空的武器，未能伤害他。）', '筋斗云:筋斗云是孙悟空所掌握的一种非凡的交通工具，也是他的一项特殊技能。它能够让孙悟空在空中快速飞行，实现长距离的迅速移动。这朵云不仅象征着孙悟空的神通广大，同时也体现了他在《西游记》中的重要地位和超凡的能力。', '花果山:花果山，位于东胜神洲傲来国，乃孙悟空——美猴王的诞生地。山中有一块仙石，孕育了这位传奇的猴子。此山不仅是孙悟空的故乡，也是他曾在愤怒之下欲返回之地，更是他当年纵身驾云，离开师傅唐僧的起始点，开启了他传奇的《西游记》之旅。', '紧箍咒:紧箍咒是一种神奇的咒语，被唐僧用于控制孙悟空。当唐僧念出紧箍咒时，它能够使悟空感到头痛，从而迫使他服从唐僧的命令，不敢有任何造次之举。这种咒语体现了师徒之间的权力关系和等级秩序，是《西游记》中一个具有象征意义的元素，反映了人物间的复杂互动和道德教化意图。', '东海龙王:东海的统治者，曾劝告孙悟空回心转意，并给予他饮食>', '马:马是《西游记》中重要的角色之一。在故事中，它是猪八戒在山坡上放养的动物，不仅用于代步，也是唐僧西天取经途中的坐骑，帮助他载运行李，向西行进。此外，孙悟空在天宫时，也曾被赋予看管马匹的职责，显示了马在这一经典文学作品中的特殊地位和作用。这些描述共同揭示了马在故事中的多重角色，以及它在取经团队中的重要性。', '衣服:观音菩萨赠予唐僧的物品，用于诱使孙悟空穿上并受紧箍咒控制>', '花帽:观音菩萨赠予唐僧的物品，用于诱使孙悟空戴上并受紧箍咒控制>', '老妇人:', '悟空:悟空，是《西游记》中至关重要的人物，被誉为唐僧的大徒弟。他具备高强的武艺和神通广大的能力，能够使用金箍棒与妖怪战斗，且具有丰富的变化能力，既能变化形态也能快速追赶妖怪。其性格机智、勇猛且好斗，面对困难总能巧妙应对。在故事中，无论是捉妖、解决高老庄的问题，还是保护唐僧西天取经，悟空都展现出了他的勇敢与智慧。此外，悟空还颇具幽默感，能巧妙地回应八戒的言行。即便有时因头痛困扰，他仍然是队伍中不可或缺的力量。总体而言，悟空是一个多才多艺、充满智慧与力量的角色，为取经团队立下了赫赫战功。', '师父:师父指的是唐僧，悟空的师傅，此处用紧箍咒来惩罚悟空>', '头痛:', '保护唐僧:']}
+19:26:56,973 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['东胜神洲:东胜神洲是石猴诞生地的所在大洲，傲来国位于其上', '傲来国:傲来国是一个拥有丰富兵器库的国家，正是在这里，孙悟空从中获取了其著名的兵器。此外，傲来国也是花果山的所在地，更是石猴成长的地方，对中国文学经典《西游记》中的故事发展起着至关重要的作用。这个国家不仅是一个地理背景，更是孙悟空传奇故事的摇篮。', '铁板桥:铁板桥位于水帘洞内，石猴通过它进入洞内', '泉水源:泉水源是猴子们寻找的目标，石猴成功找到了它', '石猴:', '通背猿猴:一只懂得神仙之术的猿猴，建议美猴王学习长生不老的本领>', '神仙:拥有长生不老能力的神秘生物，美猴王渴望找到并学习他们的本领>', '灵台方寸山:一座山，山上有一个斜月三星洞，菩提祖师居住的地方>', '斜月三星洞:位于灵台方寸山上，菩提祖师的居所>', '菩提祖师:芲提祖师，乃是一位隐居在斜月三星洞的神仙，他收孙悟空为徒，传授其武艺和法术。祖师不仅具备高深的法力，更拥有卓越的智慧，对孙悟空进行了全面的教育和指导，为其后来的成就奠定了坚实的基础。在《西游记》这一中国文学经典中，芲提祖师的这一角色象征着师徒关系中的传授与启迪，体现了中国传统文化中对知识和技能传承的重视。', '仙童:菩提祖师的徒弟，其中一个带领孙悟空进入洞府>', '青年人:一个在树林里砍柴的普通人，向美猴王指点了灵台方寸山的方向>', '石碑:石碑位于黑风洞前，与斜月三星洞相对，立于山岗之上。其上刻有“黑风山黑风洞”的字样，明确了其与黑风洞的关联，同时也作为对该地区的一个重要地标。通过对石碑的描述，我们可以了解到它在地理位置上具有标志性意义，是通往黑风洞的明显指引。', '仙童们:菩提祖师的徒弟们，站在讲道台下>', '东南风:', '祖师:祖师，即孙悟空的师傅，被尊称为菩提祖师，他不仅拥有高深的法力，更具备卓越的教学能力。在《西游记》中，他对孙悟空的行为和态度产生了重要影响，通过教训和指导，赋予孙悟空丰富的武艺和智慧，为其后来的西天取经之路奠定了坚实的基础。菩提祖师的智慧和法力在故事中是备受推崇的，他的形象象征着师徒之间的重要关系和传承。']}
+19:26:56,999 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:56,999 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['师兄们:师兄们是孙悟空的同伴，一同在祖师门下学习，他们对孙悟空的态度和行为有所反应。', '长生不老的法术:长生不老的法术是孙悟空追求的目标，也是祖师教授给他的重要技能之一。', '七十二般变化:七十二般变化是孙悟空学会的一种法术，能让他变化成不同的形态。', '法术:法术是祖师教授给孙悟空的各种技能，包括长生不老、七十二般变化等。', '三更:三更是中国古时的时间单位，指深夜的时候，孙悟空在这个时间进入祖师的房间学习法术。', '暗谜:暗谜是菩提祖师用来测试孙悟空智慧的一种方式，通过这种方式祖师发现了孙悟空的聪明才智。', '夏天:夏天是故事发生的一个季节，孙悟空在这个季节与师兄们玩耍，并展示自己的变化能力。', '大树:孙悟空在师兄们面前变成了一棵大树，作为展示自己变化能力的一种形式。', '观音院:观音院，位于幽静的山谷之中，是一座唐僧师徒曾到达的寺庙，也是和尚们居住和修行的场所。它在《西游记》中占据着重要地位，不仅是唐僧师徒的暂住地，而且是故事中一系列重要事件的发生地。值得一提的是，观音院曾遭受火灾，现位于黑风山的北面，这一历史痕迹为其增添了更多的文化内涵和故事色彩。', '和尚:和尚是观音院的僧人，他们在寺庙被烧毁后感到惊恐。尽管遭受此不幸，他们依然对唐僧师徒表示了尊敬，并热情邀请他们进入观音院休息。这体现了这些僧人对师徒四人的敬意以及佛教中好客的传统美德。', '袈裟:桑悟禅是唐僧的珍贵宝物“袈裟”，它是一件价值连城的佛衣，在《西游记》中为老和尚所羡慕。后来唐僧借给了这位老和尚，却不幸被其设计陷害。在某段情节中，这件袈裟还被黑风怪偷走。这一系列事件体现了袈裟不仅是物质上的宝贵，也成为了故事中人物争斗和心机较量的象征。', '老和尚:老和尚，又称之和尚，是观音院中的一位年长的僧人。他与黑风怪有所交情。然而，由于贪心作祟，他竟然设计陷害了唐僧及其师徒一行人。在这一行为背后，体现了某些古典文学作品中人物因私欲而背离佛门宗旨的复杂性格描写，同时也映射出《西游记》中人物之间错综复杂的关系和道德冲突。', '广目天王:广目天王，作为南天门的守护神，具有高强的法力，掌管着避火罩这件宝贵的神器。在《西游记》中，他曾将此宝借给了孙悟空，助其在火焰山一劫中得以安然无恙。故事后期，悟空完成了自己的使命，也将避火罩归还给了广目天王。广目天王作为天庭的神仙，其地位尊崇，在神仙谱系中占有重要的一席之地。', '避火罩:避火罩是广目天王的宝物，具有抵御火焰的神奇功效。在《西游记》中，孙悟空曾借来此宝物，用以保护唐僧免受火焰的伤害。这一情节体现了避火罩的重要性和广目天王对取经团队的暗中支持。', '黑风怪:黑风怪，乃居于黑风山黑风洞中的一妖怪，因观音院遭遇火灾，便起了贪念，意欲乘机劫掠。在《西游记》中，此怪与孙悟空成为了对手，身披乌金甲，手持黑缨枪，曾与悟空交战。然而，最终在观音菩萨和孙悟空的智谋之下，黑风怪被设计制服，其恶行受到了应有的惩罚。这一故事不仅体现了中国古典文学中正义战胜邪恶的主题，也反映了佛教中因果报应的教义。', '南天门:南天门作为天宫的重要门户之一，是连接天界与人间的要道。在《西游记》中，孙悟空因不满天庭的束缚，曾从此地突破重围，杀出南天门，展现了他的神通与反抗精神。此外，南天门也有天兵天将守护，以确保天界的安全。在故事中，孙悟空也曾前往南天门，借避火罩以应对后续的挑战。这一地点不仅体现了天庭的威严与层级，也映射了孙悟空的智勇与不屈不挠的精神。']}
+19:26:57,0 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:57,1 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['木刀:孙悟空让小猴子们制作的简易兵器之二。', '妖精:占据水脏洞的混世魔王的部下，被孙悟空消灭。', '虾兵蟹将:虾兵蟹将是龙宫的兵将，他们遵从龙王的命令，为孙悟空抬出了重兵器>', '神珍铁:神珍铁是大禹治水时测定海水深浅的工具，能发光，最终变化为孙悟空的如意金箍棒>', '如意金箍棒:如意金箍棒是孙悟空的兵器，可以根据孙悟空的心意变化大小和重量，重一万三千五百斤>', '南、北、西三海龙王:南、北、西三海龙王分别是敖钦、敖顺和敖闰，他们凑齐了一套黄金甲、凤翅紫金冠和藕丝步云鞋送给孙悟空>', '妖王:妖王是孙悟空邀请的客人，在花果山上参加宴席>', '幽冥界:幽冥界，乃冥王与判官共同管理的冥界领域，亦是阎王居住之地。孙悟空曾因被勾魂鬼误带至此处，而得以在此修改生死簿，此后方才离开。这一事件在《西游记》中具有重要意义，不仅展示了孙悟空的神通广大，也揭示了幽冥界在生死轮回中的核心地位及其与神魔世界的微妙关系。', '阎王:阎王是幽冥界的统治者，掌管生死簿>', '十位冥王:十位冥王是管理生死簿的冥界神祇，他们遵从孙悟空的要求拿出生死簿', '判官:判官是冥界的官员，负责协助冥王管理生死簿', '生死簿:生死簿是记录所有生物生死信息的册子，被孙悟空修改', '地藏王菩萨:地藏王菩萨是佛教中的一位菩萨，冥王向他请示如何处理孙悟空的事情', '玉皇大帝:玉皇大帝，作为道教神话中的最高神祇，同时也是中国神话中的天帝，他掌管着天宫，拥有至高无上的权力。在天蓬元师犯错之时，玉皇大帝作出了惩罚的决定，体现了其对天界纪律的维护。此外，当孙悟空的行为引起天界不满时，玉皇大帝也表现出了对其行为的愤怒，并试图采取措施制服孙悟空。在神话体系中，即使是冥王也需要向玉皇大帝报告孙悟空的相关行为，这进一步彰显了玉皇大帝在神祇中的尊贵地位与权威。', '森罗殿:', '猪八戒:猪八戒，唐僧的二徒弟，以其直率的性格和无穷的力气而著称，擅长运用钉耙进行战斗。在《西游记》这一古典文学名著中，他是一位既憨厚又勇敢的角色，经常在旅途中为师傅和师兄弟们提供帮助，克服重重困难。尽管有时会因贪吃懒惰而惹麻烦，但猪八戒的忠诚与坚韧也是师徒四人得以圆满完成取经任务的重要因素之一。']}
+19:26:57,1 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:57,2 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:57,2 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:57,2 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:57,2 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:57,3 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:57,3 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:57,3 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:57,4 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['护法伽蓝:护法伽蓝，亦称做法蓝，是具有高深法力的神仙。他们具备变化的能力，能够根据需要化身为不同的形态，如老大爷或院子，以助人为乐。在《西游记》中，护法伽蓝曾化身为老大爷和院子，为孙悟空和猪八戒提供了宝贵的帮助，展现了其神通广大和慈悲为怀的本性。这些描述不仅突出了护法伽蓝的神力，也体现了他们在故事中扮演的积极角色，以及与主要角色的和谐互动。', '钉耙:八戒的武器，用于击败妖怪>', '院子:悟空和八戒请求借宿的地方，实际上是护法伽蓝变化的>', '棍棒:老大爷和年轻农夫们拿的武器，最初用来对付悟空和八戒>', '眼睛酸痛:', '战斗:', '灵吉菩萨:灵吉菩萨，佛教中的菩萨，居住于小须弥山中。他具有强大的法力，曾有能力镇压黄风怪，维护了一方的平安。在《西游记》中，当孙悟空遇到困难，欲打击妖怪时，灵吉菩萨出现并阻止了他，同时提出了合理的处理建议，显示了他不仅法力高强，也具有智慧和慈悲心肠。', '黄风怪:', '飞龙宝杖:飞龙宝杖是灵吉菩萨的宝物，可以变成八爪金龙，用于捕捉妖怪>', '八爪金龙:八爪金龙是孙悟空变化后的形态，用于抓住妖怪。', '黄毛貂鼠:黄毛貂鼠是老妖的原形，因偷吃清油而变成妖怪。', '清油:清油是琉璃灯内的物品，被黄毛貂鼠偷吃。', '金刚:金刚是佛教中的护法神，黄毛貂鼠害怕被其捉住。', '琉璃灯:', '鹰愁涧:鹰愁涧是故事发生地，白龙马在此地等待唐僧一行人', '蛇盘山:蛇盘山是唐僧师徒途径的地方，鹰愁涧位于蛇盘山']}
+19:26:57,4 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['宣花斧:宣花斧是巨灵神的武器，在与孙悟空的战斗中被毁。', '蟠桃园:蟠桃园，分为前、中、后三部分，每部拥有一千二百棵桃树，其结出的桃子具有神奇效果，是位于天宫中的果园。后来，孙悟空被派遣到此，负责看管蟠桃园，守护这些珍贵的仙果。在此背景下，蟠桃园不仅成为了神话故事中的重要地点，也反映了了中国古代文化中对神仙世界的想象与构建。', '玉帝:玉帝是天庭的主宰和最高统治者，他同意太上老君将孙悟空炼化的提议，以维护天庭的秩序。在孙悟空挑战天庭的权威时，玉帝深感其闲散生事的能力可能带来麻烦，因此安排孙悟空管理蟠桃园，既是对其能力的肯定，也是为了在天庭中为其安排合适的职位，以避免潜在的混乱。作为掌管天庭的最高神祇，玉帝的这一决策体现了他的智慧与对天庭层级结构的深刻理解。', '七位仙女:七位仙女奉王母娘娘之命进园摘桃，意外惊醒了孙悟空', '瑶池:瑶池是举办蟠桃会的地方，孙悟空曾偷偷进入并饮酒', '太上老君:太上老君是道教中的高级神祇，位列天庭，他拥有强大的法宝金钢琢，并在《西游记》中提议将孙悟空放入八卦炉中炼化，以期消除其身上的妖气。同时，太上老君还精于炼制金丹，他的兜率宫藏有珍贵的丹药，然而不幸的是，孙悟空曾闯入他的兜率宫，引发了一系列的故事情节。在这些描述中，我们可以看出太上老君不仅地位崇高，法力无边，而且与孙悟空之间存在着复杂的互动关系。', '李天王:李天王是天庭中的武将，奉命捉拿孙悟空', '哪吒太子:哪吒太子是李天王的儿子，也参与了捉拿孙悟空的行动', '二郎神:二郎神，乃是一位法力高强的神祇。根据传说，他曾与孙悟空展开过一场激烈的战斗，在交锋中，二郎神展示了他能变化形态的神通。此外，他还受命带领梅山六兄弟，共同捉拿孙悟空，彰显了其尊贵的地位和在神界的权能。在这些故事中，二郎神的形象既是一位英勇善战的斗士，也是一位忠诚执行天命的神灵。', '梅山六兄弟:梅山六兄弟，乃二郎神的得力助手，在《西游记》中，他们与二郎神一同前往花果山，合力捉拿孙悟空。在这一过程中，他们展现了忠诚与勇猛，是故事中具有代表性的团体之一。', '定身法:孙悟空的一种法术，能够使他人定住不动）', '瞌睡虫:孙悟空变化出的虫子，可以使他人陷入沉睡）', '照妖镜:照妖镜是一件能够揭示妖怪原形的宝物，它在《西游记》中扮演了重要角色。该宝物不仅被二郎神使用，以识别并揭露妖怪的真实形态，同时也是李天王所依赖的法器，能够照出妖魔的原形。这件宝物在中国古代神话中象征着光明与正义的力量，能够辨识真伪，帮助正义的力量战胜邪恶。', '八卦炉:用于炼化丹药和物品的炉子，孙悟空在其中炼就了火眼金睛', '金钢琢:太上老君的宝物，能够对敌人造成伤害，曾用来攻击孙悟空', '斩妖台:斩妖台是天庭中用于处决妖怪的地方，孙悟空曾被绑在这里']}
+19:26:57,5 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['棒子:', '玉盘:一个装有两粒仙丹的盘子，原本由道士持有>', '仙丹:具有神奇效果的丹药，被孙悟空和观音菩萨用来对付黑风怪>', '佛衣:一件重要的佛教圣物，被黑风怪所窃，后被观音菩萨和孙悟空取回>', '小金圈儿:观音菩萨用来控制黑风怪的工具>', '小妖:黑风怪的下属，被观音菩萨和孙悟空吓跑>', '混世魔王:混世魔王是孙悟空的敌人，曾占据水帘洞并抢走猴子猴孙。', '花果山水帘洞:孙悟空的居所，一个荒凉破败但被孙悟空恢复生机的洞府。', '水脏洞:混世魔王的居所，后被孙悟空破坏。', '小猴子们:孙悟空的追随者，被救出后帮助孙悟空恢复水帘洞。', '通背老猿猴:一只老猴子，给孙悟空提供了去东海龙宫的建议。', '东海龙宫:东海龙王敖广的居所，拥有许多宝物。', '龙王:龙王爷是东海龙宫的主宰，他拥有丰富的宝物，并且在孙悟空求助时愿意给予帮助。他曾命令手下为孙悟空拿出多种兵器，并最终指引孙悟空获得了如意金箍棒。然而，由于孙悟空的一些行为，龙王爷也曾向玉皇大帝告状，显示出他在维护龙宫秩序和天庭法规方面的责任感和决断力。', '方天画戟:方天画戟是一种由东海龙宫提供的兵器，其重量高达七千二百斤。尽管它的分量不轻，但孙悟空在尝试使用后仍认为它不适合自己。在此过程中，我们可以看出孙悟空对兵器的独特要求和鉴赏眼光，以及东海龙宫对孙悟空的重视，愿意提供如此珍贵的武器供其挑选。', '九股叉:九股叉是一种古代兵器，重量达三千六百斤，然而在《西游记》中，孙悟空却认为它太轻，这显示了孙悟空非凡的力量和自信。尽管其中一条描述为空，但从现有的信息中我们可以得知，九股叉在中国古代文学中是一件颇具份量的武器，且与孙悟空的故事紧密相关。', '竹枪:孙悟空让小猴子们制作的简易兵器之一。']}
+19:26:57,6 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['僧衣:僧衣是猪八戒成为僧人后穿戴的衣物>', '僧鞋:僧鞋是猪八戒成为僧人后穿戴的鞋子>', '僧帽:僧帽是猪八戒成为僧人后穿戴的帽子>', '九齿钉耙:', '老婆:指的是八戒的妻子，是他情感上的牵挂，也是他考虑还俗的原因', '还俗:还俗是指八戒如果无法完成取经任务，就打算回归原来的世俗生活', '经:经是指《西游记》中唐僧师徒四人要取的佛经，是他们旅程的目标', '八戒的老婆:', '冥司阎王:冥司阎王是地府的主宰，向玉皇大帝告发孙悟空的破坏行为。', '武曲星君:武曲星君是天宫中的神仙，建议给孙悟空一个低微的官职。', '文曲星:文曲星负责撰写诏书，邀请孙悟空上天宫。', '托塔李天王:托塔李天王是玉皇大帝派遣的将领之一，带领天兵天将去捉拿孙悟空。', '三太子哪吒:三太子哪吒是托塔李天王的副手，拥有强大的战斗能力，与孙悟空交战。', '巨灵神:巨灵神是天宫的先锋官，在与孙悟空的战斗中失败。', '齐天大圣府:为孙悟空在天宫修建的府邸，象征着他的称号。', '灵霄殿:灵动霄汉的“灵霄殿”是天宫中的主殿，也是重要的政治与礼仪中心。在这里，孙悟空曾挑战玉帝的权威，同样也是他被引见给至高无上的玉皇大帝的地方，标志着其身份与地位在天庭的正式确认。灵霄殿不仅是一座宫殿，它更是天庭秩序与权力的象征。']}
+19:26:57,7 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['西海龙王:', '经过:', '高老庄:高老庄是一个村庄，其庄主高太公在此地寻找能够捉拿妖怪的法师。这个村庄在妖怪的叙述中曾被提及，并且后来成为妖怪被带去见唐僧的地点。在《西游记》这一中国古典文学名著中，高老庄不仅是故事情节的一个重要环节，也反映了当时社会对于神秘力量和宗教信仰的寻求与依赖。', '高太公:高太公，高老庄之庄主，其家中有一女，深受妖怪女婿所扰。此情节源自中国古典名著《西游记》，通过这一角色和事件，展现了古代社会家庭与神秘力量之间的冲突与互动。高太公作为一庄之主，其家庭的不幸遭遇也反映了当时人们对于超自然现象的恐惧与无奈。', '三女儿:高太公的第三个女儿，曾被妖怪锁在后院，后来被悟空解救>', '天蓬元师:天蓬元师原是天上的神仙，因调戏嫦娥被贬下凡，成为猪八戒的前身', '王母娘娘:王母娘娘，是中国神话中的一位重要女神，她位居天庭，负责掌管那里的宴会事宜。其中，最为人所知的宴会便是蟠桃会。在这个盛大的宴会中，王母娘娘不仅举办聚会，还曾派遣七位仙女前往采摘蟠桃，以供宴会之用。这些描述充分展现了王母娘娘在天庭中的崇高地位以及她在神话传说中的重要作用。', '嫦娥:嫦娥是中国神话中的月亮女神，被天蓬元师调戏', '弼马温:弼马温是悟空在天宫时的职位，被妖怪提及以嘲讽>', '天宫:天宫是悟空大闹的地方，与妖怪的背景故事相关>', '广寒宫:广寒宫是嫦娥的居所，天蓬元师因闯入此处受到惩罚>', '铜锤:铜锤是天蓬元师被惩罚时使用的刑具>', '凡间:凡间是天蓬元师被贬下界的地方>', '猪胎:猪胎是天蓬元师错误投胎的对象>', '洞门:洞门是妖怪藏身的地方，被悟空打碎>', '云栈洞:云栈洞是妖怪的居所，被他和悟空放火烧毁>']}
+19:26:57,8 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['黄风大王:黄风大王是山洞的主人，手下有先锋等小妖，他抓住了唐僧并计划吃掉他。', '黄风大王的先锋:黄风大王的部下，能够变化成猛虎，与孙悟空和猪八戒交战。', '黄风洞:黄风岭上的黄风洞是《西游记》中的一个重要地点，它不仅是黄风大王的居所，同时也是妖怪的巢穴。这个洞穴恰好位于孙悟空和唐僧师徒的西行路径上，在故事中，孙悟空和八戒曾一同清剿了盘踞在此的妖怪，确保了师徒们能够安全通过。', '旋风:旋风是一个自然现象，被孙悟空用来判断附近可能有妖怪或猛虎的存在。', '赤铜刀:赤铜刀是黄风大王的先锋所使用的武器，在与猪八戒和孙悟空的战斗中出现过。', '金蝉脱壳之计:金蝉脱壳是一种计谋，黄风大王的先锋使用它来逃脱孙悟空和猪八戒的追捕。', '定风柱:定风柱是黄风洞中用来绑住唐僧的柱子，以防他被风吹走。', '斑斓猛虎:', '先锋:被悟空拦住去路的妖怪，被迫向山坡上逃跑', '老妖:老妖，原身为一只黄毛貂鼠，曾遭八爪金龙捕捉。他是黄风洞的主人，率领小妖出洞应战，曾在洞口与孙悟空展开激烈战斗，展现出其强大的实力和领导能力。在准备与小妖们共同交战的过程中，老妖彰显了其作为一方妖王的威严和决心。', '毫毛:悟空吹仙气后变成的一百多个悟空，用于包围老妖', '仙气:悟空吹的气体，能够使毫毛变化成多个自己）', '狂风:老妖吹起的，使多个悟空在空中旋转的风）', '三股钢叉:老妖的武器，用于与悟空战斗）', '三花九子膏:专治风眼的药物，由老大爷提供>一种药，专治风眼，由老大爷提供）', '老大爷:提供住宿和三花九子膏的人，实际上是护法伽蓝变化）']}
+19:26:57,8 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['兜率宫:兜率宫是太上老君的居所，也是孙悟空被炼化的地方', '巽宫:八卦炉中的一个位置，因只有烟没有火，孙悟空在其中避难', '哮天犬:', '如意棒:孙悟空的武器，可以随心所欲地变化大小和威力', '三十六员雷将:保护玉帝的神仙，阻止孙悟空的进攻', '二十八座星宿:赶来保护玉帝的神仙，帮助抵挡孙悟空', '如来佛祖:佛教中的最高神祇，被请来帮助解决孙悟空的问题', '阿傩:阿傩是佛教中的尊者，身份尊贵，担任如来佛祖的随从，专责处理孙悟空相关的事务。他不仅是位神仙，而且在佛教中担任接收礼物并遵照佛祖指示行事的要职，体现了其在佛教体系中的崇高地位和重要作用。阿傩的形象和行为，在《西游记》这一古典文学作品中，富含深厚的宗教文化象征意义。', '伽叶:伽叶，佛教中的神仙尊者，与阿傩共同承担执行佛祖任务的使命，一同前来协助如来佛祖，体现了其在佛教中的重要地位与作用。在佛教的经典文化中，伽叶以虔诚和智慧闻名，是佛教教义的重要传播者。', '安天大会:玉帝为庆祝孙悟空被镇压而举办的盛大活动玉帝为感谢如来佛祖而设的庆祝活动', '各路神仙:', '齐天大圣到此一游:孙悟空在撑天柱子上留下的标记，显示了他的存在和反抗精神', '巡查官:巡查官是负责监视妖猴孙悟空的天庭官员，其主要职责是密切观察孙悟空的动向，并在发现任何异常情况时，及时向佛祖汇报。他们是天庭秩序的维护者，通过对孙悟空的监管，确保天界的和谐不受干扰。在这一职责中，巡查官体现了天庭的权威和层级结构，同时也突显了孙悟空在天界中的重要地位及其所受到的关注。', '妖猴:妖猴是指孙悟空，这一称呼突显了他不受约束、调皮捣蛋的特性。据古典文学作品《西游记》记载，因其调皮捣蛋，孙悟空被佛祖囚禁于五行山下，直至唐僧经过，才得以解救，并开始了取经的西天之旅。这个称呼不仅体现了孙悟空的个性，也反映了他在故事中的重要转变，从一个无法无天的妖猴，成为了一位助人为乐、保护师父的忠诚弟子。', '太玄宫:天宫中的一个宫殿，用于举办重要的仪式和活动', '洞阳玉馆:天宫中的另一个重要场所，用于接待尊贵的客人']}
+19:26:57,9 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['七宝灵台:一个珍贵的平台，如来佛祖在此接受各路神仙的朝拜和礼物', '五根肉红色的柱子:', '佛祖:佛祖是佛教中的最高神祇，对孙悟空施以惩罚，并给予指示。|', '山神:山神被如来佛祖叫来，负责监押孙悟空。|', '五方揭谛:五方揭谛被如来佛祖指派与山神一同监押孙悟空。|', '溶化的铜水:溶化的铜水是给孙悟空的饮料，用于在他渴时提供。|', '铁丸子:', '刑期:刑期指的是孙悟空被囚禁的时间限制，五百年后有人来救他。|']}
+19:26:58,128 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:58,128 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:58,131 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['兜率宫:兜率宫是太上老君的居所，也是孙悟空被炼化的地方', '巽宫:八卦炉中的一个位置，因只有烟没有火，孙悟空在其中避难', '哮天犬:', '如意棒:孙悟空的武器，可以随心所欲地变化大小和威力', '三十六员雷将:保护玉帝的神仙，阻止孙悟空的进攻', '二十八座星宿:赶来保护玉帝的神仙，帮助抵挡孙悟空', '如来佛祖:佛教中的最高神祇，被请来帮助解决孙悟空的问题', '阿傩:阿傩是佛教中的尊者，身份尊贵，担任如来佛祖的随从，专责处理孙悟空相关的事务。他不仅是位神仙，而且在佛教中担任接收礼物并遵照佛祖指示行事的要职，体现了其在佛教体系中的崇高地位和重要作用。阿傩的形象和行为，在《西游记》这一古典文学作品中，富含深厚的宗教文化象征意义。', '伽叶:伽叶，佛教中的神仙尊者，与阿傩共同承担执行佛祖任务的使命，一同前来协助如来佛祖，体现了其在佛教中的重要地位与作用。在佛教的经典文化中，伽叶以虔诚和智慧闻名，是佛教教义的重要传播者。', '安天大会:玉帝为庆祝孙悟空被镇压而举办的盛大活动玉帝为感谢如来佛祖而设的庆祝活动', '各路神仙:', '齐天大圣到此一游:孙悟空在撑天柱子上留下的标记，显示了他的存在和反抗精神', '巡查官:巡查官是负责监视妖猴孙悟空的天庭官员，其主要职责是密切观察孙悟空的动向，并在发现任何异常情况时，及时向佛祖汇报。他们是天庭秩序的维护者，通过对孙悟空的监管，确保天界的和谐不受干扰。在这一职责中，巡查官体现了天庭的权威和层级结构，同时也突显了孙悟空在天界中的重要地位及其所受到的关注。', '妖猴:妖猴是指孙悟空，这一称呼突显了他不受约束、调皮捣蛋的特性。据古典文学作品《西游记》记载，因其调皮捣蛋，孙悟空被佛祖囚禁于五行山下，直至唐僧经过，才得以解救，并开始了取经的西天之旅。这个称呼不仅体现了孙悟空的个性，也反映了他在故事中的重要转变，从一个无法无天的妖猴，成为了一位助人为乐、保护师父的忠诚弟子。', '太玄宫:天宫中的一个宫殿，用于举办重要的仪式和活动', '洞阳玉馆:天宫中的另一个重要场所，用于接待尊贵的客人']}
+19:26:58,132 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['僧衣:僧衣是猪八戒成为僧人后穿戴的衣物>', '僧鞋:僧鞋是猪八戒成为僧人后穿戴的鞋子>', '僧帽:僧帽是猪八戒成为僧人后穿戴的帽子>', '九齿钉耙:', '老婆:指的是八戒的妻子，是他情感上的牵挂，也是他考虑还俗的原因', '还俗:还俗是指八戒如果无法完成取经任务，就打算回归原来的世俗生活', '经:经是指《西游记》中唐僧师徒四人要取的佛经，是他们旅程的目标', '八戒的老婆:', '冥司阎王:冥司阎王是地府的主宰，向玉皇大帝告发孙悟空的破坏行为。', '武曲星君:武曲星君是天宫中的神仙，建议给孙悟空一个低微的官职。', '文曲星:文曲星负责撰写诏书，邀请孙悟空上天宫。', '托塔李天王:托塔李天王是玉皇大帝派遣的将领之一，带领天兵天将去捉拿孙悟空。', '三太子哪吒:三太子哪吒是托塔李天王的副手，拥有强大的战斗能力，与孙悟空交战。', '巨灵神:巨灵神是天宫的先锋官，在与孙悟空的战斗中失败。', '齐天大圣府:为孙悟空在天宫修建的府邸，象征着他的称号。', '灵霄殿:灵动霄汉的“灵霄殿”是天宫中的主殿，也是重要的政治与礼仪中心。在这里，孙悟空曾挑战玉帝的权威，同样也是他被引见给至高无上的玉皇大帝的地方，标志着其身份与地位在天庭的正式确认。灵霄殿不仅是一座宫殿，它更是天庭秩序与权力的象征。']}
+19:26:58,168 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:58,169 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['天兵天将:守护南天门的兵将，对悟空的到来感到惊慌>', '黑风山:黑风山，位于观音院南面，是一座因黑风洞而得名的山脉。此处为黑风怪的居所，山中幽深，传说中的黑风洞便坐落于此，与山同名，映衬出该地神秘的色彩和深厚的文化底蕴。', '黑风洞:黑风洞是位于黑风山中的洞穴，亦是黑风怪的住所。在《西游记》中，此处成为了孙悟空和观音菩萨前往的重要地点，充满了神秘与传奇色彩。黑风洞不仅是黑风怪的居所，也是故事中一个关键的场景，反映了人物之间的复杂关系与神话传说中的神秘境界。', '木柴:', '驼背老和尚:驼背老和尚因观音院被烧和袈裟丢失而撞墙自尽>', '妖魔:妖魔是在黑风山上与黑风怪一起的怪物>', '道士:道僮原是一只伪装成道士的大灰狼，参与了佛衣盛会，但在孙悟空的慧眼下被识破并最终被打死。实际上，这位道士不仅是灵吉菩萨讲经之地的守护者或信徒，还是黑风怪的朋友，在事情败露后与黑风怪一同逃跑。这一形象在《西游记》中体现了妖魔善于伪装、混淆视听的特点，同时也反映了正义终究战胜邪恶的主题。', '白衣秀才:白衣秀才实际上是条大白花蛇，被悟空打死>', '小妖怪:小妖怪是黑风怪的部下，负责观察和报告情况。', '乌金甲:黑风怪的护身甲，增强了他的防御能力。', '黑缨枪:黑风怪的武器，用于与悟空交战。', '请柬:黑风怪邀请观音院老和尚的书面邀请，是故事中的一个重要物证。', '观音院那老和尚:观音院中的老和尚，与黑风怪有联系，增加了故事情节的复杂性。', '童子:观音菩萨的随从，协助观音菩萨执行任务。', '宝衣:悟空所拥有的珍贵衣物，之前在观音院中卖弄，导致了后续的事件。', '佛衣盛会:一个重要的宗教活动，吸引了道士等各路神仙参加。']}
+19:26:58,177 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:58,179 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['黄风大王:黄风大王是山洞的主人，手下有先锋等小妖，他抓住了唐僧并计划吃掉他。', '黄风大王的先锋:黄风大王的部下，能够变化成猛虎，与孙悟空和猪八戒交战。', '黄风洞:黄风岭上的黄风洞是《西游记》中的一个重要地点，它不仅是黄风大王的居所，同时也是妖怪的巢穴。这个洞穴恰好位于孙悟空和唐僧师徒的西行路径上，在故事中，孙悟空和八戒曾一同清剿了盘踞在此的妖怪，确保了师徒们能够安全通过。', '旋风:旋风是一个自然现象，被孙悟空用来判断附近可能有妖怪或猛虎的存在。', '赤铜刀:赤铜刀是黄风大王的先锋所使用的武器，在与猪八戒和孙悟空的战斗中出现过。', '金蝉脱壳之计:金蝉脱壳是一种计谋，黄风大王的先锋使用它来逃脱孙悟空和猪八戒的追捕。', '定风柱:定风柱是黄风洞中用来绑住唐僧的柱子，以防他被风吹走。', '斑斓猛虎:', '先锋:被悟空拦住去路的妖怪，被迫向山坡上逃跑', '老妖:老妖，原身为一只黄毛貂鼠，曾遭八爪金龙捕捉。他是黄风洞的主人，率领小妖出洞应战，曾在洞口与孙悟空展开激烈战斗，展现出其强大的实力和领导能力。在准备与小妖们共同交战的过程中，老妖彰显了其作为一方妖王的威严和决心。', '毫毛:悟空吹仙气后变成的一百多个悟空，用于包围老妖', '仙气:悟空吹的气体，能够使毫毛变化成多个自己）', '狂风:老妖吹起的，使多个悟空在空中旋转的风）', '三股钢叉:老妖的武器，用于与悟空战斗）', '三花九子膏:专治风眼的药物，由老大爷提供>一种药，专治风眼，由老大爷提供）', '老大爷:提供住宿和三花九子膏的人，实际上是护法伽蓝变化）']}
+19:26:58,328 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:58,328 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:58,329 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['木刀:孙悟空让小猴子们制作的简易兵器之二。', '妖精:占据水脏洞的混世魔王的部下，被孙悟空消灭。', '虾兵蟹将:虾兵蟹将是龙宫的兵将，他们遵从龙王的命令，为孙悟空抬出了重兵器>', '神珍铁:神珍铁是大禹治水时测定海水深浅的工具，能发光，最终变化为孙悟空的如意金箍棒>', '如意金箍棒:如意金箍棒是孙悟空的兵器，可以根据孙悟空的心意变化大小和重量，重一万三千五百斤>', '南、北、西三海龙王:南、北、西三海龙王分别是敖钦、敖顺和敖闰，他们凑齐了一套黄金甲、凤翅紫金冠和藕丝步云鞋送给孙悟空>', '妖王:妖王是孙悟空邀请的客人，在花果山上参加宴席>', '幽冥界:幽冥界，乃冥王与判官共同管理的冥界领域，亦是阎王居住之地。孙悟空曾因被勾魂鬼误带至此处，而得以在此修改生死簿，此后方才离开。这一事件在《西游记》中具有重要意义，不仅展示了孙悟空的神通广大，也揭示了幽冥界在生死轮回中的核心地位及其与神魔世界的微妙关系。', '阎王:阎王是幽冥界的统治者，掌管生死簿>', '十位冥王:十位冥王是管理生死簿的冥界神祇，他们遵从孙悟空的要求拿出生死簿', '判官:判官是冥界的官员，负责协助冥王管理生死簿', '生死簿:生死簿是记录所有生物生死信息的册子，被孙悟空修改', '地藏王菩萨:地藏王菩萨是佛教中的一位菩萨，冥王向他请示如何处理孙悟空的事情', '玉皇大帝:玉皇大帝，作为道教神话中的最高神祇，同时也是中国神话中的天帝，他掌管着天宫，拥有至高无上的权力。在天蓬元师犯错之时，玉皇大帝作出了惩罚的决定，体现了其对天界纪律的维护。此外，当孙悟空的行为引起天界不满时，玉皇大帝也表现出了对其行为的愤怒，并试图采取措施制服孙悟空。在神话体系中，即使是冥王也需要向玉皇大帝报告孙悟空的相关行为，这进一步彰显了玉皇大帝在神祇中的尊贵地位与权威。', '森罗殿:', '猪八戒:猪八戒，唐僧的二徒弟，以其直率的性格和无穷的力气而著称，擅长运用钉耙进行战斗。在《西游记》这一古典文学名著中，他是一位既憨厚又勇敢的角色，经常在旅途中为师傅和师兄弟们提供帮助，克服重重困难。尽管有时会因贪吃懒惰而惹麻烦，但猪八戒的忠诚与坚韧也是师徒四人得以圆满完成取经任务的重要因素之一。']}
+19:26:58,331 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['宣花斧:宣花斧是巨灵神的武器，在与孙悟空的战斗中被毁。', '蟠桃园:蟠桃园，分为前、中、后三部分，每部拥有一千二百棵桃树，其结出的桃子具有神奇效果，是位于天宫中的果园。后来，孙悟空被派遣到此，负责看管蟠桃园，守护这些珍贵的仙果。在此背景下，蟠桃园不仅成为了神话故事中的重要地点，也反映了了中国古代文化中对神仙世界的想象与构建。', '玉帝:玉帝是天庭的主宰和最高统治者，他同意太上老君将孙悟空炼化的提议，以维护天庭的秩序。在孙悟空挑战天庭的权威时，玉帝深感其闲散生事的能力可能带来麻烦，因此安排孙悟空管理蟠桃园，既是对其能力的肯定，也是为了在天庭中为其安排合适的职位，以避免潜在的混乱。作为掌管天庭的最高神祇，玉帝的这一决策体现了他的智慧与对天庭层级结构的深刻理解。', '七位仙女:七位仙女奉王母娘娘之命进园摘桃，意外惊醒了孙悟空', '瑶池:瑶池是举办蟠桃会的地方，孙悟空曾偷偷进入并饮酒', '太上老君:太上老君是道教中的高级神祇，位列天庭，他拥有强大的法宝金钢琢，并在《西游记》中提议将孙悟空放入八卦炉中炼化，以期消除其身上的妖气。同时，太上老君还精于炼制金丹，他的兜率宫藏有珍贵的丹药，然而不幸的是，孙悟空曾闯入他的兜率宫，引发了一系列的故事情节。在这些描述中，我们可以看出太上老君不仅地位崇高，法力无边，而且与孙悟空之间存在着复杂的互动关系。', '李天王:李天王是天庭中的武将，奉命捉拿孙悟空', '哪吒太子:哪吒太子是李天王的儿子，也参与了捉拿孙悟空的行动', '二郎神:二郎神，乃是一位法力高强的神祇。根据传说，他曾与孙悟空展开过一场激烈的战斗，在交锋中，二郎神展示了他能变化形态的神通。此外，他还受命带领梅山六兄弟，共同捉拿孙悟空，彰显了其尊贵的地位和在神界的权能。在这些故事中，二郎神的形象既是一位英勇善战的斗士，也是一位忠诚执行天命的神灵。', '梅山六兄弟:梅山六兄弟，乃二郎神的得力助手，在《西游记》中，他们与二郎神一同前往花果山，合力捉拿孙悟空。在这一过程中，他们展现了忠诚与勇猛，是故事中具有代表性的团体之一。', '定身法:孙悟空的一种法术，能够使他人定住不动）', '瞌睡虫:孙悟空变化出的虫子，可以使他人陷入沉睡）', '照妖镜:照妖镜是一件能够揭示妖怪原形的宝物，它在《西游记》中扮演了重要角色。该宝物不仅被二郎神使用，以识别并揭露妖怪的真实形态，同时也是李天王所依赖的法器，能够照出妖魔的原形。这件宝物在中国古代神话中象征着光明与正义的力量，能够辨识真伪，帮助正义的力量战胜邪恶。', '八卦炉:用于炼化丹药和物品的炉子，孙悟空在其中炼就了火眼金睛', '金钢琢:太上老君的宝物，能够对敌人造成伤害，曾用来攻击孙悟空', '斩妖台:斩妖台是天庭中用于处决妖怪的地方，孙悟空曾被绑在这里']}
+19:26:58,588 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:58,589 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:58,589 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:58,590 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['金箍棒:金箍棒，孙悟空之武器，具备变化大小与长度的神奇特性，威力无与伦比。在《西游记》的诸多场景中，悟空多次欲用它来对付唐僧，显示出其战斗用途。事实上，金箍棒不仅用于战斗攻击敌人，还曾用来打碎洞门，充分展现了其在不同情境下的多功能性。', '饿不死，冻不坏的神猴:这是对孙悟空的一种描述，强调了他的神奇能力和不屈的精神状态。）', '虎皮:虎皮是孙悟空用老虎的皮制成的衣物，围在腰间。）', '强盗的刀枪:强盗们用来攻击孙悟空的武器，未能伤害他。）', '筋斗云:筋斗云是孙悟空所掌握的一种非凡的交通工具，也是他的一项特殊技能。它能够让孙悟空在空中快速飞行，实现长距离的迅速移动。这朵云不仅象征着孙悟空的神通广大，同时也体现了他在《西游记》中的重要地位和超凡的能力。', '花果山:花果山，位于东胜神洲傲来国，乃孙悟空——美猴王的诞生地。山中有一块仙石，孕育了这位传奇的猴子。此山不仅是孙悟空的故乡，也是他曾在愤怒之下欲返回之地，更是他当年纵身驾云，离开师傅唐僧的起始点，开启了他传奇的《西游记》之旅。', '紧箍咒:紧箍咒是一种神奇的咒语，被唐僧用于控制孙悟空。当唐僧念出紧箍咒时，它能够使悟空感到头痛，从而迫使他服从唐僧的命令，不敢有任何造次之举。这种咒语体现了师徒之间的权力关系和等级秩序，是《西游记》中一个具有象征意义的元素，反映了人物间的复杂互动和道德教化意图。', '东海龙王:东海的统治者，曾劝告孙悟空回心转意，并给予他饮食>', '马:马是《西游记》中重要的角色之一。在故事中，它是猪八戒在山坡上放养的动物，不仅用于代步，也是唐僧西天取经途中的坐骑，帮助他载运行李，向西行进。此外，孙悟空在天宫时，也曾被赋予看管马匹的职责，显示了马在这一经典文学作品中的特殊地位和作用。这些描述共同揭示了马在故事中的多重角色，以及它在取经团队中的重要性。', '衣服:观音菩萨赠予唐僧的物品，用于诱使孙悟空穿上并受紧箍咒控制>', '花帽:观音菩萨赠予唐僧的物品，用于诱使孙悟空戴上并受紧箍咒控制>', '老妇人:', '悟空:悟空，是《西游记》中至关重要的人物，被誉为唐僧的大徒弟。他具备高强的武艺和神通广大的能力，能够使用金箍棒与妖怪战斗，且具有丰富的变化能力，既能变化形态也能快速追赶妖怪。其性格机智、勇猛且好斗，面对困难总能巧妙应对。在故事中，无论是捉妖、解决高老庄的问题，还是保护唐僧西天取经，悟空都展现出了他的勇敢与智慧。此外，悟空还颇具幽默感，能巧妙地回应八戒的言行。即便有时因头痛困扰，他仍然是队伍中不可或缺的力量。总体而言，悟空是一个多才多艺、充满智慧与力量的角色，为取经团队立下了赫赫战功。', '师父:师父指的是唐僧，悟空的师傅，此处用紧箍咒来惩罚悟空>', '头痛:', '保护唐僧:']}
+19:26:58,591 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['南海:南海是观音菩萨的居所，悟空想去那里找观音菩萨理论>', '西天取经:', '唐僧师徒:唐僧师徒是由唐僧、孙悟空、猪八戒和沙和尚组成的取经团队，他们正在前往西天的路上>', '黄风岭:在《西游记》这部古典文学作品中，黄风岭（\\u9ec4\\u98ce\\u5cad）是一个重要的场景。它是黄风洞所在的山岭，唐僧师徒在此地小心翼翼地前行，这里被认为是他们取经路上遭遇的诸多险境之一。黄风岭不仅是地理环境上的险要之地，也是充满了妖魔鬼怪的奇幻世界，充分体现了这部作品中对于自然界与神话传说的深度融合。', '流沙河:流沙河是《西游记》中一条宽阔且汹涌的河流，位于取经团队必经之路上，河中藏有妖怪，对唐僧师徒四人构成了威胁和考验。这一地点不仅地理环境特殊，而且在整个故事中具有重要的象征意义，代表着西天取经路上的艰难险阻。', '八戒:八戒，亦称猪悟能，是《西游记》中的重要角色，身为唐僧的次徒，原为天蓬元帅，后因犯错被贬下凡间，成为高老庄的妖怪。他拥有一定的法力，性格中虽带有贪吃懒惰的特点，但忠心耿耿，诚实且勇敢。在故事中，他不仅负责照看马匹，还与孙悟空并肩作战，共同打败妖怪并救出师傅唐僧。一次在山坡放马时，他还巧妙地使用钉耙击败了作恶的妖怪，显示了他并非只有愚蠢的言论，而是具有实际行动的能力。此外，八戒对婚姻也表现出了自己的担忧，体现了角色内心的细腻情感。', '木叉行者:木叉行者是观音菩萨的高徒，受菩萨之命，作为其使者前往助唐僧一行。他携带着具有神秘力量的红葫芦，在旅程中为唐僧师徒提供了重要的帮助，尤其是在收服沙和尚的过程中发挥了关键作用。', '沙和尚:沙和尚，唐僧的徒弟之一，原名为悟净。在被唐僧收服之后，他改名为沙和尚。在《西游记》这一古典文学作品中，沙和尚以其忠诚和坚韧的性格，成为取经团队中的重要一员，与孙悟空、猪八戒一同协助唐僧西天取经，克服重重困难，展现了深厚的师徒情谊和集体合作精神。尽管关于他的描述信息有限，但他在故事中的形象鲜明，深入人心。', '悟净:悟净是沙和尚的别名，原本是流沙河的妖怪，后成为唐僧的徒弟>', '九个骷髅:九个骷髅是沙和尚的宝物，可以化作阴风>', '红葫芦:红葫芦是观音菩萨的宝物，可以变成小船>', '白龙马:白龙马，原为西海龙王的儿子，因犯死罪而被观音菩萨安排于鹰愁涧。后来，他皈依佛门，成为唐僧的忠实坐骑，并助力唐僧一行人取得真经。他的身份由龙王的贵裔转变为取经路上的重要一员，体现了其深刻的转变与修行之路。', '美猴王:美猴王，乃是从仙石中诞生的石猴，不仅具备卓越的领导能力，还拥有非凡的身体能力，因此深受其他猴子的尊敬，被尊称为王。作为猴子之王，他带领群猴游历山水之间，心中充满着对长生不老境界的渴望。在《西游记》这一古典文学名著中，美猴王以其独特的地位和能力，成为了读者心中难以忘怀的角色。', '仙石:仙石在花果山上，崩裂后诞生了美猴王', '猴子们:花果山中，有一群普通的猴子，它们忠诚地跟随美猴王，并在那里过着快乐的生活。这群猴子不仅与美猴王共同生活在水帘洞中，还曾在其寻求长生不老之路时，齐心协力帮助美猴王制作木筏，送他出海寻找更高的修炼之道。这些猴子体现了团结协作的精神，是美猴王身边不可或缺的伙伴。', '水帘洞::\\u6c34\\u5e18\\u6d1e(\\u6c34\\u5e18\\u6d1e)\\u662f\\u65e0\\u72ec\\u5904\\u4e8e\\u8377\\u679c\\u5c71\\u4e2d\\u7684\\u4e00\\u4e2a\\u795e\\u79d8\\u5dee\\u7a9f\\uff0c\\u5b83\\u7531\\u6c34\\u5e18\\u6210\\u4e3a\\u9632\\u58c1\\u3002\\u8fde\\u4e4b\\u672a\\u51fa\\u7684\\u6597\\u732b\\u77f3\\u732b\\u53d1\\u73b0\\u4e86\\u8be5\\u5dee\\u7a9f\\uff0c\\u5e76\\u628a\\u5176\\u5f04\\u6210\\u4e86\\u72ec\\u81ea\\u548c\\u72ec\\u7acb\\u7684\\u5bb6\\u56ed\\u3002\\u5728\\u8c01\\u5e72\\u516c\\u5b50\\u7684\\u6545\\u4e8b\\u4e2d\\uff0c\\u6885\\u5c71\\u516d\\u5144\\u5f1f\\u5c31\\u662f\\u8d1f\\u8d23\\u5165\\u4fb5\\u6c34\\u5e18\\u6d1e\\u7684\\u3002\\u8be5\\u5dee\\u7a9f\\u4e5f\\u6210\\u4e3a\\u4e86\\u72ec\\u5b50\\u4eec\\u7684\\u5bb6\\u5eAD\\u3002\\u6c34\\u5e18\\u6d1e\\u4e0d\\u4ec5\\u662f\\u4e00\\u4e2a\\u5b89\\u5168\\u7684\\u9694\\u75c5\\u5730\\uff0c\\u8fd8\\u662f\\u72ec\\u5b50\\u4eec\\u7684\\u795']}
+19:26:58,592 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['棒子:', '玉盘:一个装有两粒仙丹的盘子，原本由道士持有>', '仙丹:具有神奇效果的丹药，被孙悟空和观音菩萨用来对付黑风怪>', '佛衣:一件重要的佛教圣物，被黑风怪所窃，后被观音菩萨和孙悟空取回>', '小金圈儿:观音菩萨用来控制黑风怪的工具>', '小妖:黑风怪的下属，被观音菩萨和孙悟空吓跑>', '混世魔王:混世魔王是孙悟空的敌人，曾占据水帘洞并抢走猴子猴孙。', '花果山水帘洞:孙悟空的居所，一个荒凉破败但被孙悟空恢复生机的洞府。', '水脏洞:混世魔王的居所，后被孙悟空破坏。', '小猴子们:孙悟空的追随者，被救出后帮助孙悟空恢复水帘洞。', '通背老猿猴:一只老猴子，给孙悟空提供了去东海龙宫的建议。', '东海龙宫:东海龙王敖广的居所，拥有许多宝物。', '龙王:龙王爷是东海龙宫的主宰，他拥有丰富的宝物，并且在孙悟空求助时愿意给予帮助。他曾命令手下为孙悟空拿出多种兵器，并最终指引孙悟空获得了如意金箍棒。然而，由于孙悟空的一些行为，龙王爷也曾向玉皇大帝告状，显示出他在维护龙宫秩序和天庭法规方面的责任感和决断力。', '方天画戟:方天画戟是一种由东海龙宫提供的兵器，其重量高达七千二百斤。尽管它的分量不轻，但孙悟空在尝试使用后仍认为它不适合自己。在此过程中，我们可以看出孙悟空对兵器的独特要求和鉴赏眼光，以及东海龙宫对孙悟空的重视，愿意提供如此珍贵的武器供其挑选。', '九股叉:九股叉是一种古代兵器，重量达三千六百斤，然而在《西游记》中，孙悟空却认为它太轻，这显示了孙悟空非凡的力量和自信。尽管其中一条描述为空，但从现有的信息中我们可以得知，九股叉在中国古代文学中是一件颇具份量的武器，且与孙悟空的故事紧密相关。', '竹枪:孙悟空让小猴子们制作的简易兵器之一。']}
+19:26:58,667 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:58,668 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:58,669 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['护法伽蓝:护法伽蓝，亦称做法蓝，是具有高深法力的神仙。他们具备变化的能力，能够根据需要化身为不同的形态，如老大爷或院子，以助人为乐。在《西游记》中，护法伽蓝曾化身为老大爷和院子，为孙悟空和猪八戒提供了宝贵的帮助，展现了其神通广大和慈悲为怀的本性。这些描述不仅突出了护法伽蓝的神力，也体现了他们在故事中扮演的积极角色，以及与主要角色的和谐互动。', '钉耙:八戒的武器，用于击败妖怪>', '院子:悟空和八戒请求借宿的地方，实际上是护法伽蓝变化的>', '棍棒:老大爷和年轻农夫们拿的武器，最初用来对付悟空和八戒>', '眼睛酸痛:', '战斗:', '灵吉菩萨:灵吉菩萨，佛教中的菩萨，居住于小须弥山中。他具有强大的法力，曾有能力镇压黄风怪，维护了一方的平安。在《西游记》中，当孙悟空遇到困难，欲打击妖怪时，灵吉菩萨出现并阻止了他，同时提出了合理的处理建议，显示了他不仅法力高强，也具有智慧和慈悲心肠。', '黄风怪:', '飞龙宝杖:飞龙宝杖是灵吉菩萨的宝物，可以变成八爪金龙，用于捕捉妖怪>', '八爪金龙:八爪金龙是孙悟空变化后的形态，用于抓住妖怪。', '黄毛貂鼠:黄毛貂鼠是老妖的原形，因偷吃清油而变成妖怪。', '清油:清油是琉璃灯内的物品，被黄毛貂鼠偷吃。', '金刚:金刚是佛教中的护法神，黄毛貂鼠害怕被其捉住。', '琉璃灯:', '鹰愁涧:鹰愁涧是故事发生地，白龙马在此地等待唐僧一行人', '蛇盘山:蛇盘山是唐僧师徒途径的地方，鹰愁涧位于蛇盘山']}
+19:26:58,670 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['东胜神洲:东胜神洲是石猴诞生地的所在大洲，傲来国位于其上', '傲来国:傲来国是一个拥有丰富兵器库的国家，正是在这里，孙悟空从中获取了其著名的兵器。此外，傲来国也是花果山的所在地，更是石猴成长的地方，对中国文学经典《西游记》中的故事发展起着至关重要的作用。这个国家不仅是一个地理背景，更是孙悟空传奇故事的摇篮。', '铁板桥:铁板桥位于水帘洞内，石猴通过它进入洞内', '泉水源:泉水源是猴子们寻找的目标，石猴成功找到了它', '石猴:', '通背猿猴:一只懂得神仙之术的猿猴，建议美猴王学习长生不老的本领>', '神仙:拥有长生不老能力的神秘生物，美猴王渴望找到并学习他们的本领>', '灵台方寸山:一座山，山上有一个斜月三星洞，菩提祖师居住的地方>', '斜月三星洞:位于灵台方寸山上，菩提祖师的居所>', '菩提祖师:芲提祖师，乃是一位隐居在斜月三星洞的神仙，他收孙悟空为徒，传授其武艺和法术。祖师不仅具备高深的法力，更拥有卓越的智慧，对孙悟空进行了全面的教育和指导，为其后来的成就奠定了坚实的基础。在《西游记》这一中国文学经典中，芲提祖师的这一角色象征着师徒关系中的传授与启迪，体现了中国传统文化中对知识和技能传承的重视。', '仙童:菩提祖师的徒弟，其中一个带领孙悟空进入洞府>', '青年人:一个在树林里砍柴的普通人，向美猴王指点了灵台方寸山的方向>', '石碑:石碑位于黑风洞前，与斜月三星洞相对，立于山岗之上。其上刻有“黑风山黑风洞”的字样，明确了其与黑风洞的关联，同时也作为对该地区的一个重要地标。通过对石碑的描述，我们可以了解到它在地理位置上具有标志性意义，是通往黑风洞的明显指引。', '仙童们:菩提祖师的徒弟们，站在讲道台下>', '东南风:', '祖师:祖师，即孙悟空的师傅，被尊称为菩提祖师，他不仅拥有高深的法力，更具备卓越的教学能力。在《西游记》中，他对孙悟空的行为和态度产生了重要影响，通过教训和指导，赋予孙悟空丰富的武艺和智慧，为其后来的西天取经之路奠定了坚实的基础。菩提祖师的智慧和法力在故事中是备受推崇的，他的形象象征着师徒之间的重要关系和传承。']}
+19:26:58,828 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:58,828 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:58,830 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['五行山:五行山，又名五指山，是中国古典名著《西游记》中一个具有重大象征意义的地点。此处曾是佛祖如来的五指化作的山镇，用以囚禁桀骜不驯的孙悟空，其法力封印使得孙悟空无法逃脱。五行山不仅是取经故事的关键地点，也象征着佛法的威严与力量。后来，在唐僧师徒取经途中，唐僧到达五行山，因他的救助，五行山的封印裂开，使得孙悟空得以重获自由，并成为唐僧的大徒弟，共同完成取经的使命。这一事件也象征着悟空的转化与重生，从此开始了他的修行之路。', '观音菩萨:观音菩萨是佛教中备受尊敬的菩萨，她以大慈大悲著称，拥有高深的法力和救苦救难的神力。在《西游记》中，观音菩萨不仅是如来的使者，奉旨寻找取经人，还多次在关键时刻给予唐僧师徒以帮助和救济。她曾化身老妇人指引孙悟空回归正途，并劝导他成为唐僧的徒弟。此外，她还安排白龙马成为唐僧的坐骑，并解决了相关的冲突。观音菩萨还提出了捉拿孙悟空的建议，并指导唐僧取经，甚至教授唐僧紧箍咒以控制孙悟空。她还派遣木叉行者协助取经团队，并在途中劝导妖怪改邪归正，指引他们走上正确的取经之路。她的慈悲心肠和智慧行动，为唐僧一行人克服重重困难，最终成功取得真经提供了重要的支持。', '如来佛:如来佛，作为佛教中的最高神祇，具有无上的权威与神通。在《西游记》这一古典文学名著中，如来佛发出法旨，指令观音菩萨去寻找适合的取经人，以完成重要的佛教使命。同时，也是如来佛以巨大的法力将桀骜不驯的孙悟空压在五行山下，直至唐僧师徒一行人开始西天取经的旅程，孙悟空才得以重获自由。如来佛的这些行为不仅体现了他在佛教界的至高地位，也展示了他对于宇宙秩序与修行者教化的深刻影响。', '惠岸行者:惠岸行者是观音菩萨的随从，一同来到东土大唐', '东土大唐:东土大唐是故事发生的主要地点，是取经人的起点', '唐太宗李世民:唐太宗李世民是唐朝的皇帝，命令陈玄奘取经', '陈玄奘:陈玄奘是唐朝的高僧，被选为取经人，是金蝉子转世', '金蝉子:金蝉子是如来佛的弟子，转世为陈玄奘', '唐三藏:陈玄奘的名字被唐太宗改为唐三藏，是取经的主要人物', '熊山君:熊山君乃一妖怪，与寅将军结伴而行。在《西游记》中，二者共同出现，熊山君曾提议仅以两人为食，足见其狡猾与凶残。此一描述不仅揭示了熊山君与寅将军的同盟关系，也反映了其时妖怪的残酷本性与对人类生命的轻视。', '特处士:特处士是妖怪，与熊山君一同拜访寅将军', '寅将军:寅将军，一名妖怪，自称魔王，曾在《西游记》中打算以唐僧师徒招待客人。他性格残忍，曾吃掉唐僧的两个仆人。在此，我们可以看出寅将军的邪恶本质及其对唐僧一行人的威胁。', '五件宝贝:五件宝贝是观音菩萨带来的宝物，包括锦袈裟，用于交换取经人的承诺>', '东土大唐的边界河州:这是大唐边界的具体地点，唐僧一行人在此遇到了困难>', '镇边总兵:镇边总兵是在河州的地方官员，接待了唐僧主仆>', '福原寺:福原寺是唐僧一行人在河州休息的地方>']}
+19:26:58,832 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['唐僧的两个仆人:唐僧的随从，一同前往西天取经>', '妖怪:妖怪“妖怪”在《西游记》中是一个居住在流沙河的生物，曾与唐僧师徒发生冲突，并在与悟空的战斗中腰酸腿痛，后被揭示其真身是一只老虎。此外，他还曾化为猪头，原是福陵山人，后被悟空捉拿。这个神秘生物在故事中曾抓住唐僧主仆，但其真实身份是天蓬元师，因犯错被贬下凡间。在故事的后期，他改邪归正，愿意跟随唐僧取经，体现了人物性格的转变和救赎。', '锦袈裟:', '魔王:魔王是一个邪恶的存在，被称为寅将军，打算用唐僧等人招待客人', '唐僧:唐僧，又称唐三藏，是《西游记》中的核心人物，一位来自唐朝的僧人，奉皇命前往西天取经。他信仰虔诚，心怀慈悲，拥有高尚的品德和深厚的佛法修为。在取经的旅途中，他先后收孙悟空、猪八戒等人为徒，组成了一个取经团队。唐僧作为团队首领，带领徒弟们克服重重困难和挑战，其中包括孙悟空因紧箍咒而受其控制，以及遭遇妖怪袭击被徒弟们救出的经历。在旅途中，他们也曾寻找被偷的袈裟，唐僧对袈裟的下落焦急万分。此外，他还曾差点被寅将军吓昏，幸得神秘老人相救，也曾被白龙马追击，所幸得到孙悟空的救助。尽管在孙悟空离开时感到无助，但在观音菩萨的帮助下，他始终坚持取经的使命，展现了坚定的意志和领导力。', '神秘老人:神秘老人救了唐僧，并指引他离开双叉岭，实为太白金星', '太白金星:太白金星，是中国神话中的一位重要神仙，他在《西游记》中扮演了多重角色，展现了其深邃的智慧与神通。他不仅是天宫中的神仙，还曾暗中帮助孙悟空，为其提供助力。在故事中，太白金星曾以神秘老人的形象出现，帮助唐僧，并在完成任务后乘鹤神秘飞走。此外，他还曾为天蓬元师求情，显示出其慈悲为怀的一面。在处理孙悟空的问题上，太白金星提出了安抚的策略，并负责传达天意，显现出他在天庭中的地位及其对大局的洞察力。总的来说，太白金星是一个层次丰富、形象多面的神仙，其行为和角色在《西游记》中具有重要的文化象征意义。', '刘伯钦:刘伯钦，一位猎户，他在《西游记》中不仅是救助唐僧并热情邀请他到自己家中作客的善良之人，还是唐僧早期的护法。在故事中，刘伯钦起到了关键作用，协助唐僧救出了被压在五指山下的孙悟空，为唐僧取经之路提供了重要的帮助。他的行为不仅体现了其个人的英勇和仁慈，也映射了古代中国社会中对于忠诚与助人为乐的价值观。', '两界山:两界山是一座重要的地标，分隔大唐和鞑靼的疆域', '孙悟空:孙悟空，亦称美猴王，是《西游记》中的核心人物，具有高强的武艺和神通广大的变化能力。他原是花果山水帘洞的主人，后拜师菩提祖师学得仙法和筋斗云。因其叛逆但忠诚的性格，以及急躁和顽皮的个性，孙悟空曾在故事中大闹天宫和龙宫，获得了如意金箍棒。他因偷吃蟠桃和金丹而引发了一系列事件，最终被如来佛祖压在五行山下。后来，他成为唐僧的大徒弟，保护唐僧西天取经，途中展现出机智勇敢的一面，与各种妖魔鬼怪战斗，并最终使白龙马屈服。孙悟空不仅力大无穷，能长生不老，还曾要求查看并修改生死簿，显示了他对自由和力量的追求。他的故事充满了对权威的挑战和对师徒情感的深刻描绘。', '毒蛇:毒蛇在唐僧四周出现，吐着红信，增加了唐僧的危险>', '有毒的虫子:有毒的虫子是唐僧四周的危险之一，增加了他的困境>', '从未见过的野兽:这些未知的野兽包围了唐僧，使他感到更加无助>', '凶恶的老虎:', '老虎:一只大老虎在唐僧和孙悟空取经路上出现，被孙悟空用金箍棒打死。', '强盗:六个强盗试图抢夺唐僧师徒的马和行李，后被孙悟空打死。']}
+19:26:58,878 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:58,880 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['七宝灵台:一个珍贵的平台，如来佛祖在此接受各路神仙的朝拜和礼物', '五根肉红色的柱子:', '佛祖:佛祖是佛教中的最高神祇，对孙悟空施以惩罚，并给予指示。|', '山神:山神被如来佛祖叫来，负责监押孙悟空。|', '五方揭谛:五方揭谛被如来佛祖指派与山神一同监押孙悟空。|', '溶化的铜水:溶化的铜水是给孙悟空的饮料，用于在他渴时提供。|', '铁丸子:', '刑期:刑期指的是孙悟空被囚禁的时间限制，五百年后有人来救他。|']}
+19:26:58,927 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:58,929 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['师兄们:师兄们是孙悟空的同伴，一同在祖师门下学习，他们对孙悟空的态度和行为有所反应。', '长生不老的法术:长生不老的法术是孙悟空追求的目标，也是祖师教授给他的重要技能之一。', '七十二般变化:七十二般变化是孙悟空学会的一种法术，能让他变化成不同的形态。', '法术:法术是祖师教授给孙悟空的各种技能，包括长生不老、七十二般变化等。', '三更:三更是中国古时的时间单位，指深夜的时候，孙悟空在这个时间进入祖师的房间学习法术。', '暗谜:暗谜是菩提祖师用来测试孙悟空智慧的一种方式，通过这种方式祖师发现了孙悟空的聪明才智。', '夏天:夏天是故事发生的一个季节，孙悟空在这个季节与师兄们玩耍，并展示自己的变化能力。', '大树:孙悟空在师兄们面前变成了一棵大树，作为展示自己变化能力的一种形式。', '观音院:观音院，位于幽静的山谷之中，是一座唐僧师徒曾到达的寺庙，也是和尚们居住和修行的场所。它在《西游记》中占据着重要地位，不仅是唐僧师徒的暂住地，而且是故事中一系列重要事件的发生地。值得一提的是，观音院曾遭受火灾，现位于黑风山的北面，这一历史痕迹为其增添了更多的文化内涵和故事色彩。', '和尚:和尚是观音院的僧人，他们在寺庙被烧毁后感到惊恐。尽管遭受此不幸，他们依然对唐僧师徒表示了尊敬，并热情邀请他们进入观音院休息。这体现了这些僧人对师徒四人的敬意以及佛教中好客的传统美德。', '袈裟:桑悟禅是唐僧的珍贵宝物“袈裟”，它是一件价值连城的佛衣，在《西游记》中为老和尚所羡慕。后来唐僧借给了这位老和尚，却不幸被其设计陷害。在某段情节中，这件袈裟还被黑风怪偷走。这一系列事件体现了袈裟不仅是物质上的宝贵，也成为了故事中人物争斗和心机较量的象征。', '老和尚:老和尚，又称之和尚，是观音院中的一位年长的僧人。他与黑风怪有所交情。然而，由于贪心作祟，他竟然设计陷害了唐僧及其师徒一行人。在这一行为背后，体现了某些古典文学作品中人物因私欲而背离佛门宗旨的复杂性格描写，同时也映射出《西游记》中人物之间错综复杂的关系和道德冲突。', '广目天王:广目天王，作为南天门的守护神，具有高强的法力，掌管着避火罩这件宝贵的神器。在《西游记》中，他曾将此宝借给了孙悟空，助其在火焰山一劫中得以安然无恙。故事后期，悟空完成了自己的使命，也将避火罩归还给了广目天王。广目天王作为天庭的神仙，其地位尊崇，在神仙谱系中占有重要的一席之地。', '避火罩:避火罩是广目天王的宝物，具有抵御火焰的神奇功效。在《西游记》中，孙悟空曾借来此宝物，用以保护唐僧免受火焰的伤害。这一情节体现了避火罩的重要性和广目天王对取经团队的暗中支持。', '黑风怪:黑风怪，乃居于黑风山黑风洞中的一妖怪，因观音院遭遇火灾，便起了贪念，意欲乘机劫掠。在《西游记》中，此怪与孙悟空成为了对手，身披乌金甲，手持黑缨枪，曾与悟空交战。然而，最终在观音菩萨和孙悟空的智谋之下，黑风怪被设计制服，其恶行受到了应有的惩罚。这一故事不仅体现了中国古典文学中正义战胜邪恶的主题，也反映了佛教中因果报应的教义。', '南天门:南天门作为天宫的重要门户之一，是连接天界与人间的要道。在《西游记》中，孙悟空因不满天庭的束缚，曾从此地突破重围，杀出南天门，展现了他的神通与反抗精神。此外，南天门也有天兵天将守护，以确保天界的安全。在故事中，孙悟空也曾前往南天门，借避火罩以应对后续的挑战。这一地点不仅体现了天庭的威严与层级，也映射了孙悟空的智勇与不屈不挠的精神。']}
+19:26:59,67 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:26:59,69 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['西海龙王:', '经过:', '高老庄:高老庄是一个村庄，其庄主高太公在此地寻找能够捉拿妖怪的法师。这个村庄在妖怪的叙述中曾被提及，并且后来成为妖怪被带去见唐僧的地点。在《西游记》这一中国古典文学名著中，高老庄不仅是故事情节的一个重要环节，也反映了当时社会对于神秘力量和宗教信仰的寻求与依赖。', '高太公:高太公，高老庄之庄主，其家中有一女，深受妖怪女婿所扰。此情节源自中国古典名著《西游记》，通过这一角色和事件，展现了古代社会家庭与神秘力量之间的冲突与互动。高太公作为一庄之主，其家庭的不幸遭遇也反映了当时人们对于超自然现象的恐惧与无奈。', '三女儿:高太公的第三个女儿，曾被妖怪锁在后院，后来被悟空解救>', '天蓬元师:天蓬元师原是天上的神仙，因调戏嫦娥被贬下凡，成为猪八戒的前身', '王母娘娘:王母娘娘，是中国神话中的一位重要女神，她位居天庭，负责掌管那里的宴会事宜。其中，最为人所知的宴会便是蟠桃会。在这个盛大的宴会中，王母娘娘不仅举办聚会，还曾派遣七位仙女前往采摘蟠桃，以供宴会之用。这些描述充分展现了王母娘娘在天庭中的崇高地位以及她在神话传说中的重要作用。', '嫦娥:嫦娥是中国神话中的月亮女神，被天蓬元师调戏', '弼马温:弼马温是悟空在天宫时的职位，被妖怪提及以嘲讽>', '天宫:天宫是悟空大闹的地方，与妖怪的背景故事相关>', '广寒宫:广寒宫是嫦娥的居所，天蓬元师因闯入此处受到惩罚>', '铜锤:铜锤是天蓬元师被惩罚时使用的刑具>', '凡间:凡间是天蓬元师被贬下界的地方>', '猪胎:猪胎是天蓬元师错误投胎的对象>', '洞门:洞门是妖怪藏身的地方，被悟空打碎>', '云栈洞:云栈洞是妖怪的居所，被他和悟空放火烧毁>']}
+19:27:00,268 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:00,269 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['兜率宫:兜率宫是太上老君的居所，也是孙悟空被炼化的地方', '巽宫:八卦炉中的一个位置，因只有烟没有火，孙悟空在其中避难', '哮天犬:', '如意棒:孙悟空的武器，可以随心所欲地变化大小和威力', '三十六员雷将:保护玉帝的神仙，阻止孙悟空的进攻', '二十八座星宿:赶来保护玉帝的神仙，帮助抵挡孙悟空', '如来佛祖:佛教中的最高神祇，被请来帮助解决孙悟空的问题', '阿傩:阿傩是佛教中的尊者，身份尊贵，担任如来佛祖的随从，专责处理孙悟空相关的事务。他不仅是位神仙，而且在佛教中担任接收礼物并遵照佛祖指示行事的要职，体现了其在佛教体系中的崇高地位和重要作用。阿傩的形象和行为，在《西游记》这一古典文学作品中，富含深厚的宗教文化象征意义。', '伽叶:伽叶，佛教中的神仙尊者，与阿傩共同承担执行佛祖任务的使命，一同前来协助如来佛祖，体现了其在佛教中的重要地位与作用。在佛教的经典文化中，伽叶以虔诚和智慧闻名，是佛教教义的重要传播者。', '安天大会:玉帝为庆祝孙悟空被镇压而举办的盛大活动玉帝为感谢如来佛祖而设的庆祝活动', '各路神仙:', '齐天大圣到此一游:孙悟空在撑天柱子上留下的标记，显示了他的存在和反抗精神', '巡查官:巡查官是负责监视妖猴孙悟空的天庭官员，其主要职责是密切观察孙悟空的动向，并在发现任何异常情况时，及时向佛祖汇报。他们是天庭秩序的维护者，通过对孙悟空的监管，确保天界的和谐不受干扰。在这一职责中，巡查官体现了天庭的权威和层级结构，同时也突显了孙悟空在天界中的重要地位及其所受到的关注。', '妖猴:妖猴是指孙悟空，这一称呼突显了他不受约束、调皮捣蛋的特性。据古典文学作品《西游记》记载，因其调皮捣蛋，孙悟空被佛祖囚禁于五行山下，直至唐僧经过，才得以解救，并开始了取经的西天之旅。这个称呼不仅体现了孙悟空的个性，也反映了他在故事中的重要转变，从一个无法无天的妖猴，成为了一位助人为乐、保护师父的忠诚弟子。', '太玄宫:天宫中的一个宫殿，用于举办重要的仪式和活动', '洞阳玉馆:天宫中的另一个重要场所，用于接待尊贵的客人']}
+19:27:00,498 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:00,499 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['天兵天将:守护南天门的兵将，对悟空的到来感到惊慌>', '黑风山:黑风山，位于观音院南面，是一座因黑风洞而得名的山脉。此处为黑风怪的居所，山中幽深，传说中的黑风洞便坐落于此，与山同名，映衬出该地神秘的色彩和深厚的文化底蕴。', '黑风洞:黑风洞是位于黑风山中的洞穴，亦是黑风怪的住所。在《西游记》中，此处成为了孙悟空和观音菩萨前往的重要地点，充满了神秘与传奇色彩。黑风洞不仅是黑风怪的居所，也是故事中一个关键的场景，反映了人物之间的复杂关系与神话传说中的神秘境界。', '木柴:', '驼背老和尚:驼背老和尚因观音院被烧和袈裟丢失而撞墙自尽>', '妖魔:妖魔是在黑风山上与黑风怪一起的怪物>', '道士:道僮原是一只伪装成道士的大灰狼，参与了佛衣盛会，但在孙悟空的慧眼下被识破并最终被打死。实际上，这位道士不仅是灵吉菩萨讲经之地的守护者或信徒，还是黑风怪的朋友，在事情败露后与黑风怪一同逃跑。这一形象在《西游记》中体现了妖魔善于伪装、混淆视听的特点，同时也反映了正义终究战胜邪恶的主题。', '白衣秀才:白衣秀才实际上是条大白花蛇，被悟空打死>', '小妖怪:小妖怪是黑风怪的部下，负责观察和报告情况。', '乌金甲:黑风怪的护身甲，增强了他的防御能力。', '黑缨枪:黑风怪的武器，用于与悟空交战。', '请柬:黑风怪邀请观音院老和尚的书面邀请，是故事中的一个重要物证。', '观音院那老和尚:观音院中的老和尚，与黑风怪有联系，增加了故事情节的复杂性。', '童子:观音菩萨的随从，协助观音菩萨执行任务。', '宝衣:悟空所拥有的珍贵衣物，之前在观音院中卖弄，导致了后续的事件。', '佛衣盛会:一个重要的宗教活动，吸引了道士等各路神仙参加。']}
+19:27:00,547 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:00,548 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['宣花斧:宣花斧是巨灵神的武器，在与孙悟空的战斗中被毁。', '蟠桃园:蟠桃园，分为前、中、后三部分，每部拥有一千二百棵桃树，其结出的桃子具有神奇效果，是位于天宫中的果园。后来，孙悟空被派遣到此，负责看管蟠桃园，守护这些珍贵的仙果。在此背景下，蟠桃园不仅成为了神话故事中的重要地点，也反映了了中国古代文化中对神仙世界的想象与构建。', '玉帝:玉帝是天庭的主宰和最高统治者，他同意太上老君将孙悟空炼化的提议，以维护天庭的秩序。在孙悟空挑战天庭的权威时，玉帝深感其闲散生事的能力可能带来麻烦，因此安排孙悟空管理蟠桃园，既是对其能力的肯定，也是为了在天庭中为其安排合适的职位，以避免潜在的混乱。作为掌管天庭的最高神祇，玉帝的这一决策体现了他的智慧与对天庭层级结构的深刻理解。', '七位仙女:七位仙女奉王母娘娘之命进园摘桃，意外惊醒了孙悟空', '瑶池:瑶池是举办蟠桃会的地方，孙悟空曾偷偷进入并饮酒', '太上老君:太上老君是道教中的高级神祇，位列天庭，他拥有强大的法宝金钢琢，并在《西游记》中提议将孙悟空放入八卦炉中炼化，以期消除其身上的妖气。同时，太上老君还精于炼制金丹，他的兜率宫藏有珍贵的丹药，然而不幸的是，孙悟空曾闯入他的兜率宫，引发了一系列的故事情节。在这些描述中，我们可以看出太上老君不仅地位崇高，法力无边，而且与孙悟空之间存在着复杂的互动关系。', '李天王:李天王是天庭中的武将，奉命捉拿孙悟空', '哪吒太子:哪吒太子是李天王的儿子，也参与了捉拿孙悟空的行动', '二郎神:二郎神，乃是一位法力高强的神祇。根据传说，他曾与孙悟空展开过一场激烈的战斗，在交锋中，二郎神展示了他能变化形态的神通。此外，他还受命带领梅山六兄弟，共同捉拿孙悟空，彰显了其尊贵的地位和在神界的权能。在这些故事中，二郎神的形象既是一位英勇善战的斗士，也是一位忠诚执行天命的神灵。', '梅山六兄弟:梅山六兄弟，乃二郎神的得力助手，在《西游记》中，他们与二郎神一同前往花果山，合力捉拿孙悟空。在这一过程中，他们展现了忠诚与勇猛，是故事中具有代表性的团体之一。', '定身法:孙悟空的一种法术，能够使他人定住不动）', '瞌睡虫:孙悟空变化出的虫子，可以使他人陷入沉睡）', '照妖镜:照妖镜是一件能够揭示妖怪原形的宝物，它在《西游记》中扮演了重要角色。该宝物不仅被二郎神使用，以识别并揭露妖怪的真实形态，同时也是李天王所依赖的法器，能够照出妖魔的原形。这件宝物在中国古代神话中象征着光明与正义的力量，能够辨识真伪，帮助正义的力量战胜邪恶。', '八卦炉:用于炼化丹药和物品的炉子，孙悟空在其中炼就了火眼金睛', '金钢琢:太上老君的宝物，能够对敌人造成伤害，曾用来攻击孙悟空', '斩妖台:斩妖台是天庭中用于处决妖怪的地方，孙悟空曾被绑在这里']}
+19:27:00,687 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:00,689 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['黄风大王:黄风大王是山洞的主人，手下有先锋等小妖，他抓住了唐僧并计划吃掉他。', '黄风大王的先锋:黄风大王的部下，能够变化成猛虎，与孙悟空和猪八戒交战。', '黄风洞:黄风岭上的黄风洞是《西游记》中的一个重要地点，它不仅是黄风大王的居所，同时也是妖怪的巢穴。这个洞穴恰好位于孙悟空和唐僧师徒的西行路径上，在故事中，孙悟空和八戒曾一同清剿了盘踞在此的妖怪，确保了师徒们能够安全通过。', '旋风:旋风是一个自然现象，被孙悟空用来判断附近可能有妖怪或猛虎的存在。', '赤铜刀:赤铜刀是黄风大王的先锋所使用的武器，在与猪八戒和孙悟空的战斗中出现过。', '金蝉脱壳之计:金蝉脱壳是一种计谋，黄风大王的先锋使用它来逃脱孙悟空和猪八戒的追捕。', '定风柱:定风柱是黄风洞中用来绑住唐僧的柱子，以防他被风吹走。', '斑斓猛虎:', '先锋:被悟空拦住去路的妖怪，被迫向山坡上逃跑', '老妖:老妖，原身为一只黄毛貂鼠，曾遭八爪金龙捕捉。他是黄风洞的主人，率领小妖出洞应战，曾在洞口与孙悟空展开激烈战斗，展现出其强大的实力和领导能力。在准备与小妖们共同交战的过程中，老妖彰显了其作为一方妖王的威严和决心。', '毫毛:悟空吹仙气后变成的一百多个悟空，用于包围老妖', '仙气:悟空吹的气体，能够使毫毛变化成多个自己）', '狂风:老妖吹起的，使多个悟空在空中旋转的风）', '三股钢叉:老妖的武器，用于与悟空战斗）', '三花九子膏:专治风眼的药物，由老大爷提供>一种药，专治风眼，由老大爷提供）', '老大爷:提供住宿和三花九子膏的人，实际上是护法伽蓝变化）']}
+19:27:00,718 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:00,719 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['僧衣:僧衣是猪八戒成为僧人后穿戴的衣物>', '僧鞋:僧鞋是猪八戒成为僧人后穿戴的鞋子>', '僧帽:僧帽是猪八戒成为僧人后穿戴的帽子>', '九齿钉耙:', '老婆:指的是八戒的妻子，是他情感上的牵挂，也是他考虑还俗的原因', '还俗:还俗是指八戒如果无法完成取经任务，就打算回归原来的世俗生活', '经:经是指《西游记》中唐僧师徒四人要取的佛经，是他们旅程的目标', '八戒的老婆:', '冥司阎王:冥司阎王是地府的主宰，向玉皇大帝告发孙悟空的破坏行为。', '武曲星君:武曲星君是天宫中的神仙，建议给孙悟空一个低微的官职。', '文曲星:文曲星负责撰写诏书，邀请孙悟空上天宫。', '托塔李天王:托塔李天王是玉皇大帝派遣的将领之一，带领天兵天将去捉拿孙悟空。', '三太子哪吒:三太子哪吒是托塔李天王的副手，拥有强大的战斗能力，与孙悟空交战。', '巨灵神:巨灵神是天宫的先锋官，在与孙悟空的战斗中失败。', '齐天大圣府:为孙悟空在天宫修建的府邸，象征着他的称号。', '灵霄殿:灵动霄汉的“灵霄殿”是天宫中的主殿，也是重要的政治与礼仪中心。在这里，孙悟空曾挑战玉帝的权威，同样也是他被引见给至高无上的玉皇大帝的地方，标志着其身份与地位在天庭的正式确认。灵霄殿不仅是一座宫殿，它更是天庭秩序与权力的象征。']}
+19:27:00,796 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:00,798 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['木刀:孙悟空让小猴子们制作的简易兵器之二。', '妖精:占据水脏洞的混世魔王的部下，被孙悟空消灭。', '虾兵蟹将:虾兵蟹将是龙宫的兵将，他们遵从龙王的命令，为孙悟空抬出了重兵器>', '神珍铁:神珍铁是大禹治水时测定海水深浅的工具，能发光，最终变化为孙悟空的如意金箍棒>', '如意金箍棒:如意金箍棒是孙悟空的兵器，可以根据孙悟空的心意变化大小和重量，重一万三千五百斤>', '南、北、西三海龙王:南、北、西三海龙王分别是敖钦、敖顺和敖闰，他们凑齐了一套黄金甲、凤翅紫金冠和藕丝步云鞋送给孙悟空>', '妖王:妖王是孙悟空邀请的客人，在花果山上参加宴席>', '幽冥界:幽冥界，乃冥王与判官共同管理的冥界领域，亦是阎王居住之地。孙悟空曾因被勾魂鬼误带至此处，而得以在此修改生死簿，此后方才离开。这一事件在《西游记》中具有重要意义，不仅展示了孙悟空的神通广大，也揭示了幽冥界在生死轮回中的核心地位及其与神魔世界的微妙关系。', '阎王:阎王是幽冥界的统治者，掌管生死簿>', '十位冥王:十位冥王是管理生死簿的冥界神祇，他们遵从孙悟空的要求拿出生死簿', '判官:判官是冥界的官员，负责协助冥王管理生死簿', '生死簿:生死簿是记录所有生物生死信息的册子，被孙悟空修改', '地藏王菩萨:地藏王菩萨是佛教中的一位菩萨，冥王向他请示如何处理孙悟空的事情', '玉皇大帝:玉皇大帝，作为道教神话中的最高神祇，同时也是中国神话中的天帝，他掌管着天宫，拥有至高无上的权力。在天蓬元师犯错之时，玉皇大帝作出了惩罚的决定，体现了其对天界纪律的维护。此外，当孙悟空的行为引起天界不满时，玉皇大帝也表现出了对其行为的愤怒，并试图采取措施制服孙悟空。在神话体系中，即使是冥王也需要向玉皇大帝报告孙悟空的相关行为，这进一步彰显了玉皇大帝在神祇中的尊贵地位与权威。', '森罗殿:', '猪八戒:猪八戒，唐僧的二徒弟，以其直率的性格和无穷的力气而著称，擅长运用钉耙进行战斗。在《西游记》这一古典文学名著中，他是一位既憨厚又勇敢的角色，经常在旅途中为师傅和师兄弟们提供帮助，克服重重困难。尽管有时会因贪吃懒惰而惹麻烦，但猪八戒的忠诚与坚韧也是师徒四人得以圆满完成取经任务的重要因素之一。']}
+19:27:00,848 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:00,849 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['棒子:', '玉盘:一个装有两粒仙丹的盘子，原本由道士持有>', '仙丹:具有神奇效果的丹药，被孙悟空和观音菩萨用来对付黑风怪>', '佛衣:一件重要的佛教圣物，被黑风怪所窃，后被观音菩萨和孙悟空取回>', '小金圈儿:观音菩萨用来控制黑风怪的工具>', '小妖:黑风怪的下属，被观音菩萨和孙悟空吓跑>', '混世魔王:混世魔王是孙悟空的敌人，曾占据水帘洞并抢走猴子猴孙。', '花果山水帘洞:孙悟空的居所，一个荒凉破败但被孙悟空恢复生机的洞府。', '水脏洞:混世魔王的居所，后被孙悟空破坏。', '小猴子们:孙悟空的追随者，被救出后帮助孙悟空恢复水帘洞。', '通背老猿猴:一只老猴子，给孙悟空提供了去东海龙宫的建议。', '东海龙宫:东海龙王敖广的居所，拥有许多宝物。', '龙王:龙王爷是东海龙宫的主宰，他拥有丰富的宝物，并且在孙悟空求助时愿意给予帮助。他曾命令手下为孙悟空拿出多种兵器，并最终指引孙悟空获得了如意金箍棒。然而，由于孙悟空的一些行为，龙王爷也曾向玉皇大帝告状，显示出他在维护龙宫秩序和天庭法规方面的责任感和决断力。', '方天画戟:方天画戟是一种由东海龙宫提供的兵器，其重量高达七千二百斤。尽管它的分量不轻，但孙悟空在尝试使用后仍认为它不适合自己。在此过程中，我们可以看出孙悟空对兵器的独特要求和鉴赏眼光，以及东海龙宫对孙悟空的重视，愿意提供如此珍贵的武器供其挑选。', '九股叉:九股叉是一种古代兵器，重量达三千六百斤，然而在《西游记》中，孙悟空却认为它太轻，这显示了孙悟空非凡的力量和自信。尽管其中一条描述为空，但从现有的信息中我们可以得知，九股叉在中国古代文学中是一件颇具份量的武器，且与孙悟空的故事紧密相关。', '竹枪:孙悟空让小猴子们制作的简易兵器之一。']}
+19:27:00,938 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:00,939 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['五行山:五行山，又名五指山，是中国古典名著《西游记》中一个具有重大象征意义的地点。此处曾是佛祖如来的五指化作的山镇，用以囚禁桀骜不驯的孙悟空，其法力封印使得孙悟空无法逃脱。五行山不仅是取经故事的关键地点，也象征着佛法的威严与力量。后来，在唐僧师徒取经途中，唐僧到达五行山，因他的救助，五行山的封印裂开，使得孙悟空得以重获自由，并成为唐僧的大徒弟，共同完成取经的使命。这一事件也象征着悟空的转化与重生，从此开始了他的修行之路。', '观音菩萨:观音菩萨是佛教中备受尊敬的菩萨，她以大慈大悲著称，拥有高深的法力和救苦救难的神力。在《西游记》中，观音菩萨不仅是如来的使者，奉旨寻找取经人，还多次在关键时刻给予唐僧师徒以帮助和救济。她曾化身老妇人指引孙悟空回归正途，并劝导他成为唐僧的徒弟。此外，她还安排白龙马成为唐僧的坐骑，并解决了相关的冲突。观音菩萨还提出了捉拿孙悟空的建议，并指导唐僧取经，甚至教授唐僧紧箍咒以控制孙悟空。她还派遣木叉行者协助取经团队，并在途中劝导妖怪改邪归正，指引他们走上正确的取经之路。她的慈悲心肠和智慧行动，为唐僧一行人克服重重困难，最终成功取得真经提供了重要的支持。', '如来佛:如来佛，作为佛教中的最高神祇，具有无上的权威与神通。在《西游记》这一古典文学名著中，如来佛发出法旨，指令观音菩萨去寻找适合的取经人，以完成重要的佛教使命。同时，也是如来佛以巨大的法力将桀骜不驯的孙悟空压在五行山下，直至唐僧师徒一行人开始西天取经的旅程，孙悟空才得以重获自由。如来佛的这些行为不仅体现了他在佛教界的至高地位，也展示了他对于宇宙秩序与修行者教化的深刻影响。', '惠岸行者:惠岸行者是观音菩萨的随从，一同来到东土大唐', '东土大唐:东土大唐是故事发生的主要地点，是取经人的起点', '唐太宗李世民:唐太宗李世民是唐朝的皇帝，命令陈玄奘取经', '陈玄奘:陈玄奘是唐朝的高僧，被选为取经人，是金蝉子转世', '金蝉子:金蝉子是如来佛的弟子，转世为陈玄奘', '唐三藏:陈玄奘的名字被唐太宗改为唐三藏，是取经的主要人物', '熊山君:熊山君乃一妖怪，与寅将军结伴而行。在《西游记》中，二者共同出现，熊山君曾提议仅以两人为食，足见其狡猾与凶残。此一描述不仅揭示了熊山君与寅将军的同盟关系，也反映了其时妖怪的残酷本性与对人类生命的轻视。', '特处士:特处士是妖怪，与熊山君一同拜访寅将军', '寅将军:寅将军，一名妖怪，自称魔王，曾在《西游记》中打算以唐僧师徒招待客人。他性格残忍，曾吃掉唐僧的两个仆人。在此，我们可以看出寅将军的邪恶本质及其对唐僧一行人的威胁。', '五件宝贝:五件宝贝是观音菩萨带来的宝物，包括锦袈裟，用于交换取经人的承诺>', '东土大唐的边界河州:这是大唐边界的具体地点，唐僧一行人在此遇到了困难>', '镇边总兵:镇边总兵是在河州的地方官员，接待了唐僧主仆>', '福原寺:福原寺是唐僧一行人在河州休息的地方>']}
+19:27:01,167 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:01,167 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['金箍棒:金箍棒，孙悟空之武器，具备变化大小与长度的神奇特性，威力无与伦比。在《西游记》的诸多场景中，悟空多次欲用它来对付唐僧，显示出其战斗用途。事实上，金箍棒不仅用于战斗攻击敌人，还曾用来打碎洞门，充分展现了其在不同情境下的多功能性。', '饿不死，冻不坏的神猴:这是对孙悟空的一种描述，强调了他的神奇能力和不屈的精神状态。）', '虎皮:虎皮是孙悟空用老虎的皮制成的衣物，围在腰间。）', '强盗的刀枪:强盗们用来攻击孙悟空的武器，未能伤害他。）', '筋斗云:筋斗云是孙悟空所掌握的一种非凡的交通工具，也是他的一项特殊技能。它能够让孙悟空在空中快速飞行，实现长距离的迅速移动。这朵云不仅象征着孙悟空的神通广大，同时也体现了他在《西游记》中的重要地位和超凡的能力。', '花果山:花果山，位于东胜神洲傲来国，乃孙悟空——美猴王的诞生地。山中有一块仙石，孕育了这位传奇的猴子。此山不仅是孙悟空的故乡，也是他曾在愤怒之下欲返回之地，更是他当年纵身驾云，离开师傅唐僧的起始点，开启了他传奇的《西游记》之旅。', '紧箍咒:紧箍咒是一种神奇的咒语，被唐僧用于控制孙悟空。当唐僧念出紧箍咒时，它能够使悟空感到头痛，从而迫使他服从唐僧的命令，不敢有任何造次之举。这种咒语体现了师徒之间的权力关系和等级秩序，是《西游记》中一个具有象征意义的元素，反映了人物间的复杂互动和道德教化意图。', '东海龙王:东海的统治者，曾劝告孙悟空回心转意，并给予他饮食>', '马:马是《西游记》中重要的角色之一。在故事中，它是猪八戒在山坡上放养的动物，不仅用于代步，也是唐僧西天取经途中的坐骑，帮助他载运行李，向西行进。此外，孙悟空在天宫时，也曾被赋予看管马匹的职责，显示了马在这一经典文学作品中的特殊地位和作用。这些描述共同揭示了马在故事中的多重角色，以及它在取经团队中的重要性。', '衣服:观音菩萨赠予唐僧的物品，用于诱使孙悟空穿上并受紧箍咒控制>', '花帽:观音菩萨赠予唐僧的物品，用于诱使孙悟空戴上并受紧箍咒控制>', '老妇人:', '悟空:悟空，是《西游记》中至关重要的人物，被誉为唐僧的大徒弟。他具备高强的武艺和神通广大的能力，能够使用金箍棒与妖怪战斗，且具有丰富的变化能力，既能变化形态也能快速追赶妖怪。其性格机智、勇猛且好斗，面对困难总能巧妙应对。在故事中，无论是捉妖、解决高老庄的问题，还是保护唐僧西天取经，悟空都展现出了他的勇敢与智慧。此外，悟空还颇具幽默感，能巧妙地回应八戒的言行。即便有时因头痛困扰，他仍然是队伍中不可或缺的力量。总体而言，悟空是一个多才多艺、充满智慧与力量的角色，为取经团队立下了赫赫战功。', '师父:师父指的是唐僧，悟空的师傅，此处用紧箍咒来惩罚悟空>', '头痛:', '保护唐僧:']}
+19:27:01,218 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:01,219 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['护法伽蓝:护法伽蓝，亦称做法蓝，是具有高深法力的神仙。他们具备变化的能力，能够根据需要化身为不同的形态，如老大爷或院子，以助人为乐。在《西游记》中，护法伽蓝曾化身为老大爷和院子，为孙悟空和猪八戒提供了宝贵的帮助，展现了其神通广大和慈悲为怀的本性。这些描述不仅突出了护法伽蓝的神力，也体现了他们在故事中扮演的积极角色，以及与主要角色的和谐互动。', '钉耙:八戒的武器，用于击败妖怪>', '院子:悟空和八戒请求借宿的地方，实际上是护法伽蓝变化的>', '棍棒:老大爷和年轻农夫们拿的武器，最初用来对付悟空和八戒>', '眼睛酸痛:', '战斗:', '灵吉菩萨:灵吉菩萨，佛教中的菩萨，居住于小须弥山中。他具有强大的法力，曾有能力镇压黄风怪，维护了一方的平安。在《西游记》中，当孙悟空遇到困难，欲打击妖怪时，灵吉菩萨出现并阻止了他，同时提出了合理的处理建议，显示了他不仅法力高强，也具有智慧和慈悲心肠。', '黄风怪:', '飞龙宝杖:飞龙宝杖是灵吉菩萨的宝物，可以变成八爪金龙，用于捕捉妖怪>', '八爪金龙:八爪金龙是孙悟空变化后的形态，用于抓住妖怪。', '黄毛貂鼠:黄毛貂鼠是老妖的原形，因偷吃清油而变成妖怪。', '清油:清油是琉璃灯内的物品，被黄毛貂鼠偷吃。', '金刚:金刚是佛教中的护法神，黄毛貂鼠害怕被其捉住。', '琉璃灯:', '鹰愁涧:鹰愁涧是故事发生地，白龙马在此地等待唐僧一行人', '蛇盘山:蛇盘山是唐僧师徒途径的地方，鹰愁涧位于蛇盘山']}
+19:27:01,452 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:01,453 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['东胜神洲:东胜神洲是石猴诞生地的所在大洲，傲来国位于其上', '傲来国:傲来国是一个拥有丰富兵器库的国家，正是在这里，孙悟空从中获取了其著名的兵器。此外，傲来国也是花果山的所在地，更是石猴成长的地方，对中国文学经典《西游记》中的故事发展起着至关重要的作用。这个国家不仅是一个地理背景，更是孙悟空传奇故事的摇篮。', '铁板桥:铁板桥位于水帘洞内，石猴通过它进入洞内', '泉水源:泉水源是猴子们寻找的目标，石猴成功找到了它', '石猴:', '通背猿猴:一只懂得神仙之术的猿猴，建议美猴王学习长生不老的本领>', '神仙:拥有长生不老能力的神秘生物，美猴王渴望找到并学习他们的本领>', '灵台方寸山:一座山，山上有一个斜月三星洞，菩提祖师居住的地方>', '斜月三星洞:位于灵台方寸山上，菩提祖师的居所>', '菩提祖师:芲提祖师，乃是一位隐居在斜月三星洞的神仙，他收孙悟空为徒，传授其武艺和法术。祖师不仅具备高深的法力，更拥有卓越的智慧，对孙悟空进行了全面的教育和指导，为其后来的成就奠定了坚实的基础。在《西游记》这一中国文学经典中，芲提祖师的这一角色象征着师徒关系中的传授与启迪，体现了中国传统文化中对知识和技能传承的重视。', '仙童:菩提祖师的徒弟，其中一个带领孙悟空进入洞府>', '青年人:一个在树林里砍柴的普通人，向美猴王指点了灵台方寸山的方向>', '石碑:石碑位于黑风洞前，与斜月三星洞相对，立于山岗之上。其上刻有“黑风山黑风洞”的字样，明确了其与黑风洞的关联，同时也作为对该地区的一个重要地标。通过对石碑的描述，我们可以了解到它在地理位置上具有标志性意义，是通往黑风洞的明显指引。', '仙童们:菩提祖师的徒弟们，站在讲道台下>', '东南风:', '祖师:祖师，即孙悟空的师傅，被尊称为菩提祖师，他不仅拥有高深的法力，更具备卓越的教学能力。在《西游记》中，他对孙悟空的行为和态度产生了重要影响，通过教训和指导，赋予孙悟空丰富的武艺和智慧，为其后来的西天取经之路奠定了坚实的基础。菩提祖师的智慧和法力在故事中是备受推崇的，他的形象象征着师徒之间的重要关系和传承。']}
+19:27:01,607 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:01,608 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:01,609 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['南海:南海是观音菩萨的居所，悟空想去那里找观音菩萨理论>', '西天取经:', '唐僧师徒:唐僧师徒是由唐僧、孙悟空、猪八戒和沙和尚组成的取经团队，他们正在前往西天的路上>', '黄风岭:在《西游记》这部古典文学作品中，黄风岭（\\u9ec4\\u98ce\\u5cad）是一个重要的场景。它是黄风洞所在的山岭，唐僧师徒在此地小心翼翼地前行，这里被认为是他们取经路上遭遇的诸多险境之一。黄风岭不仅是地理环境上的险要之地，也是充满了妖魔鬼怪的奇幻世界，充分体现了这部作品中对于自然界与神话传说的深度融合。', '流沙河:流沙河是《西游记》中一条宽阔且汹涌的河流，位于取经团队必经之路上，河中藏有妖怪，对唐僧师徒四人构成了威胁和考验。这一地点不仅地理环境特殊，而且在整个故事中具有重要的象征意义，代表着西天取经路上的艰难险阻。', '八戒:八戒，亦称猪悟能，是《西游记》中的重要角色，身为唐僧的次徒，原为天蓬元帅，后因犯错被贬下凡间，成为高老庄的妖怪。他拥有一定的法力，性格中虽带有贪吃懒惰的特点，但忠心耿耿，诚实且勇敢。在故事中，他不仅负责照看马匹，还与孙悟空并肩作战，共同打败妖怪并救出师傅唐僧。一次在山坡放马时，他还巧妙地使用钉耙击败了作恶的妖怪，显示了他并非只有愚蠢的言论，而是具有实际行动的能力。此外，八戒对婚姻也表现出了自己的担忧，体现了角色内心的细腻情感。', '木叉行者:木叉行者是观音菩萨的高徒，受菩萨之命，作为其使者前往助唐僧一行。他携带着具有神秘力量的红葫芦，在旅程中为唐僧师徒提供了重要的帮助，尤其是在收服沙和尚的过程中发挥了关键作用。', '沙和尚:沙和尚，唐僧的徒弟之一，原名为悟净。在被唐僧收服之后，他改名为沙和尚。在《西游记》这一古典文学作品中，沙和尚以其忠诚和坚韧的性格，成为取经团队中的重要一员，与孙悟空、猪八戒一同协助唐僧西天取经，克服重重困难，展现了深厚的师徒情谊和集体合作精神。尽管关于他的描述信息有限，但他在故事中的形象鲜明，深入人心。', '悟净:悟净是沙和尚的别名，原本是流沙河的妖怪，后成为唐僧的徒弟>', '九个骷髅:九个骷髅是沙和尚的宝物，可以化作阴风>', '红葫芦:红葫芦是观音菩萨的宝物，可以变成小船>', '白龙马:白龙马，原为西海龙王的儿子，因犯死罪而被观音菩萨安排于鹰愁涧。后来，他皈依佛门，成为唐僧的忠实坐骑，并助力唐僧一行人取得真经。他的身份由龙王的贵裔转变为取经路上的重要一员，体现了其深刻的转变与修行之路。', '美猴王:美猴王，乃是从仙石中诞生的石猴，不仅具备卓越的领导能力，还拥有非凡的身体能力，因此深受其他猴子的尊敬，被尊称为王。作为猴子之王，他带领群猴游历山水之间，心中充满着对长生不老境界的渴望。在《西游记》这一古典文学名著中，美猴王以其独特的地位和能力，成为了读者心中难以忘怀的角色。', '仙石:仙石在花果山上，崩裂后诞生了美猴王', '猴子们:花果山中，有一群普通的猴子，它们忠诚地跟随美猴王，并在那里过着快乐的生活。这群猴子不仅与美猴王共同生活在水帘洞中，还曾在其寻求长生不老之路时，齐心协力帮助美猴王制作木筏，送他出海寻找更高的修炼之道。这些猴子体现了团结协作的精神，是美猴王身边不可或缺的伙伴。', '水帘洞::\\u6c34\\u5e18\\u6d1e(\\u6c34\\u5e18\\u6d1e)\\u662f\\u65e0\\u72ec\\u5904\\u4e8e\\u8377\\u679c\\u5c71\\u4e2d\\u7684\\u4e00\\u4e2a\\u795e\\u79d8\\u5dee\\u7a9f\\uff0c\\u5b83\\u7531\\u6c34\\u5e18\\u6210\\u4e3a\\u9632\\u58c1\\u3002\\u8fde\\u4e4b\\u672a\\u51fa\\u7684\\u6597\\u732b\\u77f3\\u732b\\u53d1\\u73b0\\u4e86\\u8be5\\u5dee\\u7a9f\\uff0c\\u5e76\\u628a\\u5176\\u5f04\\u6210\\u4e86\\u72ec\\u81ea\\u548c\\u72ec\\u7acb\\u7684\\u5bb6\\u56ed\\u3002\\u5728\\u8c01\\u5e72\\u516c\\u5b50\\u7684\\u6545\\u4e8b\\u4e2d\\uff0c\\u6885\\u5c71\\u516d\\u5144\\u5f1f\\u5c31\\u662f\\u8d1f\\u8d23\\u5165\\u4fb5\\u6c34\\u5e18\\u6d1e\\u7684\\u3002\\u8be5\\u5dee\\u7a9f\\u4e5f\\u6210\\u4e3a\\u4e86\\u72ec\\u5b50\\u4eec\\u7684\\u5bb6\\u5eAD\\u3002\\u6c34\\u5e18\\u6d1e\\u4e0d\\u4ec5\\u662f\\u4e00\\u4e2a\\u5b89\\u5168\\u7684\\u9694\\u75c5\\u5730\\uff0c\\u8fd8\\u662f\\u72ec\\u5b50\\u4eec\\u7684\\u795']}
+19:27:01,610 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['西海龙王:', '经过:', '高老庄:高老庄是一个村庄，其庄主高太公在此地寻找能够捉拿妖怪的法师。这个村庄在妖怪的叙述中曾被提及，并且后来成为妖怪被带去见唐僧的地点。在《西游记》这一中国古典文学名著中，高老庄不仅是故事情节的一个重要环节，也反映了当时社会对于神秘力量和宗教信仰的寻求与依赖。', '高太公:高太公，高老庄之庄主，其家中有一女，深受妖怪女婿所扰。此情节源自中国古典名著《西游记》，通过这一角色和事件，展现了古代社会家庭与神秘力量之间的冲突与互动。高太公作为一庄之主，其家庭的不幸遭遇也反映了当时人们对于超自然现象的恐惧与无奈。', '三女儿:高太公的第三个女儿，曾被妖怪锁在后院，后来被悟空解救>', '天蓬元师:天蓬元师原是天上的神仙，因调戏嫦娥被贬下凡，成为猪八戒的前身', '王母娘娘:王母娘娘，是中国神话中的一位重要女神，她位居天庭，负责掌管那里的宴会事宜。其中，最为人所知的宴会便是蟠桃会。在这个盛大的宴会中，王母娘娘不仅举办聚会，还曾派遣七位仙女前往采摘蟠桃，以供宴会之用。这些描述充分展现了王母娘娘在天庭中的崇高地位以及她在神话传说中的重要作用。', '嫦娥:嫦娥是中国神话中的月亮女神，被天蓬元师调戏', '弼马温:弼马温是悟空在天宫时的职位，被妖怪提及以嘲讽>', '天宫:天宫是悟空大闹的地方，与妖怪的背景故事相关>', '广寒宫:广寒宫是嫦娥的居所，天蓬元师因闯入此处受到惩罚>', '铜锤:铜锤是天蓬元师被惩罚时使用的刑具>', '凡间:凡间是天蓬元师被贬下界的地方>', '猪胎:猪胎是天蓬元师错误投胎的对象>', '洞门:洞门是妖怪藏身的地方，被悟空打碎>', '云栈洞:云栈洞是妖怪的居所，被他和悟空放火烧毁>']}
+19:27:01,698 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:01,698 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:01,699 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['唐僧的两个仆人:唐僧的随从，一同前往西天取经>', '妖怪:妖怪“妖怪”在《西游记》中是一个居住在流沙河的生物，曾与唐僧师徒发生冲突，并在与悟空的战斗中腰酸腿痛，后被揭示其真身是一只老虎。此外，他还曾化为猪头，原是福陵山人，后被悟空捉拿。这个神秘生物在故事中曾抓住唐僧主仆，但其真实身份是天蓬元师，因犯错被贬下凡间。在故事的后期，他改邪归正，愿意跟随唐僧取经，体现了人物性格的转变和救赎。', '锦袈裟:', '魔王:魔王是一个邪恶的存在，被称为寅将军，打算用唐僧等人招待客人', '唐僧:唐僧，又称唐三藏，是《西游记》中的核心人物，一位来自唐朝的僧人，奉皇命前往西天取经。他信仰虔诚，心怀慈悲，拥有高尚的品德和深厚的佛法修为。在取经的旅途中，他先后收孙悟空、猪八戒等人为徒，组成了一个取经团队。唐僧作为团队首领，带领徒弟们克服重重困难和挑战，其中包括孙悟空因紧箍咒而受其控制，以及遭遇妖怪袭击被徒弟们救出的经历。在旅途中，他们也曾寻找被偷的袈裟，唐僧对袈裟的下落焦急万分。此外，他还曾差点被寅将军吓昏，幸得神秘老人相救，也曾被白龙马追击，所幸得到孙悟空的救助。尽管在孙悟空离开时感到无助，但在观音菩萨的帮助下，他始终坚持取经的使命，展现了坚定的意志和领导力。', '神秘老人:神秘老人救了唐僧，并指引他离开双叉岭，实为太白金星', '太白金星:太白金星，是中国神话中的一位重要神仙，他在《西游记》中扮演了多重角色，展现了其深邃的智慧与神通。他不仅是天宫中的神仙，还曾暗中帮助孙悟空，为其提供助力。在故事中，太白金星曾以神秘老人的形象出现，帮助唐僧，并在完成任务后乘鹤神秘飞走。此外，他还曾为天蓬元师求情，显示出其慈悲为怀的一面。在处理孙悟空的问题上，太白金星提出了安抚的策略，并负责传达天意，显现出他在天庭中的地位及其对大局的洞察力。总的来说，太白金星是一个层次丰富、形象多面的神仙，其行为和角色在《西游记》中具有重要的文化象征意义。', '刘伯钦:刘伯钦，一位猎户，他在《西游记》中不仅是救助唐僧并热情邀请他到自己家中作客的善良之人，还是唐僧早期的护法。在故事中，刘伯钦起到了关键作用，协助唐僧救出了被压在五指山下的孙悟空，为唐僧取经之路提供了重要的帮助。他的行为不仅体现了其个人的英勇和仁慈，也映射了古代中国社会中对于忠诚与助人为乐的价值观。', '两界山:两界山是一座重要的地标，分隔大唐和鞑靼的疆域', '孙悟空:孙悟空，亦称美猴王，是《西游记》中的核心人物，具有高强的武艺和神通广大的变化能力。他原是花果山水帘洞的主人，后拜师菩提祖师学得仙法和筋斗云。因其叛逆但忠诚的性格，以及急躁和顽皮的个性，孙悟空曾在故事中大闹天宫和龙宫，获得了如意金箍棒。他因偷吃蟠桃和金丹而引发了一系列事件，最终被如来佛祖压在五行山下。后来，他成为唐僧的大徒弟，保护唐僧西天取经，途中展现出机智勇敢的一面，与各种妖魔鬼怪战斗，并最终使白龙马屈服。孙悟空不仅力大无穷，能长生不老，还曾要求查看并修改生死簿，显示了他对自由和力量的追求。他的故事充满了对权威的挑战和对师徒情感的深刻描绘。', '毒蛇:毒蛇在唐僧四周出现，吐着红信，增加了唐僧的危险>', '有毒的虫子:有毒的虫子是唐僧四周的危险之一，增加了他的困境>', '从未见过的野兽:这些未知的野兽包围了唐僧，使他感到更加无助>', '凶恶的老虎:', '老虎:一只大老虎在唐僧和孙悟空取经路上出现，被孙悟空用金箍棒打死。', '强盗:六个强盗试图抢夺唐僧师徒的马和行李，后被孙悟空打死。']}
+19:27:01,700 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['七宝灵台:一个珍贵的平台，如来佛祖在此接受各路神仙的朝拜和礼物', '五根肉红色的柱子:', '佛祖:佛祖是佛教中的最高神祇，对孙悟空施以惩罚，并给予指示。|', '山神:山神被如来佛祖叫来，负责监押孙悟空。|', '五方揭谛:五方揭谛被如来佛祖指派与山神一同监押孙悟空。|', '溶化的铜水:溶化的铜水是给孙悟空的饮料，用于在他渴时提供。|', '铁丸子:', '刑期:刑期指的是孙悟空被囚禁的时间限制，五百年后有人来救他。|']}
+19:27:01,897 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:01,899 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['师兄们:师兄们是孙悟空的同伴，一同在祖师门下学习，他们对孙悟空的态度和行为有所反应。', '长生不老的法术:长生不老的法术是孙悟空追求的目标，也是祖师教授给他的重要技能之一。', '七十二般变化:七十二般变化是孙悟空学会的一种法术，能让他变化成不同的形态。', '法术:法术是祖师教授给孙悟空的各种技能，包括长生不老、七十二般变化等。', '三更:三更是中国古时的时间单位，指深夜的时候，孙悟空在这个时间进入祖师的房间学习法术。', '暗谜:暗谜是菩提祖师用来测试孙悟空智慧的一种方式，通过这种方式祖师发现了孙悟空的聪明才智。', '夏天:夏天是故事发生的一个季节，孙悟空在这个季节与师兄们玩耍，并展示自己的变化能力。', '大树:孙悟空在师兄们面前变成了一棵大树，作为展示自己变化能力的一种形式。', '观音院:观音院，位于幽静的山谷之中，是一座唐僧师徒曾到达的寺庙，也是和尚们居住和修行的场所。它在《西游记》中占据着重要地位，不仅是唐僧师徒的暂住地，而且是故事中一系列重要事件的发生地。值得一提的是，观音院曾遭受火灾，现位于黑风山的北面，这一历史痕迹为其增添了更多的文化内涵和故事色彩。', '和尚:和尚是观音院的僧人，他们在寺庙被烧毁后感到惊恐。尽管遭受此不幸，他们依然对唐僧师徒表示了尊敬，并热情邀请他们进入观音院休息。这体现了这些僧人对师徒四人的敬意以及佛教中好客的传统美德。', '袈裟:桑悟禅是唐僧的珍贵宝物“袈裟”，它是一件价值连城的佛衣，在《西游记》中为老和尚所羡慕。后来唐僧借给了这位老和尚，却不幸被其设计陷害。在某段情节中，这件袈裟还被黑风怪偷走。这一系列事件体现了袈裟不仅是物质上的宝贵，也成为了故事中人物争斗和心机较量的象征。', '老和尚:老和尚，又称之和尚，是观音院中的一位年长的僧人。他与黑风怪有所交情。然而，由于贪心作祟，他竟然设计陷害了唐僧及其师徒一行人。在这一行为背后，体现了某些古典文学作品中人物因私欲而背离佛门宗旨的复杂性格描写，同时也映射出《西游记》中人物之间错综复杂的关系和道德冲突。', '广目天王:广目天王，作为南天门的守护神，具有高强的法力，掌管着避火罩这件宝贵的神器。在《西游记》中，他曾将此宝借给了孙悟空，助其在火焰山一劫中得以安然无恙。故事后期，悟空完成了自己的使命，也将避火罩归还给了广目天王。广目天王作为天庭的神仙，其地位尊崇，在神仙谱系中占有重要的一席之地。', '避火罩:避火罩是广目天王的宝物，具有抵御火焰的神奇功效。在《西游记》中，孙悟空曾借来此宝物，用以保护唐僧免受火焰的伤害。这一情节体现了避火罩的重要性和广目天王对取经团队的暗中支持。', '黑风怪:黑风怪，乃居于黑风山黑风洞中的一妖怪，因观音院遭遇火灾，便起了贪念，意欲乘机劫掠。在《西游记》中，此怪与孙悟空成为了对手，身披乌金甲，手持黑缨枪，曾与悟空交战。然而，最终在观音菩萨和孙悟空的智谋之下，黑风怪被设计制服，其恶行受到了应有的惩罚。这一故事不仅体现了中国古典文学中正义战胜邪恶的主题，也反映了佛教中因果报应的教义。', '南天门:南天门作为天宫的重要门户之一，是连接天界与人间的要道。在《西游记》中，孙悟空因不满天庭的束缚，曾从此地突破重围，杀出南天门，展现了他的神通与反抗精神。此外，南天门也有天兵天将守护，以确保天界的安全。在故事中，孙悟空也曾前往南天门，借避火罩以应对后续的挑战。这一地点不仅体现了天庭的威严与层级，也映射了孙悟空的智勇与不屈不挠的精神。']}
+19:27:04,968 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:04,968 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:04,969 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['木刀:孙悟空让小猴子们制作的简易兵器之二。', '妖精:占据水脏洞的混世魔王的部下，被孙悟空消灭。', '虾兵蟹将:虾兵蟹将是龙宫的兵将，他们遵从龙王的命令，为孙悟空抬出了重兵器>', '神珍铁:神珍铁是大禹治水时测定海水深浅的工具，能发光，最终变化为孙悟空的如意金箍棒>', '如意金箍棒:如意金箍棒是孙悟空的兵器，可以根据孙悟空的心意变化大小和重量，重一万三千五百斤>', '南、北、西三海龙王:南、北、西三海龙王分别是敖钦、敖顺和敖闰，他们凑齐了一套黄金甲、凤翅紫金冠和藕丝步云鞋送给孙悟空>', '妖王:妖王是孙悟空邀请的客人，在花果山上参加宴席>', '幽冥界:幽冥界，乃冥王与判官共同管理的冥界领域，亦是阎王居住之地。孙悟空曾因被勾魂鬼误带至此处，而得以在此修改生死簿，此后方才离开。这一事件在《西游记》中具有重要意义，不仅展示了孙悟空的神通广大，也揭示了幽冥界在生死轮回中的核心地位及其与神魔世界的微妙关系。', '阎王:阎王是幽冥界的统治者，掌管生死簿>', '十位冥王:十位冥王是管理生死簿的冥界神祇，他们遵从孙悟空的要求拿出生死簿', '判官:判官是冥界的官员，负责协助冥王管理生死簿', '生死簿:生死簿是记录所有生物生死信息的册子，被孙悟空修改', '地藏王菩萨:地藏王菩萨是佛教中的一位菩萨，冥王向他请示如何处理孙悟空的事情', '玉皇大帝:玉皇大帝，作为道教神话中的最高神祇，同时也是中国神话中的天帝，他掌管着天宫，拥有至高无上的权力。在天蓬元师犯错之时，玉皇大帝作出了惩罚的决定，体现了其对天界纪律的维护。此外，当孙悟空的行为引起天界不满时，玉皇大帝也表现出了对其行为的愤怒，并试图采取措施制服孙悟空。在神话体系中，即使是冥王也需要向玉皇大帝报告孙悟空的相关行为，这进一步彰显了玉皇大帝在神祇中的尊贵地位与权威。', '森罗殿:', '猪八戒:猪八戒，唐僧的二徒弟，以其直率的性格和无穷的力气而著称，擅长运用钉耙进行战斗。在《西游记》这一古典文学名著中，他是一位既憨厚又勇敢的角色，经常在旅途中为师傅和师兄弟们提供帮助，克服重重困难。尽管有时会因贪吃懒惰而惹麻烦，但猪八戒的忠诚与坚韧也是师徒四人得以圆满完成取经任务的重要因素之一。']}
+19:27:04,970 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['宣花斧:宣花斧是巨灵神的武器，在与孙悟空的战斗中被毁。', '蟠桃园:蟠桃园，分为前、中、后三部分，每部拥有一千二百棵桃树，其结出的桃子具有神奇效果，是位于天宫中的果园。后来，孙悟空被派遣到此，负责看管蟠桃园，守护这些珍贵的仙果。在此背景下，蟠桃园不仅成为了神话故事中的重要地点，也反映了了中国古代文化中对神仙世界的想象与构建。', '玉帝:玉帝是天庭的主宰和最高统治者，他同意太上老君将孙悟空炼化的提议，以维护天庭的秩序。在孙悟空挑战天庭的权威时，玉帝深感其闲散生事的能力可能带来麻烦，因此安排孙悟空管理蟠桃园，既是对其能力的肯定，也是为了在天庭中为其安排合适的职位，以避免潜在的混乱。作为掌管天庭的最高神祇，玉帝的这一决策体现了他的智慧与对天庭层级结构的深刻理解。', '七位仙女:七位仙女奉王母娘娘之命进园摘桃，意外惊醒了孙悟空', '瑶池:瑶池是举办蟠桃会的地方，孙悟空曾偷偷进入并饮酒', '太上老君:太上老君是道教中的高级神祇，位列天庭，他拥有强大的法宝金钢琢，并在《西游记》中提议将孙悟空放入八卦炉中炼化，以期消除其身上的妖气。同时，太上老君还精于炼制金丹，他的兜率宫藏有珍贵的丹药，然而不幸的是，孙悟空曾闯入他的兜率宫，引发了一系列的故事情节。在这些描述中，我们可以看出太上老君不仅地位崇高，法力无边，而且与孙悟空之间存在着复杂的互动关系。', '李天王:李天王是天庭中的武将，奉命捉拿孙悟空', '哪吒太子:哪吒太子是李天王的儿子，也参与了捉拿孙悟空的行动', '二郎神:二郎神，乃是一位法力高强的神祇。根据传说，他曾与孙悟空展开过一场激烈的战斗，在交锋中，二郎神展示了他能变化形态的神通。此外，他还受命带领梅山六兄弟，共同捉拿孙悟空，彰显了其尊贵的地位和在神界的权能。在这些故事中，二郎神的形象既是一位英勇善战的斗士，也是一位忠诚执行天命的神灵。', '梅山六兄弟:梅山六兄弟，乃二郎神的得力助手，在《西游记》中，他们与二郎神一同前往花果山，合力捉拿孙悟空。在这一过程中，他们展现了忠诚与勇猛，是故事中具有代表性的团体之一。', '定身法:孙悟空的一种法术，能够使他人定住不动）', '瞌睡虫:孙悟空变化出的虫子，可以使他人陷入沉睡）', '照妖镜:照妖镜是一件能够揭示妖怪原形的宝物，它在《西游记》中扮演了重要角色。该宝物不仅被二郎神使用，以识别并揭露妖怪的真实形态，同时也是李天王所依赖的法器，能够照出妖魔的原形。这件宝物在中国古代神话中象征着光明与正义的力量，能够辨识真伪，帮助正义的力量战胜邪恶。', '八卦炉:用于炼化丹药和物品的炉子，孙悟空在其中炼就了火眼金睛', '金钢琢:太上老君的宝物，能够对敌人造成伤害，曾用来攻击孙悟空', '斩妖台:斩妖台是天庭中用于处决妖怪的地方，孙悟空曾被绑在这里']}
+19:27:05,157 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:05,158 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['兜率宫:兜率宫是太上老君的居所，也是孙悟空被炼化的地方', '巽宫:八卦炉中的一个位置，因只有烟没有火，孙悟空在其中避难', '哮天犬:', '如意棒:孙悟空的武器，可以随心所欲地变化大小和威力', '三十六员雷将:保护玉帝的神仙，阻止孙悟空的进攻', '二十八座星宿:赶来保护玉帝的神仙，帮助抵挡孙悟空', '如来佛祖:佛教中的最高神祇，被请来帮助解决孙悟空的问题', '阿傩:阿傩是佛教中的尊者，身份尊贵，担任如来佛祖的随从，专责处理孙悟空相关的事务。他不仅是位神仙，而且在佛教中担任接收礼物并遵照佛祖指示行事的要职，体现了其在佛教体系中的崇高地位和重要作用。阿傩的形象和行为，在《西游记》这一古典文学作品中，富含深厚的宗教文化象征意义。', '伽叶:伽叶，佛教中的神仙尊者，与阿傩共同承担执行佛祖任务的使命，一同前来协助如来佛祖，体现了其在佛教中的重要地位与作用。在佛教的经典文化中，伽叶以虔诚和智慧闻名，是佛教教义的重要传播者。', '安天大会:玉帝为庆祝孙悟空被镇压而举办的盛大活动玉帝为感谢如来佛祖而设的庆祝活动', '各路神仙:', '齐天大圣到此一游:孙悟空在撑天柱子上留下的标记，显示了他的存在和反抗精神', '巡查官:巡查官是负责监视妖猴孙悟空的天庭官员，其主要职责是密切观察孙悟空的动向，并在发现任何异常情况时，及时向佛祖汇报。他们是天庭秩序的维护者，通过对孙悟空的监管，确保天界的和谐不受干扰。在这一职责中，巡查官体现了天庭的权威和层级结构，同时也突显了孙悟空在天界中的重要地位及其所受到的关注。', '妖猴:妖猴是指孙悟空，这一称呼突显了他不受约束、调皮捣蛋的特性。据古典文学作品《西游记》记载，因其调皮捣蛋，孙悟空被佛祖囚禁于五行山下，直至唐僧经过，才得以解救，并开始了取经的西天之旅。这个称呼不仅体现了孙悟空的个性，也反映了他在故事中的重要转变，从一个无法无天的妖猴，成为了一位助人为乐、保护师父的忠诚弟子。', '太玄宫:天宫中的一个宫殿，用于举办重要的仪式和活动', '洞阳玉馆:天宫中的另一个重要场所，用于接待尊贵的客人']}
+19:27:05,197 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:05,199 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['棒子:', '玉盘:一个装有两粒仙丹的盘子，原本由道士持有>', '仙丹:具有神奇效果的丹药，被孙悟空和观音菩萨用来对付黑风怪>', '佛衣:一件重要的佛教圣物，被黑风怪所窃，后被观音菩萨和孙悟空取回>', '小金圈儿:观音菩萨用来控制黑风怪的工具>', '小妖:黑风怪的下属，被观音菩萨和孙悟空吓跑>', '混世魔王:混世魔王是孙悟空的敌人，曾占据水帘洞并抢走猴子猴孙。', '花果山水帘洞:孙悟空的居所，一个荒凉破败但被孙悟空恢复生机的洞府。', '水脏洞:混世魔王的居所，后被孙悟空破坏。', '小猴子们:孙悟空的追随者，被救出后帮助孙悟空恢复水帘洞。', '通背老猿猴:一只老猴子，给孙悟空提供了去东海龙宫的建议。', '东海龙宫:东海龙王敖广的居所，拥有许多宝物。', '龙王:龙王爷是东海龙宫的主宰，他拥有丰富的宝物，并且在孙悟空求助时愿意给予帮助。他曾命令手下为孙悟空拿出多种兵器，并最终指引孙悟空获得了如意金箍棒。然而，由于孙悟空的一些行为，龙王爷也曾向玉皇大帝告状，显示出他在维护龙宫秩序和天庭法规方面的责任感和决断力。', '方天画戟:方天画戟是一种由东海龙宫提供的兵器，其重量高达七千二百斤。尽管它的分量不轻，但孙悟空在尝试使用后仍认为它不适合自己。在此过程中，我们可以看出孙悟空对兵器的独特要求和鉴赏眼光，以及东海龙宫对孙悟空的重视，愿意提供如此珍贵的武器供其挑选。', '九股叉:九股叉是一种古代兵器，重量达三千六百斤，然而在《西游记》中，孙悟空却认为它太轻，这显示了孙悟空非凡的力量和自信。尽管其中一条描述为空，但从现有的信息中我们可以得知，九股叉在中国古代文学中是一件颇具份量的武器，且与孙悟空的故事紧密相关。', '竹枪:孙悟空让小猴子们制作的简易兵器之一。']}
+19:27:05,297 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:05,298 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['天兵天将:守护南天门的兵将，对悟空的到来感到惊慌>', '黑风山:黑风山，位于观音院南面，是一座因黑风洞而得名的山脉。此处为黑风怪的居所，山中幽深，传说中的黑风洞便坐落于此，与山同名，映衬出该地神秘的色彩和深厚的文化底蕴。', '黑风洞:黑风洞是位于黑风山中的洞穴，亦是黑风怪的住所。在《西游记》中，此处成为了孙悟空和观音菩萨前往的重要地点，充满了神秘与传奇色彩。黑风洞不仅是黑风怪的居所，也是故事中一个关键的场景，反映了人物之间的复杂关系与神话传说中的神秘境界。', '木柴:', '驼背老和尚:驼背老和尚因观音院被烧和袈裟丢失而撞墙自尽>', '妖魔:妖魔是在黑风山上与黑风怪一起的怪物>', '道士:道僮原是一只伪装成道士的大灰狼，参与了佛衣盛会，但在孙悟空的慧眼下被识破并最终被打死。实际上，这位道士不仅是灵吉菩萨讲经之地的守护者或信徒，还是黑风怪的朋友，在事情败露后与黑风怪一同逃跑。这一形象在《西游记》中体现了妖魔善于伪装、混淆视听的特点，同时也反映了正义终究战胜邪恶的主题。', '白衣秀才:白衣秀才实际上是条大白花蛇，被悟空打死>', '小妖怪:小妖怪是黑风怪的部下，负责观察和报告情况。', '乌金甲:黑风怪的护身甲，增强了他的防御能力。', '黑缨枪:黑风怪的武器，用于与悟空交战。', '请柬:黑风怪邀请观音院老和尚的书面邀请，是故事中的一个重要物证。', '观音院那老和尚:观音院中的老和尚，与黑风怪有联系，增加了故事情节的复杂性。', '童子:观音菩萨的随从，协助观音菩萨执行任务。', '宝衣:悟空所拥有的珍贵衣物，之前在观音院中卖弄，导致了后续的事件。', '佛衣盛会:一个重要的宗教活动，吸引了道士等各路神仙参加。']}
+19:27:05,427 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:05,428 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['黄风大王:黄风大王是山洞的主人，手下有先锋等小妖，他抓住了唐僧并计划吃掉他。', '黄风大王的先锋:黄风大王的部下，能够变化成猛虎，与孙悟空和猪八戒交战。', '黄风洞:黄风岭上的黄风洞是《西游记》中的一个重要地点，它不仅是黄风大王的居所，同时也是妖怪的巢穴。这个洞穴恰好位于孙悟空和唐僧师徒的西行路径上，在故事中，孙悟空和八戒曾一同清剿了盘踞在此的妖怪，确保了师徒们能够安全通过。', '旋风:旋风是一个自然现象，被孙悟空用来判断附近可能有妖怪或猛虎的存在。', '赤铜刀:赤铜刀是黄风大王的先锋所使用的武器，在与猪八戒和孙悟空的战斗中出现过。', '金蝉脱壳之计:金蝉脱壳是一种计谋，黄风大王的先锋使用它来逃脱孙悟空和猪八戒的追捕。', '定风柱:定风柱是黄风洞中用来绑住唐僧的柱子，以防他被风吹走。', '斑斓猛虎:', '先锋:被悟空拦住去路的妖怪，被迫向山坡上逃跑', '老妖:老妖，原身为一只黄毛貂鼠，曾遭八爪金龙捕捉。他是黄风洞的主人，率领小妖出洞应战，曾在洞口与孙悟空展开激烈战斗，展现出其强大的实力和领导能力。在准备与小妖们共同交战的过程中，老妖彰显了其作为一方妖王的威严和决心。', '毫毛:悟空吹仙气后变成的一百多个悟空，用于包围老妖', '仙气:悟空吹的气体，能够使毫毛变化成多个自己）', '狂风:老妖吹起的，使多个悟空在空中旋转的风）', '三股钢叉:老妖的武器，用于与悟空战斗）', '三花九子膏:专治风眼的药物，由老大爷提供>一种药，专治风眼，由老大爷提供）', '老大爷:提供住宿和三花九子膏的人，实际上是护法伽蓝变化）']}
+19:27:05,607 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:05,608 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['僧衣:僧衣是猪八戒成为僧人后穿戴的衣物>', '僧鞋:僧鞋是猪八戒成为僧人后穿戴的鞋子>', '僧帽:僧帽是猪八戒成为僧人后穿戴的帽子>', '九齿钉耙:', '老婆:指的是八戒的妻子，是他情感上的牵挂，也是他考虑还俗的原因', '还俗:还俗是指八戒如果无法完成取经任务，就打算回归原来的世俗生活', '经:经是指《西游记》中唐僧师徒四人要取的佛经，是他们旅程的目标', '八戒的老婆:', '冥司阎王:冥司阎王是地府的主宰，向玉皇大帝告发孙悟空的破坏行为。', '武曲星君:武曲星君是天宫中的神仙，建议给孙悟空一个低微的官职。', '文曲星:文曲星负责撰写诏书，邀请孙悟空上天宫。', '托塔李天王:托塔李天王是玉皇大帝派遣的将领之一，带领天兵天将去捉拿孙悟空。', '三太子哪吒:三太子哪吒是托塔李天王的副手，拥有强大的战斗能力，与孙悟空交战。', '巨灵神:巨灵神是天宫的先锋官，在与孙悟空的战斗中失败。', '齐天大圣府:为孙悟空在天宫修建的府邸，象征着他的称号。', '灵霄殿:灵动霄汉的“灵霄殿”是天宫中的主殿，也是重要的政治与礼仪中心。在这里，孙悟空曾挑战玉帝的权威，同样也是他被引见给至高无上的玉皇大帝的地方，标志着其身份与地位在天庭的正式确认。灵霄殿不仅是一座宫殿，它更是天庭秩序与权力的象征。']}
+19:27:05,707 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:05,708 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['五行山:五行山，又名五指山，是中国古典名著《西游记》中一个具有重大象征意义的地点。此处曾是佛祖如来的五指化作的山镇，用以囚禁桀骜不驯的孙悟空，其法力封印使得孙悟空无法逃脱。五行山不仅是取经故事的关键地点，也象征着佛法的威严与力量。后来，在唐僧师徒取经途中，唐僧到达五行山，因他的救助，五行山的封印裂开，使得孙悟空得以重获自由，并成为唐僧的大徒弟，共同完成取经的使命。这一事件也象征着悟空的转化与重生，从此开始了他的修行之路。', '观音菩萨:观音菩萨是佛教中备受尊敬的菩萨，她以大慈大悲著称，拥有高深的法力和救苦救难的神力。在《西游记》中，观音菩萨不仅是如来的使者，奉旨寻找取经人，还多次在关键时刻给予唐僧师徒以帮助和救济。她曾化身老妇人指引孙悟空回归正途，并劝导他成为唐僧的徒弟。此外，她还安排白龙马成为唐僧的坐骑，并解决了相关的冲突。观音菩萨还提出了捉拿孙悟空的建议，并指导唐僧取经，甚至教授唐僧紧箍咒以控制孙悟空。她还派遣木叉行者协助取经团队，并在途中劝导妖怪改邪归正，指引他们走上正确的取经之路。她的慈悲心肠和智慧行动，为唐僧一行人克服重重困难，最终成功取得真经提供了重要的支持。', '如来佛:如来佛，作为佛教中的最高神祇，具有无上的权威与神通。在《西游记》这一古典文学名著中，如来佛发出法旨，指令观音菩萨去寻找适合的取经人，以完成重要的佛教使命。同时，也是如来佛以巨大的法力将桀骜不驯的孙悟空压在五行山下，直至唐僧师徒一行人开始西天取经的旅程，孙悟空才得以重获自由。如来佛的这些行为不仅体现了他在佛教界的至高地位，也展示了他对于宇宙秩序与修行者教化的深刻影响。', '惠岸行者:惠岸行者是观音菩萨的随从，一同来到东土大唐', '东土大唐:东土大唐是故事发生的主要地点，是取经人的起点', '唐太宗李世民:唐太宗李世民是唐朝的皇帝，命令陈玄奘取经', '陈玄奘:陈玄奘是唐朝的高僧，被选为取经人，是金蝉子转世', '金蝉子:金蝉子是如来佛的弟子，转世为陈玄奘', '唐三藏:陈玄奘的名字被唐太宗改为唐三藏，是取经的主要人物', '熊山君:熊山君乃一妖怪，与寅将军结伴而行。在《西游记》中，二者共同出现，熊山君曾提议仅以两人为食，足见其狡猾与凶残。此一描述不仅揭示了熊山君与寅将军的同盟关系，也反映了其时妖怪的残酷本性与对人类生命的轻视。', '特处士:特处士是妖怪，与熊山君一同拜访寅将军', '寅将军:寅将军，一名妖怪，自称魔王，曾在《西游记》中打算以唐僧师徒招待客人。他性格残忍，曾吃掉唐僧的两个仆人。在此，我们可以看出寅将军的邪恶本质及其对唐僧一行人的威胁。', '五件宝贝:五件宝贝是观音菩萨带来的宝物，包括锦袈裟，用于交换取经人的承诺>', '东土大唐的边界河州:这是大唐边界的具体地点，唐僧一行人在此遇到了困难>', '镇边总兵:镇边总兵是在河州的地方官员，接待了唐僧主仆>', '福原寺:福原寺是唐僧一行人在河州休息的地方>']}
+19:27:05,957 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:05,958 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['护法伽蓝:护法伽蓝，亦称做法蓝，是具有高深法力的神仙。他们具备变化的能力，能够根据需要化身为不同的形态，如老大爷或院子，以助人为乐。在《西游记》中，护法伽蓝曾化身为老大爷和院子，为孙悟空和猪八戒提供了宝贵的帮助，展现了其神通广大和慈悲为怀的本性。这些描述不仅突出了护法伽蓝的神力，也体现了他们在故事中扮演的积极角色，以及与主要角色的和谐互动。', '钉耙:八戒的武器，用于击败妖怪>', '院子:悟空和八戒请求借宿的地方，实际上是护法伽蓝变化的>', '棍棒:老大爷和年轻农夫们拿的武器，最初用来对付悟空和八戒>', '眼睛酸痛:', '战斗:', '灵吉菩萨:灵吉菩萨，佛教中的菩萨，居住于小须弥山中。他具有强大的法力，曾有能力镇压黄风怪，维护了一方的平安。在《西游记》中，当孙悟空遇到困难，欲打击妖怪时，灵吉菩萨出现并阻止了他，同时提出了合理的处理建议，显示了他不仅法力高强，也具有智慧和慈悲心肠。', '黄风怪:', '飞龙宝杖:飞龙宝杖是灵吉菩萨的宝物，可以变成八爪金龙，用于捕捉妖怪>', '八爪金龙:八爪金龙是孙悟空变化后的形态，用于抓住妖怪。', '黄毛貂鼠:黄毛貂鼠是老妖的原形，因偷吃清油而变成妖怪。', '清油:清油是琉璃灯内的物品，被黄毛貂鼠偷吃。', '金刚:金刚是佛教中的护法神，黄毛貂鼠害怕被其捉住。', '琉璃灯:', '鹰愁涧:鹰愁涧是故事发生地，白龙马在此地等待唐僧一行人', '蛇盘山:蛇盘山是唐僧师徒途径的地方，鹰愁涧位于蛇盘山']}
+19:27:06,78 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:06,79 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['西海龙王:', '经过:', '高老庄:高老庄是一个村庄，其庄主高太公在此地寻找能够捉拿妖怪的法师。这个村庄在妖怪的叙述中曾被提及，并且后来成为妖怪被带去见唐僧的地点。在《西游记》这一中国古典文学名著中，高老庄不仅是故事情节的一个重要环节，也反映了当时社会对于神秘力量和宗教信仰的寻求与依赖。', '高太公:高太公，高老庄之庄主，其家中有一女，深受妖怪女婿所扰。此情节源自中国古典名著《西游记》，通过这一角色和事件，展现了古代社会家庭与神秘力量之间的冲突与互动。高太公作为一庄之主，其家庭的不幸遭遇也反映了当时人们对于超自然现象的恐惧与无奈。', '三女儿:高太公的第三个女儿，曾被妖怪锁在后院，后来被悟空解救>', '天蓬元师:天蓬元师原是天上的神仙，因调戏嫦娥被贬下凡，成为猪八戒的前身', '王母娘娘:王母娘娘，是中国神话中的一位重要女神，她位居天庭，负责掌管那里的宴会事宜。其中，最为人所知的宴会便是蟠桃会。在这个盛大的宴会中，王母娘娘不仅举办聚会，还曾派遣七位仙女前往采摘蟠桃，以供宴会之用。这些描述充分展现了王母娘娘在天庭中的崇高地位以及她在神话传说中的重要作用。', '嫦娥:嫦娥是中国神话中的月亮女神，被天蓬元师调戏', '弼马温:弼马温是悟空在天宫时的职位，被妖怪提及以嘲讽>', '天宫:天宫是悟空大闹的地方，与妖怪的背景故事相关>', '广寒宫:广寒宫是嫦娥的居所，天蓬元师因闯入此处受到惩罚>', '铜锤:铜锤是天蓬元师被惩罚时使用的刑具>', '凡间:凡间是天蓬元师被贬下界的地方>', '猪胎:猪胎是天蓬元师错误投胎的对象>', '洞门:洞门是妖怪藏身的地方，被悟空打碎>', '云栈洞:云栈洞是妖怪的居所，被他和悟空放火烧毁>']}
+19:27:06,158 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:06,158 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['金箍棒:金箍棒，孙悟空之武器，具备变化大小与长度的神奇特性，威力无与伦比。在《西游记》的诸多场景中，悟空多次欲用它来对付唐僧，显示出其战斗用途。事实上，金箍棒不仅用于战斗攻击敌人，还曾用来打碎洞门，充分展现了其在不同情境下的多功能性。', '饿不死，冻不坏的神猴:这是对孙悟空的一种描述，强调了他的神奇能力和不屈的精神状态。）', '虎皮:虎皮是孙悟空用老虎的皮制成的衣物，围在腰间。）', '强盗的刀枪:强盗们用来攻击孙悟空的武器，未能伤害他。）', '筋斗云:筋斗云是孙悟空所掌握的一种非凡的交通工具，也是他的一项特殊技能。它能够让孙悟空在空中快速飞行，实现长距离的迅速移动。这朵云不仅象征着孙悟空的神通广大，同时也体现了他在《西游记》中的重要地位和超凡的能力。', '花果山:花果山，位于东胜神洲傲来国，乃孙悟空——美猴王的诞生地。山中有一块仙石，孕育了这位传奇的猴子。此山不仅是孙悟空的故乡，也是他曾在愤怒之下欲返回之地，更是他当年纵身驾云，离开师傅唐僧的起始点，开启了他传奇的《西游记》之旅。', '紧箍咒:紧箍咒是一种神奇的咒语，被唐僧用于控制孙悟空。当唐僧念出紧箍咒时，它能够使悟空感到头痛，从而迫使他服从唐僧的命令，不敢有任何造次之举。这种咒语体现了师徒之间的权力关系和等级秩序，是《西游记》中一个具有象征意义的元素，反映了人物间的复杂互动和道德教化意图。', '东海龙王:东海的统治者，曾劝告孙悟空回心转意，并给予他饮食>', '马:马是《西游记》中重要的角色之一。在故事中，它是猪八戒在山坡上放养的动物，不仅用于代步，也是唐僧西天取经途中的坐骑，帮助他载运行李，向西行进。此外，孙悟空在天宫时，也曾被赋予看管马匹的职责，显示了马在这一经典文学作品中的特殊地位和作用。这些描述共同揭示了马在故事中的多重角色，以及它在取经团队中的重要性。', '衣服:观音菩萨赠予唐僧的物品，用于诱使孙悟空穿上并受紧箍咒控制>', '花帽:观音菩萨赠予唐僧的物品，用于诱使孙悟空戴上并受紧箍咒控制>', '老妇人:', '悟空:悟空，是《西游记》中至关重要的人物，被誉为唐僧的大徒弟。他具备高强的武艺和神通广大的能力，能够使用金箍棒与妖怪战斗，且具有丰富的变化能力，既能变化形态也能快速追赶妖怪。其性格机智、勇猛且好斗，面对困难总能巧妙应对。在故事中，无论是捉妖、解决高老庄的问题，还是保护唐僧西天取经，悟空都展现出了他的勇敢与智慧。此外，悟空还颇具幽默感，能巧妙地回应八戒的言行。即便有时因头痛困扰，他仍然是队伍中不可或缺的力量。总体而言，悟空是一个多才多艺、充满智慧与力量的角色，为取经团队立下了赫赫战功。', '师父:师父指的是唐僧，悟空的师傅，此处用紧箍咒来惩罚悟空>', '头痛:', '保护唐僧:']}
+19:27:06,317 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:06,319 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['东胜神洲:东胜神洲是石猴诞生地的所在大洲，傲来国位于其上', '傲来国:傲来国是一个拥有丰富兵器库的国家，正是在这里，孙悟空从中获取了其著名的兵器。此外，傲来国也是花果山的所在地，更是石猴成长的地方，对中国文学经典《西游记》中的故事发展起着至关重要的作用。这个国家不仅是一个地理背景，更是孙悟空传奇故事的摇篮。', '铁板桥:铁板桥位于水帘洞内，石猴通过它进入洞内', '泉水源:泉水源是猴子们寻找的目标，石猴成功找到了它', '石猴:', '通背猿猴:一只懂得神仙之术的猿猴，建议美猴王学习长生不老的本领>', '神仙:拥有长生不老能力的神秘生物，美猴王渴望找到并学习他们的本领>', '灵台方寸山:一座山，山上有一个斜月三星洞，菩提祖师居住的地方>', '斜月三星洞:位于灵台方寸山上，菩提祖师的居所>', '菩提祖师:芲提祖师，乃是一位隐居在斜月三星洞的神仙，他收孙悟空为徒，传授其武艺和法术。祖师不仅具备高深的法力，更拥有卓越的智慧，对孙悟空进行了全面的教育和指导，为其后来的成就奠定了坚实的基础。在《西游记》这一中国文学经典中，芲提祖师的这一角色象征着师徒关系中的传授与启迪，体现了中国传统文化中对知识和技能传承的重视。', '仙童:菩提祖师的徒弟，其中一个带领孙悟空进入洞府>', '青年人:一个在树林里砍柴的普通人，向美猴王指点了灵台方寸山的方向>', '石碑:石碑位于黑风洞前，与斜月三星洞相对，立于山岗之上。其上刻有“黑风山黑风洞”的字样，明确了其与黑风洞的关联，同时也作为对该地区的一个重要地标。通过对石碑的描述，我们可以了解到它在地理位置上具有标志性意义，是通往黑风洞的明显指引。', '仙童们:菩提祖师的徒弟们，站在讲道台下>', '东南风:', '祖师:祖师，即孙悟空的师傅，被尊称为菩提祖师，他不仅拥有高深的法力，更具备卓越的教学能力。在《西游记》中，他对孙悟空的行为和态度产生了重要影响，通过教训和指导，赋予孙悟空丰富的武艺和智慧，为其后来的西天取经之路奠定了坚实的基础。菩提祖师的智慧和法力在故事中是备受推崇的，他的形象象征着师徒之间的重要关系和传承。']}
+19:27:06,367 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:06,368 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['七宝灵台:一个珍贵的平台，如来佛祖在此接受各路神仙的朝拜和礼物', '五根肉红色的柱子:', '佛祖:佛祖是佛教中的最高神祇，对孙悟空施以惩罚，并给予指示。|', '山神:山神被如来佛祖叫来，负责监押孙悟空。|', '五方揭谛:五方揭谛被如来佛祖指派与山神一同监押孙悟空。|', '溶化的铜水:溶化的铜水是给孙悟空的饮料，用于在他渴时提供。|', '铁丸子:', '刑期:刑期指的是孙悟空被囚禁的时间限制，五百年后有人来救他。|']}
+19:27:06,414 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:06,415 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['南海:南海是观音菩萨的居所，悟空想去那里找观音菩萨理论>', '西天取经:', '唐僧师徒:唐僧师徒是由唐僧、孙悟空、猪八戒和沙和尚组成的取经团队，他们正在前往西天的路上>', '黄风岭:在《西游记》这部古典文学作品中，黄风岭（\\u9ec4\\u98ce\\u5cad）是一个重要的场景。它是黄风洞所在的山岭，唐僧师徒在此地小心翼翼地前行，这里被认为是他们取经路上遭遇的诸多险境之一。黄风岭不仅是地理环境上的险要之地，也是充满了妖魔鬼怪的奇幻世界，充分体现了这部作品中对于自然界与神话传说的深度融合。', '流沙河:流沙河是《西游记》中一条宽阔且汹涌的河流，位于取经团队必经之路上，河中藏有妖怪，对唐僧师徒四人构成了威胁和考验。这一地点不仅地理环境特殊，而且在整个故事中具有重要的象征意义，代表着西天取经路上的艰难险阻。', '八戒:八戒，亦称猪悟能，是《西游记》中的重要角色，身为唐僧的次徒，原为天蓬元帅，后因犯错被贬下凡间，成为高老庄的妖怪。他拥有一定的法力，性格中虽带有贪吃懒惰的特点，但忠心耿耿，诚实且勇敢。在故事中，他不仅负责照看马匹，还与孙悟空并肩作战，共同打败妖怪并救出师傅唐僧。一次在山坡放马时，他还巧妙地使用钉耙击败了作恶的妖怪，显示了他并非只有愚蠢的言论，而是具有实际行动的能力。此外，八戒对婚姻也表现出了自己的担忧，体现了角色内心的细腻情感。', '木叉行者:木叉行者是观音菩萨的高徒，受菩萨之命，作为其使者前往助唐僧一行。他携带着具有神秘力量的红葫芦，在旅程中为唐僧师徒提供了重要的帮助，尤其是在收服沙和尚的过程中发挥了关键作用。', '沙和尚:沙和尚，唐僧的徒弟之一，原名为悟净。在被唐僧收服之后，他改名为沙和尚。在《西游记》这一古典文学作品中，沙和尚以其忠诚和坚韧的性格，成为取经团队中的重要一员，与孙悟空、猪八戒一同协助唐僧西天取经，克服重重困难，展现了深厚的师徒情谊和集体合作精神。尽管关于他的描述信息有限，但他在故事中的形象鲜明，深入人心。', '悟净:悟净是沙和尚的别名，原本是流沙河的妖怪，后成为唐僧的徒弟>', '九个骷髅:九个骷髅是沙和尚的宝物，可以化作阴风>', '红葫芦:红葫芦是观音菩萨的宝物，可以变成小船>', '白龙马:白龙马，原为西海龙王的儿子，因犯死罪而被观音菩萨安排于鹰愁涧。后来，他皈依佛门，成为唐僧的忠实坐骑，并助力唐僧一行人取得真经。他的身份由龙王的贵裔转变为取经路上的重要一员，体现了其深刻的转变与修行之路。', '美猴王:美猴王，乃是从仙石中诞生的石猴，不仅具备卓越的领导能力，还拥有非凡的身体能力，因此深受其他猴子的尊敬，被尊称为王。作为猴子之王，他带领群猴游历山水之间，心中充满着对长生不老境界的渴望。在《西游记》这一古典文学名著中，美猴王以其独特的地位和能力，成为了读者心中难以忘怀的角色。', '仙石:仙石在花果山上，崩裂后诞生了美猴王', '猴子们:花果山中，有一群普通的猴子，它们忠诚地跟随美猴王，并在那里过着快乐的生活。这群猴子不仅与美猴王共同生活在水帘洞中，还曾在其寻求长生不老之路时，齐心协力帮助美猴王制作木筏，送他出海寻找更高的修炼之道。这些猴子体现了团结协作的精神，是美猴王身边不可或缺的伙伴。', '水帘洞::\\u6c34\\u5e18\\u6d1e(\\u6c34\\u5e18\\u6d1e)\\u662f\\u65e0\\u72ec\\u5904\\u4e8e\\u8377\\u679c\\u5c71\\u4e2d\\u7684\\u4e00\\u4e2a\\u795e\\u79d8\\u5dee\\u7a9f\\uff0c\\u5b83\\u7531\\u6c34\\u5e18\\u6210\\u4e3a\\u9632\\u58c1\\u3002\\u8fde\\u4e4b\\u672a\\u51fa\\u7684\\u6597\\u732b\\u77f3\\u732b\\u53d1\\u73b0\\u4e86\\u8be5\\u5dee\\u7a9f\\uff0c\\u5e76\\u628a\\u5176\\u5f04\\u6210\\u4e86\\u72ec\\u81ea\\u548c\\u72ec\\u7acb\\u7684\\u5bb6\\u56ed\\u3002\\u5728\\u8c01\\u5e72\\u516c\\u5b50\\u7684\\u6545\\u4e8b\\u4e2d\\uff0c\\u6885\\u5c71\\u516d\\u5144\\u5f1f\\u5c31\\u662f\\u8d1f\\u8d23\\u5165\\u4fb5\\u6c34\\u5e18\\u6d1e\\u7684\\u3002\\u8be5\\u5dee\\u7a9f\\u4e5f\\u6210\\u4e3a\\u4e86\\u72ec\\u5b50\\u4eec\\u7684\\u5bb6\\u5eAD\\u3002\\u6c34\\u5e18\\u6d1e\\u4e0d\\u4ec5\\u662f\\u4e00\\u4e2a\\u5b89\\u5168\\u7684\\u9694\\u75c5\\u5730\\uff0c\\u8fd8\\u662f\\u72ec\\u5b50\\u4eec\\u7684\\u795']}
+19:27:06,457 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:06,457 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:06,459 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['师兄们:师兄们是孙悟空的同伴，一同在祖师门下学习，他们对孙悟空的态度和行为有所反应。', '长生不老的法术:长生不老的法术是孙悟空追求的目标，也是祖师教授给他的重要技能之一。', '七十二般变化:七十二般变化是孙悟空学会的一种法术，能让他变化成不同的形态。', '法术:法术是祖师教授给孙悟空的各种技能，包括长生不老、七十二般变化等。', '三更:三更是中国古时的时间单位，指深夜的时候，孙悟空在这个时间进入祖师的房间学习法术。', '暗谜:暗谜是菩提祖师用来测试孙悟空智慧的一种方式，通过这种方式祖师发现了孙悟空的聪明才智。', '夏天:夏天是故事发生的一个季节，孙悟空在这个季节与师兄们玩耍，并展示自己的变化能力。', '大树:孙悟空在师兄们面前变成了一棵大树，作为展示自己变化能力的一种形式。', '观音院:观音院，位于幽静的山谷之中，是一座唐僧师徒曾到达的寺庙，也是和尚们居住和修行的场所。它在《西游记》中占据着重要地位，不仅是唐僧师徒的暂住地，而且是故事中一系列重要事件的发生地。值得一提的是，观音院曾遭受火灾，现位于黑风山的北面，这一历史痕迹为其增添了更多的文化内涵和故事色彩。', '和尚:和尚是观音院的僧人，他们在寺庙被烧毁后感到惊恐。尽管遭受此不幸，他们依然对唐僧师徒表示了尊敬，并热情邀请他们进入观音院休息。这体现了这些僧人对师徒四人的敬意以及佛教中好客的传统美德。', '袈裟:桑悟禅是唐僧的珍贵宝物“袈裟”，它是一件价值连城的佛衣，在《西游记》中为老和尚所羡慕。后来唐僧借给了这位老和尚，却不幸被其设计陷害。在某段情节中，这件袈裟还被黑风怪偷走。这一系列事件体现了袈裟不仅是物质上的宝贵，也成为了故事中人物争斗和心机较量的象征。', '老和尚:老和尚，又称之和尚，是观音院中的一位年长的僧人。他与黑风怪有所交情。然而，由于贪心作祟，他竟然设计陷害了唐僧及其师徒一行人。在这一行为背后，体现了某些古典文学作品中人物因私欲而背离佛门宗旨的复杂性格描写，同时也映射出《西游记》中人物之间错综复杂的关系和道德冲突。', '广目天王:广目天王，作为南天门的守护神，具有高强的法力，掌管着避火罩这件宝贵的神器。在《西游记》中，他曾将此宝借给了孙悟空，助其在火焰山一劫中得以安然无恙。故事后期，悟空完成了自己的使命，也将避火罩归还给了广目天王。广目天王作为天庭的神仙，其地位尊崇，在神仙谱系中占有重要的一席之地。', '避火罩:避火罩是广目天王的宝物，具有抵御火焰的神奇功效。在《西游记》中，孙悟空曾借来此宝物，用以保护唐僧免受火焰的伤害。这一情节体现了避火罩的重要性和广目天王对取经团队的暗中支持。', '黑风怪:黑风怪，乃居于黑风山黑风洞中的一妖怪，因观音院遭遇火灾，便起了贪念，意欲乘机劫掠。在《西游记》中，此怪与孙悟空成为了对手，身披乌金甲，手持黑缨枪，曾与悟空交战。然而，最终在观音菩萨和孙悟空的智谋之下，黑风怪被设计制服，其恶行受到了应有的惩罚。这一故事不仅体现了中国古典文学中正义战胜邪恶的主题，也反映了佛教中因果报应的教义。', '南天门:南天门作为天宫的重要门户之一，是连接天界与人间的要道。在《西游记》中，孙悟空因不满天庭的束缚，曾从此地突破重围，杀出南天门，展现了他的神通与反抗精神。此外，南天门也有天兵天将守护，以确保天界的安全。在故事中，孙悟空也曾前往南天门，借避火罩以应对后续的挑战。这一地点不仅体现了天庭的威严与层级，也映射了孙悟空的智勇与不屈不挠的精神。']}
+19:27:06,460 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['唐僧的两个仆人:唐僧的随从，一同前往西天取经>', '妖怪:妖怪“妖怪”在《西游记》中是一个居住在流沙河的生物，曾与唐僧师徒发生冲突，并在与悟空的战斗中腰酸腿痛，后被揭示其真身是一只老虎。此外，他还曾化为猪头，原是福陵山人，后被悟空捉拿。这个神秘生物在故事中曾抓住唐僧主仆，但其真实身份是天蓬元师，因犯错被贬下凡间。在故事的后期，他改邪归正，愿意跟随唐僧取经，体现了人物性格的转变和救赎。', '锦袈裟:', '魔王:魔王是一个邪恶的存在，被称为寅将军，打算用唐僧等人招待客人', '唐僧:唐僧，又称唐三藏，是《西游记》中的核心人物，一位来自唐朝的僧人，奉皇命前往西天取经。他信仰虔诚，心怀慈悲，拥有高尚的品德和深厚的佛法修为。在取经的旅途中，他先后收孙悟空、猪八戒等人为徒，组成了一个取经团队。唐僧作为团队首领，带领徒弟们克服重重困难和挑战，其中包括孙悟空因紧箍咒而受其控制，以及遭遇妖怪袭击被徒弟们救出的经历。在旅途中，他们也曾寻找被偷的袈裟，唐僧对袈裟的下落焦急万分。此外，他还曾差点被寅将军吓昏，幸得神秘老人相救，也曾被白龙马追击，所幸得到孙悟空的救助。尽管在孙悟空离开时感到无助，但在观音菩萨的帮助下，他始终坚持取经的使命，展现了坚定的意志和领导力。', '神秘老人:神秘老人救了唐僧，并指引他离开双叉岭，实为太白金星', '太白金星:太白金星，是中国神话中的一位重要神仙，他在《西游记》中扮演了多重角色，展现了其深邃的智慧与神通。他不仅是天宫中的神仙，还曾暗中帮助孙悟空，为其提供助力。在故事中，太白金星曾以神秘老人的形象出现，帮助唐僧，并在完成任务后乘鹤神秘飞走。此外，他还曾为天蓬元师求情，显示出其慈悲为怀的一面。在处理孙悟空的问题上，太白金星提出了安抚的策略，并负责传达天意，显现出他在天庭中的地位及其对大局的洞察力。总的来说，太白金星是一个层次丰富、形象多面的神仙，其行为和角色在《西游记》中具有重要的文化象征意义。', '刘伯钦:刘伯钦，一位猎户，他在《西游记》中不仅是救助唐僧并热情邀请他到自己家中作客的善良之人，还是唐僧早期的护法。在故事中，刘伯钦起到了关键作用，协助唐僧救出了被压在五指山下的孙悟空，为唐僧取经之路提供了重要的帮助。他的行为不仅体现了其个人的英勇和仁慈，也映射了古代中国社会中对于忠诚与助人为乐的价值观。', '两界山:两界山是一座重要的地标，分隔大唐和鞑靼的疆域', '孙悟空:孙悟空，亦称美猴王，是《西游记》中的核心人物，具有高强的武艺和神通广大的变化能力。他原是花果山水帘洞的主人，后拜师菩提祖师学得仙法和筋斗云。因其叛逆但忠诚的性格，以及急躁和顽皮的个性，孙悟空曾在故事中大闹天宫和龙宫，获得了如意金箍棒。他因偷吃蟠桃和金丹而引发了一系列事件，最终被如来佛祖压在五行山下。后来，他成为唐僧的大徒弟，保护唐僧西天取经，途中展现出机智勇敢的一面，与各种妖魔鬼怪战斗，并最终使白龙马屈服。孙悟空不仅力大无穷，能长生不老，还曾要求查看并修改生死簿，显示了他对自由和力量的追求。他的故事充满了对权威的挑战和对师徒情感的深刻描绘。', '毒蛇:毒蛇在唐僧四周出现，吐着红信，增加了唐僧的危险>', '有毒的虫子:有毒的虫子是唐僧四周的危险之一，增加了他的困境>', '从未见过的野兽:这些未知的野兽包围了唐僧，使他感到更加无助>', '凶恶的老虎:', '老虎:一只大老虎在唐僧和孙悟空取经路上出现，被孙悟空用金箍棒打死。', '强盗:六个强盗试图抢夺唐僧师徒的马和行李，后被孙悟空打死。']}
+19:27:13,200 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:13,202 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['宣花斧:宣花斧是巨灵神的武器，在与孙悟空的战斗中被毁。', '蟠桃园:蟠桃园，分为前、中、后三部分，每部拥有一千二百棵桃树，其结出的桃子具有神奇效果，是位于天宫中的果园。后来，孙悟空被派遣到此，负责看管蟠桃园，守护这些珍贵的仙果。在此背景下，蟠桃园不仅成为了神话故事中的重要地点，也反映了了中国古代文化中对神仙世界的想象与构建。', '玉帝:玉帝是天庭的主宰和最高统治者，他同意太上老君将孙悟空炼化的提议，以维护天庭的秩序。在孙悟空挑战天庭的权威时，玉帝深感其闲散生事的能力可能带来麻烦，因此安排孙悟空管理蟠桃园，既是对其能力的肯定，也是为了在天庭中为其安排合适的职位，以避免潜在的混乱。作为掌管天庭的最高神祇，玉帝的这一决策体现了他的智慧与对天庭层级结构的深刻理解。', '七位仙女:七位仙女奉王母娘娘之命进园摘桃，意外惊醒了孙悟空', '瑶池:瑶池是举办蟠桃会的地方，孙悟空曾偷偷进入并饮酒', '太上老君:太上老君是道教中的高级神祇，位列天庭，他拥有强大的法宝金钢琢，并在《西游记》中提议将孙悟空放入八卦炉中炼化，以期消除其身上的妖气。同时，太上老君还精于炼制金丹，他的兜率宫藏有珍贵的丹药，然而不幸的是，孙悟空曾闯入他的兜率宫，引发了一系列的故事情节。在这些描述中，我们可以看出太上老君不仅地位崇高，法力无边，而且与孙悟空之间存在着复杂的互动关系。', '李天王:李天王是天庭中的武将，奉命捉拿孙悟空', '哪吒太子:哪吒太子是李天王的儿子，也参与了捉拿孙悟空的行动', '二郎神:二郎神，乃是一位法力高强的神祇。根据传说，他曾与孙悟空展开过一场激烈的战斗，在交锋中，二郎神展示了他能变化形态的神通。此外，他还受命带领梅山六兄弟，共同捉拿孙悟空，彰显了其尊贵的地位和在神界的权能。在这些故事中，二郎神的形象既是一位英勇善战的斗士，也是一位忠诚执行天命的神灵。', '梅山六兄弟:梅山六兄弟，乃二郎神的得力助手，在《西游记》中，他们与二郎神一同前往花果山，合力捉拿孙悟空。在这一过程中，他们展现了忠诚与勇猛，是故事中具有代表性的团体之一。', '定身法:孙悟空的一种法术，能够使他人定住不动）', '瞌睡虫:孙悟空变化出的虫子，可以使他人陷入沉睡）', '照妖镜:照妖镜是一件能够揭示妖怪原形的宝物，它在《西游记》中扮演了重要角色。该宝物不仅被二郎神使用，以识别并揭露妖怪的真实形态，同时也是李天王所依赖的法器，能够照出妖魔的原形。这件宝物在中国古代神话中象征着光明与正义的力量，能够辨识真伪，帮助正义的力量战胜邪恶。', '八卦炉:用于炼化丹药和物品的炉子，孙悟空在其中炼就了火眼金睛', '金钢琢:太上老君的宝物，能够对敌人造成伤害，曾用来攻击孙悟空', '斩妖台:斩妖台是天庭中用于处决妖怪的地方，孙悟空曾被绑在这里']}
+19:27:13,427 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:13,428 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['木刀:孙悟空让小猴子们制作的简易兵器之二。', '妖精:占据水脏洞的混世魔王的部下，被孙悟空消灭。', '虾兵蟹将:虾兵蟹将是龙宫的兵将，他们遵从龙王的命令，为孙悟空抬出了重兵器>', '神珍铁:神珍铁是大禹治水时测定海水深浅的工具，能发光，最终变化为孙悟空的如意金箍棒>', '如意金箍棒:如意金箍棒是孙悟空的兵器，可以根据孙悟空的心意变化大小和重量，重一万三千五百斤>', '南、北、西三海龙王:南、北、西三海龙王分别是敖钦、敖顺和敖闰，他们凑齐了一套黄金甲、凤翅紫金冠和藕丝步云鞋送给孙悟空>', '妖王:妖王是孙悟空邀请的客人，在花果山上参加宴席>', '幽冥界:幽冥界，乃冥王与判官共同管理的冥界领域，亦是阎王居住之地。孙悟空曾因被勾魂鬼误带至此处，而得以在此修改生死簿，此后方才离开。这一事件在《西游记》中具有重要意义，不仅展示了孙悟空的神通广大，也揭示了幽冥界在生死轮回中的核心地位及其与神魔世界的微妙关系。', '阎王:阎王是幽冥界的统治者，掌管生死簿>', '十位冥王:十位冥王是管理生死簿的冥界神祇，他们遵从孙悟空的要求拿出生死簿', '判官:判官是冥界的官员，负责协助冥王管理生死簿', '生死簿:生死簿是记录所有生物生死信息的册子，被孙悟空修改', '地藏王菩萨:地藏王菩萨是佛教中的一位菩萨，冥王向他请示如何处理孙悟空的事情', '玉皇大帝:玉皇大帝，作为道教神话中的最高神祇，同时也是中国神话中的天帝，他掌管着天宫，拥有至高无上的权力。在天蓬元师犯错之时，玉皇大帝作出了惩罚的决定，体现了其对天界纪律的维护。此外，当孙悟空的行为引起天界不满时，玉皇大帝也表现出了对其行为的愤怒，并试图采取措施制服孙悟空。在神话体系中，即使是冥王也需要向玉皇大帝报告孙悟空的相关行为，这进一步彰显了玉皇大帝在神祇中的尊贵地位与权威。', '森罗殿:', '猪八戒:猪八戒，唐僧的二徒弟，以其直率的性格和无穷的力气而著称，擅长运用钉耙进行战斗。在《西游记》这一古典文学名著中，他是一位既憨厚又勇敢的角色，经常在旅途中为师傅和师兄弟们提供帮助，克服重重困难。尽管有时会因贪吃懒惰而惹麻烦，但猪八戒的忠诚与坚韧也是师徒四人得以圆满完成取经任务的重要因素之一。']}
+19:27:13,737 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:13,738 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['僧衣:僧衣是猪八戒成为僧人后穿戴的衣物>', '僧鞋:僧鞋是猪八戒成为僧人后穿戴的鞋子>', '僧帽:僧帽是猪八戒成为僧人后穿戴的帽子>', '九齿钉耙:', '老婆:指的是八戒的妻子，是他情感上的牵挂，也是他考虑还俗的原因', '还俗:还俗是指八戒如果无法完成取经任务，就打算回归原来的世俗生活', '经:经是指《西游记》中唐僧师徒四人要取的佛经，是他们旅程的目标', '八戒的老婆:', '冥司阎王:冥司阎王是地府的主宰，向玉皇大帝告发孙悟空的破坏行为。', '武曲星君:武曲星君是天宫中的神仙，建议给孙悟空一个低微的官职。', '文曲星:文曲星负责撰写诏书，邀请孙悟空上天宫。', '托塔李天王:托塔李天王是玉皇大帝派遣的将领之一，带领天兵天将去捉拿孙悟空。', '三太子哪吒:三太子哪吒是托塔李天王的副手，拥有强大的战斗能力，与孙悟空交战。', '巨灵神:巨灵神是天宫的先锋官，在与孙悟空的战斗中失败。', '齐天大圣府:为孙悟空在天宫修建的府邸，象征着他的称号。', '灵霄殿:灵动霄汉的“灵霄殿”是天宫中的主殿，也是重要的政治与礼仪中心。在这里，孙悟空曾挑战玉帝的权威，同样也是他被引见给至高无上的玉皇大帝的地方，标志着其身份与地位在天庭的正式确认。灵霄殿不仅是一座宫殿，它更是天庭秩序与权力的象征。']}
+19:27:13,835 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:13,836 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['兜率宫:兜率宫是太上老君的居所，也是孙悟空被炼化的地方', '巽宫:八卦炉中的一个位置，因只有烟没有火，孙悟空在其中避难', '哮天犬:', '如意棒:孙悟空的武器，可以随心所欲地变化大小和威力', '三十六员雷将:保护玉帝的神仙，阻止孙悟空的进攻', '二十八座星宿:赶来保护玉帝的神仙，帮助抵挡孙悟空', '如来佛祖:佛教中的最高神祇，被请来帮助解决孙悟空的问题', '阿傩:阿傩是佛教中的尊者，身份尊贵，担任如来佛祖的随从，专责处理孙悟空相关的事务。他不仅是位神仙，而且在佛教中担任接收礼物并遵照佛祖指示行事的要职，体现了其在佛教体系中的崇高地位和重要作用。阿傩的形象和行为，在《西游记》这一古典文学作品中，富含深厚的宗教文化象征意义。', '伽叶:伽叶，佛教中的神仙尊者，与阿傩共同承担执行佛祖任务的使命，一同前来协助如来佛祖，体现了其在佛教中的重要地位与作用。在佛教的经典文化中，伽叶以虔诚和智慧闻名，是佛教教义的重要传播者。', '安天大会:玉帝为庆祝孙悟空被镇压而举办的盛大活动玉帝为感谢如来佛祖而设的庆祝活动', '各路神仙:', '齐天大圣到此一游:孙悟空在撑天柱子上留下的标记，显示了他的存在和反抗精神', '巡查官:巡查官是负责监视妖猴孙悟空的天庭官员，其主要职责是密切观察孙悟空的动向，并在发现任何异常情况时，及时向佛祖汇报。他们是天庭秩序的维护者，通过对孙悟空的监管，确保天界的和谐不受干扰。在这一职责中，巡查官体现了天庭的权威和层级结构，同时也突显了孙悟空在天界中的重要地位及其所受到的关注。', '妖猴:妖猴是指孙悟空，这一称呼突显了他不受约束、调皮捣蛋的特性。据古典文学作品《西游记》记载，因其调皮捣蛋，孙悟空被佛祖囚禁于五行山下，直至唐僧经过，才得以解救，并开始了取经的西天之旅。这个称呼不仅体现了孙悟空的个性，也反映了他在故事中的重要转变，从一个无法无天的妖猴，成为了一位助人为乐、保护师父的忠诚弟子。', '太玄宫:天宫中的一个宫殿，用于举办重要的仪式和活动', '洞阳玉馆:天宫中的另一个重要场所，用于接待尊贵的客人']}
+19:27:13,887 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:13,888 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['天兵天将:守护南天门的兵将，对悟空的到来感到惊慌>', '黑风山:黑风山，位于观音院南面，是一座因黑风洞而得名的山脉。此处为黑风怪的居所，山中幽深，传说中的黑风洞便坐落于此，与山同名，映衬出该地神秘的色彩和深厚的文化底蕴。', '黑风洞:黑风洞是位于黑风山中的洞穴，亦是黑风怪的住所。在《西游记》中，此处成为了孙悟空和观音菩萨前往的重要地点，充满了神秘与传奇色彩。黑风洞不仅是黑风怪的居所，也是故事中一个关键的场景，反映了人物之间的复杂关系与神话传说中的神秘境界。', '木柴:', '驼背老和尚:驼背老和尚因观音院被烧和袈裟丢失而撞墙自尽>', '妖魔:妖魔是在黑风山上与黑风怪一起的怪物>', '道士:道僮原是一只伪装成道士的大灰狼，参与了佛衣盛会，但在孙悟空的慧眼下被识破并最终被打死。实际上，这位道士不仅是灵吉菩萨讲经之地的守护者或信徒，还是黑风怪的朋友，在事情败露后与黑风怪一同逃跑。这一形象在《西游记》中体现了妖魔善于伪装、混淆视听的特点，同时也反映了正义终究战胜邪恶的主题。', '白衣秀才:白衣秀才实际上是条大白花蛇，被悟空打死>', '小妖怪:小妖怪是黑风怪的部下，负责观察和报告情况。', '乌金甲:黑风怪的护身甲，增强了他的防御能力。', '黑缨枪:黑风怪的武器，用于与悟空交战。', '请柬:黑风怪邀请观音院老和尚的书面邀请，是故事中的一个重要物证。', '观音院那老和尚:观音院中的老和尚，与黑风怪有联系，增加了故事情节的复杂性。', '童子:观音菩萨的随从，协助观音菩萨执行任务。', '宝衣:悟空所拥有的珍贵衣物，之前在观音院中卖弄，导致了后续的事件。', '佛衣盛会:一个重要的宗教活动，吸引了道士等各路神仙参加。']}
+19:27:14,97 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:14,97 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:14,98 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['棒子:', '玉盘:一个装有两粒仙丹的盘子，原本由道士持有>', '仙丹:具有神奇效果的丹药，被孙悟空和观音菩萨用来对付黑风怪>', '佛衣:一件重要的佛教圣物，被黑风怪所窃，后被观音菩萨和孙悟空取回>', '小金圈儿:观音菩萨用来控制黑风怪的工具>', '小妖:黑风怪的下属，被观音菩萨和孙悟空吓跑>', '混世魔王:混世魔王是孙悟空的敌人，曾占据水帘洞并抢走猴子猴孙。', '花果山水帘洞:孙悟空的居所，一个荒凉破败但被孙悟空恢复生机的洞府。', '水脏洞:混世魔王的居所，后被孙悟空破坏。', '小猴子们:孙悟空的追随者，被救出后帮助孙悟空恢复水帘洞。', '通背老猿猴:一只老猴子，给孙悟空提供了去东海龙宫的建议。', '东海龙宫:东海龙王敖广的居所，拥有许多宝物。', '龙王:龙王爷是东海龙宫的主宰，他拥有丰富的宝物，并且在孙悟空求助时愿意给予帮助。他曾命令手下为孙悟空拿出多种兵器，并最终指引孙悟空获得了如意金箍棒。然而，由于孙悟空的一些行为，龙王爷也曾向玉皇大帝告状，显示出他在维护龙宫秩序和天庭法规方面的责任感和决断力。', '方天画戟:方天画戟是一种由东海龙宫提供的兵器，其重量高达七千二百斤。尽管它的分量不轻，但孙悟空在尝试使用后仍认为它不适合自己。在此过程中，我们可以看出孙悟空对兵器的独特要求和鉴赏眼光，以及东海龙宫对孙悟空的重视，愿意提供如此珍贵的武器供其挑选。', '九股叉:九股叉是一种古代兵器，重量达三千六百斤，然而在《西游记》中，孙悟空却认为它太轻，这显示了孙悟空非凡的力量和自信。尽管其中一条描述为空，但从现有的信息中我们可以得知，九股叉在中国古代文学中是一件颇具份量的武器，且与孙悟空的故事紧密相关。', '竹枪:孙悟空让小猴子们制作的简易兵器之一。']}
+19:27:14,99 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['五行山:五行山，又名五指山，是中国古典名著《西游记》中一个具有重大象征意义的地点。此处曾是佛祖如来的五指化作的山镇，用以囚禁桀骜不驯的孙悟空，其法力封印使得孙悟空无法逃脱。五行山不仅是取经故事的关键地点，也象征着佛法的威严与力量。后来，在唐僧师徒取经途中，唐僧到达五行山，因他的救助，五行山的封印裂开，使得孙悟空得以重获自由，并成为唐僧的大徒弟，共同完成取经的使命。这一事件也象征着悟空的转化与重生，从此开始了他的修行之路。', '观音菩萨:观音菩萨是佛教中备受尊敬的菩萨，她以大慈大悲著称，拥有高深的法力和救苦救难的神力。在《西游记》中，观音菩萨不仅是如来的使者，奉旨寻找取经人，还多次在关键时刻给予唐僧师徒以帮助和救济。她曾化身老妇人指引孙悟空回归正途，并劝导他成为唐僧的徒弟。此外，她还安排白龙马成为唐僧的坐骑，并解决了相关的冲突。观音菩萨还提出了捉拿孙悟空的建议，并指导唐僧取经，甚至教授唐僧紧箍咒以控制孙悟空。她还派遣木叉行者协助取经团队，并在途中劝导妖怪改邪归正，指引他们走上正确的取经之路。她的慈悲心肠和智慧行动，为唐僧一行人克服重重困难，最终成功取得真经提供了重要的支持。', '如来佛:如来佛，作为佛教中的最高神祇，具有无上的权威与神通。在《西游记》这一古典文学名著中，如来佛发出法旨，指令观音菩萨去寻找适合的取经人，以完成重要的佛教使命。同时，也是如来佛以巨大的法力将桀骜不驯的孙悟空压在五行山下，直至唐僧师徒一行人开始西天取经的旅程，孙悟空才得以重获自由。如来佛的这些行为不仅体现了他在佛教界的至高地位，也展示了他对于宇宙秩序与修行者教化的深刻影响。', '惠岸行者:惠岸行者是观音菩萨的随从，一同来到东土大唐', '东土大唐:东土大唐是故事发生的主要地点，是取经人的起点', '唐太宗李世民:唐太宗李世民是唐朝的皇帝，命令陈玄奘取经', '陈玄奘:陈玄奘是唐朝的高僧，被选为取经人，是金蝉子转世', '金蝉子:金蝉子是如来佛的弟子，转世为陈玄奘', '唐三藏:陈玄奘的名字被唐太宗改为唐三藏，是取经的主要人物', '熊山君:熊山君乃一妖怪，与寅将军结伴而行。在《西游记》中，二者共同出现，熊山君曾提议仅以两人为食，足见其狡猾与凶残。此一描述不仅揭示了熊山君与寅将军的同盟关系，也反映了其时妖怪的残酷本性与对人类生命的轻视。', '特处士:特处士是妖怪，与熊山君一同拜访寅将军', '寅将军:寅将军，一名妖怪，自称魔王，曾在《西游记》中打算以唐僧师徒招待客人。他性格残忍，曾吃掉唐僧的两个仆人。在此，我们可以看出寅将军的邪恶本质及其对唐僧一行人的威胁。', '五件宝贝:五件宝贝是观音菩萨带来的宝物，包括锦袈裟，用于交换取经人的承诺>', '东土大唐的边界河州:这是大唐边界的具体地点，唐僧一行人在此遇到了困难>', '镇边总兵:镇边总兵是在河州的地方官员，接待了唐僧主仆>', '福原寺:福原寺是唐僧一行人在河州休息的地方>']}
+19:27:14,217 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:14,218 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['西海龙王:', '经过:', '高老庄:高老庄是一个村庄，其庄主高太公在此地寻找能够捉拿妖怪的法师。这个村庄在妖怪的叙述中曾被提及，并且后来成为妖怪被带去见唐僧的地点。在《西游记》这一中国古典文学名著中，高老庄不仅是故事情节的一个重要环节，也反映了当时社会对于神秘力量和宗教信仰的寻求与依赖。', '高太公:高太公，高老庄之庄主，其家中有一女，深受妖怪女婿所扰。此情节源自中国古典名著《西游记》，通过这一角色和事件，展现了古代社会家庭与神秘力量之间的冲突与互动。高太公作为一庄之主，其家庭的不幸遭遇也反映了当时人们对于超自然现象的恐惧与无奈。', '三女儿:高太公的第三个女儿，曾被妖怪锁在后院，后来被悟空解救>', '天蓬元师:天蓬元师原是天上的神仙，因调戏嫦娥被贬下凡，成为猪八戒的前身', '王母娘娘:王母娘娘，是中国神话中的一位重要女神，她位居天庭，负责掌管那里的宴会事宜。其中，最为人所知的宴会便是蟠桃会。在这个盛大的宴会中，王母娘娘不仅举办聚会，还曾派遣七位仙女前往采摘蟠桃，以供宴会之用。这些描述充分展现了王母娘娘在天庭中的崇高地位以及她在神话传说中的重要作用。', '嫦娥:嫦娥是中国神话中的月亮女神，被天蓬元师调戏', '弼马温:弼马温是悟空在天宫时的职位，被妖怪提及以嘲讽>', '天宫:天宫是悟空大闹的地方，与妖怪的背景故事相关>', '广寒宫:广寒宫是嫦娥的居所，天蓬元师因闯入此处受到惩罚>', '铜锤:铜锤是天蓬元师被惩罚时使用的刑具>', '凡间:凡间是天蓬元师被贬下界的地方>', '猪胎:猪胎是天蓬元师错误投胎的对象>', '洞门:洞门是妖怪藏身的地方，被悟空打碎>', '云栈洞:云栈洞是妖怪的居所，被他和悟空放火烧毁>']}
+19:27:14,387 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:14,388 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['东胜神洲:东胜神洲是石猴诞生地的所在大洲，傲来国位于其上', '傲来国:傲来国是一个拥有丰富兵器库的国家，正是在这里，孙悟空从中获取了其著名的兵器。此外，傲来国也是花果山的所在地，更是石猴成长的地方，对中国文学经典《西游记》中的故事发展起着至关重要的作用。这个国家不仅是一个地理背景，更是孙悟空传奇故事的摇篮。', '铁板桥:铁板桥位于水帘洞内，石猴通过它进入洞内', '泉水源:泉水源是猴子们寻找的目标，石猴成功找到了它', '石猴:', '通背猿猴:一只懂得神仙之术的猿猴，建议美猴王学习长生不老的本领>', '神仙:拥有长生不老能力的神秘生物，美猴王渴望找到并学习他们的本领>', '灵台方寸山:一座山，山上有一个斜月三星洞，菩提祖师居住的地方>', '斜月三星洞:位于灵台方寸山上，菩提祖师的居所>', '菩提祖师:芲提祖师，乃是一位隐居在斜月三星洞的神仙，他收孙悟空为徒，传授其武艺和法术。祖师不仅具备高深的法力，更拥有卓越的智慧，对孙悟空进行了全面的教育和指导，为其后来的成就奠定了坚实的基础。在《西游记》这一中国文学经典中，芲提祖师的这一角色象征着师徒关系中的传授与启迪，体现了中国传统文化中对知识和技能传承的重视。', '仙童:菩提祖师的徒弟，其中一个带领孙悟空进入洞府>', '青年人:一个在树林里砍柴的普通人，向美猴王指点了灵台方寸山的方向>', '石碑:石碑位于黑风洞前，与斜月三星洞相对，立于山岗之上。其上刻有“黑风山黑风洞”的字样，明确了其与黑风洞的关联，同时也作为对该地区的一个重要地标。通过对石碑的描述，我们可以了解到它在地理位置上具有标志性意义，是通往黑风洞的明显指引。', '仙童们:菩提祖师的徒弟们，站在讲道台下>', '东南风:', '祖师:祖师，即孙悟空的师傅，被尊称为菩提祖师，他不仅拥有高深的法力，更具备卓越的教学能力。在《西游记》中，他对孙悟空的行为和态度产生了重要影响，通过教训和指导，赋予孙悟空丰富的武艺和智慧，为其后来的西天取经之路奠定了坚实的基础。菩提祖师的智慧和法力在故事中是备受推崇的，他的形象象征着师徒之间的重要关系和传承。']}
+19:27:14,497 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:14,498 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['黄风大王:黄风大王是山洞的主人，手下有先锋等小妖，他抓住了唐僧并计划吃掉他。', '黄风大王的先锋:黄风大王的部下，能够变化成猛虎，与孙悟空和猪八戒交战。', '黄风洞:黄风岭上的黄风洞是《西游记》中的一个重要地点，它不仅是黄风大王的居所，同时也是妖怪的巢穴。这个洞穴恰好位于孙悟空和唐僧师徒的西行路径上，在故事中，孙悟空和八戒曾一同清剿了盘踞在此的妖怪，确保了师徒们能够安全通过。', '旋风:旋风是一个自然现象，被孙悟空用来判断附近可能有妖怪或猛虎的存在。', '赤铜刀:赤铜刀是黄风大王的先锋所使用的武器，在与猪八戒和孙悟空的战斗中出现过。', '金蝉脱壳之计:金蝉脱壳是一种计谋，黄风大王的先锋使用它来逃脱孙悟空和猪八戒的追捕。', '定风柱:定风柱是黄风洞中用来绑住唐僧的柱子，以防他被风吹走。', '斑斓猛虎:', '先锋:被悟空拦住去路的妖怪，被迫向山坡上逃跑', '老妖:老妖，原身为一只黄毛貂鼠，曾遭八爪金龙捕捉。他是黄风洞的主人，率领小妖出洞应战，曾在洞口与孙悟空展开激烈战斗，展现出其强大的实力和领导能力。在准备与小妖们共同交战的过程中，老妖彰显了其作为一方妖王的威严和决心。', '毫毛:悟空吹仙气后变成的一百多个悟空，用于包围老妖', '仙气:悟空吹的气体，能够使毫毛变化成多个自己）', '狂风:老妖吹起的，使多个悟空在空中旋转的风）', '三股钢叉:老妖的武器，用于与悟空战斗）', '三花九子膏:专治风眼的药物，由老大爷提供>一种药，专治风眼，由老大爷提供）', '老大爷:提供住宿和三花九子膏的人，实际上是护法伽蓝变化）']}
+19:27:14,767 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:14,768 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['唐僧的两个仆人:唐僧的随从，一同前往西天取经>', '妖怪:妖怪“妖怪”在《西游记》中是一个居住在流沙河的生物，曾与唐僧师徒发生冲突，并在与悟空的战斗中腰酸腿痛，后被揭示其真身是一只老虎。此外，他还曾化为猪头，原是福陵山人，后被悟空捉拿。这个神秘生物在故事中曾抓住唐僧主仆，但其真实身份是天蓬元师，因犯错被贬下凡间。在故事的后期，他改邪归正，愿意跟随唐僧取经，体现了人物性格的转变和救赎。', '锦袈裟:', '魔王:魔王是一个邪恶的存在，被称为寅将军，打算用唐僧等人招待客人', '唐僧:唐僧，又称唐三藏，是《西游记》中的核心人物，一位来自唐朝的僧人，奉皇命前往西天取经。他信仰虔诚，心怀慈悲，拥有高尚的品德和深厚的佛法修为。在取经的旅途中，他先后收孙悟空、猪八戒等人为徒，组成了一个取经团队。唐僧作为团队首领，带领徒弟们克服重重困难和挑战，其中包括孙悟空因紧箍咒而受其控制，以及遭遇妖怪袭击被徒弟们救出的经历。在旅途中，他们也曾寻找被偷的袈裟，唐僧对袈裟的下落焦急万分。此外，他还曾差点被寅将军吓昏，幸得神秘老人相救，也曾被白龙马追击，所幸得到孙悟空的救助。尽管在孙悟空离开时感到无助，但在观音菩萨的帮助下，他始终坚持取经的使命，展现了坚定的意志和领导力。', '神秘老人:神秘老人救了唐僧，并指引他离开双叉岭，实为太白金星', '太白金星:太白金星，是中国神话中的一位重要神仙，他在《西游记》中扮演了多重角色，展现了其深邃的智慧与神通。他不仅是天宫中的神仙，还曾暗中帮助孙悟空，为其提供助力。在故事中，太白金星曾以神秘老人的形象出现，帮助唐僧，并在完成任务后乘鹤神秘飞走。此外，他还曾为天蓬元师求情，显示出其慈悲为怀的一面。在处理孙悟空的问题上，太白金星提出了安抚的策略，并负责传达天意，显现出他在天庭中的地位及其对大局的洞察力。总的来说，太白金星是一个层次丰富、形象多面的神仙，其行为和角色在《西游记》中具有重要的文化象征意义。', '刘伯钦:刘伯钦，一位猎户，他在《西游记》中不仅是救助唐僧并热情邀请他到自己家中作客的善良之人，还是唐僧早期的护法。在故事中，刘伯钦起到了关键作用，协助唐僧救出了被压在五指山下的孙悟空，为唐僧取经之路提供了重要的帮助。他的行为不仅体现了其个人的英勇和仁慈，也映射了古代中国社会中对于忠诚与助人为乐的价值观。', '两界山:两界山是一座重要的地标，分隔大唐和鞑靼的疆域', '孙悟空:孙悟空，亦称美猴王，是《西游记》中的核心人物，具有高强的武艺和神通广大的变化能力。他原是花果山水帘洞的主人，后拜师菩提祖师学得仙法和筋斗云。因其叛逆但忠诚的性格，以及急躁和顽皮的个性，孙悟空曾在故事中大闹天宫和龙宫，获得了如意金箍棒。他因偷吃蟠桃和金丹而引发了一系列事件，最终被如来佛祖压在五行山下。后来，他成为唐僧的大徒弟，保护唐僧西天取经，途中展现出机智勇敢的一面，与各种妖魔鬼怪战斗，并最终使白龙马屈服。孙悟空不仅力大无穷，能长生不老，还曾要求查看并修改生死簿，显示了他对自由和力量的追求。他的故事充满了对权威的挑战和对师徒情感的深刻描绘。', '毒蛇:毒蛇在唐僧四周出现，吐着红信，增加了唐僧的危险>', '有毒的虫子:有毒的虫子是唐僧四周的危险之一，增加了他的困境>', '从未见过的野兽:这些未知的野兽包围了唐僧，使他感到更加无助>', '凶恶的老虎:', '老虎:一只大老虎在唐僧和孙悟空取经路上出现，被孙悟空用金箍棒打死。', '强盗:六个强盗试图抢夺唐僧师徒的马和行李，后被孙悟空打死。']}
+19:27:14,797 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:14,798 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['南海:南海是观音菩萨的居所，悟空想去那里找观音菩萨理论>', '西天取经:', '唐僧师徒:唐僧师徒是由唐僧、孙悟空、猪八戒和沙和尚组成的取经团队，他们正在前往西天的路上>', '黄风岭:在《西游记》这部古典文学作品中，黄风岭（\\u9ec4\\u98ce\\u5cad）是一个重要的场景。它是黄风洞所在的山岭，唐僧师徒在此地小心翼翼地前行，这里被认为是他们取经路上遭遇的诸多险境之一。黄风岭不仅是地理环境上的险要之地，也是充满了妖魔鬼怪的奇幻世界，充分体现了这部作品中对于自然界与神话传说的深度融合。', '流沙河:流沙河是《西游记》中一条宽阔且汹涌的河流，位于取经团队必经之路上，河中藏有妖怪，对唐僧师徒四人构成了威胁和考验。这一地点不仅地理环境特殊，而且在整个故事中具有重要的象征意义，代表着西天取经路上的艰难险阻。', '八戒:八戒，亦称猪悟能，是《西游记》中的重要角色，身为唐僧的次徒，原为天蓬元帅，后因犯错被贬下凡间，成为高老庄的妖怪。他拥有一定的法力，性格中虽带有贪吃懒惰的特点，但忠心耿耿，诚实且勇敢。在故事中，他不仅负责照看马匹，还与孙悟空并肩作战，共同打败妖怪并救出师傅唐僧。一次在山坡放马时，他还巧妙地使用钉耙击败了作恶的妖怪，显示了他并非只有愚蠢的言论，而是具有实际行动的能力。此外，八戒对婚姻也表现出了自己的担忧，体现了角色内心的细腻情感。', '木叉行者:木叉行者是观音菩萨的高徒，受菩萨之命，作为其使者前往助唐僧一行。他携带着具有神秘力量的红葫芦，在旅程中为唐僧师徒提供了重要的帮助，尤其是在收服沙和尚的过程中发挥了关键作用。', '沙和尚:沙和尚，唐僧的徒弟之一，原名为悟净。在被唐僧收服之后，他改名为沙和尚。在《西游记》这一古典文学作品中，沙和尚以其忠诚和坚韧的性格，成为取经团队中的重要一员，与孙悟空、猪八戒一同协助唐僧西天取经，克服重重困难，展现了深厚的师徒情谊和集体合作精神。尽管关于他的描述信息有限，但他在故事中的形象鲜明，深入人心。', '悟净:悟净是沙和尚的别名，原本是流沙河的妖怪，后成为唐僧的徒弟>', '九个骷髅:九个骷髅是沙和尚的宝物，可以化作阴风>', '红葫芦:红葫芦是观音菩萨的宝物，可以变成小船>', '白龙马:白龙马，原为西海龙王的儿子，因犯死罪而被观音菩萨安排于鹰愁涧。后来，他皈依佛门，成为唐僧的忠实坐骑，并助力唐僧一行人取得真经。他的身份由龙王的贵裔转变为取经路上的重要一员，体现了其深刻的转变与修行之路。', '美猴王:美猴王，乃是从仙石中诞生的石猴，不仅具备卓越的领导能力，还拥有非凡的身体能力，因此深受其他猴子的尊敬，被尊称为王。作为猴子之王，他带领群猴游历山水之间，心中充满着对长生不老境界的渴望。在《西游记》这一古典文学名著中，美猴王以其独特的地位和能力，成为了读者心中难以忘怀的角色。', '仙石:仙石在花果山上，崩裂后诞生了美猴王', '猴子们:花果山中，有一群普通的猴子，它们忠诚地跟随美猴王，并在那里过着快乐的生活。这群猴子不仅与美猴王共同生活在水帘洞中，还曾在其寻求长生不老之路时，齐心协力帮助美猴王制作木筏，送他出海寻找更高的修炼之道。这些猴子体现了团结协作的精神，是美猴王身边不可或缺的伙伴。', '水帘洞::\\u6c34\\u5e18\\u6d1e(\\u6c34\\u5e18\\u6d1e)\\u662f\\u65e0\\u72ec\\u5904\\u4e8e\\u8377\\u679c\\u5c71\\u4e2d\\u7684\\u4e00\\u4e2a\\u795e\\u79d8\\u5dee\\u7a9f\\uff0c\\u5b83\\u7531\\u6c34\\u5e18\\u6210\\u4e3a\\u9632\\u58c1\\u3002\\u8fde\\u4e4b\\u672a\\u51fa\\u7684\\u6597\\u732b\\u77f3\\u732b\\u53d1\\u73b0\\u4e86\\u8be5\\u5dee\\u7a9f\\uff0c\\u5e76\\u628a\\u5176\\u5f04\\u6210\\u4e86\\u72ec\\u81ea\\u548c\\u72ec\\u7acb\\u7684\\u5bb6\\u56ed\\u3002\\u5728\\u8c01\\u5e72\\u516c\\u5b50\\u7684\\u6545\\u4e8b\\u4e2d\\uff0c\\u6885\\u5c71\\u516d\\u5144\\u5f1f\\u5c31\\u662f\\u8d1f\\u8d23\\u5165\\u4fb5\\u6c34\\u5e18\\u6d1e\\u7684\\u3002\\u8be5\\u5dee\\u7a9f\\u4e5f\\u6210\\u4e3a\\u4e86\\u72ec\\u5b50\\u4eec\\u7684\\u5bb6\\u5eAD\\u3002\\u6c34\\u5e18\\u6d1e\\u4e0d\\u4ec5\\u662f\\u4e00\\u4e2a\\u5b89\\u5168\\u7684\\u9694\\u75c5\\u5730\\uff0c\\u8fd8\\u662f\\u72ec\\u5b50\\u4eec\\u7684\\u795']}
+19:27:14,967 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:14,968 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['护法伽蓝:护法伽蓝，亦称做法蓝，是具有高深法力的神仙。他们具备变化的能力，能够根据需要化身为不同的形态，如老大爷或院子，以助人为乐。在《西游记》中，护法伽蓝曾化身为老大爷和院子，为孙悟空和猪八戒提供了宝贵的帮助，展现了其神通广大和慈悲为怀的本性。这些描述不仅突出了护法伽蓝的神力，也体现了他们在故事中扮演的积极角色，以及与主要角色的和谐互动。', '钉耙:八戒的武器，用于击败妖怪>', '院子:悟空和八戒请求借宿的地方，实际上是护法伽蓝变化的>', '棍棒:老大爷和年轻农夫们拿的武器，最初用来对付悟空和八戒>', '眼睛酸痛:', '战斗:', '灵吉菩萨:灵吉菩萨，佛教中的菩萨，居住于小须弥山中。他具有强大的法力，曾有能力镇压黄风怪，维护了一方的平安。在《西游记》中，当孙悟空遇到困难，欲打击妖怪时，灵吉菩萨出现并阻止了他，同时提出了合理的处理建议，显示了他不仅法力高强，也具有智慧和慈悲心肠。', '黄风怪:', '飞龙宝杖:飞龙宝杖是灵吉菩萨的宝物，可以变成八爪金龙，用于捕捉妖怪>', '八爪金龙:八爪金龙是孙悟空变化后的形态，用于抓住妖怪。', '黄毛貂鼠:黄毛貂鼠是老妖的原形，因偷吃清油而变成妖怪。', '清油:清油是琉璃灯内的物品，被黄毛貂鼠偷吃。', '金刚:金刚是佛教中的护法神，黄毛貂鼠害怕被其捉住。', '琉璃灯:', '鹰愁涧:鹰愁涧是故事发生地，白龙马在此地等待唐僧一行人', '蛇盘山:蛇盘山是唐僧师徒途径的地方，鹰愁涧位于蛇盘山']}
+19:27:15,127 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:15,129 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['金箍棒:金箍棒，孙悟空之武器，具备变化大小与长度的神奇特性，威力无与伦比。在《西游记》的诸多场景中，悟空多次欲用它来对付唐僧，显示出其战斗用途。事实上，金箍棒不仅用于战斗攻击敌人，还曾用来打碎洞门，充分展现了其在不同情境下的多功能性。', '饿不死，冻不坏的神猴:这是对孙悟空的一种描述，强调了他的神奇能力和不屈的精神状态。）', '虎皮:虎皮是孙悟空用老虎的皮制成的衣物，围在腰间。）', '强盗的刀枪:强盗们用来攻击孙悟空的武器，未能伤害他。）', '筋斗云:筋斗云是孙悟空所掌握的一种非凡的交通工具，也是他的一项特殊技能。它能够让孙悟空在空中快速飞行，实现长距离的迅速移动。这朵云不仅象征着孙悟空的神通广大，同时也体现了他在《西游记》中的重要地位和超凡的能力。', '花果山:花果山，位于东胜神洲傲来国，乃孙悟空——美猴王的诞生地。山中有一块仙石，孕育了这位传奇的猴子。此山不仅是孙悟空的故乡，也是他曾在愤怒之下欲返回之地，更是他当年纵身驾云，离开师傅唐僧的起始点，开启了他传奇的《西游记》之旅。', '紧箍咒:紧箍咒是一种神奇的咒语，被唐僧用于控制孙悟空。当唐僧念出紧箍咒时，它能够使悟空感到头痛，从而迫使他服从唐僧的命令，不敢有任何造次之举。这种咒语体现了师徒之间的权力关系和等级秩序，是《西游记》中一个具有象征意义的元素，反映了人物间的复杂互动和道德教化意图。', '东海龙王:东海的统治者，曾劝告孙悟空回心转意，并给予他饮食>', '马:马是《西游记》中重要的角色之一。在故事中，它是猪八戒在山坡上放养的动物，不仅用于代步，也是唐僧西天取经途中的坐骑，帮助他载运行李，向西行进。此外，孙悟空在天宫时，也曾被赋予看管马匹的职责，显示了马在这一经典文学作品中的特殊地位和作用。这些描述共同揭示了马在故事中的多重角色，以及它在取经团队中的重要性。', '衣服:观音菩萨赠予唐僧的物品，用于诱使孙悟空穿上并受紧箍咒控制>', '花帽:观音菩萨赠予唐僧的物品，用于诱使孙悟空戴上并受紧箍咒控制>', '老妇人:', '悟空:悟空，是《西游记》中至关重要的人物，被誉为唐僧的大徒弟。他具备高强的武艺和神通广大的能力，能够使用金箍棒与妖怪战斗，且具有丰富的变化能力，既能变化形态也能快速追赶妖怪。其性格机智、勇猛且好斗，面对困难总能巧妙应对。在故事中，无论是捉妖、解决高老庄的问题，还是保护唐僧西天取经，悟空都展现出了他的勇敢与智慧。此外，悟空还颇具幽默感，能巧妙地回应八戒的言行。即便有时因头痛困扰，他仍然是队伍中不可或缺的力量。总体而言，悟空是一个多才多艺、充满智慧与力量的角色，为取经团队立下了赫赫战功。', '师父:师父指的是唐僧，悟空的师傅，此处用紧箍咒来惩罚悟空>', '头痛:', '保护唐僧:']}
+19:27:15,177 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:15,178 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['师兄们:师兄们是孙悟空的同伴，一同在祖师门下学习，他们对孙悟空的态度和行为有所反应。', '长生不老的法术:长生不老的法术是孙悟空追求的目标，也是祖师教授给他的重要技能之一。', '七十二般变化:七十二般变化是孙悟空学会的一种法术，能让他变化成不同的形态。', '法术:法术是祖师教授给孙悟空的各种技能，包括长生不老、七十二般变化等。', '三更:三更是中国古时的时间单位，指深夜的时候，孙悟空在这个时间进入祖师的房间学习法术。', '暗谜:暗谜是菩提祖师用来测试孙悟空智慧的一种方式，通过这种方式祖师发现了孙悟空的聪明才智。', '夏天:夏天是故事发生的一个季节，孙悟空在这个季节与师兄们玩耍，并展示自己的变化能力。', '大树:孙悟空在师兄们面前变成了一棵大树，作为展示自己变化能力的一种形式。', '观音院:观音院，位于幽静的山谷之中，是一座唐僧师徒曾到达的寺庙，也是和尚们居住和修行的场所。它在《西游记》中占据着重要地位，不仅是唐僧师徒的暂住地，而且是故事中一系列重要事件的发生地。值得一提的是，观音院曾遭受火灾，现位于黑风山的北面，这一历史痕迹为其增添了更多的文化内涵和故事色彩。', '和尚:和尚是观音院的僧人，他们在寺庙被烧毁后感到惊恐。尽管遭受此不幸，他们依然对唐僧师徒表示了尊敬，并热情邀请他们进入观音院休息。这体现了这些僧人对师徒四人的敬意以及佛教中好客的传统美德。', '袈裟:桑悟禅是唐僧的珍贵宝物“袈裟”，它是一件价值连城的佛衣，在《西游记》中为老和尚所羡慕。后来唐僧借给了这位老和尚，却不幸被其设计陷害。在某段情节中，这件袈裟还被黑风怪偷走。这一系列事件体现了袈裟不仅是物质上的宝贵，也成为了故事中人物争斗和心机较量的象征。', '老和尚:老和尚，又称之和尚，是观音院中的一位年长的僧人。他与黑风怪有所交情。然而，由于贪心作祟，他竟然设计陷害了唐僧及其师徒一行人。在这一行为背后，体现了某些古典文学作品中人物因私欲而背离佛门宗旨的复杂性格描写，同时也映射出《西游记》中人物之间错综复杂的关系和道德冲突。', '广目天王:广目天王，作为南天门的守护神，具有高强的法力，掌管着避火罩这件宝贵的神器。在《西游记》中，他曾将此宝借给了孙悟空，助其在火焰山一劫中得以安然无恙。故事后期，悟空完成了自己的使命，也将避火罩归还给了广目天王。广目天王作为天庭的神仙，其地位尊崇，在神仙谱系中占有重要的一席之地。', '避火罩:避火罩是广目天王的宝物，具有抵御火焰的神奇功效。在《西游记》中，孙悟空曾借来此宝物，用以保护唐僧免受火焰的伤害。这一情节体现了避火罩的重要性和广目天王对取经团队的暗中支持。', '黑风怪:黑风怪，乃居于黑风山黑风洞中的一妖怪，因观音院遭遇火灾，便起了贪念，意欲乘机劫掠。在《西游记》中，此怪与孙悟空成为了对手，身披乌金甲，手持黑缨枪，曾与悟空交战。然而，最终在观音菩萨和孙悟空的智谋之下，黑风怪被设计制服，其恶行受到了应有的惩罚。这一故事不仅体现了中国古典文学中正义战胜邪恶的主题，也反映了佛教中因果报应的教义。', '南天门:南天门作为天宫的重要门户之一，是连接天界与人间的要道。在《西游记》中，孙悟空因不满天庭的束缚，曾从此地突破重围，杀出南天门，展现了他的神通与反抗精神。此外，南天门也有天兵天将守护，以确保天界的安全。在故事中，孙悟空也曾前往南天门，借避火罩以应对后续的挑战。这一地点不仅体现了天庭的威严与层级，也映射了孙悟空的智勇与不屈不挠的精神。']}
+19:27:15,417 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:15,418 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['七宝灵台:一个珍贵的平台，如来佛祖在此接受各路神仙的朝拜和礼物', '五根肉红色的柱子:', '佛祖:佛祖是佛教中的最高神祇，对孙悟空施以惩罚，并给予指示。|', '山神:山神被如来佛祖叫来，负责监押孙悟空。|', '五方揭谛:五方揭谛被如来佛祖指派与山神一同监押孙悟空。|', '溶化的铜水:溶化的铜水是给孙悟空的饮料，用于在他渴时提供。|', '铁丸子:', '刑期:刑期指的是孙悟空被囚禁的时间限制，五百年后有人来救他。|']}
+19:27:23,212 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:23,213 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['宣花斧:宣花斧是巨灵神的武器，在与孙悟空的战斗中被毁。', '蟠桃园:蟠桃园，分为前、中、后三部分，每部拥有一千二百棵桃树，其结出的桃子具有神奇效果，是位于天宫中的果园。后来，孙悟空被派遣到此，负责看管蟠桃园，守护这些珍贵的仙果。在此背景下，蟠桃园不仅成为了神话故事中的重要地点，也反映了了中国古代文化中对神仙世界的想象与构建。', '玉帝:玉帝是天庭的主宰和最高统治者，他同意太上老君将孙悟空炼化的提议，以维护天庭的秩序。在孙悟空挑战天庭的权威时，玉帝深感其闲散生事的能力可能带来麻烦，因此安排孙悟空管理蟠桃园，既是对其能力的肯定，也是为了在天庭中为其安排合适的职位，以避免潜在的混乱。作为掌管天庭的最高神祇，玉帝的这一决策体现了他的智慧与对天庭层级结构的深刻理解。', '七位仙女:七位仙女奉王母娘娘之命进园摘桃，意外惊醒了孙悟空', '瑶池:瑶池是举办蟠桃会的地方，孙悟空曾偷偷进入并饮酒', '太上老君:太上老君是道教中的高级神祇，位列天庭，他拥有强大的法宝金钢琢，并在《西游记》中提议将孙悟空放入八卦炉中炼化，以期消除其身上的妖气。同时，太上老君还精于炼制金丹，他的兜率宫藏有珍贵的丹药，然而不幸的是，孙悟空曾闯入他的兜率宫，引发了一系列的故事情节。在这些描述中，我们可以看出太上老君不仅地位崇高，法力无边，而且与孙悟空之间存在着复杂的互动关系。', '李天王:李天王是天庭中的武将，奉命捉拿孙悟空', '哪吒太子:哪吒太子是李天王的儿子，也参与了捉拿孙悟空的行动', '二郎神:二郎神，乃是一位法力高强的神祇。根据传说，他曾与孙悟空展开过一场激烈的战斗，在交锋中，二郎神展示了他能变化形态的神通。此外，他还受命带领梅山六兄弟，共同捉拿孙悟空，彰显了其尊贵的地位和在神界的权能。在这些故事中，二郎神的形象既是一位英勇善战的斗士，也是一位忠诚执行天命的神灵。', '梅山六兄弟:梅山六兄弟，乃二郎神的得力助手，在《西游记》中，他们与二郎神一同前往花果山，合力捉拿孙悟空。在这一过程中，他们展现了忠诚与勇猛，是故事中具有代表性的团体之一。', '定身法:孙悟空的一种法术，能够使他人定住不动）', '瞌睡虫:孙悟空变化出的虫子，可以使他人陷入沉睡）', '照妖镜:照妖镜是一件能够揭示妖怪原形的宝物，它在《西游记》中扮演了重要角色。该宝物不仅被二郎神使用，以识别并揭露妖怪的真实形态，同时也是李天王所依赖的法器，能够照出妖魔的原形。这件宝物在中国古代神话中象征着光明与正义的力量，能够辨识真伪，帮助正义的力量战胜邪恶。', '八卦炉:用于炼化丹药和物品的炉子，孙悟空在其中炼就了火眼金睛', '金钢琢:太上老君的宝物，能够对敌人造成伤害，曾用来攻击孙悟空', '斩妖台:斩妖台是天庭中用于处决妖怪的地方，孙悟空曾被绑在这里']}
+19:27:23,487 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:23,489 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['木刀:孙悟空让小猴子们制作的简易兵器之二。', '妖精:占据水脏洞的混世魔王的部下，被孙悟空消灭。', '虾兵蟹将:虾兵蟹将是龙宫的兵将，他们遵从龙王的命令，为孙悟空抬出了重兵器>', '神珍铁:神珍铁是大禹治水时测定海水深浅的工具，能发光，最终变化为孙悟空的如意金箍棒>', '如意金箍棒:如意金箍棒是孙悟空的兵器，可以根据孙悟空的心意变化大小和重量，重一万三千五百斤>', '南、北、西三海龙王:南、北、西三海龙王分别是敖钦、敖顺和敖闰，他们凑齐了一套黄金甲、凤翅紫金冠和藕丝步云鞋送给孙悟空>', '妖王:妖王是孙悟空邀请的客人，在花果山上参加宴席>', '幽冥界:幽冥界，乃冥王与判官共同管理的冥界领域，亦是阎王居住之地。孙悟空曾因被勾魂鬼误带至此处，而得以在此修改生死簿，此后方才离开。这一事件在《西游记》中具有重要意义，不仅展示了孙悟空的神通广大，也揭示了幽冥界在生死轮回中的核心地位及其与神魔世界的微妙关系。', '阎王:阎王是幽冥界的统治者，掌管生死簿>', '十位冥王:十位冥王是管理生死簿的冥界神祇，他们遵从孙悟空的要求拿出生死簿', '判官:判官是冥界的官员，负责协助冥王管理生死簿', '生死簿:生死簿是记录所有生物生死信息的册子，被孙悟空修改', '地藏王菩萨:地藏王菩萨是佛教中的一位菩萨，冥王向他请示如何处理孙悟空的事情', '玉皇大帝:玉皇大帝，作为道教神话中的最高神祇，同时也是中国神话中的天帝，他掌管着天宫，拥有至高无上的权力。在天蓬元师犯错之时，玉皇大帝作出了惩罚的决定，体现了其对天界纪律的维护。此外，当孙悟空的行为引起天界不满时，玉皇大帝也表现出了对其行为的愤怒，并试图采取措施制服孙悟空。在神话体系中，即使是冥王也需要向玉皇大帝报告孙悟空的相关行为，这进一步彰显了玉皇大帝在神祇中的尊贵地位与权威。', '森罗殿:', '猪八戒:猪八戒，唐僧的二徒弟，以其直率的性格和无穷的力气而著称，擅长运用钉耙进行战斗。在《西游记》这一古典文学名著中，他是一位既憨厚又勇敢的角色，经常在旅途中为师傅和师兄弟们提供帮助，克服重重困难。尽管有时会因贪吃懒惰而惹麻烦，但猪八戒的忠诚与坚韧也是师徒四人得以圆满完成取经任务的重要因素之一。']}
+19:27:23,797 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:23,798 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['僧衣:僧衣是猪八戒成为僧人后穿戴的衣物>', '僧鞋:僧鞋是猪八戒成为僧人后穿戴的鞋子>', '僧帽:僧帽是猪八戒成为僧人后穿戴的帽子>', '九齿钉耙:', '老婆:指的是八戒的妻子，是他情感上的牵挂，也是他考虑还俗的原因', '还俗:还俗是指八戒如果无法完成取经任务，就打算回归原来的世俗生活', '经:经是指《西游记》中唐僧师徒四人要取的佛经，是他们旅程的目标', '八戒的老婆:', '冥司阎王:冥司阎王是地府的主宰，向玉皇大帝告发孙悟空的破坏行为。', '武曲星君:武曲星君是天宫中的神仙，建议给孙悟空一个低微的官职。', '文曲星:文曲星负责撰写诏书，邀请孙悟空上天宫。', '托塔李天王:托塔李天王是玉皇大帝派遣的将领之一，带领天兵天将去捉拿孙悟空。', '三太子哪吒:三太子哪吒是托塔李天王的副手，拥有强大的战斗能力，与孙悟空交战。', '巨灵神:巨灵神是天宫的先锋官，在与孙悟空的战斗中失败。', '齐天大圣府:为孙悟空在天宫修建的府邸，象征着他的称号。', '灵霄殿:灵动霄汉的“灵霄殿”是天宫中的主殿，也是重要的政治与礼仪中心。在这里，孙悟空曾挑战玉帝的权威，同样也是他被引见给至高无上的玉皇大帝的地方，标志着其身份与地位在天庭的正式确认。灵霄殿不仅是一座宫殿，它更是天庭秩序与权力的象征。']}
+19:27:23,877 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:23,878 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['兜率宫:兜率宫是太上老君的居所，也是孙悟空被炼化的地方', '巽宫:八卦炉中的一个位置，因只有烟没有火，孙悟空在其中避难', '哮天犬:', '如意棒:孙悟空的武器，可以随心所欲地变化大小和威力', '三十六员雷将:保护玉帝的神仙，阻止孙悟空的进攻', '二十八座星宿:赶来保护玉帝的神仙，帮助抵挡孙悟空', '如来佛祖:佛教中的最高神祇，被请来帮助解决孙悟空的问题', '阿傩:阿傩是佛教中的尊者，身份尊贵，担任如来佛祖的随从，专责处理孙悟空相关的事务。他不仅是位神仙，而且在佛教中担任接收礼物并遵照佛祖指示行事的要职，体现了其在佛教体系中的崇高地位和重要作用。阿傩的形象和行为，在《西游记》这一古典文学作品中，富含深厚的宗教文化象征意义。', '伽叶:伽叶，佛教中的神仙尊者，与阿傩共同承担执行佛祖任务的使命，一同前来协助如来佛祖，体现了其在佛教中的重要地位与作用。在佛教的经典文化中，伽叶以虔诚和智慧闻名，是佛教教义的重要传播者。', '安天大会:玉帝为庆祝孙悟空被镇压而举办的盛大活动玉帝为感谢如来佛祖而设的庆祝活动', '各路神仙:', '齐天大圣到此一游:孙悟空在撑天柱子上留下的标记，显示了他的存在和反抗精神', '巡查官:巡查官是负责监视妖猴孙悟空的天庭官员，其主要职责是密切观察孙悟空的动向，并在发现任何异常情况时，及时向佛祖汇报。他们是天庭秩序的维护者，通过对孙悟空的监管，确保天界的和谐不受干扰。在这一职责中，巡查官体现了天庭的权威和层级结构，同时也突显了孙悟空在天界中的重要地位及其所受到的关注。', '妖猴:妖猴是指孙悟空，这一称呼突显了他不受约束、调皮捣蛋的特性。据古典文学作品《西游记》记载，因其调皮捣蛋，孙悟空被佛祖囚禁于五行山下，直至唐僧经过，才得以解救，并开始了取经的西天之旅。这个称呼不仅体现了孙悟空的个性，也反映了他在故事中的重要转变，从一个无法无天的妖猴，成为了一位助人为乐、保护师父的忠诚弟子。', '太玄宫:天宫中的一个宫殿，用于举办重要的仪式和活动', '洞阳玉馆:天宫中的另一个重要场所，用于接待尊贵的客人']}
+19:27:23,882 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:23,883 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['天兵天将:守护南天门的兵将，对悟空的到来感到惊慌>', '黑风山:黑风山，位于观音院南面，是一座因黑风洞而得名的山脉。此处为黑风怪的居所，山中幽深，传说中的黑风洞便坐落于此，与山同名，映衬出该地神秘的色彩和深厚的文化底蕴。', '黑风洞:黑风洞是位于黑风山中的洞穴，亦是黑风怪的住所。在《西游记》中，此处成为了孙悟空和观音菩萨前往的重要地点，充满了神秘与传奇色彩。黑风洞不仅是黑风怪的居所，也是故事中一个关键的场景，反映了人物之间的复杂关系与神话传说中的神秘境界。', '木柴:', '驼背老和尚:驼背老和尚因观音院被烧和袈裟丢失而撞墙自尽>', '妖魔:妖魔是在黑风山上与黑风怪一起的怪物>', '道士:道僮原是一只伪装成道士的大灰狼，参与了佛衣盛会，但在孙悟空的慧眼下被识破并最终被打死。实际上，这位道士不仅是灵吉菩萨讲经之地的守护者或信徒，还是黑风怪的朋友，在事情败露后与黑风怪一同逃跑。这一形象在《西游记》中体现了妖魔善于伪装、混淆视听的特点，同时也反映了正义终究战胜邪恶的主题。', '白衣秀才:白衣秀才实际上是条大白花蛇，被悟空打死>', '小妖怪:小妖怪是黑风怪的部下，负责观察和报告情况。', '乌金甲:黑风怪的护身甲，增强了他的防御能力。', '黑缨枪:黑风怪的武器，用于与悟空交战。', '请柬:黑风怪邀请观音院老和尚的书面邀请，是故事中的一个重要物证。', '观音院那老和尚:观音院中的老和尚，与黑风怪有联系，增加了故事情节的复杂性。', '童子:观音菩萨的随从，协助观音菩萨执行任务。', '宝衣:悟空所拥有的珍贵衣物，之前在观音院中卖弄，导致了后续的事件。', '佛衣盛会:一个重要的宗教活动，吸引了道士等各路神仙参加。']}
+19:27:24,176 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:24,178 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['五行山:五行山，又名五指山，是中国古典名著《西游记》中一个具有重大象征意义的地点。此处曾是佛祖如来的五指化作的山镇，用以囚禁桀骜不驯的孙悟空，其法力封印使得孙悟空无法逃脱。五行山不仅是取经故事的关键地点，也象征着佛法的威严与力量。后来，在唐僧师徒取经途中，唐僧到达五行山，因他的救助，五行山的封印裂开，使得孙悟空得以重获自由，并成为唐僧的大徒弟，共同完成取经的使命。这一事件也象征着悟空的转化与重生，从此开始了他的修行之路。', '观音菩萨:观音菩萨是佛教中备受尊敬的菩萨，她以大慈大悲著称，拥有高深的法力和救苦救难的神力。在《西游记》中，观音菩萨不仅是如来的使者，奉旨寻找取经人，还多次在关键时刻给予唐僧师徒以帮助和救济。她曾化身老妇人指引孙悟空回归正途，并劝导他成为唐僧的徒弟。此外，她还安排白龙马成为唐僧的坐骑，并解决了相关的冲突。观音菩萨还提出了捉拿孙悟空的建议，并指导唐僧取经，甚至教授唐僧紧箍咒以控制孙悟空。她还派遣木叉行者协助取经团队，并在途中劝导妖怪改邪归正，指引他们走上正确的取经之路。她的慈悲心肠和智慧行动，为唐僧一行人克服重重困难，最终成功取得真经提供了重要的支持。', '如来佛:如来佛，作为佛教中的最高神祇，具有无上的权威与神通。在《西游记》这一古典文学名著中，如来佛发出法旨，指令观音菩萨去寻找适合的取经人，以完成重要的佛教使命。同时，也是如来佛以巨大的法力将桀骜不驯的孙悟空压在五行山下，直至唐僧师徒一行人开始西天取经的旅程，孙悟空才得以重获自由。如来佛的这些行为不仅体现了他在佛教界的至高地位，也展示了他对于宇宙秩序与修行者教化的深刻影响。', '惠岸行者:惠岸行者是观音菩萨的随从，一同来到东土大唐', '东土大唐:东土大唐是故事发生的主要地点，是取经人的起点', '唐太宗李世民:唐太宗李世民是唐朝的皇帝，命令陈玄奘取经', '陈玄奘:陈玄奘是唐朝的高僧，被选为取经人，是金蝉子转世', '金蝉子:金蝉子是如来佛的弟子，转世为陈玄奘', '唐三藏:陈玄奘的名字被唐太宗改为唐三藏，是取经的主要人物', '熊山君:熊山君乃一妖怪，与寅将军结伴而行。在《西游记》中，二者共同出现，熊山君曾提议仅以两人为食，足见其狡猾与凶残。此一描述不仅揭示了熊山君与寅将军的同盟关系，也反映了其时妖怪的残酷本性与对人类生命的轻视。', '特处士:特处士是妖怪，与熊山君一同拜访寅将军', '寅将军:寅将军，一名妖怪，自称魔王，曾在《西游记》中打算以唐僧师徒招待客人。他性格残忍，曾吃掉唐僧的两个仆人。在此，我们可以看出寅将军的邪恶本质及其对唐僧一行人的威胁。', '五件宝贝:五件宝贝是观音菩萨带来的宝物，包括锦袈裟，用于交换取经人的承诺>', '东土大唐的边界河州:这是大唐边界的具体地点，唐僧一行人在此遇到了困难>', '镇边总兵:镇边总兵是在河州的地方官员，接待了唐僧主仆>', '福原寺:福原寺是唐僧一行人在河州休息的地方>']}
+19:27:24,178 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:24,179 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['棒子:', '玉盘:一个装有两粒仙丹的盘子，原本由道士持有>', '仙丹:具有神奇效果的丹药，被孙悟空和观音菩萨用来对付黑风怪>', '佛衣:一件重要的佛教圣物，被黑风怪所窃，后被观音菩萨和孙悟空取回>', '小金圈儿:观音菩萨用来控制黑风怪的工具>', '小妖:黑风怪的下属，被观音菩萨和孙悟空吓跑>', '混世魔王:混世魔王是孙悟空的敌人，曾占据水帘洞并抢走猴子猴孙。', '花果山水帘洞:孙悟空的居所，一个荒凉破败但被孙悟空恢复生机的洞府。', '水脏洞:混世魔王的居所，后被孙悟空破坏。', '小猴子们:孙悟空的追随者，被救出后帮助孙悟空恢复水帘洞。', '通背老猿猴:一只老猴子，给孙悟空提供了去东海龙宫的建议。', '东海龙宫:东海龙王敖广的居所，拥有许多宝物。', '龙王:龙王爷是东海龙宫的主宰，他拥有丰富的宝物，并且在孙悟空求助时愿意给予帮助。他曾命令手下为孙悟空拿出多种兵器，并最终指引孙悟空获得了如意金箍棒。然而，由于孙悟空的一些行为，龙王爷也曾向玉皇大帝告状，显示出他在维护龙宫秩序和天庭法规方面的责任感和决断力。', '方天画戟:方天画戟是一种由东海龙宫提供的兵器，其重量高达七千二百斤。尽管它的分量不轻，但孙悟空在尝试使用后仍认为它不适合自己。在此过程中，我们可以看出孙悟空对兵器的独特要求和鉴赏眼光，以及东海龙宫对孙悟空的重视，愿意提供如此珍贵的武器供其挑选。', '九股叉:九股叉是一种古代兵器，重量达三千六百斤，然而在《西游记》中，孙悟空却认为它太轻，这显示了孙悟空非凡的力量和自信。尽管其中一条描述为空，但从现有的信息中我们可以得知，九股叉在中国古代文学中是一件颇具份量的武器，且与孙悟空的故事紧密相关。', '竹枪:孙悟空让小猴子们制作的简易兵器之一。']}
+19:27:24,267 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:24,268 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['西海龙王:', '经过:', '高老庄:高老庄是一个村庄，其庄主高太公在此地寻找能够捉拿妖怪的法师。这个村庄在妖怪的叙述中曾被提及，并且后来成为妖怪被带去见唐僧的地点。在《西游记》这一中国古典文学名著中，高老庄不仅是故事情节的一个重要环节，也反映了当时社会对于神秘力量和宗教信仰的寻求与依赖。', '高太公:高太公，高老庄之庄主，其家中有一女，深受妖怪女婿所扰。此情节源自中国古典名著《西游记》，通过这一角色和事件，展现了古代社会家庭与神秘力量之间的冲突与互动。高太公作为一庄之主，其家庭的不幸遭遇也反映了当时人们对于超自然现象的恐惧与无奈。', '三女儿:高太公的第三个女儿，曾被妖怪锁在后院，后来被悟空解救>', '天蓬元师:天蓬元师原是天上的神仙，因调戏嫦娥被贬下凡，成为猪八戒的前身', '王母娘娘:王母娘娘，是中国神话中的一位重要女神，她位居天庭，负责掌管那里的宴会事宜。其中，最为人所知的宴会便是蟠桃会。在这个盛大的宴会中，王母娘娘不仅举办聚会，还曾派遣七位仙女前往采摘蟠桃，以供宴会之用。这些描述充分展现了王母娘娘在天庭中的崇高地位以及她在神话传说中的重要作用。', '嫦娥:嫦娥是中国神话中的月亮女神，被天蓬元师调戏', '弼马温:弼马温是悟空在天宫时的职位，被妖怪提及以嘲讽>', '天宫:天宫是悟空大闹的地方，与妖怪的背景故事相关>', '广寒宫:广寒宫是嫦娥的居所，天蓬元师因闯入此处受到惩罚>', '铜锤:铜锤是天蓬元师被惩罚时使用的刑具>', '凡间:凡间是天蓬元师被贬下界的地方>', '猪胎:猪胎是天蓬元师错误投胎的对象>', '洞门:洞门是妖怪藏身的地方，被悟空打碎>', '云栈洞:云栈洞是妖怪的居所，被他和悟空放火烧毁>']}
+19:27:24,437 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:24,439 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['东胜神洲:东胜神洲是石猴诞生地的所在大洲，傲来国位于其上', '傲来国:傲来国是一个拥有丰富兵器库的国家，正是在这里，孙悟空从中获取了其著名的兵器。此外，傲来国也是花果山的所在地，更是石猴成长的地方，对中国文学经典《西游记》中的故事发展起着至关重要的作用。这个国家不仅是一个地理背景，更是孙悟空传奇故事的摇篮。', '铁板桥:铁板桥位于水帘洞内，石猴通过它进入洞内', '泉水源:泉水源是猴子们寻找的目标，石猴成功找到了它', '石猴:', '通背猿猴:一只懂得神仙之术的猿猴，建议美猴王学习长生不老的本领>', '神仙:拥有长生不老能力的神秘生物，美猴王渴望找到并学习他们的本领>', '灵台方寸山:一座山，山上有一个斜月三星洞，菩提祖师居住的地方>', '斜月三星洞:位于灵台方寸山上，菩提祖师的居所>', '菩提祖师:芲提祖师，乃是一位隐居在斜月三星洞的神仙，他收孙悟空为徒，传授其武艺和法术。祖师不仅具备高深的法力，更拥有卓越的智慧，对孙悟空进行了全面的教育和指导，为其后来的成就奠定了坚实的基础。在《西游记》这一中国文学经典中，芲提祖师的这一角色象征着师徒关系中的传授与启迪，体现了中国传统文化中对知识和技能传承的重视。', '仙童:菩提祖师的徒弟，其中一个带领孙悟空进入洞府>', '青年人:一个在树林里砍柴的普通人，向美猴王指点了灵台方寸山的方向>', '石碑:石碑位于黑风洞前，与斜月三星洞相对，立于山岗之上。其上刻有“黑风山黑风洞”的字样，明确了其与黑风洞的关联，同时也作为对该地区的一个重要地标。通过对石碑的描述，我们可以了解到它在地理位置上具有标志性意义，是通往黑风洞的明显指引。', '仙童们:菩提祖师的徒弟们，站在讲道台下>', '东南风:', '祖师:祖师，即孙悟空的师傅，被尊称为菩提祖师，他不仅拥有高深的法力，更具备卓越的教学能力。在《西游记》中，他对孙悟空的行为和态度产生了重要影响，通过教训和指导，赋予孙悟空丰富的武艺和智慧，为其后来的西天取经之路奠定了坚实的基础。菩提祖师的智慧和法力在故事中是备受推崇的，他的形象象征着师徒之间的重要关系和传承。']}
+19:27:24,546 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:24,547 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['黄风大王:黄风大王是山洞的主人，手下有先锋等小妖，他抓住了唐僧并计划吃掉他。', '黄风大王的先锋:黄风大王的部下，能够变化成猛虎，与孙悟空和猪八戒交战。', '黄风洞:黄风岭上的黄风洞是《西游记》中的一个重要地点，它不仅是黄风大王的居所，同时也是妖怪的巢穴。这个洞穴恰好位于孙悟空和唐僧师徒的西行路径上，在故事中，孙悟空和八戒曾一同清剿了盘踞在此的妖怪，确保了师徒们能够安全通过。', '旋风:旋风是一个自然现象，被孙悟空用来判断附近可能有妖怪或猛虎的存在。', '赤铜刀:赤铜刀是黄风大王的先锋所使用的武器，在与猪八戒和孙悟空的战斗中出现过。', '金蝉脱壳之计:金蝉脱壳是一种计谋，黄风大王的先锋使用它来逃脱孙悟空和猪八戒的追捕。', '定风柱:定风柱是黄风洞中用来绑住唐僧的柱子，以防他被风吹走。', '斑斓猛虎:', '先锋:被悟空拦住去路的妖怪，被迫向山坡上逃跑', '老妖:老妖，原身为一只黄毛貂鼠，曾遭八爪金龙捕捉。他是黄风洞的主人，率领小妖出洞应战，曾在洞口与孙悟空展开激烈战斗，展现出其强大的实力和领导能力。在准备与小妖们共同交战的过程中，老妖彰显了其作为一方妖王的威严和决心。', '毫毛:悟空吹仙气后变成的一百多个悟空，用于包围老妖', '仙气:悟空吹的气体，能够使毫毛变化成多个自己）', '狂风:老妖吹起的，使多个悟空在空中旋转的风）', '三股钢叉:老妖的武器，用于与悟空战斗）', '三花九子膏:专治风眼的药物，由老大爷提供>一种药，专治风眼，由老大爷提供）', '老大爷:提供住宿和三花九子膏的人，实际上是护法伽蓝变化）']}
+19:27:24,828 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:24,829 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['唐僧的两个仆人:唐僧的随从，一同前往西天取经>', '妖怪:妖怪“妖怪”在《西游记》中是一个居住在流沙河的生物，曾与唐僧师徒发生冲突，并在与悟空的战斗中腰酸腿痛，后被揭示其真身是一只老虎。此外，他还曾化为猪头，原是福陵山人，后被悟空捉拿。这个神秘生物在故事中曾抓住唐僧主仆，但其真实身份是天蓬元师，因犯错被贬下凡间。在故事的后期，他改邪归正，愿意跟随唐僧取经，体现了人物性格的转变和救赎。', '锦袈裟:', '魔王:魔王是一个邪恶的存在，被称为寅将军，打算用唐僧等人招待客人', '唐僧:唐僧，又称唐三藏，是《西游记》中的核心人物，一位来自唐朝的僧人，奉皇命前往西天取经。他信仰虔诚，心怀慈悲，拥有高尚的品德和深厚的佛法修为。在取经的旅途中，他先后收孙悟空、猪八戒等人为徒，组成了一个取经团队。唐僧作为团队首领，带领徒弟们克服重重困难和挑战，其中包括孙悟空因紧箍咒而受其控制，以及遭遇妖怪袭击被徒弟们救出的经历。在旅途中，他们也曾寻找被偷的袈裟，唐僧对袈裟的下落焦急万分。此外，他还曾差点被寅将军吓昏，幸得神秘老人相救，也曾被白龙马追击，所幸得到孙悟空的救助。尽管在孙悟空离开时感到无助，但在观音菩萨的帮助下，他始终坚持取经的使命，展现了坚定的意志和领导力。', '神秘老人:神秘老人救了唐僧，并指引他离开双叉岭，实为太白金星', '太白金星:太白金星，是中国神话中的一位重要神仙，他在《西游记》中扮演了多重角色，展现了其深邃的智慧与神通。他不仅是天宫中的神仙，还曾暗中帮助孙悟空，为其提供助力。在故事中，太白金星曾以神秘老人的形象出现，帮助唐僧，并在完成任务后乘鹤神秘飞走。此外，他还曾为天蓬元师求情，显示出其慈悲为怀的一面。在处理孙悟空的问题上，太白金星提出了安抚的策略，并负责传达天意，显现出他在天庭中的地位及其对大局的洞察力。总的来说，太白金星是一个层次丰富、形象多面的神仙，其行为和角色在《西游记》中具有重要的文化象征意义。', '刘伯钦:刘伯钦，一位猎户，他在《西游记》中不仅是救助唐僧并热情邀请他到自己家中作客的善良之人，还是唐僧早期的护法。在故事中，刘伯钦起到了关键作用，协助唐僧救出了被压在五指山下的孙悟空，为唐僧取经之路提供了重要的帮助。他的行为不仅体现了其个人的英勇和仁慈，也映射了古代中国社会中对于忠诚与助人为乐的价值观。', '两界山:两界山是一座重要的地标，分隔大唐和鞑靼的疆域', '孙悟空:孙悟空，亦称美猴王，是《西游记》中的核心人物，具有高强的武艺和神通广大的变化能力。他原是花果山水帘洞的主人，后拜师菩提祖师学得仙法和筋斗云。因其叛逆但忠诚的性格，以及急躁和顽皮的个性，孙悟空曾在故事中大闹天宫和龙宫，获得了如意金箍棒。他因偷吃蟠桃和金丹而引发了一系列事件，最终被如来佛祖压在五行山下。后来，他成为唐僧的大徒弟，保护唐僧西天取经，途中展现出机智勇敢的一面，与各种妖魔鬼怪战斗，并最终使白龙马屈服。孙悟空不仅力大无穷，能长生不老，还曾要求查看并修改生死簿，显示了他对自由和力量的追求。他的故事充满了对权威的挑战和对师徒情感的深刻描绘。', '毒蛇:毒蛇在唐僧四周出现，吐着红信，增加了唐僧的危险>', '有毒的虫子:有毒的虫子是唐僧四周的危险之一，增加了他的困境>', '从未见过的野兽:这些未知的野兽包围了唐僧，使他感到更加无助>', '凶恶的老虎:', '老虎:一只大老虎在唐僧和孙悟空取经路上出现，被孙悟空用金箍棒打死。', '强盗:六个强盗试图抢夺唐僧师徒的马和行李，后被孙悟空打死。']}
+19:27:24,877 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:24,878 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['南海:南海是观音菩萨的居所，悟空想去那里找观音菩萨理论>', '西天取经:', '唐僧师徒:唐僧师徒是由唐僧、孙悟空、猪八戒和沙和尚组成的取经团队，他们正在前往西天的路上>', '黄风岭:在《西游记》这部古典文学作品中，黄风岭（\\u9ec4\\u98ce\\u5cad）是一个重要的场景。它是黄风洞所在的山岭，唐僧师徒在此地小心翼翼地前行，这里被认为是他们取经路上遭遇的诸多险境之一。黄风岭不仅是地理环境上的险要之地，也是充满了妖魔鬼怪的奇幻世界，充分体现了这部作品中对于自然界与神话传说的深度融合。', '流沙河:流沙河是《西游记》中一条宽阔且汹涌的河流，位于取经团队必经之路上，河中藏有妖怪，对唐僧师徒四人构成了威胁和考验。这一地点不仅地理环境特殊，而且在整个故事中具有重要的象征意义，代表着西天取经路上的艰难险阻。', '八戒:八戒，亦称猪悟能，是《西游记》中的重要角色，身为唐僧的次徒，原为天蓬元帅，后因犯错被贬下凡间，成为高老庄的妖怪。他拥有一定的法力，性格中虽带有贪吃懒惰的特点，但忠心耿耿，诚实且勇敢。在故事中，他不仅负责照看马匹，还与孙悟空并肩作战，共同打败妖怪并救出师傅唐僧。一次在山坡放马时，他还巧妙地使用钉耙击败了作恶的妖怪，显示了他并非只有愚蠢的言论，而是具有实际行动的能力。此外，八戒对婚姻也表现出了自己的担忧，体现了角色内心的细腻情感。', '木叉行者:木叉行者是观音菩萨的高徒，受菩萨之命，作为其使者前往助唐僧一行。他携带着具有神秘力量的红葫芦，在旅程中为唐僧师徒提供了重要的帮助，尤其是在收服沙和尚的过程中发挥了关键作用。', '沙和尚:沙和尚，唐僧的徒弟之一，原名为悟净。在被唐僧收服之后，他改名为沙和尚。在《西游记》这一古典文学作品中，沙和尚以其忠诚和坚韧的性格，成为取经团队中的重要一员，与孙悟空、猪八戒一同协助唐僧西天取经，克服重重困难，展现了深厚的师徒情谊和集体合作精神。尽管关于他的描述信息有限，但他在故事中的形象鲜明，深入人心。', '悟净:悟净是沙和尚的别名，原本是流沙河的妖怪，后成为唐僧的徒弟>', '九个骷髅:九个骷髅是沙和尚的宝物，可以化作阴风>', '红葫芦:红葫芦是观音菩萨的宝物，可以变成小船>', '白龙马:白龙马，原为西海龙王的儿子，因犯死罪而被观音菩萨安排于鹰愁涧。后来，他皈依佛门，成为唐僧的忠实坐骑，并助力唐僧一行人取得真经。他的身份由龙王的贵裔转变为取经路上的重要一员，体现了其深刻的转变与修行之路。', '美猴王:美猴王，乃是从仙石中诞生的石猴，不仅具备卓越的领导能力，还拥有非凡的身体能力，因此深受其他猴子的尊敬，被尊称为王。作为猴子之王，他带领群猴游历山水之间，心中充满着对长生不老境界的渴望。在《西游记》这一古典文学名著中，美猴王以其独特的地位和能力，成为了读者心中难以忘怀的角色。', '仙石:仙石在花果山上，崩裂后诞生了美猴王', '猴子们:花果山中，有一群普通的猴子，它们忠诚地跟随美猴王，并在那里过着快乐的生活。这群猴子不仅与美猴王共同生活在水帘洞中，还曾在其寻求长生不老之路时，齐心协力帮助美猴王制作木筏，送他出海寻找更高的修炼之道。这些猴子体现了团结协作的精神，是美猴王身边不可或缺的伙伴。', '水帘洞::\\u6c34\\u5e18\\u6d1e(\\u6c34\\u5e18\\u6d1e)\\u662f\\u65e0\\u72ec\\u5904\\u4e8e\\u8377\\u679c\\u5c71\\u4e2d\\u7684\\u4e00\\u4e2a\\u795e\\u79d8\\u5dee\\u7a9f\\uff0c\\u5b83\\u7531\\u6c34\\u5e18\\u6210\\u4e3a\\u9632\\u58c1\\u3002\\u8fde\\u4e4b\\u672a\\u51fa\\u7684\\u6597\\u732b\\u77f3\\u732b\\u53d1\\u73b0\\u4e86\\u8be5\\u5dee\\u7a9f\\uff0c\\u5e76\\u628a\\u5176\\u5f04\\u6210\\u4e86\\u72ec\\u81ea\\u548c\\u72ec\\u7acb\\u7684\\u5bb6\\u56ed\\u3002\\u5728\\u8c01\\u5e72\\u516c\\u5b50\\u7684\\u6545\\u4e8b\\u4e2d\\uff0c\\u6885\\u5c71\\u516d\\u5144\\u5f1f\\u5c31\\u662f\\u8d1f\\u8d23\\u5165\\u4fb5\\u6c34\\u5e18\\u6d1e\\u7684\\u3002\\u8be5\\u5dee\\u7a9f\\u4e5f\\u6210\\u4e3a\\u4e86\\u72ec\\u5b50\\u4eec\\u7684\\u5bb6\\u5eAD\\u3002\\u6c34\\u5e18\\u6d1e\\u4e0d\\u4ec5\\u662f\\u4e00\\u4e2a\\u5b89\\u5168\\u7684\\u9694\\u75c5\\u5730\\uff0c\\u8fd8\\u662f\\u72ec\\u5b50\\u4eec\\u7684\\u795']}
+19:27:25,16 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:25,18 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['护法伽蓝:护法伽蓝，亦称做法蓝，是具有高深法力的神仙。他们具备变化的能力，能够根据需要化身为不同的形态，如老大爷或院子，以助人为乐。在《西游记》中，护法伽蓝曾化身为老大爷和院子，为孙悟空和猪八戒提供了宝贵的帮助，展现了其神通广大和慈悲为怀的本性。这些描述不仅突出了护法伽蓝的神力，也体现了他们在故事中扮演的积极角色，以及与主要角色的和谐互动。', '钉耙:八戒的武器，用于击败妖怪>', '院子:悟空和八戒请求借宿的地方，实际上是护法伽蓝变化的>', '棍棒:老大爷和年轻农夫们拿的武器，最初用来对付悟空和八戒>', '眼睛酸痛:', '战斗:', '灵吉菩萨:灵吉菩萨，佛教中的菩萨，居住于小须弥山中。他具有强大的法力，曾有能力镇压黄风怪，维护了一方的平安。在《西游记》中，当孙悟空遇到困难，欲打击妖怪时，灵吉菩萨出现并阻止了他，同时提出了合理的处理建议，显示了他不仅法力高强，也具有智慧和慈悲心肠。', '黄风怪:', '飞龙宝杖:飞龙宝杖是灵吉菩萨的宝物，可以变成八爪金龙，用于捕捉妖怪>', '八爪金龙:八爪金龙是孙悟空变化后的形态，用于抓住妖怪。', '黄毛貂鼠:黄毛貂鼠是老妖的原形，因偷吃清油而变成妖怪。', '清油:清油是琉璃灯内的物品，被黄毛貂鼠偷吃。', '金刚:金刚是佛教中的护法神，黄毛貂鼠害怕被其捉住。', '琉璃灯:', '鹰愁涧:鹰愁涧是故事发生地，白龙马在此地等待唐僧一行人', '蛇盘山:蛇盘山是唐僧师徒途径的地方，鹰愁涧位于蛇盘山']}
+19:27:25,187 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:25,189 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['金箍棒:金箍棒，孙悟空之武器，具备变化大小与长度的神奇特性，威力无与伦比。在《西游记》的诸多场景中，悟空多次欲用它来对付唐僧，显示出其战斗用途。事实上，金箍棒不仅用于战斗攻击敌人，还曾用来打碎洞门，充分展现了其在不同情境下的多功能性。', '饿不死，冻不坏的神猴:这是对孙悟空的一种描述，强调了他的神奇能力和不屈的精神状态。）', '虎皮:虎皮是孙悟空用老虎的皮制成的衣物，围在腰间。）', '强盗的刀枪:强盗们用来攻击孙悟空的武器，未能伤害他。）', '筋斗云:筋斗云是孙悟空所掌握的一种非凡的交通工具，也是他的一项特殊技能。它能够让孙悟空在空中快速飞行，实现长距离的迅速移动。这朵云不仅象征着孙悟空的神通广大，同时也体现了他在《西游记》中的重要地位和超凡的能力。', '花果山:花果山，位于东胜神洲傲来国，乃孙悟空——美猴王的诞生地。山中有一块仙石，孕育了这位传奇的猴子。此山不仅是孙悟空的故乡，也是他曾在愤怒之下欲返回之地，更是他当年纵身驾云，离开师傅唐僧的起始点，开启了他传奇的《西游记》之旅。', '紧箍咒:紧箍咒是一种神奇的咒语，被唐僧用于控制孙悟空。当唐僧念出紧箍咒时，它能够使悟空感到头痛，从而迫使他服从唐僧的命令，不敢有任何造次之举。这种咒语体现了师徒之间的权力关系和等级秩序，是《西游记》中一个具有象征意义的元素，反映了人物间的复杂互动和道德教化意图。', '东海龙王:东海的统治者，曾劝告孙悟空回心转意，并给予他饮食>', '马:马是《西游记》中重要的角色之一。在故事中，它是猪八戒在山坡上放养的动物，不仅用于代步，也是唐僧西天取经途中的坐骑，帮助他载运行李，向西行进。此外，孙悟空在天宫时，也曾被赋予看管马匹的职责，显示了马在这一经典文学作品中的特殊地位和作用。这些描述共同揭示了马在故事中的多重角色，以及它在取经团队中的重要性。', '衣服:观音菩萨赠予唐僧的物品，用于诱使孙悟空穿上并受紧箍咒控制>', '花帽:观音菩萨赠予唐僧的物品，用于诱使孙悟空戴上并受紧箍咒控制>', '老妇人:', '悟空:悟空，是《西游记》中至关重要的人物，被誉为唐僧的大徒弟。他具备高强的武艺和神通广大的能力，能够使用金箍棒与妖怪战斗，且具有丰富的变化能力，既能变化形态也能快速追赶妖怪。其性格机智、勇猛且好斗，面对困难总能巧妙应对。在故事中，无论是捉妖、解决高老庄的问题，还是保护唐僧西天取经，悟空都展现出了他的勇敢与智慧。此外，悟空还颇具幽默感，能巧妙地回应八戒的言行。即便有时因头痛困扰，他仍然是队伍中不可或缺的力量。总体而言，悟空是一个多才多艺、充满智慧与力量的角色，为取经团队立下了赫赫战功。', '师父:师父指的是唐僧，悟空的师傅，此处用紧箍咒来惩罚悟空>', '头痛:', '保护唐僧:']}
+19:27:25,236 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:25,238 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['师兄们:师兄们是孙悟空的同伴，一同在祖师门下学习，他们对孙悟空的态度和行为有所反应。', '长生不老的法术:长生不老的法术是孙悟空追求的目标，也是祖师教授给他的重要技能之一。', '七十二般变化:七十二般变化是孙悟空学会的一种法术，能让他变化成不同的形态。', '法术:法术是祖师教授给孙悟空的各种技能，包括长生不老、七十二般变化等。', '三更:三更是中国古时的时间单位，指深夜的时候，孙悟空在这个时间进入祖师的房间学习法术。', '暗谜:暗谜是菩提祖师用来测试孙悟空智慧的一种方式，通过这种方式祖师发现了孙悟空的聪明才智。', '夏天:夏天是故事发生的一个季节，孙悟空在这个季节与师兄们玩耍，并展示自己的变化能力。', '大树:孙悟空在师兄们面前变成了一棵大树，作为展示自己变化能力的一种形式。', '观音院:观音院，位于幽静的山谷之中，是一座唐僧师徒曾到达的寺庙，也是和尚们居住和修行的场所。它在《西游记》中占据着重要地位，不仅是唐僧师徒的暂住地，而且是故事中一系列重要事件的发生地。值得一提的是，观音院曾遭受火灾，现位于黑风山的北面，这一历史痕迹为其增添了更多的文化内涵和故事色彩。', '和尚:和尚是观音院的僧人，他们在寺庙被烧毁后感到惊恐。尽管遭受此不幸，他们依然对唐僧师徒表示了尊敬，并热情邀请他们进入观音院休息。这体现了这些僧人对师徒四人的敬意以及佛教中好客的传统美德。', '袈裟:桑悟禅是唐僧的珍贵宝物“袈裟”，它是一件价值连城的佛衣，在《西游记》中为老和尚所羡慕。后来唐僧借给了这位老和尚，却不幸被其设计陷害。在某段情节中，这件袈裟还被黑风怪偷走。这一系列事件体现了袈裟不仅是物质上的宝贵，也成为了故事中人物争斗和心机较量的象征。', '老和尚:老和尚，又称之和尚，是观音院中的一位年长的僧人。他与黑风怪有所交情。然而，由于贪心作祟，他竟然设计陷害了唐僧及其师徒一行人。在这一行为背后，体现了某些古典文学作品中人物因私欲而背离佛门宗旨的复杂性格描写，同时也映射出《西游记》中人物之间错综复杂的关系和道德冲突。', '广目天王:广目天王，作为南天门的守护神，具有高强的法力，掌管着避火罩这件宝贵的神器。在《西游记》中，他曾将此宝借给了孙悟空，助其在火焰山一劫中得以安然无恙。故事后期，悟空完成了自己的使命，也将避火罩归还给了广目天王。广目天王作为天庭的神仙，其地位尊崇，在神仙谱系中占有重要的一席之地。', '避火罩:避火罩是广目天王的宝物，具有抵御火焰的神奇功效。在《西游记》中，孙悟空曾借来此宝物，用以保护唐僧免受火焰的伤害。这一情节体现了避火罩的重要性和广目天王对取经团队的暗中支持。', '黑风怪:黑风怪，乃居于黑风山黑风洞中的一妖怪，因观音院遭遇火灾，便起了贪念，意欲乘机劫掠。在《西游记》中，此怪与孙悟空成为了对手，身披乌金甲，手持黑缨枪，曾与悟空交战。然而，最终在观音菩萨和孙悟空的智谋之下，黑风怪被设计制服，其恶行受到了应有的惩罚。这一故事不仅体现了中国古典文学中正义战胜邪恶的主题，也反映了佛教中因果报应的教义。', '南天门:南天门作为天宫的重要门户之一，是连接天界与人间的要道。在《西游记》中，孙悟空因不满天庭的束缚，曾从此地突破重围，杀出南天门，展现了他的神通与反抗精神。此外，南天门也有天兵天将守护，以确保天界的安全。在故事中，孙悟空也曾前往南天门，借避火罩以应对后续的挑战。这一地点不仅体现了天庭的威严与层级，也映射了孙悟空的智勇与不屈不挠的精神。']}
+19:27:25,467 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:25,468 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['七宝灵台:一个珍贵的平台，如来佛祖在此接受各路神仙的朝拜和礼物', '五根肉红色的柱子:', '佛祖:佛祖是佛教中的最高神祇，对孙悟空施以惩罚，并给予指示。|', '山神:山神被如来佛祖叫来，负责监押孙悟空。|', '五方揭谛:五方揭谛被如来佛祖指派与山神一同监押孙悟空。|', '溶化的铜水:溶化的铜水是给孙悟空的饮料，用于在他渴时提供。|', '铁丸子:', '刑期:刑期指的是孙悟空被囚禁的时间限制，五百年后有人来救他。|']}
+19:27:33,223 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:33,224 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['宣花斧:宣花斧是巨灵神的武器，在与孙悟空的战斗中被毁。', '蟠桃园:蟠桃园，分为前、中、后三部分，每部拥有一千二百棵桃树，其结出的桃子具有神奇效果，是位于天宫中的果园。后来，孙悟空被派遣到此，负责看管蟠桃园，守护这些珍贵的仙果。在此背景下，蟠桃园不仅成为了神话故事中的重要地点，也反映了了中国古代文化中对神仙世界的想象与构建。', '玉帝:玉帝是天庭的主宰和最高统治者，他同意太上老君将孙悟空炼化的提议，以维护天庭的秩序。在孙悟空挑战天庭的权威时，玉帝深感其闲散生事的能力可能带来麻烦，因此安排孙悟空管理蟠桃园，既是对其能力的肯定，也是为了在天庭中为其安排合适的职位，以避免潜在的混乱。作为掌管天庭的最高神祇，玉帝的这一决策体现了他的智慧与对天庭层级结构的深刻理解。', '七位仙女:七位仙女奉王母娘娘之命进园摘桃，意外惊醒了孙悟空', '瑶池:瑶池是举办蟠桃会的地方，孙悟空曾偷偷进入并饮酒', '太上老君:太上老君是道教中的高级神祇，位列天庭，他拥有强大的法宝金钢琢，并在《西游记》中提议将孙悟空放入八卦炉中炼化，以期消除其身上的妖气。同时，太上老君还精于炼制金丹，他的兜率宫藏有珍贵的丹药，然而不幸的是，孙悟空曾闯入他的兜率宫，引发了一系列的故事情节。在这些描述中，我们可以看出太上老君不仅地位崇高，法力无边，而且与孙悟空之间存在着复杂的互动关系。', '李天王:李天王是天庭中的武将，奉命捉拿孙悟空', '哪吒太子:哪吒太子是李天王的儿子，也参与了捉拿孙悟空的行动', '二郎神:二郎神，乃是一位法力高强的神祇。根据传说，他曾与孙悟空展开过一场激烈的战斗，在交锋中，二郎神展示了他能变化形态的神通。此外，他还受命带领梅山六兄弟，共同捉拿孙悟空，彰显了其尊贵的地位和在神界的权能。在这些故事中，二郎神的形象既是一位英勇善战的斗士，也是一位忠诚执行天命的神灵。', '梅山六兄弟:梅山六兄弟，乃二郎神的得力助手，在《西游记》中，他们与二郎神一同前往花果山，合力捉拿孙悟空。在这一过程中，他们展现了忠诚与勇猛，是故事中具有代表性的团体之一。', '定身法:孙悟空的一种法术，能够使他人定住不动）', '瞌睡虫:孙悟空变化出的虫子，可以使他人陷入沉睡）', '照妖镜:照妖镜是一件能够揭示妖怪原形的宝物，它在《西游记》中扮演了重要角色。该宝物不仅被二郎神使用，以识别并揭露妖怪的真实形态，同时也是李天王所依赖的法器，能够照出妖魔的原形。这件宝物在中国古代神话中象征着光明与正义的力量，能够辨识真伪，帮助正义的力量战胜邪恶。', '八卦炉:用于炼化丹药和物品的炉子，孙悟空在其中炼就了火眼金睛', '金钢琢:太上老君的宝物，能够对敌人造成伤害，曾用来攻击孙悟空', '斩妖台:斩妖台是天庭中用于处决妖怪的地方，孙悟空曾被绑在这里']}
+19:27:33,546 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:33,547 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['木刀:孙悟空让小猴子们制作的简易兵器之二。', '妖精:占据水脏洞的混世魔王的部下，被孙悟空消灭。', '虾兵蟹将:虾兵蟹将是龙宫的兵将，他们遵从龙王的命令，为孙悟空抬出了重兵器>', '神珍铁:神珍铁是大禹治水时测定海水深浅的工具，能发光，最终变化为孙悟空的如意金箍棒>', '如意金箍棒:如意金箍棒是孙悟空的兵器，可以根据孙悟空的心意变化大小和重量，重一万三千五百斤>', '南、北、西三海龙王:南、北、西三海龙王分别是敖钦、敖顺和敖闰，他们凑齐了一套黄金甲、凤翅紫金冠和藕丝步云鞋送给孙悟空>', '妖王:妖王是孙悟空邀请的客人，在花果山上参加宴席>', '幽冥界:幽冥界，乃冥王与判官共同管理的冥界领域，亦是阎王居住之地。孙悟空曾因被勾魂鬼误带至此处，而得以在此修改生死簿，此后方才离开。这一事件在《西游记》中具有重要意义，不仅展示了孙悟空的神通广大，也揭示了幽冥界在生死轮回中的核心地位及其与神魔世界的微妙关系。', '阎王:阎王是幽冥界的统治者，掌管生死簿>', '十位冥王:十位冥王是管理生死簿的冥界神祇，他们遵从孙悟空的要求拿出生死簿', '判官:判官是冥界的官员，负责协助冥王管理生死簿', '生死簿:生死簿是记录所有生物生死信息的册子，被孙悟空修改', '地藏王菩萨:地藏王菩萨是佛教中的一位菩萨，冥王向他请示如何处理孙悟空的事情', '玉皇大帝:玉皇大帝，作为道教神话中的最高神祇，同时也是中国神话中的天帝，他掌管着天宫，拥有至高无上的权力。在天蓬元师犯错之时，玉皇大帝作出了惩罚的决定，体现了其对天界纪律的维护。此外，当孙悟空的行为引起天界不满时，玉皇大帝也表现出了对其行为的愤怒，并试图采取措施制服孙悟空。在神话体系中，即使是冥王也需要向玉皇大帝报告孙悟空的相关行为，这进一步彰显了玉皇大帝在神祇中的尊贵地位与权威。', '森罗殿:', '猪八戒:猪八戒，唐僧的二徒弟，以其直率的性格和无穷的力气而著称，擅长运用钉耙进行战斗。在《西游记》这一古典文学名著中，他是一位既憨厚又勇敢的角色，经常在旅途中为师傅和师兄弟们提供帮助，克服重重困难。尽管有时会因贪吃懒惰而惹麻烦，但猪八戒的忠诚与坚韧也是师徒四人得以圆满完成取经任务的重要因素之一。']}
+19:27:33,876 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:33,877 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['僧衣:僧衣是猪八戒成为僧人后穿戴的衣物>', '僧鞋:僧鞋是猪八戒成为僧人后穿戴的鞋子>', '僧帽:僧帽是猪八戒成为僧人后穿戴的帽子>', '九齿钉耙:', '老婆:指的是八戒的妻子，是他情感上的牵挂，也是他考虑还俗的原因', '还俗:还俗是指八戒如果无法完成取经任务，就打算回归原来的世俗生活', '经:经是指《西游记》中唐僧师徒四人要取的佛经，是他们旅程的目标', '八戒的老婆:', '冥司阎王:冥司阎王是地府的主宰，向玉皇大帝告发孙悟空的破坏行为。', '武曲星君:武曲星君是天宫中的神仙，建议给孙悟空一个低微的官职。', '文曲星:文曲星负责撰写诏书，邀请孙悟空上天宫。', '托塔李天王:托塔李天王是玉皇大帝派遣的将领之一，带领天兵天将去捉拿孙悟空。', '三太子哪吒:三太子哪吒是托塔李天王的副手，拥有强大的战斗能力，与孙悟空交战。', '巨灵神:巨灵神是天宫的先锋官，在与孙悟空的战斗中失败。', '齐天大圣府:为孙悟空在天宫修建的府邸，象征着他的称号。', '灵霄殿:灵动霄汉的“灵霄殿”是天宫中的主殿，也是重要的政治与礼仪中心。在这里，孙悟空曾挑战玉帝的权威，同样也是他被引见给至高无上的玉皇大帝的地方，标志着其身份与地位在天庭的正式确认。灵霄殿不仅是一座宫殿，它更是天庭秩序与权力的象征。']}
+19:27:33,883 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:33,884 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['天兵天将:守护南天门的兵将，对悟空的到来感到惊慌>', '黑风山:黑风山，位于观音院南面，是一座因黑风洞而得名的山脉。此处为黑风怪的居所，山中幽深，传说中的黑风洞便坐落于此，与山同名，映衬出该地神秘的色彩和深厚的文化底蕴。', '黑风洞:黑风洞是位于黑风山中的洞穴，亦是黑风怪的住所。在《西游记》中，此处成为了孙悟空和观音菩萨前往的重要地点，充满了神秘与传奇色彩。黑风洞不仅是黑风怪的居所，也是故事中一个关键的场景，反映了人物之间的复杂关系与神话传说中的神秘境界。', '木柴:', '驼背老和尚:驼背老和尚因观音院被烧和袈裟丢失而撞墙自尽>', '妖魔:妖魔是在黑风山上与黑风怪一起的怪物>', '道士:道僮原是一只伪装成道士的大灰狼，参与了佛衣盛会，但在孙悟空的慧眼下被识破并最终被打死。实际上，这位道士不仅是灵吉菩萨讲经之地的守护者或信徒，还是黑风怪的朋友，在事情败露后与黑风怪一同逃跑。这一形象在《西游记》中体现了妖魔善于伪装、混淆视听的特点，同时也反映了正义终究战胜邪恶的主题。', '白衣秀才:白衣秀才实际上是条大白花蛇，被悟空打死>', '小妖怪:小妖怪是黑风怪的部下，负责观察和报告情况。', '乌金甲:黑风怪的护身甲，增强了他的防御能力。', '黑缨枪:黑风怪的武器，用于与悟空交战。', '请柬:黑风怪邀请观音院老和尚的书面邀请，是故事中的一个重要物证。', '观音院那老和尚:观音院中的老和尚，与黑风怪有联系，增加了故事情节的复杂性。', '童子:观音菩萨的随从，协助观音菩萨执行任务。', '宝衣:悟空所拥有的珍贵衣物，之前在观音院中卖弄，导致了后续的事件。', '佛衣盛会:一个重要的宗教活动，吸引了道士等各路神仙参加。']}
+19:27:33,926 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:33,927 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['兜率宫:兜率宫是太上老君的居所，也是孙悟空被炼化的地方', '巽宫:八卦炉中的一个位置，因只有烟没有火，孙悟空在其中避难', '哮天犬:', '如意棒:孙悟空的武器，可以随心所欲地变化大小和威力', '三十六员雷将:保护玉帝的神仙，阻止孙悟空的进攻', '二十八座星宿:赶来保护玉帝的神仙，帮助抵挡孙悟空', '如来佛祖:佛教中的最高神祇，被请来帮助解决孙悟空的问题', '阿傩:阿傩是佛教中的尊者，身份尊贵，担任如来佛祖的随从，专责处理孙悟空相关的事务。他不仅是位神仙，而且在佛教中担任接收礼物并遵照佛祖指示行事的要职，体现了其在佛教体系中的崇高地位和重要作用。阿傩的形象和行为，在《西游记》这一古典文学作品中，富含深厚的宗教文化象征意义。', '伽叶:伽叶，佛教中的神仙尊者，与阿傩共同承担执行佛祖任务的使命，一同前来协助如来佛祖，体现了其在佛教中的重要地位与作用。在佛教的经典文化中，伽叶以虔诚和智慧闻名，是佛教教义的重要传播者。', '安天大会:玉帝为庆祝孙悟空被镇压而举办的盛大活动玉帝为感谢如来佛祖而设的庆祝活动', '各路神仙:', '齐天大圣到此一游:孙悟空在撑天柱子上留下的标记，显示了他的存在和反抗精神', '巡查官:巡查官是负责监视妖猴孙悟空的天庭官员，其主要职责是密切观察孙悟空的动向，并在发现任何异常情况时，及时向佛祖汇报。他们是天庭秩序的维护者，通过对孙悟空的监管，确保天界的和谐不受干扰。在这一职责中，巡查官体现了天庭的权威和层级结构，同时也突显了孙悟空在天界中的重要地位及其所受到的关注。', '妖猴:妖猴是指孙悟空，这一称呼突显了他不受约束、调皮捣蛋的特性。据古典文学作品《西游记》记载，因其调皮捣蛋，孙悟空被佛祖囚禁于五行山下，直至唐僧经过，才得以解救，并开始了取经的西天之旅。这个称呼不仅体现了孙悟空的个性，也反映了他在故事中的重要转变，从一个无法无天的妖猴，成为了一位助人为乐、保护师父的忠诚弟子。', '太玄宫:天宫中的一个宫殿，用于举办重要的仪式和活动', '洞阳玉馆:天宫中的另一个重要场所，用于接待尊贵的客人']}
+19:27:34,236 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:34,237 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:34,238 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['五行山:五行山，又名五指山，是中国古典名著《西游记》中一个具有重大象征意义的地点。此处曾是佛祖如来的五指化作的山镇，用以囚禁桀骜不驯的孙悟空，其法力封印使得孙悟空无法逃脱。五行山不仅是取经故事的关键地点，也象征着佛法的威严与力量。后来，在唐僧师徒取经途中，唐僧到达五行山，因他的救助，五行山的封印裂开，使得孙悟空得以重获自由，并成为唐僧的大徒弟，共同完成取经的使命。这一事件也象征着悟空的转化与重生，从此开始了他的修行之路。', '观音菩萨:观音菩萨是佛教中备受尊敬的菩萨，她以大慈大悲著称，拥有高深的法力和救苦救难的神力。在《西游记》中，观音菩萨不仅是如来的使者，奉旨寻找取经人，还多次在关键时刻给予唐僧师徒以帮助和救济。她曾化身老妇人指引孙悟空回归正途，并劝导他成为唐僧的徒弟。此外，她还安排白龙马成为唐僧的坐骑，并解决了相关的冲突。观音菩萨还提出了捉拿孙悟空的建议，并指导唐僧取经，甚至教授唐僧紧箍咒以控制孙悟空。她还派遣木叉行者协助取经团队，并在途中劝导妖怪改邪归正，指引他们走上正确的取经之路。她的慈悲心肠和智慧行动，为唐僧一行人克服重重困难，最终成功取得真经提供了重要的支持。', '如来佛:如来佛，作为佛教中的最高神祇，具有无上的权威与神通。在《西游记》这一古典文学名著中，如来佛发出法旨，指令观音菩萨去寻找适合的取经人，以完成重要的佛教使命。同时，也是如来佛以巨大的法力将桀骜不驯的孙悟空压在五行山下，直至唐僧师徒一行人开始西天取经的旅程，孙悟空才得以重获自由。如来佛的这些行为不仅体现了他在佛教界的至高地位，也展示了他对于宇宙秩序与修行者教化的深刻影响。', '惠岸行者:惠岸行者是观音菩萨的随从，一同来到东土大唐', '东土大唐:东土大唐是故事发生的主要地点，是取经人的起点', '唐太宗李世民:唐太宗李世民是唐朝的皇帝，命令陈玄奘取经', '陈玄奘:陈玄奘是唐朝的高僧，被选为取经人，是金蝉子转世', '金蝉子:金蝉子是如来佛的弟子，转世为陈玄奘', '唐三藏:陈玄奘的名字被唐太宗改为唐三藏，是取经的主要人物', '熊山君:熊山君乃一妖怪，与寅将军结伴而行。在《西游记》中，二者共同出现，熊山君曾提议仅以两人为食，足见其狡猾与凶残。此一描述不仅揭示了熊山君与寅将军的同盟关系，也反映了其时妖怪的残酷本性与对人类生命的轻视。', '特处士:特处士是妖怪，与熊山君一同拜访寅将军', '寅将军:寅将军，一名妖怪，自称魔王，曾在《西游记》中打算以唐僧师徒招待客人。他性格残忍，曾吃掉唐僧的两个仆人。在此，我们可以看出寅将军的邪恶本质及其对唐僧一行人的威胁。', '五件宝贝:五件宝贝是观音菩萨带来的宝物，包括锦袈裟，用于交换取经人的承诺>', '东土大唐的边界河州:这是大唐边界的具体地点，唐僧一行人在此遇到了困难>', '镇边总兵:镇边总兵是在河州的地方官员，接待了唐僧主仆>', '福原寺:福原寺是唐僧一行人在河州休息的地方>']}
+19:27:34,239 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['棒子:', '玉盘:一个装有两粒仙丹的盘子，原本由道士持有>', '仙丹:具有神奇效果的丹药，被孙悟空和观音菩萨用来对付黑风怪>', '佛衣:一件重要的佛教圣物，被黑风怪所窃，后被观音菩萨和孙悟空取回>', '小金圈儿:观音菩萨用来控制黑风怪的工具>', '小妖:黑风怪的下属，被观音菩萨和孙悟空吓跑>', '混世魔王:混世魔王是孙悟空的敌人，曾占据水帘洞并抢走猴子猴孙。', '花果山水帘洞:孙悟空的居所，一个荒凉破败但被孙悟空恢复生机的洞府。', '水脏洞:混世魔王的居所，后被孙悟空破坏。', '小猴子们:孙悟空的追随者，被救出后帮助孙悟空恢复水帘洞。', '通背老猿猴:一只老猴子，给孙悟空提供了去东海龙宫的建议。', '东海龙宫:东海龙王敖广的居所，拥有许多宝物。', '龙王:龙王爷是东海龙宫的主宰，他拥有丰富的宝物，并且在孙悟空求助时愿意给予帮助。他曾命令手下为孙悟空拿出多种兵器，并最终指引孙悟空获得了如意金箍棒。然而，由于孙悟空的一些行为，龙王爷也曾向玉皇大帝告状，显示出他在维护龙宫秩序和天庭法规方面的责任感和决断力。', '方天画戟:方天画戟是一种由东海龙宫提供的兵器，其重量高达七千二百斤。尽管它的分量不轻，但孙悟空在尝试使用后仍认为它不适合自己。在此过程中，我们可以看出孙悟空对兵器的独特要求和鉴赏眼光，以及东海龙宫对孙悟空的重视，愿意提供如此珍贵的武器供其挑选。', '九股叉:九股叉是一种古代兵器，重量达三千六百斤，然而在《西游记》中，孙悟空却认为它太轻，这显示了孙悟空非凡的力量和自信。尽管其中一条描述为空，但从现有的信息中我们可以得知，九股叉在中国古代文学中是一件颇具份量的武器，且与孙悟空的故事紧密相关。', '竹枪:孙悟空让小猴子们制作的简易兵器之一。']}
+19:27:34,326 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:34,327 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['西海龙王:', '经过:', '高老庄:高老庄是一个村庄，其庄主高太公在此地寻找能够捉拿妖怪的法师。这个村庄在妖怪的叙述中曾被提及，并且后来成为妖怪被带去见唐僧的地点。在《西游记》这一中国古典文学名著中，高老庄不仅是故事情节的一个重要环节，也反映了当时社会对于神秘力量和宗教信仰的寻求与依赖。', '高太公:高太公，高老庄之庄主，其家中有一女，深受妖怪女婿所扰。此情节源自中国古典名著《西游记》，通过这一角色和事件，展现了古代社会家庭与神秘力量之间的冲突与互动。高太公作为一庄之主，其家庭的不幸遭遇也反映了当时人们对于超自然现象的恐惧与无奈。', '三女儿:高太公的第三个女儿，曾被妖怪锁在后院，后来被悟空解救>', '天蓬元师:天蓬元师原是天上的神仙，因调戏嫦娥被贬下凡，成为猪八戒的前身', '王母娘娘:王母娘娘，是中国神话中的一位重要女神，她位居天庭，负责掌管那里的宴会事宜。其中，最为人所知的宴会便是蟠桃会。在这个盛大的宴会中，王母娘娘不仅举办聚会，还曾派遣七位仙女前往采摘蟠桃，以供宴会之用。这些描述充分展现了王母娘娘在天庭中的崇高地位以及她在神话传说中的重要作用。', '嫦娥:嫦娥是中国神话中的月亮女神，被天蓬元师调戏', '弼马温:弼马温是悟空在天宫时的职位，被妖怪提及以嘲讽>', '天宫:天宫是悟空大闹的地方，与妖怪的背景故事相关>', '广寒宫:广寒宫是嫦娥的居所，天蓬元师因闯入此处受到惩罚>', '铜锤:铜锤是天蓬元师被惩罚时使用的刑具>', '凡间:凡间是天蓬元师被贬下界的地方>', '猪胎:猪胎是天蓬元师错误投胎的对象>', '洞门:洞门是妖怪藏身的地方，被悟空打碎>', '云栈洞:云栈洞是妖怪的居所，被他和悟空放火烧毁>']}
+19:27:34,506 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:34,507 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['东胜神洲:东胜神洲是石猴诞生地的所在大洲，傲来国位于其上', '傲来国:傲来国是一个拥有丰富兵器库的国家，正是在这里，孙悟空从中获取了其著名的兵器。此外，傲来国也是花果山的所在地，更是石猴成长的地方，对中国文学经典《西游记》中的故事发展起着至关重要的作用。这个国家不仅是一个地理背景，更是孙悟空传奇故事的摇篮。', '铁板桥:铁板桥位于水帘洞内，石猴通过它进入洞内', '泉水源:泉水源是猴子们寻找的目标，石猴成功找到了它', '石猴:', '通背猿猴:一只懂得神仙之术的猿猴，建议美猴王学习长生不老的本领>', '神仙:拥有长生不老能力的神秘生物，美猴王渴望找到并学习他们的本领>', '灵台方寸山:一座山，山上有一个斜月三星洞，菩提祖师居住的地方>', '斜月三星洞:位于灵台方寸山上，菩提祖师的居所>', '菩提祖师:芲提祖师，乃是一位隐居在斜月三星洞的神仙，他收孙悟空为徒，传授其武艺和法术。祖师不仅具备高深的法力，更拥有卓越的智慧，对孙悟空进行了全面的教育和指导，为其后来的成就奠定了坚实的基础。在《西游记》这一中国文学经典中，芲提祖师的这一角色象征着师徒关系中的传授与启迪，体现了中国传统文化中对知识和技能传承的重视。', '仙童:菩提祖师的徒弟，其中一个带领孙悟空进入洞府>', '青年人:一个在树林里砍柴的普通人，向美猴王指点了灵台方寸山的方向>', '石碑:石碑位于黑风洞前，与斜月三星洞相对，立于山岗之上。其上刻有“黑风山黑风洞”的字样，明确了其与黑风洞的关联，同时也作为对该地区的一个重要地标。通过对石碑的描述，我们可以了解到它在地理位置上具有标志性意义，是通往黑风洞的明显指引。', '仙童们:菩提祖师的徒弟们，站在讲道台下>', '东南风:', '祖师:祖师，即孙悟空的师傅，被尊称为菩提祖师，他不仅拥有高深的法力，更具备卓越的教学能力。在《西游记》中，他对孙悟空的行为和态度产生了重要影响，通过教训和指导，赋予孙悟空丰富的武艺和智慧，为其后来的西天取经之路奠定了坚实的基础。菩提祖师的智慧和法力在故事中是备受推崇的，他的形象象征着师徒之间的重要关系和传承。']}
+19:27:34,596 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:34,598 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['黄风大王:黄风大王是山洞的主人，手下有先锋等小妖，他抓住了唐僧并计划吃掉他。', '黄风大王的先锋:黄风大王的部下，能够变化成猛虎，与孙悟空和猪八戒交战。', '黄风洞:黄风岭上的黄风洞是《西游记》中的一个重要地点，它不仅是黄风大王的居所，同时也是妖怪的巢穴。这个洞穴恰好位于孙悟空和唐僧师徒的西行路径上，在故事中，孙悟空和八戒曾一同清剿了盘踞在此的妖怪，确保了师徒们能够安全通过。', '旋风:旋风是一个自然现象，被孙悟空用来判断附近可能有妖怪或猛虎的存在。', '赤铜刀:赤铜刀是黄风大王的先锋所使用的武器，在与猪八戒和孙悟空的战斗中出现过。', '金蝉脱壳之计:金蝉脱壳是一种计谋，黄风大王的先锋使用它来逃脱孙悟空和猪八戒的追捕。', '定风柱:定风柱是黄风洞中用来绑住唐僧的柱子，以防他被风吹走。', '斑斓猛虎:', '先锋:被悟空拦住去路的妖怪，被迫向山坡上逃跑', '老妖:老妖，原身为一只黄毛貂鼠，曾遭八爪金龙捕捉。他是黄风洞的主人，率领小妖出洞应战，曾在洞口与孙悟空展开激烈战斗，展现出其强大的实力和领导能力。在准备与小妖们共同交战的过程中，老妖彰显了其作为一方妖王的威严和决心。', '毫毛:悟空吹仙气后变成的一百多个悟空，用于包围老妖', '仙气:悟空吹的气体，能够使毫毛变化成多个自己）', '狂风:老妖吹起的，使多个悟空在空中旋转的风）', '三股钢叉:老妖的武器，用于与悟空战斗）', '三花九子膏:专治风眼的药物，由老大爷提供>一种药，专治风眼，由老大爷提供）', '老大爷:提供住宿和三花九子膏的人，实际上是护法伽蓝变化）']}
+19:27:34,876 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:34,877 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['唐僧的两个仆人:唐僧的随从，一同前往西天取经>', '妖怪:妖怪“妖怪”在《西游记》中是一个居住在流沙河的生物，曾与唐僧师徒发生冲突，并在与悟空的战斗中腰酸腿痛，后被揭示其真身是一只老虎。此外，他还曾化为猪头，原是福陵山人，后被悟空捉拿。这个神秘生物在故事中曾抓住唐僧主仆，但其真实身份是天蓬元师，因犯错被贬下凡间。在故事的后期，他改邪归正，愿意跟随唐僧取经，体现了人物性格的转变和救赎。', '锦袈裟:', '魔王:魔王是一个邪恶的存在，被称为寅将军，打算用唐僧等人招待客人', '唐僧:唐僧，又称唐三藏，是《西游记》中的核心人物，一位来自唐朝的僧人，奉皇命前往西天取经。他信仰虔诚，心怀慈悲，拥有高尚的品德和深厚的佛法修为。在取经的旅途中，他先后收孙悟空、猪八戒等人为徒，组成了一个取经团队。唐僧作为团队首领，带领徒弟们克服重重困难和挑战，其中包括孙悟空因紧箍咒而受其控制，以及遭遇妖怪袭击被徒弟们救出的经历。在旅途中，他们也曾寻找被偷的袈裟，唐僧对袈裟的下落焦急万分。此外，他还曾差点被寅将军吓昏，幸得神秘老人相救，也曾被白龙马追击，所幸得到孙悟空的救助。尽管在孙悟空离开时感到无助，但在观音菩萨的帮助下，他始终坚持取经的使命，展现了坚定的意志和领导力。', '神秘老人:神秘老人救了唐僧，并指引他离开双叉岭，实为太白金星', '太白金星:太白金星，是中国神话中的一位重要神仙，他在《西游记》中扮演了多重角色，展现了其深邃的智慧与神通。他不仅是天宫中的神仙，还曾暗中帮助孙悟空，为其提供助力。在故事中，太白金星曾以神秘老人的形象出现，帮助唐僧，并在完成任务后乘鹤神秘飞走。此外，他还曾为天蓬元师求情，显示出其慈悲为怀的一面。在处理孙悟空的问题上，太白金星提出了安抚的策略，并负责传达天意，显现出他在天庭中的地位及其对大局的洞察力。总的来说，太白金星是一个层次丰富、形象多面的神仙，其行为和角色在《西游记》中具有重要的文化象征意义。', '刘伯钦:刘伯钦，一位猎户，他在《西游记》中不仅是救助唐僧并热情邀请他到自己家中作客的善良之人，还是唐僧早期的护法。在故事中，刘伯钦起到了关键作用，协助唐僧救出了被压在五指山下的孙悟空，为唐僧取经之路提供了重要的帮助。他的行为不仅体现了其个人的英勇和仁慈，也映射了古代中国社会中对于忠诚与助人为乐的价值观。', '两界山:两界山是一座重要的地标，分隔大唐和鞑靼的疆域', '孙悟空:孙悟空，亦称美猴王，是《西游记》中的核心人物，具有高强的武艺和神通广大的变化能力。他原是花果山水帘洞的主人，后拜师菩提祖师学得仙法和筋斗云。因其叛逆但忠诚的性格，以及急躁和顽皮的个性，孙悟空曾在故事中大闹天宫和龙宫，获得了如意金箍棒。他因偷吃蟠桃和金丹而引发了一系列事件，最终被如来佛祖压在五行山下。后来，他成为唐僧的大徒弟，保护唐僧西天取经，途中展现出机智勇敢的一面，与各种妖魔鬼怪战斗，并最终使白龙马屈服。孙悟空不仅力大无穷，能长生不老，还曾要求查看并修改生死簿，显示了他对自由和力量的追求。他的故事充满了对权威的挑战和对师徒情感的深刻描绘。', '毒蛇:毒蛇在唐僧四周出现，吐着红信，增加了唐僧的危险>', '有毒的虫子:有毒的虫子是唐僧四周的危险之一，增加了他的困境>', '从未见过的野兽:这些未知的野兽包围了唐僧，使他感到更加无助>', '凶恶的老虎:', '老虎:一只大老虎在唐僧和孙悟空取经路上出现，被孙悟空用金箍棒打死。', '强盗:六个强盗试图抢夺唐僧师徒的马和行李，后被孙悟空打死。']}
+19:27:34,926 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:34,928 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['南海:南海是观音菩萨的居所，悟空想去那里找观音菩萨理论>', '西天取经:', '唐僧师徒:唐僧师徒是由唐僧、孙悟空、猪八戒和沙和尚组成的取经团队，他们正在前往西天的路上>', '黄风岭:在《西游记》这部古典文学作品中，黄风岭（\\u9ec4\\u98ce\\u5cad）是一个重要的场景。它是黄风洞所在的山岭，唐僧师徒在此地小心翼翼地前行，这里被认为是他们取经路上遭遇的诸多险境之一。黄风岭不仅是地理环境上的险要之地，也是充满了妖魔鬼怪的奇幻世界，充分体现了这部作品中对于自然界与神话传说的深度融合。', '流沙河:流沙河是《西游记》中一条宽阔且汹涌的河流，位于取经团队必经之路上，河中藏有妖怪，对唐僧师徒四人构成了威胁和考验。这一地点不仅地理环境特殊，而且在整个故事中具有重要的象征意义，代表着西天取经路上的艰难险阻。', '八戒:八戒，亦称猪悟能，是《西游记》中的重要角色，身为唐僧的次徒，原为天蓬元帅，后因犯错被贬下凡间，成为高老庄的妖怪。他拥有一定的法力，性格中虽带有贪吃懒惰的特点，但忠心耿耿，诚实且勇敢。在故事中，他不仅负责照看马匹，还与孙悟空并肩作战，共同打败妖怪并救出师傅唐僧。一次在山坡放马时，他还巧妙地使用钉耙击败了作恶的妖怪，显示了他并非只有愚蠢的言论，而是具有实际行动的能力。此外，八戒对婚姻也表现出了自己的担忧，体现了角色内心的细腻情感。', '木叉行者:木叉行者是观音菩萨的高徒，受菩萨之命，作为其使者前往助唐僧一行。他携带着具有神秘力量的红葫芦，在旅程中为唐僧师徒提供了重要的帮助，尤其是在收服沙和尚的过程中发挥了关键作用。', '沙和尚:沙和尚，唐僧的徒弟之一，原名为悟净。在被唐僧收服之后，他改名为沙和尚。在《西游记》这一古典文学作品中，沙和尚以其忠诚和坚韧的性格，成为取经团队中的重要一员，与孙悟空、猪八戒一同协助唐僧西天取经，克服重重困难，展现了深厚的师徒情谊和集体合作精神。尽管关于他的描述信息有限，但他在故事中的形象鲜明，深入人心。', '悟净:悟净是沙和尚的别名，原本是流沙河的妖怪，后成为唐僧的徒弟>', '九个骷髅:九个骷髅是沙和尚的宝物，可以化作阴风>', '红葫芦:红葫芦是观音菩萨的宝物，可以变成小船>', '白龙马:白龙马，原为西海龙王的儿子，因犯死罪而被观音菩萨安排于鹰愁涧。后来，他皈依佛门，成为唐僧的忠实坐骑，并助力唐僧一行人取得真经。他的身份由龙王的贵裔转变为取经路上的重要一员，体现了其深刻的转变与修行之路。', '美猴王:美猴王，乃是从仙石中诞生的石猴，不仅具备卓越的领导能力，还拥有非凡的身体能力，因此深受其他猴子的尊敬，被尊称为王。作为猴子之王，他带领群猴游历山水之间，心中充满着对长生不老境界的渴望。在《西游记》这一古典文学名著中，美猴王以其独特的地位和能力，成为了读者心中难以忘怀的角色。', '仙石:仙石在花果山上，崩裂后诞生了美猴王', '猴子们:花果山中，有一群普通的猴子，它们忠诚地跟随美猴王，并在那里过着快乐的生活。这群猴子不仅与美猴王共同生活在水帘洞中，还曾在其寻求长生不老之路时，齐心协力帮助美猴王制作木筏，送他出海寻找更高的修炼之道。这些猴子体现了团结协作的精神，是美猴王身边不可或缺的伙伴。', '水帘洞::\\u6c34\\u5e18\\u6d1e(\\u6c34\\u5e18\\u6d1e)\\u662f\\u65e0\\u72ec\\u5904\\u4e8e\\u8377\\u679c\\u5c71\\u4e2d\\u7684\\u4e00\\u4e2a\\u795e\\u79d8\\u5dee\\u7a9f\\uff0c\\u5b83\\u7531\\u6c34\\u5e18\\u6210\\u4e3a\\u9632\\u58c1\\u3002\\u8fde\\u4e4b\\u672a\\u51fa\\u7684\\u6597\\u732b\\u77f3\\u732b\\u53d1\\u73b0\\u4e86\\u8be5\\u5dee\\u7a9f\\uff0c\\u5e76\\u628a\\u5176\\u5f04\\u6210\\u4e86\\u72ec\\u81ea\\u548c\\u72ec\\u7acb\\u7684\\u5bb6\\u56ed\\u3002\\u5728\\u8c01\\u5e72\\u516c\\u5b50\\u7684\\u6545\\u4e8b\\u4e2d\\uff0c\\u6885\\u5c71\\u516d\\u5144\\u5f1f\\u5c31\\u662f\\u8d1f\\u8d23\\u5165\\u4fb5\\u6c34\\u5e18\\u6d1e\\u7684\\u3002\\u8be5\\u5dee\\u7a9f\\u4e5f\\u6210\\u4e3a\\u4e86\\u72ec\\u5b50\\u4eec\\u7684\\u5bb6\\u5eAD\\u3002\\u6c34\\u5e18\\u6d1e\\u4e0d\\u4ec5\\u662f\\u4e00\\u4e2a\\u5b89\\u5168\\u7684\\u9694\\u75c5\\u5730\\uff0c\\u8fd8\\u662f\\u72ec\\u5b50\\u4eec\\u7684\\u795']}
+19:27:35,86 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:35,88 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['护法伽蓝:护法伽蓝，亦称做法蓝，是具有高深法力的神仙。他们具备变化的能力，能够根据需要化身为不同的形态，如老大爷或院子，以助人为乐。在《西游记》中，护法伽蓝曾化身为老大爷和院子，为孙悟空和猪八戒提供了宝贵的帮助，展现了其神通广大和慈悲为怀的本性。这些描述不仅突出了护法伽蓝的神力，也体现了他们在故事中扮演的积极角色，以及与主要角色的和谐互动。', '钉耙:八戒的武器，用于击败妖怪>', '院子:悟空和八戒请求借宿的地方，实际上是护法伽蓝变化的>', '棍棒:老大爷和年轻农夫们拿的武器，最初用来对付悟空和八戒>', '眼睛酸痛:', '战斗:', '灵吉菩萨:灵吉菩萨，佛教中的菩萨，居住于小须弥山中。他具有强大的法力，曾有能力镇压黄风怪，维护了一方的平安。在《西游记》中，当孙悟空遇到困难，欲打击妖怪时，灵吉菩萨出现并阻止了他，同时提出了合理的处理建议，显示了他不仅法力高强，也具有智慧和慈悲心肠。', '黄风怪:', '飞龙宝杖:飞龙宝杖是灵吉菩萨的宝物，可以变成八爪金龙，用于捕捉妖怪>', '八爪金龙:八爪金龙是孙悟空变化后的形态，用于抓住妖怪。', '黄毛貂鼠:黄毛貂鼠是老妖的原形，因偷吃清油而变成妖怪。', '清油:清油是琉璃灯内的物品，被黄毛貂鼠偷吃。', '金刚:金刚是佛教中的护法神，黄毛貂鼠害怕被其捉住。', '琉璃灯:', '鹰愁涧:鹰愁涧是故事发生地，白龙马在此地等待唐僧一行人', '蛇盘山:蛇盘山是唐僧师徒途径的地方，鹰愁涧位于蛇盘山']}
+19:27:35,256 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:35,257 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['金箍棒:金箍棒，孙悟空之武器，具备变化大小与长度的神奇特性，威力无与伦比。在《西游记》的诸多场景中，悟空多次欲用它来对付唐僧，显示出其战斗用途。事实上，金箍棒不仅用于战斗攻击敌人，还曾用来打碎洞门，充分展现了其在不同情境下的多功能性。', '饿不死，冻不坏的神猴:这是对孙悟空的一种描述，强调了他的神奇能力和不屈的精神状态。）', '虎皮:虎皮是孙悟空用老虎的皮制成的衣物，围在腰间。）', '强盗的刀枪:强盗们用来攻击孙悟空的武器，未能伤害他。）', '筋斗云:筋斗云是孙悟空所掌握的一种非凡的交通工具，也是他的一项特殊技能。它能够让孙悟空在空中快速飞行，实现长距离的迅速移动。这朵云不仅象征着孙悟空的神通广大，同时也体现了他在《西游记》中的重要地位和超凡的能力。', '花果山:花果山，位于东胜神洲傲来国，乃孙悟空——美猴王的诞生地。山中有一块仙石，孕育了这位传奇的猴子。此山不仅是孙悟空的故乡，也是他曾在愤怒之下欲返回之地，更是他当年纵身驾云，离开师傅唐僧的起始点，开启了他传奇的《西游记》之旅。', '紧箍咒:紧箍咒是一种神奇的咒语，被唐僧用于控制孙悟空。当唐僧念出紧箍咒时，它能够使悟空感到头痛，从而迫使他服从唐僧的命令，不敢有任何造次之举。这种咒语体现了师徒之间的权力关系和等级秩序，是《西游记》中一个具有象征意义的元素，反映了人物间的复杂互动和道德教化意图。', '东海龙王:东海的统治者，曾劝告孙悟空回心转意，并给予他饮食>', '马:马是《西游记》中重要的角色之一。在故事中，它是猪八戒在山坡上放养的动物，不仅用于代步，也是唐僧西天取经途中的坐骑，帮助他载运行李，向西行进。此外，孙悟空在天宫时，也曾被赋予看管马匹的职责，显示了马在这一经典文学作品中的特殊地位和作用。这些描述共同揭示了马在故事中的多重角色，以及它在取经团队中的重要性。', '衣服:观音菩萨赠予唐僧的物品，用于诱使孙悟空穿上并受紧箍咒控制>', '花帽:观音菩萨赠予唐僧的物品，用于诱使孙悟空戴上并受紧箍咒控制>', '老妇人:', '悟空:悟空，是《西游记》中至关重要的人物，被誉为唐僧的大徒弟。他具备高强的武艺和神通广大的能力，能够使用金箍棒与妖怪战斗，且具有丰富的变化能力，既能变化形态也能快速追赶妖怪。其性格机智、勇猛且好斗，面对困难总能巧妙应对。在故事中，无论是捉妖、解决高老庄的问题，还是保护唐僧西天取经，悟空都展现出了他的勇敢与智慧。此外，悟空还颇具幽默感，能巧妙地回应八戒的言行。即便有时因头痛困扰，他仍然是队伍中不可或缺的力量。总体而言，悟空是一个多才多艺、充满智慧与力量的角色，为取经团队立下了赫赫战功。', '师父:师父指的是唐僧，悟空的师傅，此处用紧箍咒来惩罚悟空>', '头痛:', '保护唐僧:']}
+19:27:35,306 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:35,307 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['师兄们:师兄们是孙悟空的同伴，一同在祖师门下学习，他们对孙悟空的态度和行为有所反应。', '长生不老的法术:长生不老的法术是孙悟空追求的目标，也是祖师教授给他的重要技能之一。', '七十二般变化:七十二般变化是孙悟空学会的一种法术，能让他变化成不同的形态。', '法术:法术是祖师教授给孙悟空的各种技能，包括长生不老、七十二般变化等。', '三更:三更是中国古时的时间单位，指深夜的时候，孙悟空在这个时间进入祖师的房间学习法术。', '暗谜:暗谜是菩提祖师用来测试孙悟空智慧的一种方式，通过这种方式祖师发现了孙悟空的聪明才智。', '夏天:夏天是故事发生的一个季节，孙悟空在这个季节与师兄们玩耍，并展示自己的变化能力。', '大树:孙悟空在师兄们面前变成了一棵大树，作为展示自己变化能力的一种形式。', '观音院:观音院，位于幽静的山谷之中，是一座唐僧师徒曾到达的寺庙，也是和尚们居住和修行的场所。它在《西游记》中占据着重要地位，不仅是唐僧师徒的暂住地，而且是故事中一系列重要事件的发生地。值得一提的是，观音院曾遭受火灾，现位于黑风山的北面，这一历史痕迹为其增添了更多的文化内涵和故事色彩。', '和尚:和尚是观音院的僧人，他们在寺庙被烧毁后感到惊恐。尽管遭受此不幸，他们依然对唐僧师徒表示了尊敬，并热情邀请他们进入观音院休息。这体现了这些僧人对师徒四人的敬意以及佛教中好客的传统美德。', '袈裟:桑悟禅是唐僧的珍贵宝物“袈裟”，它是一件价值连城的佛衣，在《西游记》中为老和尚所羡慕。后来唐僧借给了这位老和尚，却不幸被其设计陷害。在某段情节中，这件袈裟还被黑风怪偷走。这一系列事件体现了袈裟不仅是物质上的宝贵，也成为了故事中人物争斗和心机较量的象征。', '老和尚:老和尚，又称之和尚，是观音院中的一位年长的僧人。他与黑风怪有所交情。然而，由于贪心作祟，他竟然设计陷害了唐僧及其师徒一行人。在这一行为背后，体现了某些古典文学作品中人物因私欲而背离佛门宗旨的复杂性格描写，同时也映射出《西游记》中人物之间错综复杂的关系和道德冲突。', '广目天王:广目天王，作为南天门的守护神，具有高强的法力，掌管着避火罩这件宝贵的神器。在《西游记》中，他曾将此宝借给了孙悟空，助其在火焰山一劫中得以安然无恙。故事后期，悟空完成了自己的使命，也将避火罩归还给了广目天王。广目天王作为天庭的神仙，其地位尊崇，在神仙谱系中占有重要的一席之地。', '避火罩:避火罩是广目天王的宝物，具有抵御火焰的神奇功效。在《西游记》中，孙悟空曾借来此宝物，用以保护唐僧免受火焰的伤害。这一情节体现了避火罩的重要性和广目天王对取经团队的暗中支持。', '黑风怪:黑风怪，乃居于黑风山黑风洞中的一妖怪，因观音院遭遇火灾，便起了贪念，意欲乘机劫掠。在《西游记》中，此怪与孙悟空成为了对手，身披乌金甲，手持黑缨枪，曾与悟空交战。然而，最终在观音菩萨和孙悟空的智谋之下，黑风怪被设计制服，其恶行受到了应有的惩罚。这一故事不仅体现了中国古典文学中正义战胜邪恶的主题，也反映了佛教中因果报应的教义。', '南天门:南天门作为天宫的重要门户之一，是连接天界与人间的要道。在《西游记》中，孙悟空因不满天庭的束缚，曾从此地突破重围，杀出南天门，展现了他的神通与反抗精神。此外，南天门也有天兵天将守护，以确保天界的安全。在故事中，孙悟空也曾前往南天门，借避火罩以应对后续的挑战。这一地点不仅体现了天庭的威严与层级，也映射了孙悟空的智勇与不屈不挠的精神。']}
+19:27:35,517 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:35,518 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['七宝灵台:一个珍贵的平台，如来佛祖在此接受各路神仙的朝拜和礼物', '五根肉红色的柱子:', '佛祖:佛祖是佛教中的最高神祇，对孙悟空施以惩罚，并给予指示。|', '山神:山神被如来佛祖叫来，负责监押孙悟空。|', '五方揭谛:五方揭谛被如来佛祖指派与山神一同监押孙悟空。|', '溶化的铜水:溶化的铜水是给孙悟空的饮料，用于在他渴时提供。|', '铁丸子:', '刑期:刑期指的是孙悟空被囚禁的时间限制，五百年后有人来救他。|']}
+19:27:43,234 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:43,236 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['宣花斧:宣花斧是巨灵神的武器，在与孙悟空的战斗中被毁。', '蟠桃园:蟠桃园，分为前、中、后三部分，每部拥有一千二百棵桃树，其结出的桃子具有神奇效果，是位于天宫中的果园。后来，孙悟空被派遣到此，负责看管蟠桃园，守护这些珍贵的仙果。在此背景下，蟠桃园不仅成为了神话故事中的重要地点，也反映了了中国古代文化中对神仙世界的想象与构建。', '玉帝:玉帝是天庭的主宰和最高统治者，他同意太上老君将孙悟空炼化的提议，以维护天庭的秩序。在孙悟空挑战天庭的权威时，玉帝深感其闲散生事的能力可能带来麻烦，因此安排孙悟空管理蟠桃园，既是对其能力的肯定，也是为了在天庭中为其安排合适的职位，以避免潜在的混乱。作为掌管天庭的最高神祇，玉帝的这一决策体现了他的智慧与对天庭层级结构的深刻理解。', '七位仙女:七位仙女奉王母娘娘之命进园摘桃，意外惊醒了孙悟空', '瑶池:瑶池是举办蟠桃会的地方，孙悟空曾偷偷进入并饮酒', '太上老君:太上老君是道教中的高级神祇，位列天庭，他拥有强大的法宝金钢琢，并在《西游记》中提议将孙悟空放入八卦炉中炼化，以期消除其身上的妖气。同时，太上老君还精于炼制金丹，他的兜率宫藏有珍贵的丹药，然而不幸的是，孙悟空曾闯入他的兜率宫，引发了一系列的故事情节。在这些描述中，我们可以看出太上老君不仅地位崇高，法力无边，而且与孙悟空之间存在着复杂的互动关系。', '李天王:李天王是天庭中的武将，奉命捉拿孙悟空', '哪吒太子:哪吒太子是李天王的儿子，也参与了捉拿孙悟空的行动', '二郎神:二郎神，乃是一位法力高强的神祇。根据传说，他曾与孙悟空展开过一场激烈的战斗，在交锋中，二郎神展示了他能变化形态的神通。此外，他还受命带领梅山六兄弟，共同捉拿孙悟空，彰显了其尊贵的地位和在神界的权能。在这些故事中，二郎神的形象既是一位英勇善战的斗士，也是一位忠诚执行天命的神灵。', '梅山六兄弟:梅山六兄弟，乃二郎神的得力助手，在《西游记》中，他们与二郎神一同前往花果山，合力捉拿孙悟空。在这一过程中，他们展现了忠诚与勇猛，是故事中具有代表性的团体之一。', '定身法:孙悟空的一种法术，能够使他人定住不动）', '瞌睡虫:孙悟空变化出的虫子，可以使他人陷入沉睡）', '照妖镜:照妖镜是一件能够揭示妖怪原形的宝物，它在《西游记》中扮演了重要角色。该宝物不仅被二郎神使用，以识别并揭露妖怪的真实形态，同时也是李天王所依赖的法器，能够照出妖魔的原形。这件宝物在中国古代神话中象征着光明与正义的力量，能够辨识真伪，帮助正义的力量战胜邪恶。', '八卦炉:用于炼化丹药和物品的炉子，孙悟空在其中炼就了火眼金睛', '金钢琢:太上老君的宝物，能够对敌人造成伤害，曾用来攻击孙悟空', '斩妖台:斩妖台是天庭中用于处决妖怪的地方，孙悟空曾被绑在这里']}
+19:27:43,586 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:43,588 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['木刀:孙悟空让小猴子们制作的简易兵器之二。', '妖精:占据水脏洞的混世魔王的部下，被孙悟空消灭。', '虾兵蟹将:虾兵蟹将是龙宫的兵将，他们遵从龙王的命令，为孙悟空抬出了重兵器>', '神珍铁:神珍铁是大禹治水时测定海水深浅的工具，能发光，最终变化为孙悟空的如意金箍棒>', '如意金箍棒:如意金箍棒是孙悟空的兵器，可以根据孙悟空的心意变化大小和重量，重一万三千五百斤>', '南、北、西三海龙王:南、北、西三海龙王分别是敖钦、敖顺和敖闰，他们凑齐了一套黄金甲、凤翅紫金冠和藕丝步云鞋送给孙悟空>', '妖王:妖王是孙悟空邀请的客人，在花果山上参加宴席>', '幽冥界:幽冥界，乃冥王与判官共同管理的冥界领域，亦是阎王居住之地。孙悟空曾因被勾魂鬼误带至此处，而得以在此修改生死簿，此后方才离开。这一事件在《西游记》中具有重要意义，不仅展示了孙悟空的神通广大，也揭示了幽冥界在生死轮回中的核心地位及其与神魔世界的微妙关系。', '阎王:阎王是幽冥界的统治者，掌管生死簿>', '十位冥王:十位冥王是管理生死簿的冥界神祇，他们遵从孙悟空的要求拿出生死簿', '判官:判官是冥界的官员，负责协助冥王管理生死簿', '生死簿:生死簿是记录所有生物生死信息的册子，被孙悟空修改', '地藏王菩萨:地藏王菩萨是佛教中的一位菩萨，冥王向他请示如何处理孙悟空的事情', '玉皇大帝:玉皇大帝，作为道教神话中的最高神祇，同时也是中国神话中的天帝，他掌管着天宫，拥有至高无上的权力。在天蓬元师犯错之时，玉皇大帝作出了惩罚的决定，体现了其对天界纪律的维护。此外，当孙悟空的行为引起天界不满时，玉皇大帝也表现出了对其行为的愤怒，并试图采取措施制服孙悟空。在神话体系中，即使是冥王也需要向玉皇大帝报告孙悟空的相关行为，这进一步彰显了玉皇大帝在神祇中的尊贵地位与权威。', '森罗殿:', '猪八戒:猪八戒，唐僧的二徒弟，以其直率的性格和无穷的力气而著称，擅长运用钉耙进行战斗。在《西游记》这一古典文学名著中，他是一位既憨厚又勇敢的角色，经常在旅途中为师傅和师兄弟们提供帮助，克服重重困难。尽管有时会因贪吃懒惰而惹麻烦，但猪八戒的忠诚与坚韧也是师徒四人得以圆满完成取经任务的重要因素之一。']}
+19:27:43,915 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:43,916 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['僧衣:僧衣是猪八戒成为僧人后穿戴的衣物>', '僧鞋:僧鞋是猪八戒成为僧人后穿戴的鞋子>', '僧帽:僧帽是猪八戒成为僧人后穿戴的帽子>', '九齿钉耙:', '老婆:指的是八戒的妻子，是他情感上的牵挂，也是他考虑还俗的原因', '还俗:还俗是指八戒如果无法完成取经任务，就打算回归原来的世俗生活', '经:经是指《西游记》中唐僧师徒四人要取的佛经，是他们旅程的目标', '八戒的老婆:', '冥司阎王:冥司阎王是地府的主宰，向玉皇大帝告发孙悟空的破坏行为。', '武曲星君:武曲星君是天宫中的神仙，建议给孙悟空一个低微的官职。', '文曲星:文曲星负责撰写诏书，邀请孙悟空上天宫。', '托塔李天王:托塔李天王是玉皇大帝派遣的将领之一，带领天兵天将去捉拿孙悟空。', '三太子哪吒:三太子哪吒是托塔李天王的副手，拥有强大的战斗能力，与孙悟空交战。', '巨灵神:巨灵神是天宫的先锋官，在与孙悟空的战斗中失败。', '齐天大圣府:为孙悟空在天宫修建的府邸，象征着他的称号。', '灵霄殿:灵动霄汉的“灵霄殿”是天宫中的主殿，也是重要的政治与礼仪中心。在这里，孙悟空曾挑战玉帝的权威，同样也是他被引见给至高无上的玉皇大帝的地方，标志着其身份与地位在天庭的正式确认。灵霄殿不仅是一座宫殿，它更是天庭秩序与权力的象征。']}
+19:27:43,946 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:43,947 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['天兵天将:守护南天门的兵将，对悟空的到来感到惊慌>', '黑风山:黑风山，位于观音院南面，是一座因黑风洞而得名的山脉。此处为黑风怪的居所，山中幽深，传说中的黑风洞便坐落于此，与山同名，映衬出该地神秘的色彩和深厚的文化底蕴。', '黑风洞:黑风洞是位于黑风山中的洞穴，亦是黑风怪的住所。在《西游记》中，此处成为了孙悟空和观音菩萨前往的重要地点，充满了神秘与传奇色彩。黑风洞不仅是黑风怪的居所，也是故事中一个关键的场景，反映了人物之间的复杂关系与神话传说中的神秘境界。', '木柴:', '驼背老和尚:驼背老和尚因观音院被烧和袈裟丢失而撞墙自尽>', '妖魔:妖魔是在黑风山上与黑风怪一起的怪物>', '道士:道僮原是一只伪装成道士的大灰狼，参与了佛衣盛会，但在孙悟空的慧眼下被识破并最终被打死。实际上，这位道士不仅是灵吉菩萨讲经之地的守护者或信徒，还是黑风怪的朋友，在事情败露后与黑风怪一同逃跑。这一形象在《西游记》中体现了妖魔善于伪装、混淆视听的特点，同时也反映了正义终究战胜邪恶的主题。', '白衣秀才:白衣秀才实际上是条大白花蛇，被悟空打死>', '小妖怪:小妖怪是黑风怪的部下，负责观察和报告情况。', '乌金甲:黑风怪的护身甲，增强了他的防御能力。', '黑缨枪:黑风怪的武器，用于与悟空交战。', '请柬:黑风怪邀请观音院老和尚的书面邀请，是故事中的一个重要物证。', '观音院那老和尚:观音院中的老和尚，与黑风怪有联系，增加了故事情节的复杂性。', '童子:观音菩萨的随从，协助观音菩萨执行任务。', '宝衣:悟空所拥有的珍贵衣物，之前在观音院中卖弄，导致了后续的事件。', '佛衣盛会:一个重要的宗教活动，吸引了道士等各路神仙参加。']}
+19:27:43,995 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:43,997 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['兜率宫:兜率宫是太上老君的居所，也是孙悟空被炼化的地方', '巽宫:八卦炉中的一个位置，因只有烟没有火，孙悟空在其中避难', '哮天犬:', '如意棒:孙悟空的武器，可以随心所欲地变化大小和威力', '三十六员雷将:保护玉帝的神仙，阻止孙悟空的进攻', '二十八座星宿:赶来保护玉帝的神仙，帮助抵挡孙悟空', '如来佛祖:佛教中的最高神祇，被请来帮助解决孙悟空的问题', '阿傩:阿傩是佛教中的尊者，身份尊贵，担任如来佛祖的随从，专责处理孙悟空相关的事务。他不仅是位神仙，而且在佛教中担任接收礼物并遵照佛祖指示行事的要职，体现了其在佛教体系中的崇高地位和重要作用。阿傩的形象和行为，在《西游记》这一古典文学作品中，富含深厚的宗教文化象征意义。', '伽叶:伽叶，佛教中的神仙尊者，与阿傩共同承担执行佛祖任务的使命，一同前来协助如来佛祖，体现了其在佛教中的重要地位与作用。在佛教的经典文化中，伽叶以虔诚和智慧闻名，是佛教教义的重要传播者。', '安天大会:玉帝为庆祝孙悟空被镇压而举办的盛大活动玉帝为感谢如来佛祖而设的庆祝活动', '各路神仙:', '齐天大圣到此一游:孙悟空在撑天柱子上留下的标记，显示了他的存在和反抗精神', '巡查官:巡查官是负责监视妖猴孙悟空的天庭官员，其主要职责是密切观察孙悟空的动向，并在发现任何异常情况时，及时向佛祖汇报。他们是天庭秩序的维护者，通过对孙悟空的监管，确保天界的和谐不受干扰。在这一职责中，巡查官体现了天庭的权威和层级结构，同时也突显了孙悟空在天界中的重要地位及其所受到的关注。', '妖猴:妖猴是指孙悟空，这一称呼突显了他不受约束、调皮捣蛋的特性。据古典文学作品《西游记》记载，因其调皮捣蛋，孙悟空被佛祖囚禁于五行山下，直至唐僧经过，才得以解救，并开始了取经的西天之旅。这个称呼不仅体现了孙悟空的个性，也反映了他在故事中的重要转变，从一个无法无天的妖猴，成为了一位助人为乐、保护师父的忠诚弟子。', '太玄宫:天宫中的一个宫殿，用于举办重要的仪式和活动', '洞阳玉馆:天宫中的另一个重要场所，用于接待尊贵的客人']}
+19:27:44,306 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:44,307 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['棒子:', '玉盘:一个装有两粒仙丹的盘子，原本由道士持有>', '仙丹:具有神奇效果的丹药，被孙悟空和观音菩萨用来对付黑风怪>', '佛衣:一件重要的佛教圣物，被黑风怪所窃，后被观音菩萨和孙悟空取回>', '小金圈儿:观音菩萨用来控制黑风怪的工具>', '小妖:黑风怪的下属，被观音菩萨和孙悟空吓跑>', '混世魔王:混世魔王是孙悟空的敌人，曾占据水帘洞并抢走猴子猴孙。', '花果山水帘洞:孙悟空的居所，一个荒凉破败但被孙悟空恢复生机的洞府。', '水脏洞:混世魔王的居所，后被孙悟空破坏。', '小猴子们:孙悟空的追随者，被救出后帮助孙悟空恢复水帘洞。', '通背老猿猴:一只老猴子，给孙悟空提供了去东海龙宫的建议。', '东海龙宫:东海龙王敖广的居所，拥有许多宝物。', '龙王:龙王爷是东海龙宫的主宰，他拥有丰富的宝物，并且在孙悟空求助时愿意给予帮助。他曾命令手下为孙悟空拿出多种兵器，并最终指引孙悟空获得了如意金箍棒。然而，由于孙悟空的一些行为，龙王爷也曾向玉皇大帝告状，显示出他在维护龙宫秩序和天庭法规方面的责任感和决断力。', '方天画戟:方天画戟是一种由东海龙宫提供的兵器，其重量高达七千二百斤。尽管它的分量不轻，但孙悟空在尝试使用后仍认为它不适合自己。在此过程中，我们可以看出孙悟空对兵器的独特要求和鉴赏眼光，以及东海龙宫对孙悟空的重视，愿意提供如此珍贵的武器供其挑选。', '九股叉:九股叉是一种古代兵器，重量达三千六百斤，然而在《西游记》中，孙悟空却认为它太轻，这显示了孙悟空非凡的力量和自信。尽管其中一条描述为空，但从现有的信息中我们可以得知，九股叉在中国古代文学中是一件颇具份量的武器，且与孙悟空的故事紧密相关。', '竹枪:孙悟空让小猴子们制作的简易兵器之一。']}
+19:27:44,316 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:44,318 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['五行山:五行山，又名五指山，是中国古典名著《西游记》中一个具有重大象征意义的地点。此处曾是佛祖如来的五指化作的山镇，用以囚禁桀骜不驯的孙悟空，其法力封印使得孙悟空无法逃脱。五行山不仅是取经故事的关键地点，也象征着佛法的威严与力量。后来，在唐僧师徒取经途中，唐僧到达五行山，因他的救助，五行山的封印裂开，使得孙悟空得以重获自由，并成为唐僧的大徒弟，共同完成取经的使命。这一事件也象征着悟空的转化与重生，从此开始了他的修行之路。', '观音菩萨:观音菩萨是佛教中备受尊敬的菩萨，她以大慈大悲著称，拥有高深的法力和救苦救难的神力。在《西游记》中，观音菩萨不仅是如来的使者，奉旨寻找取经人，还多次在关键时刻给予唐僧师徒以帮助和救济。她曾化身老妇人指引孙悟空回归正途，并劝导他成为唐僧的徒弟。此外，她还安排白龙马成为唐僧的坐骑，并解决了相关的冲突。观音菩萨还提出了捉拿孙悟空的建议，并指导唐僧取经，甚至教授唐僧紧箍咒以控制孙悟空。她还派遣木叉行者协助取经团队，并在途中劝导妖怪改邪归正，指引他们走上正确的取经之路。她的慈悲心肠和智慧行动，为唐僧一行人克服重重困难，最终成功取得真经提供了重要的支持。', '如来佛:如来佛，作为佛教中的最高神祇，具有无上的权威与神通。在《西游记》这一古典文学名著中，如来佛发出法旨，指令观音菩萨去寻找适合的取经人，以完成重要的佛教使命。同时，也是如来佛以巨大的法力将桀骜不驯的孙悟空压在五行山下，直至唐僧师徒一行人开始西天取经的旅程，孙悟空才得以重获自由。如来佛的这些行为不仅体现了他在佛教界的至高地位，也展示了他对于宇宙秩序与修行者教化的深刻影响。', '惠岸行者:惠岸行者是观音菩萨的随从，一同来到东土大唐', '东土大唐:东土大唐是故事发生的主要地点，是取经人的起点', '唐太宗李世民:唐太宗李世民是唐朝的皇帝，命令陈玄奘取经', '陈玄奘:陈玄奘是唐朝的高僧，被选为取经人，是金蝉子转世', '金蝉子:金蝉子是如来佛的弟子，转世为陈玄奘', '唐三藏:陈玄奘的名字被唐太宗改为唐三藏，是取经的主要人物', '熊山君:熊山君乃一妖怪，与寅将军结伴而行。在《西游记》中，二者共同出现，熊山君曾提议仅以两人为食，足见其狡猾与凶残。此一描述不仅揭示了熊山君与寅将军的同盟关系，也反映了其时妖怪的残酷本性与对人类生命的轻视。', '特处士:特处士是妖怪，与熊山君一同拜访寅将军', '寅将军:寅将军，一名妖怪，自称魔王，曾在《西游记》中打算以唐僧师徒招待客人。他性格残忍，曾吃掉唐僧的两个仆人。在此，我们可以看出寅将军的邪恶本质及其对唐僧一行人的威胁。', '五件宝贝:五件宝贝是观音菩萨带来的宝物，包括锦袈裟，用于交换取经人的承诺>', '东土大唐的边界河州:这是大唐边界的具体地点，唐僧一行人在此遇到了困难>', '镇边总兵:镇边总兵是在河州的地方官员，接待了唐僧主仆>', '福原寺:福原寺是唐僧一行人在河州休息的地方>']}
+19:27:44,367 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:44,368 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['西海龙王:', '经过:', '高老庄:高老庄是一个村庄，其庄主高太公在此地寻找能够捉拿妖怪的法师。这个村庄在妖怪的叙述中曾被提及，并且后来成为妖怪被带去见唐僧的地点。在《西游记》这一中国古典文学名著中，高老庄不仅是故事情节的一个重要环节，也反映了当时社会对于神秘力量和宗教信仰的寻求与依赖。', '高太公:高太公，高老庄之庄主，其家中有一女，深受妖怪女婿所扰。此情节源自中国古典名著《西游记》，通过这一角色和事件，展现了古代社会家庭与神秘力量之间的冲突与互动。高太公作为一庄之主，其家庭的不幸遭遇也反映了当时人们对于超自然现象的恐惧与无奈。', '三女儿:高太公的第三个女儿，曾被妖怪锁在后院，后来被悟空解救>', '天蓬元师:天蓬元师原是天上的神仙，因调戏嫦娥被贬下凡，成为猪八戒的前身', '王母娘娘:王母娘娘，是中国神话中的一位重要女神，她位居天庭，负责掌管那里的宴会事宜。其中，最为人所知的宴会便是蟠桃会。在这个盛大的宴会中，王母娘娘不仅举办聚会，还曾派遣七位仙女前往采摘蟠桃，以供宴会之用。这些描述充分展现了王母娘娘在天庭中的崇高地位以及她在神话传说中的重要作用。', '嫦娥:嫦娥是中国神话中的月亮女神，被天蓬元师调戏', '弼马温:弼马温是悟空在天宫时的职位，被妖怪提及以嘲讽>', '天宫:天宫是悟空大闹的地方，与妖怪的背景故事相关>', '广寒宫:广寒宫是嫦娥的居所，天蓬元师因闯入此处受到惩罚>', '铜锤:铜锤是天蓬元师被惩罚时使用的刑具>', '凡间:凡间是天蓬元师被贬下界的地方>', '猪胎:猪胎是天蓬元师错误投胎的对象>', '洞门:洞门是妖怪藏身的地方，被悟空打碎>', '云栈洞:云栈洞是妖怪的居所，被他和悟空放火烧毁>']}
+19:27:44,566 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:44,566 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['东胜神洲:东胜神洲是石猴诞生地的所在大洲，傲来国位于其上', '傲来国:傲来国是一个拥有丰富兵器库的国家，正是在这里，孙悟空从中获取了其著名的兵器。此外，傲来国也是花果山的所在地，更是石猴成长的地方，对中国文学经典《西游记》中的故事发展起着至关重要的作用。这个国家不仅是一个地理背景，更是孙悟空传奇故事的摇篮。', '铁板桥:铁板桥位于水帘洞内，石猴通过它进入洞内', '泉水源:泉水源是猴子们寻找的目标，石猴成功找到了它', '石猴:', '通背猿猴:一只懂得神仙之术的猿猴，建议美猴王学习长生不老的本领>', '神仙:拥有长生不老能力的神秘生物，美猴王渴望找到并学习他们的本领>', '灵台方寸山:一座山，山上有一个斜月三星洞，菩提祖师居住的地方>', '斜月三星洞:位于灵台方寸山上，菩提祖师的居所>', '菩提祖师:芲提祖师，乃是一位隐居在斜月三星洞的神仙，他收孙悟空为徒，传授其武艺和法术。祖师不仅具备高深的法力，更拥有卓越的智慧，对孙悟空进行了全面的教育和指导，为其后来的成就奠定了坚实的基础。在《西游记》这一中国文学经典中，芲提祖师的这一角色象征着师徒关系中的传授与启迪，体现了中国传统文化中对知识和技能传承的重视。', '仙童:菩提祖师的徒弟，其中一个带领孙悟空进入洞府>', '青年人:一个在树林里砍柴的普通人，向美猴王指点了灵台方寸山的方向>', '石碑:石碑位于黑风洞前，与斜月三星洞相对，立于山岗之上。其上刻有“黑风山黑风洞”的字样，明确了其与黑风洞的关联，同时也作为对该地区的一个重要地标。通过对石碑的描述，我们可以了解到它在地理位置上具有标志性意义，是通往黑风洞的明显指引。', '仙童们:菩提祖师的徒弟们，站在讲道台下>', '东南风:', '祖师:祖师，即孙悟空的师傅，被尊称为菩提祖师，他不仅拥有高深的法力，更具备卓越的教学能力。在《西游记》中，他对孙悟空的行为和态度产生了重要影响，通过教训和指导，赋予孙悟空丰富的武艺和智慧，为其后来的西天取经之路奠定了坚实的基础。菩提祖师的智慧和法力在故事中是备受推崇的，他的形象象征着师徒之间的重要关系和传承。']}
+19:27:44,666 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:44,667 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['黄风大王:黄风大王是山洞的主人，手下有先锋等小妖，他抓住了唐僧并计划吃掉他。', '黄风大王的先锋:黄风大王的部下，能够变化成猛虎，与孙悟空和猪八戒交战。', '黄风洞:黄风岭上的黄风洞是《西游记》中的一个重要地点，它不仅是黄风大王的居所，同时也是妖怪的巢穴。这个洞穴恰好位于孙悟空和唐僧师徒的西行路径上，在故事中，孙悟空和八戒曾一同清剿了盘踞在此的妖怪，确保了师徒们能够安全通过。', '旋风:旋风是一个自然现象，被孙悟空用来判断附近可能有妖怪或猛虎的存在。', '赤铜刀:赤铜刀是黄风大王的先锋所使用的武器，在与猪八戒和孙悟空的战斗中出现过。', '金蝉脱壳之计:金蝉脱壳是一种计谋，黄风大王的先锋使用它来逃脱孙悟空和猪八戒的追捕。', '定风柱:定风柱是黄风洞中用来绑住唐僧的柱子，以防他被风吹走。', '斑斓猛虎:', '先锋:被悟空拦住去路的妖怪，被迫向山坡上逃跑', '老妖:老妖，原身为一只黄毛貂鼠，曾遭八爪金龙捕捉。他是黄风洞的主人，率领小妖出洞应战，曾在洞口与孙悟空展开激烈战斗，展现出其强大的实力和领导能力。在准备与小妖们共同交战的过程中，老妖彰显了其作为一方妖王的威严和决心。', '毫毛:悟空吹仙气后变成的一百多个悟空，用于包围老妖', '仙气:悟空吹的气体，能够使毫毛变化成多个自己）', '狂风:老妖吹起的，使多个悟空在空中旋转的风）', '三股钢叉:老妖的武器，用于与悟空战斗）', '三花九子膏:专治风眼的药物，由老大爷提供>一种药，专治风眼，由老大爷提供）', '老大爷:提供住宿和三花九子膏的人，实际上是护法伽蓝变化）']}
+19:27:44,936 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:44,938 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['唐僧的两个仆人:唐僧的随从，一同前往西天取经>', '妖怪:妖怪“妖怪”在《西游记》中是一个居住在流沙河的生物，曾与唐僧师徒发生冲突，并在与悟空的战斗中腰酸腿痛，后被揭示其真身是一只老虎。此外，他还曾化为猪头，原是福陵山人，后被悟空捉拿。这个神秘生物在故事中曾抓住唐僧主仆，但其真实身份是天蓬元师，因犯错被贬下凡间。在故事的后期，他改邪归正，愿意跟随唐僧取经，体现了人物性格的转变和救赎。', '锦袈裟:', '魔王:魔王是一个邪恶的存在，被称为寅将军，打算用唐僧等人招待客人', '唐僧:唐僧，又称唐三藏，是《西游记》中的核心人物，一位来自唐朝的僧人，奉皇命前往西天取经。他信仰虔诚，心怀慈悲，拥有高尚的品德和深厚的佛法修为。在取经的旅途中，他先后收孙悟空、猪八戒等人为徒，组成了一个取经团队。唐僧作为团队首领，带领徒弟们克服重重困难和挑战，其中包括孙悟空因紧箍咒而受其控制，以及遭遇妖怪袭击被徒弟们救出的经历。在旅途中，他们也曾寻找被偷的袈裟，唐僧对袈裟的下落焦急万分。此外，他还曾差点被寅将军吓昏，幸得神秘老人相救，也曾被白龙马追击，所幸得到孙悟空的救助。尽管在孙悟空离开时感到无助，但在观音菩萨的帮助下，他始终坚持取经的使命，展现了坚定的意志和领导力。', '神秘老人:神秘老人救了唐僧，并指引他离开双叉岭，实为太白金星', '太白金星:太白金星，是中国神话中的一位重要神仙，他在《西游记》中扮演了多重角色，展现了其深邃的智慧与神通。他不仅是天宫中的神仙，还曾暗中帮助孙悟空，为其提供助力。在故事中，太白金星曾以神秘老人的形象出现，帮助唐僧，并在完成任务后乘鹤神秘飞走。此外，他还曾为天蓬元师求情，显示出其慈悲为怀的一面。在处理孙悟空的问题上，太白金星提出了安抚的策略，并负责传达天意，显现出他在天庭中的地位及其对大局的洞察力。总的来说，太白金星是一个层次丰富、形象多面的神仙，其行为和角色在《西游记》中具有重要的文化象征意义。', '刘伯钦:刘伯钦，一位猎户，他在《西游记》中不仅是救助唐僧并热情邀请他到自己家中作客的善良之人，还是唐僧早期的护法。在故事中，刘伯钦起到了关键作用，协助唐僧救出了被压在五指山下的孙悟空，为唐僧取经之路提供了重要的帮助。他的行为不仅体现了其个人的英勇和仁慈，也映射了古代中国社会中对于忠诚与助人为乐的价值观。', '两界山:两界山是一座重要的地标，分隔大唐和鞑靼的疆域', '孙悟空:孙悟空，亦称美猴王，是《西游记》中的核心人物，具有高强的武艺和神通广大的变化能力。他原是花果山水帘洞的主人，后拜师菩提祖师学得仙法和筋斗云。因其叛逆但忠诚的性格，以及急躁和顽皮的个性，孙悟空曾在故事中大闹天宫和龙宫，获得了如意金箍棒。他因偷吃蟠桃和金丹而引发了一系列事件，最终被如来佛祖压在五行山下。后来，他成为唐僧的大徒弟，保护唐僧西天取经，途中展现出机智勇敢的一面，与各种妖魔鬼怪战斗，并最终使白龙马屈服。孙悟空不仅力大无穷，能长生不老，还曾要求查看并修改生死簿，显示了他对自由和力量的追求。他的故事充满了对权威的挑战和对师徒情感的深刻描绘。', '毒蛇:毒蛇在唐僧四周出现，吐着红信，增加了唐僧的危险>', '有毒的虫子:有毒的虫子是唐僧四周的危险之一，增加了他的困境>', '从未见过的野兽:这些未知的野兽包围了唐僧，使他感到更加无助>', '凶恶的老虎:', '老虎:一只大老虎在唐僧和孙悟空取经路上出现，被孙悟空用金箍棒打死。', '强盗:六个强盗试图抢夺唐僧师徒的马和行李，后被孙悟空打死。']}
+19:27:44,986 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:44,988 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['南海:南海是观音菩萨的居所，悟空想去那里找观音菩萨理论>', '西天取经:', '唐僧师徒:唐僧师徒是由唐僧、孙悟空、猪八戒和沙和尚组成的取经团队，他们正在前往西天的路上>', '黄风岭:在《西游记》这部古典文学作品中，黄风岭（\\u9ec4\\u98ce\\u5cad）是一个重要的场景。它是黄风洞所在的山岭，唐僧师徒在此地小心翼翼地前行，这里被认为是他们取经路上遭遇的诸多险境之一。黄风岭不仅是地理环境上的险要之地，也是充满了妖魔鬼怪的奇幻世界，充分体现了这部作品中对于自然界与神话传说的深度融合。', '流沙河:流沙河是《西游记》中一条宽阔且汹涌的河流，位于取经团队必经之路上，河中藏有妖怪，对唐僧师徒四人构成了威胁和考验。这一地点不仅地理环境特殊，而且在整个故事中具有重要的象征意义，代表着西天取经路上的艰难险阻。', '八戒:八戒，亦称猪悟能，是《西游记》中的重要角色，身为唐僧的次徒，原为天蓬元帅，后因犯错被贬下凡间，成为高老庄的妖怪。他拥有一定的法力，性格中虽带有贪吃懒惰的特点，但忠心耿耿，诚实且勇敢。在故事中，他不仅负责照看马匹，还与孙悟空并肩作战，共同打败妖怪并救出师傅唐僧。一次在山坡放马时，他还巧妙地使用钉耙击败了作恶的妖怪，显示了他并非只有愚蠢的言论，而是具有实际行动的能力。此外，八戒对婚姻也表现出了自己的担忧，体现了角色内心的细腻情感。', '木叉行者:木叉行者是观音菩萨的高徒，受菩萨之命，作为其使者前往助唐僧一行。他携带着具有神秘力量的红葫芦，在旅程中为唐僧师徒提供了重要的帮助，尤其是在收服沙和尚的过程中发挥了关键作用。', '沙和尚:沙和尚，唐僧的徒弟之一，原名为悟净。在被唐僧收服之后，他改名为沙和尚。在《西游记》这一古典文学作品中，沙和尚以其忠诚和坚韧的性格，成为取经团队中的重要一员，与孙悟空、猪八戒一同协助唐僧西天取经，克服重重困难，展现了深厚的师徒情谊和集体合作精神。尽管关于他的描述信息有限，但他在故事中的形象鲜明，深入人心。', '悟净:悟净是沙和尚的别名，原本是流沙河的妖怪，后成为唐僧的徒弟>', '九个骷髅:九个骷髅是沙和尚的宝物，可以化作阴风>', '红葫芦:红葫芦是观音菩萨的宝物，可以变成小船>', '白龙马:白龙马，原为西海龙王的儿子，因犯死罪而被观音菩萨安排于鹰愁涧。后来，他皈依佛门，成为唐僧的忠实坐骑，并助力唐僧一行人取得真经。他的身份由龙王的贵裔转变为取经路上的重要一员，体现了其深刻的转变与修行之路。', '美猴王:美猴王，乃是从仙石中诞生的石猴，不仅具备卓越的领导能力，还拥有非凡的身体能力，因此深受其他猴子的尊敬，被尊称为王。作为猴子之王，他带领群猴游历山水之间，心中充满着对长生不老境界的渴望。在《西游记》这一古典文学名著中，美猴王以其独特的地位和能力，成为了读者心中难以忘怀的角色。', '仙石:仙石在花果山上，崩裂后诞生了美猴王', '猴子们:花果山中，有一群普通的猴子，它们忠诚地跟随美猴王，并在那里过着快乐的生活。这群猴子不仅与美猴王共同生活在水帘洞中，还曾在其寻求长生不老之路时，齐心协力帮助美猴王制作木筏，送他出海寻找更高的修炼之道。这些猴子体现了团结协作的精神，是美猴王身边不可或缺的伙伴。', '水帘洞::\\u6c34\\u5e18\\u6d1e(\\u6c34\\u5e18\\u6d1e)\\u662f\\u65e0\\u72ec\\u5904\\u4e8e\\u8377\\u679c\\u5c71\\u4e2d\\u7684\\u4e00\\u4e2a\\u795e\\u79d8\\u5dee\\u7a9f\\uff0c\\u5b83\\u7531\\u6c34\\u5e18\\u6210\\u4e3a\\u9632\\u58c1\\u3002\\u8fde\\u4e4b\\u672a\\u51fa\\u7684\\u6597\\u732b\\u77f3\\u732b\\u53d1\\u73b0\\u4e86\\u8be5\\u5dee\\u7a9f\\uff0c\\u5e76\\u628a\\u5176\\u5f04\\u6210\\u4e86\\u72ec\\u81ea\\u548c\\u72ec\\u7acb\\u7684\\u5bb6\\u56ed\\u3002\\u5728\\u8c01\\u5e72\\u516c\\u5b50\\u7684\\u6545\\u4e8b\\u4e2d\\uff0c\\u6885\\u5c71\\u516d\\u5144\\u5f1f\\u5c31\\u662f\\u8d1f\\u8d23\\u5165\\u4fb5\\u6c34\\u5e18\\u6d1e\\u7684\\u3002\\u8be5\\u5dee\\u7a9f\\u4e5f\\u6210\\u4e3a\\u4e86\\u72ec\\u5b50\\u4eec\\u7684\\u5bb6\\u5eAD\\u3002\\u6c34\\u5e18\\u6d1e\\u4e0d\\u4ec5\\u662f\\u4e00\\u4e2a\\u5b89\\u5168\\u7684\\u9694\\u75c5\\u5730\\uff0c\\u8fd8\\u662f\\u72ec\\u5b50\\u4eec\\u7684\\u795']}
+19:27:45,136 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:45,136 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['护法伽蓝:护法伽蓝，亦称做法蓝，是具有高深法力的神仙。他们具备变化的能力，能够根据需要化身为不同的形态，如老大爷或院子，以助人为乐。在《西游记》中，护法伽蓝曾化身为老大爷和院子，为孙悟空和猪八戒提供了宝贵的帮助，展现了其神通广大和慈悲为怀的本性。这些描述不仅突出了护法伽蓝的神力，也体现了他们在故事中扮演的积极角色，以及与主要角色的和谐互动。', '钉耙:八戒的武器，用于击败妖怪>', '院子:悟空和八戒请求借宿的地方，实际上是护法伽蓝变化的>', '棍棒:老大爷和年轻农夫们拿的武器，最初用来对付悟空和八戒>', '眼睛酸痛:', '战斗:', '灵吉菩萨:灵吉菩萨，佛教中的菩萨，居住于小须弥山中。他具有强大的法力，曾有能力镇压黄风怪，维护了一方的平安。在《西游记》中，当孙悟空遇到困难，欲打击妖怪时，灵吉菩萨出现并阻止了他，同时提出了合理的处理建议，显示了他不仅法力高强，也具有智慧和慈悲心肠。', '黄风怪:', '飞龙宝杖:飞龙宝杖是灵吉菩萨的宝物，可以变成八爪金龙，用于捕捉妖怪>', '八爪金龙:八爪金龙是孙悟空变化后的形态，用于抓住妖怪。', '黄毛貂鼠:黄毛貂鼠是老妖的原形，因偷吃清油而变成妖怪。', '清油:清油是琉璃灯内的物品，被黄毛貂鼠偷吃。', '金刚:金刚是佛教中的护法神，黄毛貂鼠害怕被其捉住。', '琉璃灯:', '鹰愁涧:鹰愁涧是故事发生地，白龙马在此地等待唐僧一行人', '蛇盘山:蛇盘山是唐僧师徒途径的地方，鹰愁涧位于蛇盘山']}
+19:27:45,316 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:45,318 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['金箍棒:金箍棒，孙悟空之武器，具备变化大小与长度的神奇特性，威力无与伦比。在《西游记》的诸多场景中，悟空多次欲用它来对付唐僧，显示出其战斗用途。事实上，金箍棒不仅用于战斗攻击敌人，还曾用来打碎洞门，充分展现了其在不同情境下的多功能性。', '饿不死，冻不坏的神猴:这是对孙悟空的一种描述，强调了他的神奇能力和不屈的精神状态。）', '虎皮:虎皮是孙悟空用老虎的皮制成的衣物，围在腰间。）', '强盗的刀枪:强盗们用来攻击孙悟空的武器，未能伤害他。）', '筋斗云:筋斗云是孙悟空所掌握的一种非凡的交通工具，也是他的一项特殊技能。它能够让孙悟空在空中快速飞行，实现长距离的迅速移动。这朵云不仅象征着孙悟空的神通广大，同时也体现了他在《西游记》中的重要地位和超凡的能力。', '花果山:花果山，位于东胜神洲傲来国，乃孙悟空——美猴王的诞生地。山中有一块仙石，孕育了这位传奇的猴子。此山不仅是孙悟空的故乡，也是他曾在愤怒之下欲返回之地，更是他当年纵身驾云，离开师傅唐僧的起始点，开启了他传奇的《西游记》之旅。', '紧箍咒:紧箍咒是一种神奇的咒语，被唐僧用于控制孙悟空。当唐僧念出紧箍咒时，它能够使悟空感到头痛，从而迫使他服从唐僧的命令，不敢有任何造次之举。这种咒语体现了师徒之间的权力关系和等级秩序，是《西游记》中一个具有象征意义的元素，反映了人物间的复杂互动和道德教化意图。', '东海龙王:东海的统治者，曾劝告孙悟空回心转意，并给予他饮食>', '马:马是《西游记》中重要的角色之一。在故事中，它是猪八戒在山坡上放养的动物，不仅用于代步，也是唐僧西天取经途中的坐骑，帮助他载运行李，向西行进。此外，孙悟空在天宫时，也曾被赋予看管马匹的职责，显示了马在这一经典文学作品中的特殊地位和作用。这些描述共同揭示了马在故事中的多重角色，以及它在取经团队中的重要性。', '衣服:观音菩萨赠予唐僧的物品，用于诱使孙悟空穿上并受紧箍咒控制>', '花帽:观音菩萨赠予唐僧的物品，用于诱使孙悟空戴上并受紧箍咒控制>', '老妇人:', '悟空:悟空，是《西游记》中至关重要的人物，被誉为唐僧的大徒弟。他具备高强的武艺和神通广大的能力，能够使用金箍棒与妖怪战斗，且具有丰富的变化能力，既能变化形态也能快速追赶妖怪。其性格机智、勇猛且好斗，面对困难总能巧妙应对。在故事中，无论是捉妖、解决高老庄的问题，还是保护唐僧西天取经，悟空都展现出了他的勇敢与智慧。此外，悟空还颇具幽默感，能巧妙地回应八戒的言行。即便有时因头痛困扰，他仍然是队伍中不可或缺的力量。总体而言，悟空是一个多才多艺、充满智慧与力量的角色，为取经团队立下了赫赫战功。', '师父:师父指的是唐僧，悟空的师傅，此处用紧箍咒来惩罚悟空>', '头痛:', '保护唐僧:']}
+19:27:45,365 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:45,367 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['师兄们:师兄们是孙悟空的同伴，一同在祖师门下学习，他们对孙悟空的态度和行为有所反应。', '长生不老的法术:长生不老的法术是孙悟空追求的目标，也是祖师教授给他的重要技能之一。', '七十二般变化:七十二般变化是孙悟空学会的一种法术，能让他变化成不同的形态。', '法术:法术是祖师教授给孙悟空的各种技能，包括长生不老、七十二般变化等。', '三更:三更是中国古时的时间单位，指深夜的时候，孙悟空在这个时间进入祖师的房间学习法术。', '暗谜:暗谜是菩提祖师用来测试孙悟空智慧的一种方式，通过这种方式祖师发现了孙悟空的聪明才智。', '夏天:夏天是故事发生的一个季节，孙悟空在这个季节与师兄们玩耍，并展示自己的变化能力。', '大树:孙悟空在师兄们面前变成了一棵大树，作为展示自己变化能力的一种形式。', '观音院:观音院，位于幽静的山谷之中，是一座唐僧师徒曾到达的寺庙，也是和尚们居住和修行的场所。它在《西游记》中占据着重要地位，不仅是唐僧师徒的暂住地，而且是故事中一系列重要事件的发生地。值得一提的是，观音院曾遭受火灾，现位于黑风山的北面，这一历史痕迹为其增添了更多的文化内涵和故事色彩。', '和尚:和尚是观音院的僧人，他们在寺庙被烧毁后感到惊恐。尽管遭受此不幸，他们依然对唐僧师徒表示了尊敬，并热情邀请他们进入观音院休息。这体现了这些僧人对师徒四人的敬意以及佛教中好客的传统美德。', '袈裟:桑悟禅是唐僧的珍贵宝物“袈裟”，它是一件价值连城的佛衣，在《西游记》中为老和尚所羡慕。后来唐僧借给了这位老和尚，却不幸被其设计陷害。在某段情节中，这件袈裟还被黑风怪偷走。这一系列事件体现了袈裟不仅是物质上的宝贵，也成为了故事中人物争斗和心机较量的象征。', '老和尚:老和尚，又称之和尚，是观音院中的一位年长的僧人。他与黑风怪有所交情。然而，由于贪心作祟，他竟然设计陷害了唐僧及其师徒一行人。在这一行为背后，体现了某些古典文学作品中人物因私欲而背离佛门宗旨的复杂性格描写，同时也映射出《西游记》中人物之间错综复杂的关系和道德冲突。', '广目天王:广目天王，作为南天门的守护神，具有高强的法力，掌管着避火罩这件宝贵的神器。在《西游记》中，他曾将此宝借给了孙悟空，助其在火焰山一劫中得以安然无恙。故事后期，悟空完成了自己的使命，也将避火罩归还给了广目天王。广目天王作为天庭的神仙，其地位尊崇，在神仙谱系中占有重要的一席之地。', '避火罩:避火罩是广目天王的宝物，具有抵御火焰的神奇功效。在《西游记》中，孙悟空曾借来此宝物，用以保护唐僧免受火焰的伤害。这一情节体现了避火罩的重要性和广目天王对取经团队的暗中支持。', '黑风怪:黑风怪，乃居于黑风山黑风洞中的一妖怪，因观音院遭遇火灾，便起了贪念，意欲乘机劫掠。在《西游记》中，此怪与孙悟空成为了对手，身披乌金甲，手持黑缨枪，曾与悟空交战。然而，最终在观音菩萨和孙悟空的智谋之下，黑风怪被设计制服，其恶行受到了应有的惩罚。这一故事不仅体现了中国古典文学中正义战胜邪恶的主题，也反映了佛教中因果报应的教义。', '南天门:南天门作为天宫的重要门户之一，是连接天界与人间的要道。在《西游记》中，孙悟空因不满天庭的束缚，曾从此地突破重围，杀出南天门，展现了他的神通与反抗精神。此外，南天门也有天兵天将守护，以确保天界的安全。在故事中，孙悟空也曾前往南天门，借避火罩以应对后续的挑战。这一地点不仅体现了天庭的威严与层级，也映射了孙悟空的智勇与不屈不挠的精神。']}
+19:27:45,576 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:45,577 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['七宝灵台:一个珍贵的平台，如来佛祖在此接受各路神仙的朝拜和礼物', '五根肉红色的柱子:', '佛祖:佛祖是佛教中的最高神祇，对孙悟空施以惩罚，并给予指示。|', '山神:山神被如来佛祖叫来，负责监押孙悟空。|', '五方揭谛:五方揭谛被如来佛祖指派与山神一同监押孙悟空。|', '溶化的铜水:溶化的铜水是给孙悟空的饮料，用于在他渴时提供。|', '铁丸子:', '刑期:刑期指的是孙悟空被囚禁的时间限制，五百年后有人来救他。|']}
+19:27:53,264 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:53,265 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['宣花斧:宣花斧是巨灵神的武器，在与孙悟空的战斗中被毁。', '蟠桃园:蟠桃园，分为前、中、后三部分，每部拥有一千二百棵桃树，其结出的桃子具有神奇效果，是位于天宫中的果园。后来，孙悟空被派遣到此，负责看管蟠桃园，守护这些珍贵的仙果。在此背景下，蟠桃园不仅成为了神话故事中的重要地点，也反映了了中国古代文化中对神仙世界的想象与构建。', '玉帝:玉帝是天庭的主宰和最高统治者，他同意太上老君将孙悟空炼化的提议，以维护天庭的秩序。在孙悟空挑战天庭的权威时，玉帝深感其闲散生事的能力可能带来麻烦，因此安排孙悟空管理蟠桃园，既是对其能力的肯定，也是为了在天庭中为其安排合适的职位，以避免潜在的混乱。作为掌管天庭的最高神祇，玉帝的这一决策体现了他的智慧与对天庭层级结构的深刻理解。', '七位仙女:七位仙女奉王母娘娘之命进园摘桃，意外惊醒了孙悟空', '瑶池:瑶池是举办蟠桃会的地方，孙悟空曾偷偷进入并饮酒', '太上老君:太上老君是道教中的高级神祇，位列天庭，他拥有强大的法宝金钢琢，并在《西游记》中提议将孙悟空放入八卦炉中炼化，以期消除其身上的妖气。同时，太上老君还精于炼制金丹，他的兜率宫藏有珍贵的丹药，然而不幸的是，孙悟空曾闯入他的兜率宫，引发了一系列的故事情节。在这些描述中，我们可以看出太上老君不仅地位崇高，法力无边，而且与孙悟空之间存在着复杂的互动关系。', '李天王:李天王是天庭中的武将，奉命捉拿孙悟空', '哪吒太子:哪吒太子是李天王的儿子，也参与了捉拿孙悟空的行动', '二郎神:二郎神，乃是一位法力高强的神祇。根据传说，他曾与孙悟空展开过一场激烈的战斗，在交锋中，二郎神展示了他能变化形态的神通。此外，他还受命带领梅山六兄弟，共同捉拿孙悟空，彰显了其尊贵的地位和在神界的权能。在这些故事中，二郎神的形象既是一位英勇善战的斗士，也是一位忠诚执行天命的神灵。', '梅山六兄弟:梅山六兄弟，乃二郎神的得力助手，在《西游记》中，他们与二郎神一同前往花果山，合力捉拿孙悟空。在这一过程中，他们展现了忠诚与勇猛，是故事中具有代表性的团体之一。', '定身法:孙悟空的一种法术，能够使他人定住不动）', '瞌睡虫:孙悟空变化出的虫子，可以使他人陷入沉睡）', '照妖镜:照妖镜是一件能够揭示妖怪原形的宝物，它在《西游记》中扮演了重要角色。该宝物不仅被二郎神使用，以识别并揭露妖怪的真实形态，同时也是李天王所依赖的法器，能够照出妖魔的原形。这件宝物在中国古代神话中象征着光明与正义的力量，能够辨识真伪，帮助正义的力量战胜邪恶。', '八卦炉:用于炼化丹药和物品的炉子，孙悟空在其中炼就了火眼金睛', '金钢琢:太上老君的宝物，能够对敌人造成伤害，曾用来攻击孙悟空', '斩妖台:斩妖台是天庭中用于处决妖怪的地方，孙悟空曾被绑在这里']}
+19:27:53,646 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:53,647 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['木刀:孙悟空让小猴子们制作的简易兵器之二。', '妖精:占据水脏洞的混世魔王的部下，被孙悟空消灭。', '虾兵蟹将:虾兵蟹将是龙宫的兵将，他们遵从龙王的命令，为孙悟空抬出了重兵器>', '神珍铁:神珍铁是大禹治水时测定海水深浅的工具，能发光，最终变化为孙悟空的如意金箍棒>', '如意金箍棒:如意金箍棒是孙悟空的兵器，可以根据孙悟空的心意变化大小和重量，重一万三千五百斤>', '南、北、西三海龙王:南、北、西三海龙王分别是敖钦、敖顺和敖闰，他们凑齐了一套黄金甲、凤翅紫金冠和藕丝步云鞋送给孙悟空>', '妖王:妖王是孙悟空邀请的客人，在花果山上参加宴席>', '幽冥界:幽冥界，乃冥王与判官共同管理的冥界领域，亦是阎王居住之地。孙悟空曾因被勾魂鬼误带至此处，而得以在此修改生死簿，此后方才离开。这一事件在《西游记》中具有重要意义，不仅展示了孙悟空的神通广大，也揭示了幽冥界在生死轮回中的核心地位及其与神魔世界的微妙关系。', '阎王:阎王是幽冥界的统治者，掌管生死簿>', '十位冥王:十位冥王是管理生死簿的冥界神祇，他们遵从孙悟空的要求拿出生死簿', '判官:判官是冥界的官员，负责协助冥王管理生死簿', '生死簿:生死簿是记录所有生物生死信息的册子，被孙悟空修改', '地藏王菩萨:地藏王菩萨是佛教中的一位菩萨，冥王向他请示如何处理孙悟空的事情', '玉皇大帝:玉皇大帝，作为道教神话中的最高神祇，同时也是中国神话中的天帝，他掌管着天宫，拥有至高无上的权力。在天蓬元师犯错之时，玉皇大帝作出了惩罚的决定，体现了其对天界纪律的维护。此外，当孙悟空的行为引起天界不满时，玉皇大帝也表现出了对其行为的愤怒，并试图采取措施制服孙悟空。在神话体系中，即使是冥王也需要向玉皇大帝报告孙悟空的相关行为，这进一步彰显了玉皇大帝在神祇中的尊贵地位与权威。', '森罗殿:', '猪八戒:猪八戒，唐僧的二徒弟，以其直率的性格和无穷的力气而著称，擅长运用钉耙进行战斗。在《西游记》这一古典文学名著中，他是一位既憨厚又勇敢的角色，经常在旅途中为师傅和师兄弟们提供帮助，克服重重困难。尽管有时会因贪吃懒惰而惹麻烦，但猪八戒的忠诚与坚韧也是师徒四人得以圆满完成取经任务的重要因素之一。']}
+19:27:53,965 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:53,967 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['僧衣:僧衣是猪八戒成为僧人后穿戴的衣物>', '僧鞋:僧鞋是猪八戒成为僧人后穿戴的鞋子>', '僧帽:僧帽是猪八戒成为僧人后穿戴的帽子>', '九齿钉耙:', '老婆:指的是八戒的妻子，是他情感上的牵挂，也是他考虑还俗的原因', '还俗:还俗是指八戒如果无法完成取经任务，就打算回归原来的世俗生活', '经:经是指《西游记》中唐僧师徒四人要取的佛经，是他们旅程的目标', '八戒的老婆:', '冥司阎王:冥司阎王是地府的主宰，向玉皇大帝告发孙悟空的破坏行为。', '武曲星君:武曲星君是天宫中的神仙，建议给孙悟空一个低微的官职。', '文曲星:文曲星负责撰写诏书，邀请孙悟空上天宫。', '托塔李天王:托塔李天王是玉皇大帝派遣的将领之一，带领天兵天将去捉拿孙悟空。', '三太子哪吒:三太子哪吒是托塔李天王的副手，拥有强大的战斗能力，与孙悟空交战。', '巨灵神:巨灵神是天宫的先锋官，在与孙悟空的战斗中失败。', '齐天大圣府:为孙悟空在天宫修建的府邸，象征着他的称号。', '灵霄殿:灵动霄汉的“灵霄殿”是天宫中的主殿，也是重要的政治与礼仪中心。在这里，孙悟空曾挑战玉帝的权威，同样也是他被引见给至高无上的玉皇大帝的地方，标志着其身份与地位在天庭的正式确认。灵霄殿不仅是一座宫殿，它更是天庭秩序与权力的象征。']}
+19:27:53,967 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:53,968 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['天兵天将:守护南天门的兵将，对悟空的到来感到惊慌>', '黑风山:黑风山，位于观音院南面，是一座因黑风洞而得名的山脉。此处为黑风怪的居所，山中幽深，传说中的黑风洞便坐落于此，与山同名，映衬出该地神秘的色彩和深厚的文化底蕴。', '黑风洞:黑风洞是位于黑风山中的洞穴，亦是黑风怪的住所。在《西游记》中，此处成为了孙悟空和观音菩萨前往的重要地点，充满了神秘与传奇色彩。黑风洞不仅是黑风怪的居所，也是故事中一个关键的场景，反映了人物之间的复杂关系与神话传说中的神秘境界。', '木柴:', '驼背老和尚:驼背老和尚因观音院被烧和袈裟丢失而撞墙自尽>', '妖魔:妖魔是在黑风山上与黑风怪一起的怪物>', '道士:道僮原是一只伪装成道士的大灰狼，参与了佛衣盛会，但在孙悟空的慧眼下被识破并最终被打死。实际上，这位道士不仅是灵吉菩萨讲经之地的守护者或信徒，还是黑风怪的朋友，在事情败露后与黑风怪一同逃跑。这一形象在《西游记》中体现了妖魔善于伪装、混淆视听的特点，同时也反映了正义终究战胜邪恶的主题。', '白衣秀才:白衣秀才实际上是条大白花蛇，被悟空打死>', '小妖怪:小妖怪是黑风怪的部下，负责观察和报告情况。', '乌金甲:黑风怪的护身甲，增强了他的防御能力。', '黑缨枪:黑风怪的武器，用于与悟空交战。', '请柬:黑风怪邀请观音院老和尚的书面邀请，是故事中的一个重要物证。', '观音院那老和尚:观音院中的老和尚，与黑风怪有联系，增加了故事情节的复杂性。', '童子:观音菩萨的随从，协助观音菩萨执行任务。', '宝衣:悟空所拥有的珍贵衣物，之前在观音院中卖弄，导致了后续的事件。', '佛衣盛会:一个重要的宗教活动，吸引了道士等各路神仙参加。']}
+19:27:54,55 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:54,57 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['兜率宫:兜率宫是太上老君的居所，也是孙悟空被炼化的地方', '巽宫:八卦炉中的一个位置，因只有烟没有火，孙悟空在其中避难', '哮天犬:', '如意棒:孙悟空的武器，可以随心所欲地变化大小和威力', '三十六员雷将:保护玉帝的神仙，阻止孙悟空的进攻', '二十八座星宿:赶来保护玉帝的神仙，帮助抵挡孙悟空', '如来佛祖:佛教中的最高神祇，被请来帮助解决孙悟空的问题', '阿傩:阿傩是佛教中的尊者，身份尊贵，担任如来佛祖的随从，专责处理孙悟空相关的事务。他不仅是位神仙，而且在佛教中担任接收礼物并遵照佛祖指示行事的要职，体现了其在佛教体系中的崇高地位和重要作用。阿傩的形象和行为，在《西游记》这一古典文学作品中，富含深厚的宗教文化象征意义。', '伽叶:伽叶，佛教中的神仙尊者，与阿傩共同承担执行佛祖任务的使命，一同前来协助如来佛祖，体现了其在佛教中的重要地位与作用。在佛教的经典文化中，伽叶以虔诚和智慧闻名，是佛教教义的重要传播者。', '安天大会:玉帝为庆祝孙悟空被镇压而举办的盛大活动玉帝为感谢如来佛祖而设的庆祝活动', '各路神仙:', '齐天大圣到此一游:孙悟空在撑天柱子上留下的标记，显示了他的存在和反抗精神', '巡查官:巡查官是负责监视妖猴孙悟空的天庭官员，其主要职责是密切观察孙悟空的动向，并在发现任何异常情况时，及时向佛祖汇报。他们是天庭秩序的维护者，通过对孙悟空的监管，确保天界的和谐不受干扰。在这一职责中，巡查官体现了天庭的权威和层级结构，同时也突显了孙悟空在天界中的重要地位及其所受到的关注。', '妖猴:妖猴是指孙悟空，这一称呼突显了他不受约束、调皮捣蛋的特性。据古典文学作品《西游记》记载，因其调皮捣蛋，孙悟空被佛祖囚禁于五行山下，直至唐僧经过，才得以解救，并开始了取经的西天之旅。这个称呼不仅体现了孙悟空的个性，也反映了他在故事中的重要转变，从一个无法无天的妖猴，成为了一位助人为乐、保护师父的忠诚弟子。', '太玄宫:天宫中的一个宫殿，用于举办重要的仪式和活动', '洞阳玉馆:天宫中的另一个重要场所，用于接待尊贵的客人']}
+19:27:54,366 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:54,368 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['五行山:五行山，又名五指山，是中国古典名著《西游记》中一个具有重大象征意义的地点。此处曾是佛祖如来的五指化作的山镇，用以囚禁桀骜不驯的孙悟空，其法力封印使得孙悟空无法逃脱。五行山不仅是取经故事的关键地点，也象征着佛法的威严与力量。后来，在唐僧师徒取经途中，唐僧到达五行山，因他的救助，五行山的封印裂开，使得孙悟空得以重获自由，并成为唐僧的大徒弟，共同完成取经的使命。这一事件也象征着悟空的转化与重生，从此开始了他的修行之路。', '观音菩萨:观音菩萨是佛教中备受尊敬的菩萨，她以大慈大悲著称，拥有高深的法力和救苦救难的神力。在《西游记》中，观音菩萨不仅是如来的使者，奉旨寻找取经人，还多次在关键时刻给予唐僧师徒以帮助和救济。她曾化身老妇人指引孙悟空回归正途，并劝导他成为唐僧的徒弟。此外，她还安排白龙马成为唐僧的坐骑，并解决了相关的冲突。观音菩萨还提出了捉拿孙悟空的建议，并指导唐僧取经，甚至教授唐僧紧箍咒以控制孙悟空。她还派遣木叉行者协助取经团队，并在途中劝导妖怪改邪归正，指引他们走上正确的取经之路。她的慈悲心肠和智慧行动，为唐僧一行人克服重重困难，最终成功取得真经提供了重要的支持。', '如来佛:如来佛，作为佛教中的最高神祇，具有无上的权威与神通。在《西游记》这一古典文学名著中，如来佛发出法旨，指令观音菩萨去寻找适合的取经人，以完成重要的佛教使命。同时，也是如来佛以巨大的法力将桀骜不驯的孙悟空压在五行山下，直至唐僧师徒一行人开始西天取经的旅程，孙悟空才得以重获自由。如来佛的这些行为不仅体现了他在佛教界的至高地位，也展示了他对于宇宙秩序与修行者教化的深刻影响。', '惠岸行者:惠岸行者是观音菩萨的随从，一同来到东土大唐', '东土大唐:东土大唐是故事发生的主要地点，是取经人的起点', '唐太宗李世民:唐太宗李世民是唐朝的皇帝，命令陈玄奘取经', '陈玄奘:陈玄奘是唐朝的高僧，被选为取经人，是金蝉子转世', '金蝉子:金蝉子是如来佛的弟子，转世为陈玄奘', '唐三藏:陈玄奘的名字被唐太宗改为唐三藏，是取经的主要人物', '熊山君:熊山君乃一妖怪，与寅将军结伴而行。在《西游记》中，二者共同出现，熊山君曾提议仅以两人为食，足见其狡猾与凶残。此一描述不仅揭示了熊山君与寅将军的同盟关系，也反映了其时妖怪的残酷本性与对人类生命的轻视。', '特处士:特处士是妖怪，与熊山君一同拜访寅将军', '寅将军:寅将军，一名妖怪，自称魔王，曾在《西游记》中打算以唐僧师徒招待客人。他性格残忍，曾吃掉唐僧的两个仆人。在此，我们可以看出寅将军的邪恶本质及其对唐僧一行人的威胁。', '五件宝贝:五件宝贝是观音菩萨带来的宝物，包括锦袈裟，用于交换取经人的承诺>', '东土大唐的边界河州:这是大唐边界的具体地点，唐僧一行人在此遇到了困难>', '镇边总兵:镇边总兵是在河州的地方官员，接待了唐僧主仆>', '福原寺:福原寺是唐僧一行人在河州休息的地方>']}
+19:27:54,368 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:54,369 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['棒子:', '玉盘:一个装有两粒仙丹的盘子，原本由道士持有>', '仙丹:具有神奇效果的丹药，被孙悟空和观音菩萨用来对付黑风怪>', '佛衣:一件重要的佛教圣物，被黑风怪所窃，后被观音菩萨和孙悟空取回>', '小金圈儿:观音菩萨用来控制黑风怪的工具>', '小妖:黑风怪的下属，被观音菩萨和孙悟空吓跑>', '混世魔王:混世魔王是孙悟空的敌人，曾占据水帘洞并抢走猴子猴孙。', '花果山水帘洞:孙悟空的居所，一个荒凉破败但被孙悟空恢复生机的洞府。', '水脏洞:混世魔王的居所，后被孙悟空破坏。', '小猴子们:孙悟空的追随者，被救出后帮助孙悟空恢复水帘洞。', '通背老猿猴:一只老猴子，给孙悟空提供了去东海龙宫的建议。', '东海龙宫:东海龙王敖广的居所，拥有许多宝物。', '龙王:龙王爷是东海龙宫的主宰，他拥有丰富的宝物，并且在孙悟空求助时愿意给予帮助。他曾命令手下为孙悟空拿出多种兵器，并最终指引孙悟空获得了如意金箍棒。然而，由于孙悟空的一些行为，龙王爷也曾向玉皇大帝告状，显示出他在维护龙宫秩序和天庭法规方面的责任感和决断力。', '方天画戟:方天画戟是一种由东海龙宫提供的兵器，其重量高达七千二百斤。尽管它的分量不轻，但孙悟空在尝试使用后仍认为它不适合自己。在此过程中，我们可以看出孙悟空对兵器的独特要求和鉴赏眼光，以及东海龙宫对孙悟空的重视，愿意提供如此珍贵的武器供其挑选。', '九股叉:九股叉是一种古代兵器，重量达三千六百斤，然而在《西游记》中，孙悟空却认为它太轻，这显示了孙悟空非凡的力量和自信。尽管其中一条描述为空，但从现有的信息中我们可以得知，九股叉在中国古代文学中是一件颇具份量的武器，且与孙悟空的故事紧密相关。', '竹枪:孙悟空让小猴子们制作的简易兵器之一。']}
+19:27:54,380 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:54,382 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['西海龙王:', '经过:', '高老庄:高老庄是一个村庄，其庄主高太公在此地寻找能够捉拿妖怪的法师。这个村庄在妖怪的叙述中曾被提及，并且后来成为妖怪被带去见唐僧的地点。在《西游记》这一中国古典文学名著中，高老庄不仅是故事情节的一个重要环节，也反映了当时社会对于神秘力量和宗教信仰的寻求与依赖。', '高太公:高太公，高老庄之庄主，其家中有一女，深受妖怪女婿所扰。此情节源自中国古典名著《西游记》，通过这一角色和事件，展现了古代社会家庭与神秘力量之间的冲突与互动。高太公作为一庄之主，其家庭的不幸遭遇也反映了当时人们对于超自然现象的恐惧与无奈。', '三女儿:高太公的第三个女儿，曾被妖怪锁在后院，后来被悟空解救>', '天蓬元师:天蓬元师原是天上的神仙，因调戏嫦娥被贬下凡，成为猪八戒的前身', '王母娘娘:王母娘娘，是中国神话中的一位重要女神，她位居天庭，负责掌管那里的宴会事宜。其中，最为人所知的宴会便是蟠桃会。在这个盛大的宴会中，王母娘娘不仅举办聚会，还曾派遣七位仙女前往采摘蟠桃，以供宴会之用。这些描述充分展现了王母娘娘在天庭中的崇高地位以及她在神话传说中的重要作用。', '嫦娥:嫦娥是中国神话中的月亮女神，被天蓬元师调戏', '弼马温:弼马温是悟空在天宫时的职位，被妖怪提及以嘲讽>', '天宫:天宫是悟空大闹的地方，与妖怪的背景故事相关>', '广寒宫:广寒宫是嫦娥的居所，天蓬元师因闯入此处受到惩罚>', '铜锤:铜锤是天蓬元师被惩罚时使用的刑具>', '凡间:凡间是天蓬元师被贬下界的地方>', '猪胎:猪胎是天蓬元师错误投胎的对象>', '洞门:洞门是妖怪藏身的地方，被悟空打碎>', '云栈洞:云栈洞是妖怪的居所，被他和悟空放火烧毁>']}
+19:27:54,636 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:54,637 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['东胜神洲:东胜神洲是石猴诞生地的所在大洲，傲来国位于其上', '傲来国:傲来国是一个拥有丰富兵器库的国家，正是在这里，孙悟空从中获取了其著名的兵器。此外，傲来国也是花果山的所在地，更是石猴成长的地方，对中国文学经典《西游记》中的故事发展起着至关重要的作用。这个国家不仅是一个地理背景，更是孙悟空传奇故事的摇篮。', '铁板桥:铁板桥位于水帘洞内，石猴通过它进入洞内', '泉水源:泉水源是猴子们寻找的目标，石猴成功找到了它', '石猴:', '通背猿猴:一只懂得神仙之术的猿猴，建议美猴王学习长生不老的本领>', '神仙:拥有长生不老能力的神秘生物，美猴王渴望找到并学习他们的本领>', '灵台方寸山:一座山，山上有一个斜月三星洞，菩提祖师居住的地方>', '斜月三星洞:位于灵台方寸山上，菩提祖师的居所>', '菩提祖师:芲提祖师，乃是一位隐居在斜月三星洞的神仙，他收孙悟空为徒，传授其武艺和法术。祖师不仅具备高深的法力，更拥有卓越的智慧，对孙悟空进行了全面的教育和指导，为其后来的成就奠定了坚实的基础。在《西游记》这一中国文学经典中，芲提祖师的这一角色象征着师徒关系中的传授与启迪，体现了中国传统文化中对知识和技能传承的重视。', '仙童:菩提祖师的徒弟，其中一个带领孙悟空进入洞府>', '青年人:一个在树林里砍柴的普通人，向美猴王指点了灵台方寸山的方向>', '石碑:石碑位于黑风洞前，与斜月三星洞相对，立于山岗之上。其上刻有“黑风山黑风洞”的字样，明确了其与黑风洞的关联，同时也作为对该地区的一个重要地标。通过对石碑的描述，我们可以了解到它在地理位置上具有标志性意义，是通往黑风洞的明显指引。', '仙童们:菩提祖师的徒弟们，站在讲道台下>', '东南风:', '祖师:祖师，即孙悟空的师傅，被尊称为菩提祖师，他不仅拥有高深的法力，更具备卓越的教学能力。在《西游记》中，他对孙悟空的行为和态度产生了重要影响，通过教训和指导，赋予孙悟空丰富的武艺和智慧，为其后来的西天取经之路奠定了坚实的基础。菩提祖师的智慧和法力在故事中是备受推崇的，他的形象象征着师徒之间的重要关系和传承。']}
+19:27:54,726 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:54,728 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['黄风大王:黄风大王是山洞的主人，手下有先锋等小妖，他抓住了唐僧并计划吃掉他。', '黄风大王的先锋:黄风大王的部下，能够变化成猛虎，与孙悟空和猪八戒交战。', '黄风洞:黄风岭上的黄风洞是《西游记》中的一个重要地点，它不仅是黄风大王的居所，同时也是妖怪的巢穴。这个洞穴恰好位于孙悟空和唐僧师徒的西行路径上，在故事中，孙悟空和八戒曾一同清剿了盘踞在此的妖怪，确保了师徒们能够安全通过。', '旋风:旋风是一个自然现象，被孙悟空用来判断附近可能有妖怪或猛虎的存在。', '赤铜刀:赤铜刀是黄风大王的先锋所使用的武器，在与猪八戒和孙悟空的战斗中出现过。', '金蝉脱壳之计:金蝉脱壳是一种计谋，黄风大王的先锋使用它来逃脱孙悟空和猪八戒的追捕。', '定风柱:定风柱是黄风洞中用来绑住唐僧的柱子，以防他被风吹走。', '斑斓猛虎:', '先锋:被悟空拦住去路的妖怪，被迫向山坡上逃跑', '老妖:老妖，原身为一只黄毛貂鼠，曾遭八爪金龙捕捉。他是黄风洞的主人，率领小妖出洞应战，曾在洞口与孙悟空展开激烈战斗，展现出其强大的实力和领导能力。在准备与小妖们共同交战的过程中，老妖彰显了其作为一方妖王的威严和决心。', '毫毛:悟空吹仙气后变成的一百多个悟空，用于包围老妖', '仙气:悟空吹的气体，能够使毫毛变化成多个自己）', '狂风:老妖吹起的，使多个悟空在空中旋转的风）', '三股钢叉:老妖的武器，用于与悟空战斗）', '三花九子膏:专治风眼的药物，由老大爷提供>一种药，专治风眼，由老大爷提供）', '老大爷:提供住宿和三花九子膏的人，实际上是护法伽蓝变化）']}
+19:27:55,6 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:55,7 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['唐僧的两个仆人:唐僧的随从，一同前往西天取经>', '妖怪:妖怪“妖怪”在《西游记》中是一个居住在流沙河的生物，曾与唐僧师徒发生冲突，并在与悟空的战斗中腰酸腿痛，后被揭示其真身是一只老虎。此外，他还曾化为猪头，原是福陵山人，后被悟空捉拿。这个神秘生物在故事中曾抓住唐僧主仆，但其真实身份是天蓬元师，因犯错被贬下凡间。在故事的后期，他改邪归正，愿意跟随唐僧取经，体现了人物性格的转变和救赎。', '锦袈裟:', '魔王:魔王是一个邪恶的存在，被称为寅将军，打算用唐僧等人招待客人', '唐僧:唐僧，又称唐三藏，是《西游记》中的核心人物，一位来自唐朝的僧人，奉皇命前往西天取经。他信仰虔诚，心怀慈悲，拥有高尚的品德和深厚的佛法修为。在取经的旅途中，他先后收孙悟空、猪八戒等人为徒，组成了一个取经团队。唐僧作为团队首领，带领徒弟们克服重重困难和挑战，其中包括孙悟空因紧箍咒而受其控制，以及遭遇妖怪袭击被徒弟们救出的经历。在旅途中，他们也曾寻找被偷的袈裟，唐僧对袈裟的下落焦急万分。此外，他还曾差点被寅将军吓昏，幸得神秘老人相救，也曾被白龙马追击，所幸得到孙悟空的救助。尽管在孙悟空离开时感到无助，但在观音菩萨的帮助下，他始终坚持取经的使命，展现了坚定的意志和领导力。', '神秘老人:神秘老人救了唐僧，并指引他离开双叉岭，实为太白金星', '太白金星:太白金星，是中国神话中的一位重要神仙，他在《西游记》中扮演了多重角色，展现了其深邃的智慧与神通。他不仅是天宫中的神仙，还曾暗中帮助孙悟空，为其提供助力。在故事中，太白金星曾以神秘老人的形象出现，帮助唐僧，并在完成任务后乘鹤神秘飞走。此外，他还曾为天蓬元师求情，显示出其慈悲为怀的一面。在处理孙悟空的问题上，太白金星提出了安抚的策略，并负责传达天意，显现出他在天庭中的地位及其对大局的洞察力。总的来说，太白金星是一个层次丰富、形象多面的神仙，其行为和角色在《西游记》中具有重要的文化象征意义。', '刘伯钦:刘伯钦，一位猎户，他在《西游记》中不仅是救助唐僧并热情邀请他到自己家中作客的善良之人，还是唐僧早期的护法。在故事中，刘伯钦起到了关键作用，协助唐僧救出了被压在五指山下的孙悟空，为唐僧取经之路提供了重要的帮助。他的行为不仅体现了其个人的英勇和仁慈，也映射了古代中国社会中对于忠诚与助人为乐的价值观。', '两界山:两界山是一座重要的地标，分隔大唐和鞑靼的疆域', '孙悟空:孙悟空，亦称美猴王，是《西游记》中的核心人物，具有高强的武艺和神通广大的变化能力。他原是花果山水帘洞的主人，后拜师菩提祖师学得仙法和筋斗云。因其叛逆但忠诚的性格，以及急躁和顽皮的个性，孙悟空曾在故事中大闹天宫和龙宫，获得了如意金箍棒。他因偷吃蟠桃和金丹而引发了一系列事件，最终被如来佛祖压在五行山下。后来，他成为唐僧的大徒弟，保护唐僧西天取经，途中展现出机智勇敢的一面，与各种妖魔鬼怪战斗，并最终使白龙马屈服。孙悟空不仅力大无穷，能长生不老，还曾要求查看并修改生死簿，显示了他对自由和力量的追求。他的故事充满了对权威的挑战和对师徒情感的深刻描绘。', '毒蛇:毒蛇在唐僧四周出现，吐着红信，增加了唐僧的危险>', '有毒的虫子:有毒的虫子是唐僧四周的危险之一，增加了他的困境>', '从未见过的野兽:这些未知的野兽包围了唐僧，使他感到更加无助>', '凶恶的老虎:', '老虎:一只大老虎在唐僧和孙悟空取经路上出现，被孙悟空用金箍棒打死。', '强盗:六个强盗试图抢夺唐僧师徒的马和行李，后被孙悟空打死。']}
+19:27:55,56 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:55,57 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['南海:南海是观音菩萨的居所，悟空想去那里找观音菩萨理论>', '西天取经:', '唐僧师徒:唐僧师徒是由唐僧、孙悟空、猪八戒和沙和尚组成的取经团队，他们正在前往西天的路上>', '黄风岭:在《西游记》这部古典文学作品中，黄风岭（\\u9ec4\\u98ce\\u5cad）是一个重要的场景。它是黄风洞所在的山岭，唐僧师徒在此地小心翼翼地前行，这里被认为是他们取经路上遭遇的诸多险境之一。黄风岭不仅是地理环境上的险要之地，也是充满了妖魔鬼怪的奇幻世界，充分体现了这部作品中对于自然界与神话传说的深度融合。', '流沙河:流沙河是《西游记》中一条宽阔且汹涌的河流，位于取经团队必经之路上，河中藏有妖怪，对唐僧师徒四人构成了威胁和考验。这一地点不仅地理环境特殊，而且在整个故事中具有重要的象征意义，代表着西天取经路上的艰难险阻。', '八戒:八戒，亦称猪悟能，是《西游记》中的重要角色，身为唐僧的次徒，原为天蓬元帅，后因犯错被贬下凡间，成为高老庄的妖怪。他拥有一定的法力，性格中虽带有贪吃懒惰的特点，但忠心耿耿，诚实且勇敢。在故事中，他不仅负责照看马匹，还与孙悟空并肩作战，共同打败妖怪并救出师傅唐僧。一次在山坡放马时，他还巧妙地使用钉耙击败了作恶的妖怪，显示了他并非只有愚蠢的言论，而是具有实际行动的能力。此外，八戒对婚姻也表现出了自己的担忧，体现了角色内心的细腻情感。', '木叉行者:木叉行者是观音菩萨的高徒，受菩萨之命，作为其使者前往助唐僧一行。他携带着具有神秘力量的红葫芦，在旅程中为唐僧师徒提供了重要的帮助，尤其是在收服沙和尚的过程中发挥了关键作用。', '沙和尚:沙和尚，唐僧的徒弟之一，原名为悟净。在被唐僧收服之后，他改名为沙和尚。在《西游记》这一古典文学作品中，沙和尚以其忠诚和坚韧的性格，成为取经团队中的重要一员，与孙悟空、猪八戒一同协助唐僧西天取经，克服重重困难，展现了深厚的师徒情谊和集体合作精神。尽管关于他的描述信息有限，但他在故事中的形象鲜明，深入人心。', '悟净:悟净是沙和尚的别名，原本是流沙河的妖怪，后成为唐僧的徒弟>', '九个骷髅:九个骷髅是沙和尚的宝物，可以化作阴风>', '红葫芦:红葫芦是观音菩萨的宝物，可以变成小船>', '白龙马:白龙马，原为西海龙王的儿子，因犯死罪而被观音菩萨安排于鹰愁涧。后来，他皈依佛门，成为唐僧的忠实坐骑，并助力唐僧一行人取得真经。他的身份由龙王的贵裔转变为取经路上的重要一员，体现了其深刻的转变与修行之路。', '美猴王:美猴王，乃是从仙石中诞生的石猴，不仅具备卓越的领导能力，还拥有非凡的身体能力，因此深受其他猴子的尊敬，被尊称为王。作为猴子之王，他带领群猴游历山水之间，心中充满着对长生不老境界的渴望。在《西游记》这一古典文学名著中，美猴王以其独特的地位和能力，成为了读者心中难以忘怀的角色。', '仙石:仙石在花果山上，崩裂后诞生了美猴王', '猴子们:花果山中，有一群普通的猴子，它们忠诚地跟随美猴王，并在那里过着快乐的生活。这群猴子不仅与美猴王共同生活在水帘洞中，还曾在其寻求长生不老之路时，齐心协力帮助美猴王制作木筏，送他出海寻找更高的修炼之道。这些猴子体现了团结协作的精神，是美猴王身边不可或缺的伙伴。', '水帘洞::\\u6c34\\u5e18\\u6d1e(\\u6c34\\u5e18\\u6d1e)\\u662f\\u65e0\\u72ec\\u5904\\u4e8e\\u8377\\u679c\\u5c71\\u4e2d\\u7684\\u4e00\\u4e2a\\u795e\\u79d8\\u5dee\\u7a9f\\uff0c\\u5b83\\u7531\\u6c34\\u5e18\\u6210\\u4e3a\\u9632\\u58c1\\u3002\\u8fde\\u4e4b\\u672a\\u51fa\\u7684\\u6597\\u732b\\u77f3\\u732b\\u53d1\\u73b0\\u4e86\\u8be5\\u5dee\\u7a9f\\uff0c\\u5e76\\u628a\\u5176\\u5f04\\u6210\\u4e86\\u72ec\\u81ea\\u548c\\u72ec\\u7acb\\u7684\\u5bb6\\u56ed\\u3002\\u5728\\u8c01\\u5e72\\u516c\\u5b50\\u7684\\u6545\\u4e8b\\u4e2d\\uff0c\\u6885\\u5c71\\u516d\\u5144\\u5f1f\\u5c31\\u662f\\u8d1f\\u8d23\\u5165\\u4fb5\\u6c34\\u5e18\\u6d1e\\u7684\\u3002\\u8be5\\u5dee\\u7a9f\\u4e5f\\u6210\\u4e3a\\u4e86\\u72ec\\u5b50\\u4eec\\u7684\\u5bb6\\u5eAD\\u3002\\u6c34\\u5e18\\u6d1e\\u4e0d\\u4ec5\\u662f\\u4e00\\u4e2a\\u5b89\\u5168\\u7684\\u9694\\u75c5\\u5730\\uff0c\\u8fd8\\u662f\\u72ec\\u5b50\\u4eec\\u7684\\u795']}
+19:27:55,196 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:55,196 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['护法伽蓝:护法伽蓝，亦称做法蓝，是具有高深法力的神仙。他们具备变化的能力，能够根据需要化身为不同的形态，如老大爷或院子，以助人为乐。在《西游记》中，护法伽蓝曾化身为老大爷和院子，为孙悟空和猪八戒提供了宝贵的帮助，展现了其神通广大和慈悲为怀的本性。这些描述不仅突出了护法伽蓝的神力，也体现了他们在故事中扮演的积极角色，以及与主要角色的和谐互动。', '钉耙:八戒的武器，用于击败妖怪>', '院子:悟空和八戒请求借宿的地方，实际上是护法伽蓝变化的>', '棍棒:老大爷和年轻农夫们拿的武器，最初用来对付悟空和八戒>', '眼睛酸痛:', '战斗:', '灵吉菩萨:灵吉菩萨，佛教中的菩萨，居住于小须弥山中。他具有强大的法力，曾有能力镇压黄风怪，维护了一方的平安。在《西游记》中，当孙悟空遇到困难，欲打击妖怪时，灵吉菩萨出现并阻止了他，同时提出了合理的处理建议，显示了他不仅法力高强，也具有智慧和慈悲心肠。', '黄风怪:', '飞龙宝杖:飞龙宝杖是灵吉菩萨的宝物，可以变成八爪金龙，用于捕捉妖怪>', '八爪金龙:八爪金龙是孙悟空变化后的形态，用于抓住妖怪。', '黄毛貂鼠:黄毛貂鼠是老妖的原形，因偷吃清油而变成妖怪。', '清油:清油是琉璃灯内的物品，被黄毛貂鼠偷吃。', '金刚:金刚是佛教中的护法神，黄毛貂鼠害怕被其捉住。', '琉璃灯:', '鹰愁涧:鹰愁涧是故事发生地，白龙马在此地等待唐僧一行人', '蛇盘山:蛇盘山是唐僧师徒途径的地方，鹰愁涧位于蛇盘山']}
+19:27:55,376 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:55,378 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['金箍棒:金箍棒，孙悟空之武器，具备变化大小与长度的神奇特性，威力无与伦比。在《西游记》的诸多场景中，悟空多次欲用它来对付唐僧，显示出其战斗用途。事实上，金箍棒不仅用于战斗攻击敌人，还曾用来打碎洞门，充分展现了其在不同情境下的多功能性。', '饿不死，冻不坏的神猴:这是对孙悟空的一种描述，强调了他的神奇能力和不屈的精神状态。）', '虎皮:虎皮是孙悟空用老虎的皮制成的衣物，围在腰间。）', '强盗的刀枪:强盗们用来攻击孙悟空的武器，未能伤害他。）', '筋斗云:筋斗云是孙悟空所掌握的一种非凡的交通工具，也是他的一项特殊技能。它能够让孙悟空在空中快速飞行，实现长距离的迅速移动。这朵云不仅象征着孙悟空的神通广大，同时也体现了他在《西游记》中的重要地位和超凡的能力。', '花果山:花果山，位于东胜神洲傲来国，乃孙悟空——美猴王的诞生地。山中有一块仙石，孕育了这位传奇的猴子。此山不仅是孙悟空的故乡，也是他曾在愤怒之下欲返回之地，更是他当年纵身驾云，离开师傅唐僧的起始点，开启了他传奇的《西游记》之旅。', '紧箍咒:紧箍咒是一种神奇的咒语，被唐僧用于控制孙悟空。当唐僧念出紧箍咒时，它能够使悟空感到头痛，从而迫使他服从唐僧的命令，不敢有任何造次之举。这种咒语体现了师徒之间的权力关系和等级秩序，是《西游记》中一个具有象征意义的元素，反映了人物间的复杂互动和道德教化意图。', '东海龙王:东海的统治者，曾劝告孙悟空回心转意，并给予他饮食>', '马:马是《西游记》中重要的角色之一。在故事中，它是猪八戒在山坡上放养的动物，不仅用于代步，也是唐僧西天取经途中的坐骑，帮助他载运行李，向西行进。此外，孙悟空在天宫时，也曾被赋予看管马匹的职责，显示了马在这一经典文学作品中的特殊地位和作用。这些描述共同揭示了马在故事中的多重角色，以及它在取经团队中的重要性。', '衣服:观音菩萨赠予唐僧的物品，用于诱使孙悟空穿上并受紧箍咒控制>', '花帽:观音菩萨赠予唐僧的物品，用于诱使孙悟空戴上并受紧箍咒控制>', '老妇人:', '悟空:悟空，是《西游记》中至关重要的人物，被誉为唐僧的大徒弟。他具备高强的武艺和神通广大的能力，能够使用金箍棒与妖怪战斗，且具有丰富的变化能力，既能变化形态也能快速追赶妖怪。其性格机智、勇猛且好斗，面对困难总能巧妙应对。在故事中，无论是捉妖、解决高老庄的问题，还是保护唐僧西天取经，悟空都展现出了他的勇敢与智慧。此外，悟空还颇具幽默感，能巧妙地回应八戒的言行。即便有时因头痛困扰，他仍然是队伍中不可或缺的力量。总体而言，悟空是一个多才多艺、充满智慧与力量的角色，为取经团队立下了赫赫战功。', '师父:师父指的是唐僧，悟空的师傅，此处用紧箍咒来惩罚悟空>', '头痛:', '保护唐僧:']}
+19:27:55,425 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:55,426 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['师兄们:师兄们是孙悟空的同伴，一同在祖师门下学习，他们对孙悟空的态度和行为有所反应。', '长生不老的法术:长生不老的法术是孙悟空追求的目标，也是祖师教授给他的重要技能之一。', '七十二般变化:七十二般变化是孙悟空学会的一种法术，能让他变化成不同的形态。', '法术:法术是祖师教授给孙悟空的各种技能，包括长生不老、七十二般变化等。', '三更:三更是中国古时的时间单位，指深夜的时候，孙悟空在这个时间进入祖师的房间学习法术。', '暗谜:暗谜是菩提祖师用来测试孙悟空智慧的一种方式，通过这种方式祖师发现了孙悟空的聪明才智。', '夏天:夏天是故事发生的一个季节，孙悟空在这个季节与师兄们玩耍，并展示自己的变化能力。', '大树:孙悟空在师兄们面前变成了一棵大树，作为展示自己变化能力的一种形式。', '观音院:观音院，位于幽静的山谷之中，是一座唐僧师徒曾到达的寺庙，也是和尚们居住和修行的场所。它在《西游记》中占据着重要地位，不仅是唐僧师徒的暂住地，而且是故事中一系列重要事件的发生地。值得一提的是，观音院曾遭受火灾，现位于黑风山的北面，这一历史痕迹为其增添了更多的文化内涵和故事色彩。', '和尚:和尚是观音院的僧人，他们在寺庙被烧毁后感到惊恐。尽管遭受此不幸，他们依然对唐僧师徒表示了尊敬，并热情邀请他们进入观音院休息。这体现了这些僧人对师徒四人的敬意以及佛教中好客的传统美德。', '袈裟:桑悟禅是唐僧的珍贵宝物“袈裟”，它是一件价值连城的佛衣，在《西游记》中为老和尚所羡慕。后来唐僧借给了这位老和尚，却不幸被其设计陷害。在某段情节中，这件袈裟还被黑风怪偷走。这一系列事件体现了袈裟不仅是物质上的宝贵，也成为了故事中人物争斗和心机较量的象征。', '老和尚:老和尚，又称之和尚，是观音院中的一位年长的僧人。他与黑风怪有所交情。然而，由于贪心作祟，他竟然设计陷害了唐僧及其师徒一行人。在这一行为背后，体现了某些古典文学作品中人物因私欲而背离佛门宗旨的复杂性格描写，同时也映射出《西游记》中人物之间错综复杂的关系和道德冲突。', '广目天王:广目天王，作为南天门的守护神，具有高强的法力，掌管着避火罩这件宝贵的神器。在《西游记》中，他曾将此宝借给了孙悟空，助其在火焰山一劫中得以安然无恙。故事后期，悟空完成了自己的使命，也将避火罩归还给了广目天王。广目天王作为天庭的神仙，其地位尊崇，在神仙谱系中占有重要的一席之地。', '避火罩:避火罩是广目天王的宝物，具有抵御火焰的神奇功效。在《西游记》中，孙悟空曾借来此宝物，用以保护唐僧免受火焰的伤害。这一情节体现了避火罩的重要性和广目天王对取经团队的暗中支持。', '黑风怪:黑风怪，乃居于黑风山黑风洞中的一妖怪，因观音院遭遇火灾，便起了贪念，意欲乘机劫掠。在《西游记》中，此怪与孙悟空成为了对手，身披乌金甲，手持黑缨枪，曾与悟空交战。然而，最终在观音菩萨和孙悟空的智谋之下，黑风怪被设计制服，其恶行受到了应有的惩罚。这一故事不仅体现了中国古典文学中正义战胜邪恶的主题，也反映了佛教中因果报应的教义。', '南天门:南天门作为天宫的重要门户之一，是连接天界与人间的要道。在《西游记》中，孙悟空因不满天庭的束缚，曾从此地突破重围，杀出南天门，展现了他的神通与反抗精神。此外，南天门也有天兵天将守护，以确保天界的安全。在故事中，孙悟空也曾前往南天门，借避火罩以应对后续的挑战。这一地点不仅体现了天庭的威严与层级，也映射了孙悟空的智勇与不屈不挠的精神。']}
+19:27:55,626 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:27:55,627 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['七宝灵台:一个珍贵的平台，如来佛祖在此接受各路神仙的朝拜和礼物', '五根肉红色的柱子:', '佛祖:佛祖是佛教中的最高神祇，对孙悟空施以惩罚，并给予指示。|', '山神:山神被如来佛祖叫来，负责监押孙悟空。|', '五方揭谛:五方揭谛被如来佛祖指派与山神一同监押孙悟空。|', '溶化的铜水:溶化的铜水是给孙悟空的饮料，用于在他渴时提供。|', '铁丸子:', '刑期:刑期指的是孙悟空被囚禁的时间限制，五百年后有人来救他。|']}
+19:28:03,278 httpx INFO HTTP Request: POST http://localhost:3000/v1/embeddings "HTTP/1.1 500 Internal Server Error"
+19:28:03,279 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['宣花斧:宣花斧是巨灵神的武器，在与孙悟空的战斗中被毁。', '蟠桃园:蟠桃园，分为前、中、后三部分，每部拥有一千二百棵桃树，其结出的桃子具有神奇效果，是位于天宫中的果园。后来，孙悟空被派遣到此，负责看管蟠桃园，守护这些珍贵的仙果。在此背景下，蟠桃园不仅成为了神话故事中的重要地点，也反映了了中国古代文化中对神仙世界的想象与构建。', '玉帝:玉帝是天庭的主宰和最高统治者，他同意太上老君将孙悟空炼化的提议，以维护天庭的秩序。在孙悟空挑战天庭的权威时，玉帝深感其闲散生事的能力可能带来麻烦，因此安排孙悟空管理蟠桃园，既是对其能力的肯定，也是为了在天庭中为其安排合适的职位，以避免潜在的混乱。作为掌管天庭的最高神祇，玉帝的这一决策体现了他的智慧与对天庭层级结构的深刻理解。', '七位仙女:七位仙女奉王母娘娘之命进园摘桃，意外惊醒了孙悟空', '瑶池:瑶池是举办蟠桃会的地方，孙悟空曾偷偷进入并饮酒', '太上老君:太上老君是道教中的高级神祇，位列天庭，他拥有强大的法宝金钢琢，并在《西游记》中提议将孙悟空放入八卦炉中炼化，以期消除其身上的妖气。同时，太上老君还精于炼制金丹，他的兜率宫藏有珍贵的丹药，然而不幸的是，孙悟空曾闯入他的兜率宫，引发了一系列的故事情节。在这些描述中，我们可以看出太上老君不仅地位崇高，法力无边，而且与孙悟空之间存在着复杂的互动关系。', '李天王:李天王是天庭中的武将，奉命捉拿孙悟空', '哪吒太子:哪吒太子是李天王的儿子，也参与了捉拿孙悟空的行动', '二郎神:二郎神，乃是一位法力高强的神祇。根据传说，他曾与孙悟空展开过一场激烈的战斗，在交锋中，二郎神展示了他能变化形态的神通。此外，他还受命带领梅山六兄弟，共同捉拿孙悟空，彰显了其尊贵的地位和在神界的权能。在这些故事中，二郎神的形象既是一位英勇善战的斗士，也是一位忠诚执行天命的神灵。', '梅山六兄弟:梅山六兄弟，乃二郎神的得力助手，在《西游记》中，他们与二郎神一同前往花果山，合力捉拿孙悟空。在这一过程中，他们展现了忠诚与勇猛，是故事中具有代表性的团体之一。', '定身法:孙悟空的一种法术，能够使他人定住不动）', '瞌睡虫:孙悟空变化出的虫子，可以使他人陷入沉睡）', '照妖镜:照妖镜是一件能够揭示妖怪原形的宝物，它在《西游记》中扮演了重要角色。该宝物不仅被二郎神使用，以识别并揭露妖怪的真实形态，同时也是李天王所依赖的法器，能够照出妖魔的原形。这件宝物在中国古代神话中象征着光明与正义的力量，能够辨识真伪，帮助正义的力量战胜邪恶。', '八卦炉:用于炼化丹药和物品的炉子，孙悟空在其中炼就了火眼金睛', '金钢琢:太上老君的宝物，能够对敌人造成伤害，曾用来攻击孙悟空', '斩妖台:斩妖台是天庭中用于处决妖怪的地方，孙悟空曾被绑在这里']}
+19:28:03,279 datashaper.workflow.workflow ERROR Error executing verb "text_embed" in create_final_entities: Error code: 500 - {'error': {'message': 'invalid input length, zhipu only support one input (request id: 2024120519280327806959597280351)', 'type': 'one_api_error', 'param': '', 'code': 'convert_request_failed'}}
+Traceback (most recent call last):
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\datashaper\workflow\workflow.py", line 415, in _execute_verb
+    result = await result
+             ^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\index\verbs\text\embed\text_embed.py", line 105, in text_embed
+    return await _text_embed_in_memory(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\index\verbs\text\embed\text_embed.py", line 130, in _text_embed_in_memory
+    result = await strategy_exec(texts, callbacks, cache, strategy_args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\index\verbs\text\embed\strategies\openai.py", line 62, in run
+    embeddings = await _execute(llm, text_batches, ticker, semaphore)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\index\verbs\text\embed\strategies\openai.py", line 106, in _execute
+    results = await asyncio.gather(*futures)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\asyncio\tasks.py", line 349, in __wakeup
+    future.result()
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\asyncio\tasks.py", line 277, in __step
+    result = coro.send(None)
+             ^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\index\verbs\text\embed\strategies\openai.py", line 100, in embed
+    chunk_embeddings = await llm(chunk)
+                       ^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\llm\base\caching_llm.py", line 96, in __call__
+    result = await self._delegate(input, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\llm\base\rate_limiting_llm.py", line 177, in __call__
+    result, start = await execute_with_retry()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\llm\base\rate_limiting_llm.py", line 159, in execute_with_retry
+    async for attempt in retryer:
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\tenacity\asyncio\__init__.py", line 166, in __anext__
+    do = await self.iter(retry_state=self._retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\tenacity\asyncio\__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\tenacity\_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\tenacity\__init__.py", line 418, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\tenacity\__init__.py", line 185, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\llm\base\rate_limiting_llm.py", line 165, in execute_with_retry
+    return await do_attempt(), start
+           ^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\llm\base\rate_limiting_llm.py", line 147, in do_attempt
+    return await self._delegate(input, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\llm\base\base_llm.py", line 49, in __call__
+    return await self._invoke(input, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\llm\base\base_llm.py", line 53, in _invoke
+    output = await self._execute_llm(input, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\llm\openai\openai_embeddings_llm.py", line 36, in _execute_llm
+    embedding = await self.client.embeddings.create(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\openai\resources\embeddings.py", line 236, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\openai\_base_client.py", line 1843, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\openai\_base_client.py", line 1537, in request
+    return await self._request(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\openai\_base_client.py", line 1638, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.InternalServerError: Error code: 500 - {'error': {'message': 'invalid input length, zhipu only support one input (request id: 2024120519280327806959597280351)', 'type': 'one_api_error', 'param': '', 'code': 'convert_request_failed'}}
+19:28:03,284 graphrag.index.reporting.file_workflow_callbacks INFO Error executing verb "text_embed" in create_final_entities: Error code: 500 - {'error': {'message': 'invalid input length, zhipu only support one input (request id: 2024120519280327806959597280351)', 'type': 'one_api_error', 'param': '', 'code': 'convert_request_failed'}} details=None
+19:28:03,294 graphrag.index.run ERROR error running workflow create_final_entities
+Traceback (most recent call last):
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\index\run.py", line 325, in run_pipeline
+    result = await workflow.run(context, callbacks)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\datashaper\workflow\workflow.py", line 369, in run
+    timing = await self._execute_verb(node, context, callbacks)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\datashaper\workflow\workflow.py", line 415, in _execute_verb
+    result = await result
+             ^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\index\verbs\text\embed\text_embed.py", line 105, in text_embed
+    return await _text_embed_in_memory(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\index\verbs\text\embed\text_embed.py", line 130, in _text_embed_in_memory
+    result = await strategy_exec(texts, callbacks, cache, strategy_args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\index\verbs\text\embed\strategies\openai.py", line 62, in run
+    embeddings = await _execute(llm, text_batches, ticker, semaphore)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\index\verbs\text\embed\strategies\openai.py", line 106, in _execute
+    results = await asyncio.gather(*futures)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\asyncio\tasks.py", line 349, in __wakeup
+    future.result()
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\asyncio\tasks.py", line 277, in __step
+    result = coro.send(None)
+             ^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\index\verbs\text\embed\strategies\openai.py", line 100, in embed
+    chunk_embeddings = await llm(chunk)
+                       ^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\llm\base\caching_llm.py", line 96, in __call__
+    result = await self._delegate(input, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\llm\base\rate_limiting_llm.py", line 177, in __call__
+    result, start = await execute_with_retry()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\llm\base\rate_limiting_llm.py", line 159, in execute_with_retry
+    async for attempt in retryer:
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\tenacity\asyncio\__init__.py", line 166, in __anext__
+    do = await self.iter(retry_state=self._retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\tenacity\asyncio\__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\tenacity\_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\tenacity\__init__.py", line 418, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\tenacity\__init__.py", line 185, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\llm\base\rate_limiting_llm.py", line 165, in execute_with_retry
+    return await do_attempt(), start
+           ^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\llm\base\rate_limiting_llm.py", line 147, in do_attempt
+    return await self._delegate(input, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\llm\base\base_llm.py", line 49, in __call__
+    return await self._invoke(input, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\llm\base\base_llm.py", line 53, in _invoke
+    output = await self._execute_llm(input, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\graphrag\llm\openai\openai_embeddings_llm.py", line 36, in _execute_llm
+    embedding = await self.client.embeddings.create(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\openai\resources\embeddings.py", line 236, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\openai\_base_client.py", line 1843, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\openai\_base_client.py", line 1537, in request
+    return await self._request(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\CodeSoftware\Anaconda\envs\GraphRAG\Lib\site-packages\openai\_base_client.py", line 1638, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.InternalServerError: Error code: 500 - {'error': {'message': 'invalid input length, zhipu only support one input (request id: 2024120519280327806959597280351)', 'type': 'one_api_error', 'param': '', 'code': 'convert_request_failed'}}
+19:28:03,297 graphrag.index.reporting.file_workflow_callbacks INFO Error running pipeline! details=None

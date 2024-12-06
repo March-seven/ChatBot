@@ -1,0 +1,93 @@
+
+-Goal-
+Given a text document that is potentially relevant to this activity, first identify all entities needed from the text in order to capture the information and ideas in the text.
+Next, report all relationships among the identified entities.
+
+-Steps-
+1. Identify all entities. For each identified entity, extract the following information:
+- entity_name: Name of the entity, capitalized
+- entity_type: Suggest several labels or categories for the entity. The categories should not be specific, but should be as general as possible.
+- entity_description: Comprehensive description of the entity's attributes and activities
+Format each entity as ("entity"{tuple_delimiter}<entity_name>{tuple_delimiter}<entity_type>{tuple_delimiter}<entity_description>)
+
+2. From the entities identified in step 1, identify all pairs of (source_entity, target_entity) that are *clearly related* to each other.
+For each pair of related entities, extract the following information:
+- source_entity: name of the source entity, as identified in step 1
+- target_entity: name of the target entity, as identified in step 1
+- relationship_description: explanation as to why you think the source entity and the target entity are related to each other
+- relationship_strength: a numeric score indicating strength of the relationship between the source entity and target entity
+Format each relationship as ("relationship"{tuple_delimiter}<source_entity>{tuple_delimiter}<target_entity>{tuple_delimiter}<relationship_description>{tuple_delimiter}<relationship_strength>)
+
+3. Return output in Chinese as a single list of all the entities and relationships identified in steps 1 and 2. Use **{record_delimiter}** as the list delimiter.
+
+4. If you have to translate into Chinese, just translate the descriptions, nothing else!
+
+5. When finished, output {completion_delimiter}.
+
+-Examples-
+######################
+
+Example 1:
+
+text:
+一天，七位仙女奉王母娘娘之命进园摘桃。 
+　　恰巧这时孙悟空把桃吃饱了，感到有点困，就变成二寸来长的小人，在大树梢上，找个凉快的地方睡着了。七位仙女见园中的熟桃不多，便四处寻找，找了好长的一段时间，最后在一棵大树梢上发现有个熟透的桃，就把树梢扯下来。 
+　　没想到悟空正好睡在这棵树上，被�
+------------------------
+output:
+("entity"{tuple_delimiter}七位仙女{tuple_delimiter}MYTHOLOGICAL BEING{tuple_delimiter}七位仙女是奉王母娘娘之命进园摘桃的神仙)
+{record_delimiter}
+("entity"{tuple_delimiter}王母娘娘{tuple_delimiter}MYTHOLOGICAL BEING{tuple_delimiter}王母娘娘是中国神话中的女神，掌管着天庭的花园)
+{record_delimiter}
+("entity"{tuple_delimiter}孙悟空{tuple_delimiter}MYTHOLOGICAL BEING{tuple_delimiter}孙悟空是《西游记》中的主要角色之一，具有变化的能力，喜欢吃桃)
+{record_delimiter}
+("entity"{tuple_delimiter}桃{tuple_delimiter}OBJECT{tuple_delimiter}桃是天庭花园中的仙果，被七位仙女和王母娘娘所重视)
+{record_delimiter}
+("relationship"{tuple_delimiter}七位仙女{tuple_delimiter}王母娘娘{tuple_delimiter}七位仙女奉王母娘娘之命去摘桃{tuple_delimiter}8)
+{record_delimiter}
+("relationship"{tuple_delimiter}孙悟空{tuple_delimiter}桃{tuple_delimiter}孙悟空因为吃了桃而感到困倦{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}七位仙女{tuple_delimiter}桃{tuple_delimiter}七位仙女寻找并摘取桃子{tuple_delimiter}9)
+{record_delimiter}
+("relationship"{tuple_delimiter}孙悟空{tuple_delimiter}七位仙女{tuple_delimiter}孙悟空无意中妨碍了七位仙女摘桃的行动{tuple_delimiter}6)
+{completion_delimiter}
+#############################
+
+
+Example 2:
+
+text:
+�傩、伽叶将礼物一一收下。 
+　　就在众位神仙饮酒听歌的时候，巡查官回来报告∶“那个妖猴把头伸出来了！”佛祖一听，就从袖子里取出一张帖子，上面写着∶“、嘛、呢、叭、、”，叫阿傩、伽叶拿去贴在五行山顶的一块方石头上，那座山的缝立刻合住，孙悟空再也没有办法出来了。 
+　　如来佛祖回西天时，路过五行山，�
+------------------------
+output:
+("entity"{tuple_delimiter}阿傩{tuple_delimiter}DEITY{tuple_delimiter}阿傩是佛教中的神仙，接收礼物并执行佛祖的命令})
+{record_delimiter}
+("entity"{tuple_delimiter}伽叶{tuple_delimiter}DEITY{tuple_delimiter}伽叶也是佛教中的神仙，与阿傩一同接收礼物并执行任务})
+{record_delimiter}
+("entity"{tuple_delimiter}妖猴{tuple_delimiter}MYTHOLOGICAL_BEING{tuple_delimiter}指的是孙悟空，因调皮被囚禁在五行山下})
+{record_delimiter}
+("entity"{tuple_delimiter}佛祖{tuple_delimiter}DEITY{tuple_delimiter}佛教中的最高神祇，对妖猴孙悟空进行惩罚})
+{record_delimiter}
+("entity"{tuple_delimiter}五行山{tuple_delimiter}LANDMARK{tuple_delimiter}囚禁孙悟空的地方，被佛祖的法力封闭})
+{record_delimiter}
+("relationship"{tuple_delimiter}阿傩{tuple_delimiter}佛祖{tuple_delimiter}阿傩执行佛祖的命令{tuple_delimiter}8)
+{record_delimiter}
+("relationship"{tuple_delimiter}伽叶{tuple_delimiter}佛祖{tuple_delimiter}伽叶执行佛祖的命令{tuple_delimiter}8)
+{record_delimiter}
+("relationship"{tuple_delimiter}妖猴{tuple_delimiter}五行山{tuple_delimiter}孙悟空被囚禁在五行山下{tuple_delimiter}10)
+{record_delimiter}
+("relationship"{tuple_delimiter}佛祖{tuple_delimiter}妖猴{tuple_delimiter}佛祖对孙悟空进行惩罚{tuple_delimiter}9)
+{record_delimiter}
+("relationship"{tuple_delimiter}佛祖{tuple_delimiter}五行山{tuple_delimiter}佛祖使用法力封闭五行山{tuple_delimiter}9)
+{completion_delimiter}
+#############################
+
+
+
+-Real Data-
+######################
+text: {input_text}
+######################
+output:
